@@ -2302,7 +2302,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pma-agent"
+name = "pm-agent"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

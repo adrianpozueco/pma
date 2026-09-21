@@ -22,9 +22,9 @@ from fastapi import FastAPI
 from google.adk.cli.fast_api import get_fast_api_app
 from google.adk.runners import Runner
 
-from ipc_manual_retrieval_agent.app_utils import services
-from ipc_manual_retrieval_agent.app_utils.a2a import attach_a2a_routes
-from ipc_manual_retrieval_agent.app_utils.reasoning_engine_adapter import (
+from pm_agent.app_utils import services
+from pm_agent.app_utils.a2a import attach_a2a_routes
+from pm_agent.app_utils.reasoning_engine_adapter import (
     attach_reasoning_engine_routes,
 )
 
@@ -41,8 +41,8 @@ AGENT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 @contextlib.asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
-    from ipc_manual_retrieval_agent.agent import app as adk_app
-    from ipc_manual_retrieval_agent.agent import root_agent
+    from pm_agent.agent import app as adk_app
+    from pm_agent.agent import root_agent
 
     runner = Runner(
         app=adk_app,
@@ -71,8 +71,8 @@ app: FastAPI = get_fast_api_app(
     otel_to_cloud=otel_to_cloud,
     lifespan=lifespan,
 )
-app.title = "pma-agent"
-app.description = "API for interacting with the Agent pma-agent"
+app.title = "pm-agent"
+app.description = "API for interacting with the Agent pm-agent"
 
 # Proxy routes so the Vertex AI Console Playground (reasoning_engine SDK) can
 # talk to this agent alongside the native adk_api routes.
