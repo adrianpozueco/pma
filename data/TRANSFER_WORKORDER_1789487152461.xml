@@ -1,0 +1,144 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487152460</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:52.460Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="79e9b82a-ad8d-11f1-8ff2-005056b18588">
+    <workorderNumber>190421258</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00559</aircraftFullRegistration>
+        <aircraftRegistration>REG00559</aircraftRegistration>
+        <aircraftMsn>62338</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190421258</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-09-11Z</issueDate>
+        <issueSign>JEAL</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-09-11T03:03:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1006966</closingTahMinutes>
+        <closingTac>9199</closingTac>
+        <closingSign>DAMO1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-09-11T03:03:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-09-11T03:03:00.000Z</dateTime>
+        <releaseSign>DAMO1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="79eac99b-ad8d-11f1-8ff2-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-09-11T02:55:00.000Z</workStepDateTime>
+        <description>REF HIL: 191146488
+
+SIDEWALL LIGHT AT 14FED, 19ABC, 23DEF AND 25ABC NOTED INOP.</description>
+        <descriptionSign>JEAL</descriptionSign>
+        <actions>
+          <action uuid="79ed88bc-ad8d-11f1-8ff2-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>SIDEWALL LIGHT AT 19ABC AND 25ABC REPLACED IAW AMM 33-21-00-960-801 REV 28A.
+
+``PHASE II DATA LOAD`` C/OUT IAW AMM 23-42-03-470-801 REV 28A.
+
+TEST SATIS.                                         19ABC LIGHT BSI-35 
+                                                                LABEL: 4234245
+                                                                ON:                                      OFF:
+                                                                P/N: 9651-35-0002          P/N: 9651-35-0002
+                                                                S/N: 53965                         S/N: 22906
+
+**HIL CLOSED**</actionText>
+            <performedData>
+              <performedDateTime>2026-09-11T02:56:00.000Z</performedDateTime>
+              <performedSign>JEAL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="79ef5d7d-ad8d-11f1-8ff2-005056b18588">
+                <position>19 ABC</position>
+                <labelNumber>4234245</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>22906</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>53965</serialNumber>
+                </partOn>
+                <certificateNumber>179559</certificateNumber>
+              </componentChange>
+              <componentChange uuid="79f06eee-ad8d-11f1-8ff2-005056b18588">
+                <position>25ABC</position>
+                <labelNumber>4084422</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0003</partNumber>
+                  <serialNumber>15428</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0003</partNumber>
+                  <serialNumber>8832</serialNumber>
+                </partOn>
+                <certificateNumber>ARC167587</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

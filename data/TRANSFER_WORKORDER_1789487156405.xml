@@ -1,0 +1,118 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487156404</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:56.404Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="fe7eb65c-e850-11f0-8331-005056b18588">
+    <workorderNumber>190434553</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00380</aircraftFullRegistration>
+        <aircraftRegistration>REG00380</aircraftRegistration>
+        <aircraftMsn>65890</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190434553</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-01-03Z</issueDate>
+        <issueSign>JSRC</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-01-03T03:15:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>867673</closingTahMinutes>
+        <closingTac>6954</closingTac>
+        <closingSign>RAPA1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-03T03:15:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-03T03:15:00.000Z</dateTime>
+        <releaseSign>RAPA1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="fe851efd-e850-11f0-8331-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-03T03:01:00.000Z</workStepDateTime>
+        <description>REF CLB; WINDOW LIGHT AT ROW 20 DEF BLINKING</description>
+        <descriptionSign>JSRC</descriptionSign>
+        <actions>
+          <action uuid="9906b0ab-e852-11f0-8331-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT AT ROW 20 DEF REPLACED IAW AMM 33-21-00-960-801 REV. 26</actionText>
+            <performedData>
+              <performedDateTime>2026-01-03T03:15:00.000Z</performedDateTime>
+              <performedSign>JSRC</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="9908103c-e852-11f0-8331-005056b18588">
+                <position>20DEF</position>
+                <labelNumber>4019655</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>30686</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>40059</serialNumber>
+                </partOn>
+                <certificateNumber>ARC162312</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

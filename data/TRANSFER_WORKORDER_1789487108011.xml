@@ -1,0 +1,125 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487108010</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:08.010Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="d057d788-6b18-11f0-a4a7-005056b18588">
+    <workorderNumber>190255963</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00348</aircraftFullRegistration>
+        <aircraftRegistration>REG00348</aircraftRegistration>
+        <aircraftMsn>40303</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190255963</barcode>
+      <ataChapter>27-00</ataChapter>
+      <issueData>
+        <issueDate>2025-07-27Z</issueDate>
+        <issueSign>8888</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-27T18:30:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2634371</closingTahMinutes>
+        <closingTac>22623</closingTac>
+        <closingSign>SDTP</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-27T18:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-27T18:30:00.000Z</dateTime>
+        <releaseSign>SDTP</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="d059fa69-6b18-11f0-a4a7-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-27T18:22:00.000Z</workStepDateTime>
+        <description>DURING FLT-FEEL DIFF PRESS LIGHT ILLUMINATED TWICE.</description>
+        <descriptionSign>SDTP</descriptionSign>
+        <actions>
+          <action uuid="d05cb98a-6b18-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FIM 27-31 TASK 815 REV 87 FOLLOWED.
+CARRIED OUT RESISTANCE CHECK OF THE LH AND RH ELEVATOR PITOT PROBE AT CONNECTORS DD644  AND D638 ON P5-9 OVERHEAD PANEL,FOUND LOW RESISTANCE( 17 OHMS)  ON LH ELEVATOR PITOT PROBE.
+FURTHER WHILE REMOVING THE LH ELEVATOR PITOT PROBE IAW AMM 27-31-94/401 REV 86, OBSERVED LH ELEVATOR PITOT PROBE CROSS THREADED ON TO THE ELBOW THEREBY DAMAGING THE THREADS. 
+
+LH ELEVATOR PITOT PROBE NEEDS TO BE REPLACED ALONG WITH THE ELBOW.
+
+NOTE: C4 (HEATERS ELEV PITOT LEFT ) ON P18-3 CB PULLED OUT AND COLLORED.
+
+AIRCRAFT DECLARED AOG DUE TO NIL SPARES.
+
+REFER NXT TLP FOR FURTHER T/S AND RECTIFICATION.
+
+ASSISTED BY HPU &amp; OVPC</actionText>
+            <performedData>
+              <performedDateTime>2025-07-27T18:23:00.000Z</performedDateTime>
+              <performedSign>JUN</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="82f4c280-6b8b-11f0-a4a7-005056b18588">
+                <position>FIN</position>
+                <labelNumber>9547963</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>279360</serialNumber>
+                </partOff>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

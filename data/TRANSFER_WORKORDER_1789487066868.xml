@@ -1,0 +1,137 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487066866</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:26.866Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="c4099a51-5fbc-11f1-9efb-005056b18588">
+    <workorderNumber>190069575</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00578</aircraftFullRegistration>
+        <aircraftRegistration>REG00578</aircraftRegistration>
+        <aircraftMsn>33571</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190069575</barcode>
+      <ataChapter>23-42</ataChapter>
+      <issueData>
+        <issueDate>2026-06-04Z</issueDate>
+        <issueSign>JEAL</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-04T02:45:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3975422</closingTahMinutes>
+        <closingTac>39771</closingTac>
+        <closingSign>SOS</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-04T02:45:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-04T02:45:00.000Z</dateTime>
+        <releaseSign>SOS</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c40a84b2-5fbc-11f1-9efb-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-04T02:19:00.000Z</workStepDateTime>
+        <description>REF HIL: 190069559
+
+AFT CABIN HANDSET WORKING INTERMITENT.</description>
+        <descriptionSign>JEAL</descriptionSign>
+        <actions>
+          <action uuid="c40c8083-5fbc-11f1-9efb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ATTENDANT HANDSET CRADLE REPLACED IAW 23-42-01/401 REV 89.
+
+ATTENDANT HANSET REPLACED IAW AMM 23-42-01/401 REV 89 AND TESTED SATIS IAW AMM 23-42-01-700-801 REV 89.
+
+HANDSET  P/N: 285W0024-23B
+                     S/N: F64220
+
+**HIL CLOSED**</actionText>
+            <performedData>
+              <performedDateTime>2026-06-04T02:20:00.000Z</performedDateTime>
+              <performedSign>JEAL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="88141be3-5fbe-11f1-9efb-005056b18588">
+                <position>AFT</position>
+                <labelNumber>4144639</labelNumber>
+                <partOff>
+                  <partNumber>476W2220-9N</partNumber>
+                  <serialNumber>D10709</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-23B</partNumber>
+                  <serialNumber>F64220</serialNumber>
+                </partOn>
+                <certificateNumber>MEH-E</certificateNumber>
+              </componentChange>
+              <componentChange uuid="dac47963-5fbe-11f1-9efb-005056b18588">
+                <position>AFT</position>
+                <labelNumber>4143338</labelNumber>
+                <partOn>
+                  <partNumber>476W2220-9P</partNumber>
+                  <serialNumber>F53396</serialNumber>
+                </partOn>
+                <certificateNumber>03848</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

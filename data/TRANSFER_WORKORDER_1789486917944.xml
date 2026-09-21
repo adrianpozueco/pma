@@ -1,0 +1,121 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486917942</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:57.942Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="c232d620-8c4c-11f0-9490-005056b18588">
+    <workorderNumber>55297907</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00305</aircraftFullRegistration>
+        <aircraftRegistration>REG00305</aircraftRegistration>
+        <aircraftMsn>62322</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55297907</barcode>
+      <ataChapter>25-35</ataChapter>
+      <issueData>
+        <issueDate>2025-09-07Z</issueDate>
+        <issueSign>MSZK</issueSign>
+        <issueStation>POZ</issueStation>
+        <issueFltTo>POZ</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-09-07T22:40:00.000Z</closingDateTime>
+        <closingStation>POZ</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>854367</closingTahMinutes>
+        <closingTac>7140</closingTac>
+        <closingSign>MSZK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-07T22:40:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-07T22:40:00.000Z</dateTime>
+        <releaseSign>MSZK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c23435b1-8c4c-11f0-9490-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-09-07T22:40:00.000Z</workStepDateTime>
+        <description>TX FROM CLB
+FWD OVEN NOT HEATING</description>
+        <descriptionSign>MSZK</descriptionSign>
+        <actions>
+          <action uuid="c2363182-8c4c-11f0-9490-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD OVEN REPLACED
+IAW CMM 25-37-26 R25</actionText>
+            <performedData>
+              <performedDateTime>2025-09-07T22:40:00.000Z</performedDateTime>
+              <performedSign>MSZK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="fc3b3d68-b11b-11f1-8509-005056b1ed97">
+                <position>FWD GALLEY</position>
+                <labelNumber>3899085</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>08-08-25850</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>19-05-0632</serialNumber>
+                </partOn>
+                <certificateNumber>PAV10826</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

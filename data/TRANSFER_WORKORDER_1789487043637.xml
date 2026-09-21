@@ -1,0 +1,700 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487043636</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:03.635Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7132753e-050a-11f1-b626-005056b18588">
+    <workorderNumber>105749094</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00333</aircraftFullRegistration>
+        <aircraftRegistration>REG00333</aircraftRegistration>
+        <aircraftMsn>40301</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.105749094</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDate>2026-02-08Z</issueDate>
+        <issueSign>PYKM</issueSign>
+        <issueStation>CHO</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <position>#1</position>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2026-02-09T07:13:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2834260</closingTahMinutes>
+        <closingTac>23840</closingTac>
+        <closingSign>CPL</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-02-09T07:13:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-02-09T07:13:00.000Z</dateTime>
+        <releaseSign>CPL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7133adbf-050a-11f1-b626-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-02-08T16:03:00.000Z</workStepDateTime>
+        <headline>DUTY TSRV - AOG SUPPORT</headline>
+        <description>
+**EXTREMELY IMPORTANT. ALL FAN BLADE SERIAL NUMBERS PROVIDED ON THE BLAMAP AND THEIR CORRELATING MOMENT WEIGHTS NEED TO BE CHECKED BY ENGINEER. THIS INCLUDES EXISTING SERVICEABLE BLADES IN THE ENGINE AND THE BLADES PROVIDED FROM STOCK. IF THERE ARE ANY DISCREPANCIES NOTED, PLEASE CONTACT POWERPLANT@RYANAIR.COM"" 
+
+ENGINE PN: CFM56-7B/3
+ESN: 896370
+ENGINE - TECH INSERTION
+POS: #1
+
+REF WO 40099574 - ENG #1 VIBRATION SURVEY C/OUT. FAN TRIM BALANCE C/OUT. SHIPSET REPLACEMENT REQUIRED.
+
+***NOTE: CRITICAL TASK - INDEPENDENT INSPECTION REQUIRED. REFER TO APPLICABLE CAME OR MOE.***
+
+**** THIS TASK MUST BE FULLY SUPERVISED BY AN APPROPRIATELY APPROVED ENGINEER AT ALL TIMES ****
+
+BACKGROUND: A BLAMAP HAS BEEN GENERATED TO RECONFIGURE THE BLADES INSTALLED ON THIS ENGINE. PLEASE FOLLOW INSTRUCTIONS BELOW TO INSTALL THIS BLAMAP.
+
+ACTION:
+
+1. OBSERVING ALL SAFETY PRECAUTIONS GAIN ACCESS TO THE ENGINE. 
+
+2. REMOVE COMPLETE FAN BLADE SET IAW AMM TASK 72-21-02-000-801-F00.  
+
+NOTE: FAN BLADES WILL BE INSTALLED IN A DIFFERENT CONFIGURATION.    
+
+3. CLEAN ALL DIRT AND UNWANTED MATERIAL FROM THE FAN BLADE ROOTS, FAN DISK DOVETAIL SLOTS &amp; SHIMS AND FAN BLADES SURFACE IAW AMM TASK 72-21-00-640-801-F00 PARA G.1 &amp; TASK 72-00-00-100-802-F00.
+
+4. ACCOMPLISH FAN MODULE INSPECTION IAW AMM TASK 72-21-02-200-801-F00.     
+
+NOTE: REPORT ANY FINDINGS TO POWERPLANT@RYANAIR.COM.
+
+NOTE: REFER TO TECHNICAL TIP 72-010 - DURING INSPECTION OF THE FAN BLADE PLATFORM, IF ANY PLATFORM LUG IS FOUND CRACKED, THE DAMAGED PLATFORM MUST BE REPLACED. IF STOCK AVAILABLE, REPLACE ALL REMAINING PLAFORMS OTHERWISE RAISE A W/O IAW THE APPLICABLE OPERATOR`S CAME FOR REPLACEMENT OF THE REMAINING PLAFORMS WITHIN 500FH/300FC. 
+
+5. CONFIRM THE P/N OF THE PLATFORMS INSTALLED. RECORD IF THERE IS AN INTERMIX OF 816/817 PLATFORMS. INTERMIX OF PLATFORMS IS ALLOWABLE PROVIDED THEY ARE PLACED 180 DEG APART IN THE ENGINE. A FULL SHIPSET OF EITHER 816 OR 817 IS PREFERABLE IF STOCK LEVELS ALLOW FOR IT.
+
+6. REFERENCE ATTACHED BLAMAP - IF THE MW GIVEN IN THE BLAMAP IS DIFFERENT FROM WHAT IS ETCHED ON THE ROOT DO NOT PROCEED ANY FURTHER. CONTACT MAINTROL FOR FURTHER INSTRUCTION.  
+
+7. LUBRICATE ALL ITEMS LISTED IN AMM TASK 72-21-00-640-801-F00 PARA G.2. ENSURE THAT THE LUBRICANT IS UNIFORMLY DISTRIBUTED ON THE FAN BLADE DOVETAILS.      
+
+CAUTION: EXCESSIVE LUBE CAN LEAD TO VIBRATION, SMELL IN CABIN OR     STREAKING ON THE BLADES. REFERENCE AMM TASK 70-10-05-600-801-F00 FOR APPLICATION OF LUBRICANT.
+
+8.  INSTALL ENGINE FAN BLADES IAW AMM TASK 72-21-02-400-801-F00 AND IAW WITH ATTACHED BLAMAP CONFIGURATION.
+
+
+N° SERIAL N°  PART N°     MOMENT
+1 PF497237 340-001-036-0 206230.00
+2 PA550880 340-001-038-0 203758.00
+3 DC976123 340-001-038-0 200996.00
+4 DC973212 340-001-038-0 199606.00
+5 PF520260 340-001-036-0 202240.00
+6 DE181203 340-001-038-0 204800.00
+7 PF505240 340-001-036-0 206260.00
+8 PF526189 340-001-036-0 203265.00
+9 BB409195 340-001-039-0 199964.00
+10 PA235927 340-001-038-0 198974.00
+11 PF459411 340-001-038-0 201902.00
+12 DM001526 340-001-038-0 204452.00
+13 DM007276 340-001-038-0 206255.00
+14 PF499448 340-001-036-0 203805.00
+15 BC387672 340-001-038-0 201191.00
+16 PA242622 340-001-038-0 199527.00
+17 PC588795 340-001-038-0 202058.00
+18 PA647000 340-001-038-0 204686.00
+19 PF505280 340-001-036-0 206195.00
+20 PF478371 340-001-036-0 203425.00
+21 BC394244 340-001-038-0 200083.00
+22 BC397656 340-001-038-0 199138.00
+23 PF424701 340-001-038-0 201794.00
+24 PF061746 340-001-038-0 204372.00
+
+9. WHEN INSTALLING THE SPACERS, IF EXCESSIVE FORCE IS REQUIRED (MORE THAN THE FORCE OF TWO FINGERS) REPLACE WITH NEW SPACER FROM STOCK. IF NEW SPACER IS NOT AVAILABLE, CONTACT POWERPLANT@RYANAIR.COM AND RAISE A W/O IAW THE APPLICABLE OPERATOR`S CAME FOR SPACER REPLACEMENT.  
+
+10. ENSURE THE REAR SPINNER CONE AND RETAINING FLANGE ARE INSTALLED CORRECTLY. SEE AMM TASK 72-21-01-400-801-F00 SUBTASK 72-21-01-211-003-F00  FOR CLEARANCE CHECK. RECORD ON THIS W/O THAT THE CLEARANCE CHECK HAS BEEN COMPLETED AT THE 6 LOCATIONS AS ADVISED BY THE AMM.
+
+11. ERASE ALL PREVIOUS BALANCE DATA FOR THIS ENGINE FROM THE AVM USING THE FOLLOWING PROCEDURE:    
+    - ACCESS THE BALANCE MENU ON THE AVM FRONT SCREEN     
+    - NAVIGATE TO THE BALANCE FUNCTION FOR THE APPRORIATE ENGINE     
+    - NAVIGATE TO THE "BALANCE 1 PLANE COMPUTE" MENU     
+    - PERFORM THE BALANCE AND REVIEW THE SOLUTION OFFERED  
+    - WHEN PROMPTED TO "SAVE NEW CONFIG" CLICK "YES" 
+    - DO NOT CHANGE THE WEIGHTS ON THE SPINNER AS SUGGESTED
+    - PROCEED TO STEP 12 BELOW
+
+12. THE PROCEDURE DETAILED ABOVE DELETES ALL IMBALANCE DATA PREVIOUSLY STORED ON THE AVM. FOR THE VIBRATION SURVEY WHICH FOLLOWS PLEASE ENSURE BALANCE WEIGHTS IN REAR SPINNER ARE SET TO A P07/P14 AND ENSURE THAT THIS BALANCE WEIGHT CONFIGURATION IS CONFIRMED IN THE AAVM PRIOR TO COMPLETION OF VIBRATION SURVEY.  
+
+13. ACCOMPLISH TEST 7 - VIBRATION SURVEY IAW AMM TASK 71-00-00-700-814-F00. REFER TO ATTACHED TECH TIP 72/014 FOR ADDITIONAL GUIDANCE.
+
+14. C/OUT FAN TRIM BALANCE AS NECESSARY IAW AMM TASK 71-00-00-750-803-F00 TO GET THE VIBRATION DOWN TO A SATISFACTORY LEVEL. PLEASE ENSURE THAT A CONFIRMATION VIB SURVEY IS DONE AFTER EACH INDIVIDUAL FAN TRIM BALANCE UNTIL THE VIBRATION LEVELS ARE CONFIRMED TO BE SATISFACTORY. 
+
+15. REMOVE THE RELATED BLADE DAMAGE CHART FROM THE RA805 (AIRCRAFT DAMAGE RECORD) AND RETURN TO TECHNICAL RECORDS. ANY CORRESPONDING DAMAGE THAT NO LONGER EXISTS AS A RESULT OF THE FAN BLADE CONFIGURATION CHANGE MUST HAVE ITS ENTRY UPDATED/CLOSED IN THE DAMAGE/REPAIR RECORD.  
+
+16. INSTALL A NEW BLADE DAMAGE CHART TO THE RA805 AND INPUT ANY EXISTING DAMAGE/REPAIR INFORMATION AS NECESSARY (REFER TO CAME 2.9.6).
+
+17. RETURN AIRCRAFT TO A SERVICEABLE CONDITION.</description>
+        <descriptionSign>PYKM</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="713841a0-050a-11f1-b626-005056b18588">
+            <partNumber>FANLUBEFULLKIT</partNumber>
+            <description>FAN BLADE REMOVAL TOOL KIT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="71395311-050a-11f1-b626-005056b18588">
+            <partNumber>IPA</partNumber>
+            <description>ISOPROPYL ALCOHOL</description>
+            <neededQuantity UOM="LTR">5.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="713a3d72-050a-11f1-b626-005056b18588">
+            <partNumber>LN9051</partNumber>
+            <description>FAN BLADE MARKER CP5061</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="713b00c3-050a-11f1-b626-005056b18588">
+            <partNumber>NYC065</partNumber>
+            <description>VV-P-236 D00504 GREASE PETROLATUM</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="713bc414-050a-11f1-b626-005056b18588">
+            <partNumber>STD585</partNumber>
+            <description>FANLUBE PROTECTIVE MAT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="713d23a5-050a-11f1-b626-005056b18588">
+            <partNumber>M0LYK0TED321</partNumber>
+            <description>MOLYKOTE D-321 R CP5062 FILM (SPRAY)</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="713e3516-050a-11f1-b626-005056b18588">
+            <partNumber>340-001-038-0</partNumber>
+            <description>CFM56 FAN BLADE</description>
+            <neededQuantity UOM="EA">24.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="713fbbb7-050a-11f1-b626-005056b18588">
+            <partNumber>9111M35P07</partNumber>
+            <description>CFM BALANCE SCREW</description>
+            <neededQuantity UOM="EA">4.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="7e26d014-0519-11f1-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REMOVED COMPLETE FAN BLADE SET IAW AMM TASK 72-21-02-000-801-F00 REV 88.
+
+REF TLP 40099575 FOR CRS.
+
+TLP 40099576 RAISED FOR NEW FAN BLADE SHIPSET INSTALLATION AND JOB COMPLETION.</actionText>
+            <performedData>
+              <performedDateTime>2026-02-08T18:09:00.000Z</performedDateTime>
+              <performedSign>DLO</performedSign>
+            </performedData>
+          </action>
+          <action uuid="b655a9be-056c-11f1-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FAN MODULE INSPECTION C/OUT WITH NO FINDNGS IAW AMM 72-21-02-200-801-F00 REV.88  AND TT 72-010
+ 
+ALL ITEMS LISTED IN AMM 72-21-00-640-801-F00 PARA G.2. LUBRICATED 
+
+ENGINE #1 FULL SET FAN BLADES INSTALLED IAW AMM 72-21-02-400-801-F00 REV.88 AND IAW ATTACHED BLAMAP CONFIGURATION.  
+ 
+N° SERIAL N°  PART N°     MOMENT 
+1 PF497237 340-001-036-0 206230.00 
+2 PA550880 340-001-038-0 203758.00 
+3 DC976123 340-001-038-0 200996.00 
+4 DC973212 340-001-038-0 199606.00 
+5 PF520260 340-001-036-0 202240.00 
+6 DE181203 340-001-038-0 204800.00 
+7 PF505240 340-001-036-0 206260.00 
+8 PF526189 340-001-036-0 203265.00 
+9 BB409195 340-001-039-0 199964.00 
+10 PA235927 340-001-038-0 198974.00 
+11 PF459411 340-001-038-0 201902.00 
+12 DM001526 340-001-038-0 204452.00 
+13 DM007276 340-001-038-0 206255.00 
+14 PF499448 340-001-036-0 203805.00 
+15 BC387672 340-001-038-0 201191.00 
+16 PA242622 340-001-038-0 199527.00 
+17 PC588795 340-001-038-0 202058.00 
+18 PA647000 340-001-038-0 204686.00 
+19 PF505280 340-001-036-0 206195.00 
+20 PF478371 340-001-036-0 203425.00 
+21 BC394244 340-001-038-0 200083.00 
+22 BC397656 340-001-038-0 199138.00 
+23 PF424701 340-001-038-0 201794.00 
+24 PF061746 340-001-038-0 204372.00  
+
+FAN BLADE PLATFORM CONFIRMED FULL SHIPSET -817 
+PN:340-001-817-0 
+BN:1564594/25E-C23762
+QTY:24
+
+REAR SPINNER CONE AND RETAINING FLANGE ARE INSTALLED CORRECTLY AND CLEARANCE CHECK SATIS. IAW AMM 72-21-01-400-801 REV.88 AND 72-21-01-211-033 REV.88
+
+BALANCE WEIGHTS IN REAR SPINNER ARE SET IN ALL LOC. TO A P07/P14 AND THE BALANCE WEIGHT CONFIGURATION IS CONFIRMED IN THE AAVM
+
+INDEPENDENT INSPECTION C/OUT IAW SEAS PN 01/18 REV.09 AND RYR CAME DAC ISS.05 REV.19
+REF TPO TLB PAGE 40099576 FOR TEST 7 - VIBRATION SURVEY 
+
+TOOL USED:
+PN:FANLUBEFULLKIT
+SN:FR019
+
+GREASE
+PN:M0LYK0TED321
+BN:RF1024162/1414700
+QTY:1
+
+WORK PERFORMED ALSO BY SEAS MECH: RCE1
+REF LAST FLT LEG FOR FOB</actionText>
+            <performedData>
+              <performedDateTime>2026-02-09T03:52:00.000Z</performedDateTime>
+              <performedSign>CPL</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INDEPENDENT INSPECTION C/OUT IAW SEAS PN 01/18 REV.09 AND RYR CAME DAC ISS.05 REV.19</inspectionText>
+              <performedData>
+                <performedDateTime>2026-02-09T04:11:00.000Z</performedDateTime>
+                <performedSign>CPL</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION C/OUT IAW SEAS PN 01/18 REV.09 AND RYR CAME DAC ISS.05 REV.19</inspectionText>
+              <performedData>
+                <performedDateTime>2026-02-09T04:11:00.000Z</performedDateTime>
+                <performedSign>CLC</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="be38906b-0570-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3960819</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC975932</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PC588795</serialNumber>
+                </partOn>
+                <certificateNumber>R25090340001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="eab59267-0570-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3990259</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC977129</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF526189</serialNumber>
+                </partOn>
+                <certificateNumber>GEAMS1157997</certificateNumber>
+              </componentChange>
+              <componentChange uuid="079933b1-0571-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4038301</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC061399</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC973212</serialNumber>
+                </partOn>
+                <certificateNumber>4001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="b8a09c79-0572-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4017620</labelNumber>
+                <partOff>
+                  <partNumber>340-001-039-0</partNumber>
+                  <serialNumber>DA932556-M</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-039-0</partNumber>
+                  <serialNumber>BB409195</serialNumber>
+                </partOn>
+                <certificateNumber>11001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="870d74f3-0573-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3893453</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC975971</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF478371</serialNumber>
+                </partOn>
+                <certificateNumber>GEAMS1154109</certificateNumber>
+              </componentChange>
+              <componentChange uuid="c4931f0a-0573-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3978633</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC974636</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PF424701</serialNumber>
+                </partOn>
+                <certificateNumber>R25081818001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="fd61f7dd-0573-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4026258</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM186254</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF497237</serialNumber>
+                </partOn>
+                <certificateNumber>GEAMS1162801</certificateNumber>
+              </componentChange>
+              <componentChange uuid="2f9d01f7-0574-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3970648</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC977163</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PA242622</serialNumber>
+                </partOn>
+                <certificateNumber>R25091502000</certificateNumber>
+              </componentChange>
+              <componentChange uuid="66f28139-0574-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3922797</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC977105</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PA647000</serialNumber>
+                </partOn>
+                <certificateNumber>103001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="9fdf694c-0574-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4038275</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC977337</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM001526</serialNumber>
+                </partOn>
+                <certificateNumber>18001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="e380cbf5-0574-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3967429</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC977605</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PF459411</serialNumber>
+                </partOn>
+                <certificateNumber>2426001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="19476dcf-0575-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4036612</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM186303</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF505280</serialNumber>
+                </partOn>
+                <certificateNumber>1163696</certificateNumber>
+              </componentChange>
+              <componentChange uuid="54f17a1a-0575-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4038302</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM186127</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM007276</serialNumber>
+                </partOn>
+                <certificateNumber>4001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="8b900565-0575-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3996534</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC977335</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PF061746</serialNumber>
+                </partOn>
+                <certificateNumber>2001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="c640e499-0575-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4036908</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM186412</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF505240</serialNumber>
+                </partOn>
+                <certificateNumber>1163682</certificateNumber>
+              </componentChange>
+              <componentChange uuid="281f0ff5-0576-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3988976</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC976698</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF520260</serialNumber>
+                </partOn>
+                <certificateNumber>58899</certificateNumber>
+              </componentChange>
+              <componentChange uuid="6be7a99b-0576-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3980270</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC972944</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PA235927</serialNumber>
+                </partOn>
+                <certificateNumber>R25092315000</certificateNumber>
+              </componentChange>
+              <componentChange uuid="b095250a-0576-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4034000</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC772772</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>BC397656</serialNumber>
+                </partOn>
+                <certificateNumber>3006001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="8197d7d6-0584-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3943205</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC977212</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PA550880</serialNumber>
+                </partOn>
+                <certificateNumber>R25072407001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="e2ec1b96-0576-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4033977</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM186170</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>BC387672</serialNumber>
+                </partOn>
+                <certificateNumber>3010001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="1c1e2314-0577-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4038160</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC977086</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DE181203</serialNumber>
+                </partOn>
+                <certificateNumber>221001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="81969f55-0584-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4017571</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM186121</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC976123</serialNumber>
+                </partOn>
+                <certificateNumber>12001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="182d09aa-0585-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>3991250</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC976700</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF499448</serialNumber>
+                </partOn>
+                <certificateNumber>1159176-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="db2a4b2f-0584-11f1-b626-005056b18588">
+                <position>#1</position>
+                <labelNumber>4040612</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC977372</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>BC394244</serialNumber>
+                </partOn>
+                <certificateNumber>R25110716001</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="e1c67f10-050a-11f1-b626-005056b18588">
+            <reference>T:/AVIONICS/1. Staff Folders/Priyanka/02 DTS/22 BLAMAP/72-014 - Vibration Survey.pdf</reference>
+            <typeDescription>File</typeDescription>
+            <description>72-014 - Vibration Survey.pdf</description>
+          </reference>
+          <reference uuid="e1c79081-050a-11f1-b626-005056b18588">
+            <reference>T:/AVIONICS/1. Staff Folders/Priyanka/02 DTS/22 BLAMAP/AOG SHIPSET 30.01.2026.pdf</reference>
+            <typeDescription>File</typeDescription>
+            <description>AOG SHIPSET 30.01.2026.pdf</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="472762f5-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>98855</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 98855</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

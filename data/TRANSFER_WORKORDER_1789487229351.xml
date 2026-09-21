@@ -1,0 +1,146 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487229350</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:09.350Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="9a414e8b-630a-11f1-9efb-005056b18588">
+    <workorderNumber>190644193</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00219</aircraftFullRegistration>
+        <aircraftRegistration>REG00219</aircraftRegistration>
+        <aircraftMsn>44838</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190644193</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2026-06-08Z</issueDate>
+        <issueSign>ABDE</issueSign>
+        <issueStation>RAK</issueStation>
+        <issueFltTo>RAK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <special>PCI</special>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2026-06-09T00:29:00.000Z</closingDateTime>
+        <closingStation>MRS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1473307</closingTahMinutes>
+        <closingTac>13417</closingTac>
+        <closingSign>CLNL</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2026-06-09T00:29:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2026-06-09T00:29:00.000Z</dateTime>
+        <releaseSign>CLNL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="9a42ae1c-630a-11f1-9efb-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-08T07:16:00.000Z</workStepDateTime>
+        <headline>***PCI*** 08/06/2026- RAK- AFT RIGHT OVEN INOP</headline>
+        <description>***PCI*** 08/06/2026- RAK- AFT RIGHT OVEN INOP 
+RIGHT OVEN AFT GALLEY DOING A WEIRD NOISE WHEN POWERED ON</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="9a45462d-630a-11f1-9efb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>DUE TO MORE T/S.ITEM TX TO PCI IAW MEL PREAMBLE CAT "D"   REV:6B
+AFT RH OVEN CONSIDERED INOP</actionText>
+            <performedData>
+              <performedDateTime>2026-06-08T07:18:00.000Z</performedDateTime>
+              <performedSign>ABDE</performedSign>
+            </performedData>
+          </action>
+          <action uuid="f36e6368-6399-11f1-9efb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH AFT OVEN REPLACED  IAW CMM 25-37-26 REV 00  TEST SATIS 
+
+NUMERO LABEL 4144225  
+
+PART OFF PN 8201-11-0000 
+SN 04-10-20487  
+
+PART ON
+ PN 8201-11-0000 
+SN 03-03-18855     
+
+REF TLP 1906444195
+            
+ 		***HIL CLOSED***</actionText>
+            <performedData>
+              <performedDateTime>2026-06-09T00:24:00.000Z</performedDateTime>
+              <performedSign>JPPB</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="f3705f39-6399-11f1-9efb-005056b18588">
+                <position>AFTGALLY</position>
+                <labelNumber>4144225</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>04-10-20487</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>03-03-18855</serialNumber>
+                </partOn>
+                <certificateNumber>PAV14058</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

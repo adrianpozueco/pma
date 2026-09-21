@@ -1,0 +1,167 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486927600</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:07.599Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="a1fc286f-df66-11ef-bda2-005056b18588">
+    <workorderNumber>55347752</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00378</aircraftFullRegistration>
+        <aircraftRegistration>REG00378</aircraftRegistration>
+        <aircraftMsn>67098</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55347752</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDate>2025-01-30Z</issueDate>
+        <issueSign>VITU1</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-01-30T06:30:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>223228</closingTahMinutes>
+        <closingTac>2075</closingTac>
+        <closingSign>VITU1</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-01-30T06:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-01-30T06:30:00.000Z</dateTime>
+        <releaseSign>VITU1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="a1fec080-df66-11ef-bda2-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-01-30T06:30:00.000Z</workStepDateTime>
+        <description>REF WO 100304519 - AMP BORE C/O ON ENG #2, FUEL NOZZLE #1 / #4 / #9 TO BE REPLACED</description>
+        <descriptionSign>VITU1</descriptionSign>
+        <doubleInspectionRequired>Y</doubleInspectionRequired>
+        <actions>
+          <action uuid="a200bc51-df66-11ef-bda2-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FUEL NOZZLE  #1 / #4 / #9 REPLACED IAW AMM 73-11-05/401 R23 UNTIL SUBTASK 73-11-05-420-187 R23 (EXCLUDED)
+REF TO NEXT TLP FOR INSTALLATION OF REMAINING PARTS
+
+INDIPENDENT INSP C/O IAW SEAS P/N 01/18 R8 &amp; MAY CAME APP A 2.23.2.1 R20
+
+REF P/S 5338183 FOR MATERIAL USED
+
+ASSITED ALSO BY SLAN</actionText>
+            <performedData>
+              <performedDateTime>2025-01-30T06:30:00.000Z</performedDateTime>
+              <performedSign>VITU1</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION C/O IAW SEAS P/N 01/18 REV. 8 &amp; MAY CAME APP A 2.23.2.1 R20</inspectionText>
+              <performedData>
+                <performedDateTime>2025-01-30T06:30:00.000Z</performedDateTime>
+                <performedSign>VITU1</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDIPENDENT INSPECTION C/O IAW SEAS P/N 01/18 REV. 8 &amp; MAY CAME APP A 2.23.2.1 20</inspectionText>
+              <performedData>
+                <performedDateTime>2025-01-30T06:30:00.000Z</performedDateTime>
+                <performedSign>DEBA1</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="a2035462-df66-11ef-bda2-005056b18588">
+                <position>#2</position>
+                <labelNumber>3773066</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT9E484</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF241</serialNumber>
+                </partOn>
+                <certificateNumber>JMB24A-06765</certificateNumber>
+              </componentChange>
+              <componentChange uuid="a205c563-df66-11ef-bda2-005056b18588">
+                <position>#2</position>
+                <labelNumber>3776835</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT9E487</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF724</serialNumber>
+                </partOn>
+                <certificateNumber>DMR24A-00207</certificateNumber>
+              </componentChange>
+              <componentChange uuid="a206d6d4-df66-11ef-bda2-005056b18588">
+                <position>#2</position>
+                <labelNumber>3776843</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT9E483</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF727</serialNumber>
+                </partOn>
+                <certificateNumber>DMR24A-00210</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

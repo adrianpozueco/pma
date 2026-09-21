@@ -1,0 +1,122 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487105193</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:05.193Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="35b71638-ae16-11f0-95d9-005056b18588">
+    <workorderNumber>190244805</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00255</aircraftFullRegistration>
+        <aircraftRegistration>REG00255</aircraftRegistration>
+        <aircraftMsn>33615</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190244805</barcode>
+      <ataChapter>23-42</ataChapter>
+      <issueData>
+        <issueDate>2025-10-20Z</issueDate>
+        <issueSign>NIG</issueSign>
+        <issueStation>SKG</issueStation>
+        <issueFltTo>SKG</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-10-20T22:30:00.000Z</closingDateTime>
+        <closingStation>SKG</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3357001</closingTahMinutes>
+        <closingTac>32118</closingTac>
+        <closingSign>NIG</closingSign>
+      </closingData>
+      <certification>
+        <number>EL.145.0060</number>
+        <dateTime>2025-10-20T22:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>EL.145.0060</number>
+        <dateTime>2025-10-20T22:30:00.000Z</dateTime>
+        <releaseSign>NIG</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="35b875c9-ae16-11f0-95d9-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-10-20T22:30:00.000Z</workStepDateTime>
+        <description>REF TO WO 190256392
+FWD INTERPHONE UNABLE TO PERFORM PA.</description>
+        <descriptionSign>NIG</descriptionSign>
+        <actions>
+          <action uuid="35bb0dda-ae16-11f0-95d9-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD HANDSET AND CORD TERMINATE REPLACED IAW AMM 23-42-01-400-801 REV.87. NIL FIXED. SUSPECTED ATT PANEL CREATING THE ISSUE. PART ADDED .
+
+P/N: AD02003263
+B/N: 1504277/J0049067</actionText>
+            <performedData>
+              <performedDateTime>2025-10-20T22:30:00.000Z</performedDateTime>
+              <performedSign>NIG</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="35bc465b-ae16-11f0-95d9-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>3969197</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>D14908</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F38846</serialNumber>
+                </partOn>
+                <certificateNumber>ARC156886</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

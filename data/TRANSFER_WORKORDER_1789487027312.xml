@@ -1,0 +1,151 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487027310</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:47.309Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="a7d67aee-4372-11f1-a458-005056b18588">
+    <workorderNumber>55762802</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>32S</aircraftType>
+        <aircraftFullRegistration>9H-REG00399</aircraftFullRegistration>
+        <aircraftRegistration>REG00399</aircraftRegistration>
+        <aircraftMsn>3105</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55762802</barcode>
+      <ataChapter>38-31</ataChapter>
+      <issueData>
+        <issueDate>2026-04-29Z</issueDate>
+        <issueSign>MOB</issueSign>
+        <issueStation>VIE</issueStation>
+        <issueFltTo>VIE</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-29T01:15:00.000Z</closingDateTime>
+        <closingStation>VIE</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2686657</closingTahMinutes>
+        <closingTac>24446</closingTac>
+        <closingSign>MOB</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-29T01:15:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-29T01:15:00.000Z</dateTime>
+        <releaseSign>MOB</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="a7d876bf-4372-11f1-a458-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-29T01:15:00.000Z</workStepDateTime>
+        <description>REF WO 190766100
+FWD LAV FLAP INOP IN TOILET NOT CLOSING</description>
+        <descriptionSign>MOB</descriptionSign>
+        <actions>
+          <action uuid="a7dbd220-4372-11f1-a458-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>T/S PERFORMED IAW TSM 38-31-00-810-834-A REV.21 (FAULT MESSAGE 38-31-41)
+
+FLUSH VALVE REPLACED IAW AMM 38-31-57-000/400-001-A REV.21
+OPS TEST SATIS, HIL CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2026-04-29T01:15:00.000Z</performedDateTime>
+              <performedSign>MKKA</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="a7de1c11-4372-11f1-a458-005056b18588">
+                <position>LAV A</position>
+                <labelNumber>4083044</labelNumber>
+                <partOff>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>FV4446</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>36550</serialNumber>
+                </partOn>
+                <certificateNumber>0001192755</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="a7e0b422-4372-11f1-a458-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>LCMO</userSign>
+                <startDateTime>2026-04-29T00:24:00.000Z</startDateTime>
+                <endDateTime>2026-04-29T02:24:00.000Z</endDateTime>
+                <duration>120</duration>
+                <typeOfWork>LB</typeOfWork>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="a7e1c593-4372-11f1-a458-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>MKKA</userSign>
+                <startDateTime>2026-04-29T00:24:00.000Z</startDateTime>
+                <endDateTime>2026-04-29T02:24:00.000Z</endDateTime>
+                <duration>120</duration>
+                <typeOfWork>LB</typeOfWork>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="3d6cff99-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>102784</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 102784</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

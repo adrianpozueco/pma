@@ -1,0 +1,190 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487023454</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:43.454Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="a5e3053f-2499-11f0-99b7-005056b18588">
+    <workorderNumber>55713174</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00147</aircraftFullRegistration>
+        <aircraftRegistration>REG00147</aircraftRegistration>
+        <aircraftMsn>44809</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55713174</barcode>
+      <ataChapter>33-42</ataChapter>
+      <issueData>
+        <issueDate>2025-04-29Z</issueDate>
+        <issueSign>MZM1</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-04-29T01:00:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1350249</closingTahMinutes>
+        <closingTac>11694</closingTac>
+        <closingSign>MZM1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-29T01:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-29T01:00:00.000Z</dateTime>
+        <releaseSign>MZM1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="a5ea7e50-2499-11f0-99b7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-04-29T01:00:00.000Z</workStepDateTime>
+        <description>REF WO 55713171 AND 55713172
+L/H LANDING LIGHT INOP
+L/H TAXI AND LANDING LIGHT INOP</description>
+        <descriptionSign>MZM1</descriptionSign>
+        <actions>
+          <action uuid="a5ecc841-2499-11f0-99b7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>MAIN ARRAY ASSY REPLACED IAW AMM 33-42-01-960-803 REV 85.
+POWER SUPPLY REPLACED IAW AMM 33-42-01-960-804 REV 85. HIL CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2025-04-29T01:00:00.000Z</performedDateTime>
+              <performedSign>MZM1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="a5ee4ee2-2499-11f0-99b7-005056b18588">
+                <position>LH</position>
+                <labelNumber>3828281</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>6000</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>0021</serialNumber>
+                </partOn>
+                <certificateNumber>660735</certificateNumber>
+              </componentChange>
+              <componentChange uuid="a5ef3943-2499-11f0-99b7-005056b18588">
+                <position>UPR</position>
+                <labelNumber>3803213</labelNumber>
+                <partOff>
+                  <partNumber>72500410-2</partNumber>
+                  <serialNumber>1656</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72500410-2</partNumber>
+                  <serialNumber>9094</serialNumber>
+                </partOn>
+                <certificateNumber>352297893</certificateNumber>
+              </componentChange>
+              <componentChange uuid="a5efd584-2499-11f0-99b7-005056b18588">
+                <position>LH O/B</position>
+                <labelNumber>3723148</labelNumber>
+                <partOff>
+                  <partNumber>72500410-1</partNumber>
+                  <serialNumber>3545</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72500410-1</partNumber>
+                  <serialNumber>9771</serialNumber>
+                </partOn>
+                <certificateNumber>351310767</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="a5f18335-2499-11f0-99b7-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>GTQ</userSign>
+                <startDateTime>2025-04-29T00:19:00.000Z</startDateTime>
+                <endDateTime>2025-04-29T01:19:00.000Z</endDateTime>
+                <duration>60</duration>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="a5f26d96-2499-11f0-99b7-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>MZM1</userSign>
+                <startDateTime>2025-04-28T23:19:00.000Z</startDateTime>
+                <endDateTime>2025-04-29T01:19:00.000Z</endDateTime>
+                <duration>120</duration>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="a5f309d7-2499-11f0-99b7-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>WKR</userSign>
+                <startDateTime>2025-04-28T23:20:00.000Z</startDateTime>
+                <endDateTime>2025-04-29T01:20:00.000Z</endDateTime>
+                <duration>120</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="a5f49078-2499-11f0-99b7-005056b18588">
+            <category>W</category>
+            <type>WO</type>
+            <reference>55713171</reference>
+            <typeDescription>Workorder</typeDescription>
+            <description>55713171</description>
+          </reference>
+          <reference uuid="a5f66539-2499-11f0-99b7-005056b18588">
+            <category>W</category>
+            <type>WO</type>
+            <reference>55713172</reference>
+            <typeDescription>Workorder</typeDescription>
+            <description>55713172</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

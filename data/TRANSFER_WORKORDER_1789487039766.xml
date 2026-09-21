@@ -1,0 +1,146 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487039765</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:59.765Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="37ed910a-aaf9-11f0-95d9-005056b18588">
+    <workorderNumber>104781329</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00060</aircraftFullRegistration>
+        <aircraftRegistration>REG00060</aircraftRegistration>
+        <aircraftMsn>61580</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.104781329</barcode>
+      <ataChapter>33-42</ataChapter>
+      <issueData>
+        <issueDate>2025-10-17Z</issueDate>
+        <issueSign>GRNS</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-10-17T01:35:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1714310</closingTahMinutes>
+        <closingTac>17890</closingTac>
+        <closingSign>GRNS</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-17T01:35:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-17T01:35:00.000Z</dateTime>
+        <releaseSign>GRNS</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="37eec98b-aaf9-11f0-95d9-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-10-17T01:16:00.000Z</workStepDateTime>
+        <description>REF TLP 55599759 &amp; 55599761
+
+RIGHT LANDING LIGHT NOT WORKING AND RIGHT TAXI LIGHT NOT WORKING</description>
+        <descriptionSign>GRNS</descriptionSign>
+        <actions>
+          <action uuid="37f09e4c-aaf9-11f0-95d9-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REPLACED RIGHT SIDE LTRTL POWER SUPPLY IAW AMM 33-42-01-960-804 REV 87
+
+OPS TESTED SATIS
+
+DUE TO EXTENSIVE HISTORY C/O CONTINUITY CHECKS DETAILED IN PREVIOUS TSRV W/O REF 104732527 IAW WDM 33-42-21-1 REV 127
+
+ALL CONNECTORS AND CONTACTS CLEANLINESS AND CONDITION SATISFACTORY
+
+D15942, PIN 1 --- D15940, PIN 1: 0.2 OHMS
+D15942, PIN 1 --- D15940, PIN 5: OL OHMS
+D15942, PIN 1 --- D15940, PIN 12: OL OHMS
+D15942, PIN 1 --- D15940, PIN 6: OL OHMS
+D15942, PIN 1 --- D15940, PIN 8: OL OHMS
+D15942, PIN 1 --- D15940, PIN 10: OL OHMS
+D15942, PIN 11 --- GND: 0.2 OHMS
+
+D15946, PIN 1 --- D15944, PIN 1: 0.2 OHMS
+D15946, PIN 1 --- D15944, PIN 5: OL OHMS
+D15946, PIN 1 --- D15944, PIN 12: OL OHMS
+D15946, PIN 1 --- D15944, PIN 6: OL OHMS
+D15946, PIN 1 --- D15944, PIN 8: OL OHMS
+D15946, PIN 1 --- D15944, PIN 10: OL OHMS
+D15946, PIN 11 --- GND: 0.2 OHMS
+
+ALL AS EXPECTED
+
+TLP 55599759 &amp; 55599761 NOW CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-10-17T01:19:00.000Z</performedDateTime>
+              <performedSign>GRNS</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="79cf6979-aaf9-11f0-95d9-005056b18588">
+                <position>RH</position>
+                <labelNumber>3956073</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>5770</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>0277</serialNumber>
+                </partOn>
+                <certificateNumber>354296230</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

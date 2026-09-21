@@ -1,0 +1,120 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487235074</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:15.074Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="88fc14a1-725a-11f0-a4a7-005056b18588">
+    <workorderNumber>190666284</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00148</aircraftFullRegistration>
+        <aircraftRegistration>REG00148</aircraftRegistration>
+        <aircraftMsn>44736</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190666284</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-08-05Z</issueDate>
+        <issueSign>MZPK</issueSign>
+        <issueStation>KTW</issueStation>
+        <issueFltTo>KTW</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-05T21:30:00.000Z</closingDateTime>
+        <closingStation>KTW</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1679085</closingTahMinutes>
+        <closingTac>16145</closingTac>
+        <closingSign>MZPK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-05T21:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-05T21:30:00.000Z</dateTime>
+        <releaseSign>MZPK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="88fd7432-725a-11f0-a4a7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-05T21:30:00.000Z</workStepDateTime>
+        <description>CREW REPORTED AFT GALLEY OVEN TIMER KNOB DETACHED</description>
+        <descriptionSign>MZPK</descriptionSign>
+        <actions>
+          <action uuid="88ff7003-725a-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FOUND TIMER SWITCH WITH LOOSE INSERTS. UNABLE TO INSTALL NEW KNOB.
+OVEN REPLACED IAW CMM 25-37-26 REV.0</actionText>
+            <performedData>
+              <performedDateTime>2025-08-05T21:30:00.000Z</performedDateTime>
+              <performedSign>MZPK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="8901e104-725a-11f0-a4a7-005056b18588">
+                <position>AFTGALLY</position>
+                <labelNumber>3666611</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>22-03-0153</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>08-05-25459</serialNumber>
+                </partOn>
+                <certificateNumber>1130853</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

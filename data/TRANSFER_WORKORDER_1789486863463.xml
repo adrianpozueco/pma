@@ -1,0 +1,126 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486863462</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:03.462Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="1ad873a4-0a15-11f1-b626-005056b18588">
+    <workorderNumber>42090323</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00430</aircraftFullRegistration>
+        <aircraftRegistration>REG00430</aircraftRegistration>
+        <aircraftMsn>67131</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42090323</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2026-02-14Z</issueDate>
+        <issueSign>8888</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-02-15T03:36:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>6721</closingTahMinutes>
+        <closingTac>50</closingTac>
+        <closingSign>IYR</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-15T03:36:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-15T03:36:00.000Z</dateTime>
+        <releaseSign>IYR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="1ad936f5-0a15-11f1-b626-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-02-14T23:59:00.000Z</workStepDateTime>
+        <description>BOILER ON RIGHT SIDE REAR GALLEY IS INOPERATIVE.</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="1adb59d6-0a15-11f1-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REPLACED RH WATER BOILER AT AFT GALLEY 
+
+IAW AMM 25-32-21 REV. 27. OPS SATIS.
+
+PN: 62197-301-001
+SN: 22-12-0354
+
+ASSISTED BY: LRI</actionText>
+            <performedData>
+              <performedDateTime>2026-02-14T23:59:00.000Z</performedDateTime>
+              <performedSign>RMJK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="1add0787-0a15-11f1-b626-005056b18588">
+                <position>AFTGALLY</position>
+                <labelNumber>4042991</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>17-12-0473</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>22-12-0354</serialNumber>
+                </partOn>
+                <certificateNumber>SAV767</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

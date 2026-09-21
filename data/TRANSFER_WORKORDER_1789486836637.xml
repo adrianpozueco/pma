@@ -1,0 +1,133 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486836635</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:36.634Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="bbbd217d-edd0-11f0-8331-005056b18588">
+    <workorderNumber>41245491</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00128</aircraftFullRegistration>
+        <aircraftRegistration>REG00128</aircraftRegistration>
+        <aircraftMsn>44719</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.41245491</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-01-10Z</issueDate>
+        <issueSign>JLAB</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-01-10T03:01:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1785158</closingTahMinutes>
+        <closingTac>18288</closingTac>
+        <closingSign>JLAB</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-10T03:01:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-10T03:01:00.000Z</dateTime>
+        <releaseSign>JLAB</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="bbbea81e-edd0-11f0-8331-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-10T02:45:00.000Z</workStepDateTime>
+        <description>REF HIL 41245489 WINDOW LIGHTS FROM ROW 25DEF TO 30DEF INOP</description>
+        <descriptionSign>JLAB</descriptionSign>
+        <actions>
+          <action uuid="bbc0a3ef-edd0-11f0-8331-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>T/S C/O IAW FIM 33-20 TASK 806 REV 88 AND TT 33-010 REV 00. 
+FOUND THAT WINDOW LIGHT ASSEMBLY 4-23 NOT WORKING AND PREVENTING THE ASSOCIATED LIGHT ASSEMBLIES FROM WORKING. 
+LIGHT ASSEMBLY 4-23 REPLACED IAW AMM 33-21-00/401 REV 88 SATIS. 
+LIGHTS TESTED IAW AMM 33-21-00-710-004 REV 88. 
+SYSTEM BACK TO NORMAL CONDITION. 
+
+*HIL CLOSED*</actionText>
+            <performedData>
+              <performedDateTime>2026-01-10T02:54:00.000Z</performedDateTime>
+              <performedSign>JLAB</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="bbc278b0-edd0-11f0-8331-005056b18588">
+                <position>AFT CAB</position>
+                <labelNumber>4011317</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>16534</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>50567</serialNumber>
+                </partOn>
+                <certificateNumber>ARC161362</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="cbc5b11b-b11b-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>97178</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 97178</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

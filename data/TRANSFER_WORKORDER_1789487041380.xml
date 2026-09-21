@@ -1,0 +1,414 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487041379</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:01.379Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="3575e187-c695-11f0-af70-005056b18588">
+    <workorderNumber>105025947</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00414</aircraftFullRegistration>
+        <aircraftRegistration>REG00414</aircraftRegistration>
+        <aircraftMsn>62315</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.105025947</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDate>2025-11-21Z</issueDate>
+        <issueSign>ALGA1</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-11-22T02:19:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>949957</closingTahMinutes>
+        <closingTac>7770</closingTac>
+        <closingSign>EDPI1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-22T02:19:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-22T02:19:00.000Z</dateTime>
+        <releaseSign>EDPI1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="357a7568-c695-11f0-af70-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-11-21T04:46:00.000Z</workStepDateTime>
+        <description>REF WO 190322851 #2 ENG LEAP BORO, NOZZLES FULL SET TO BE REPLACED</description>
+        <descriptionSign>ALGA1</descriptionSign>
+        <actions>
+          <action uuid="c629a9af-c6d8-11f0-af70-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FOR ACCESS ON THE RH SIDE  FUEL NOZZLES REPLACEMENT , PRSOV &amp; HPSOV REMOVED IAW AMM 36-11-04-00-801 &amp; 36-11-07-000-801 REV 26, TBV AND STARTER BLEED VALVE REMOVED, CONECTORS OF WIRE HARNESS HJ5 DISCONECTED PRSOV AND HPSOV REMOVED, BRAIDED FLEX HOSE FROM ECS DUCT REMOVED, ECS MIX MANIFOLD DUCT REMOVED IAW AMM 36-11-01-000-801 REV 26, BAI DUCT REMOVED IAW AMM 36-11-01-000-801 REV 26, STARTER BLEED DUCT REMOVED 7TH STAGE AIR TUBE REMOVED
+
+FOR ACCESS OF LH SIDE  FUEL NOZZELS REPLACEMENT,  LPTACC AND HPTACC VALVES REMOVED IAW AMM 75-24-01-000-801-G00 &amp; 75-24-04-000-801-G00 REV 26, HPT/LPT-ACC AIR FLEX DUCT REMOVED, CDP MANIFOL DUCTS REMOVED IAW AMM 36-11-01-000-801 REV 26, LPTACC FUEL DRAIN LINE REMOVED, 7TH STAGE MANIFOLD, T3 SENSOR PRO REMOVED IAW AMM 73-21-64-000-801-G00 REV 26
+
+#1 TO #18 NOZZLES REMOVED IAW AMM 73-11-05-000-802-G00 RV26</actionText>
+            <performedData>
+              <performedDateTime>2025-11-21T12:51:00.000Z</performedDateTime>
+              <performedSign>ALPA2</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="06186496-c6d9-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3959353</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF449</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT04F46</serialNumber>
+                </partOn>
+                <certificateNumber>RG51814-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="33a88450-c6d9-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3985622</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF455</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT64J10</serialNumber>
+                </partOn>
+                <certificateNumber>RG71962-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="785d5211-c6d9-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3985620</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT05F22</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT96C18</serialNumber>
+                </partOn>
+                <certificateNumber>WHU2508782</certificateNumber>
+              </componentChange>
+              <componentChange uuid="ac4ce9fd-c6d9-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3959350</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF454</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMF268</serialNumber>
+                </partOn>
+                <certificateNumber>RG43422-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="f573435e-c6d9-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3985597</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT47A93</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF725</serialNumber>
+                </partOn>
+                <certificateNumber>RG67805-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="3112ef85-c6da-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3963053</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT55F83</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT08F65</serialNumber>
+                </partOn>
+                <certificateNumber>RE91333-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="5fbb35f0-c6da-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3959355</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF448</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT9E158</serialNumber>
+                </partOn>
+                <certificateNumber>RG45066-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="9a193a50-c6da-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3985607</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT63E22</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT0G791</serialNumber>
+                </partOn>
+                <certificateNumber>RG65526-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="d33bb16b-c6da-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3985605</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT96C17</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT5G376</serialNumber>
+                </partOn>
+                <certificateNumber>RG66868-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="0815a95c-c6db-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3985604</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT51A75</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT88T30</serialNumber>
+                </partOn>
+                <certificateNumber>RG65601-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="cb68b62e-c6db-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3985600</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF452</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT0G785</serialNumber>
+                </partOn>
+                <certificateNumber>RG65582-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="0ec4d27f-c6dc-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3959361</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ039</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT8E433</serialNumber>
+                </partOn>
+                <certificateNumber>RG54212-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="502015ea-c6dc-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3959364</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT9E158</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT2E007</serialNumber>
+                </partOn>
+                <certificateNumber>RG54268-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="9339d208-c6dc-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3985612</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT86C45</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT4A895</serialNumber>
+                </partOn>
+                <certificateNumber>RG66326-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="e05113f1-c6dc-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3959354</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT00F65</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT8E438</serialNumber>
+                </partOn>
+                <certificateNumber>RG54203-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="1efa7d90-c6dd-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3985615</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF453</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT65E42</serialNumber>
+                </partOn>
+                <certificateNumber>RG63720-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="777e671c-c6dd-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3959357</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF450</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT8E440</serialNumber>
+                </partOn>
+                <certificateNumber>RG54217-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="d1840eb8-c6dd-11f0-af70-005056b18588">
+                <position>#2</position>
+                <labelNumber>3959351</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF451</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT7E514</serialNumber>
+                </partOn>
+                <certificateNumber>RG32516-1</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+          <action uuid="cd28b9cb-c6f9-11f0-af70-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>#1 TO #18 NOZZLE INSTALLED, #18, #1 TO #8 TINGHTEN AND LOCKED IAW AMM 73-11-05-400-802-G00 REV 26, PENDING TO TIGHT AND LOCK FROM #9 TO #17</actionText>
+            <performedData>
+              <performedDateTime>2025-11-21T16:40:00.000Z</performedDateTime>
+              <performedSign>ALPA2</performedSign>
+            </performedData>
+          </action>
+          <action uuid="242e2b5f-c703-11f0-af70-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>IND INSP COUT IAW CAME SUN 1.6.3.1  ISSU 2 REV 58</actionText>
+            <performedData>
+              <performedDateTime>2025-11-21T17:53:00.000Z</performedDateTime>
+              <performedSign>ALPA2</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText> INITIAL INSP COUT IAW CAME SUN 1.6.3.1  ISSU 2 REV 58</inspectionText>
+              <performedData>
+                <performedDateTime>2025-11-21T17:54:00.000Z</performedDateTime>
+                <performedSign>ALPA2</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>SECOND  INSP COUT IAW CAME SUN 1.6.3.1  ISSU 2 REV 58</inspectionText>
+              <performedData>
+                <performedDateTime>2025-11-21T17:54:00.000Z</performedDateTime>
+                <performedSign>SNV</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+          <action uuid="7a0b9137-c743-11f0-af70-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH SIDE  FUEL NOZZLES INSTALED:
+
+PRSV &amp;HPSOV INSTALLED IAW AMM 36-11-04-00-801 AND 36-11-07-000-801 REV 26
+TBV AND STARTER BLEED VALVE  INSTALLED, CONECTORS OF  WIRE HARNESS HJ5  CONECTED
+BRAIDED FLEXI HOSE FROM ECS DUCT INSTALLED
+ECS MIX MANIFOLD DUCT INSTALLED IAW AMM36-11-01-000801 REV 26
+BAI DUCT INSTALLEDIAW AMM 36-11-01-000-801 REV 26
+STARTER BLEED DUCT INSTALLED
+7TH  STAGE AIR  TUBE INSTALLED
+RH SIDE HARDWARE INSTALLED POST FUEL NOZZLES  REPLACEMENT:     RH SIDE ALL HARDWARE AND RH SIDE DUCTS INSTALLED IAW AMM 36-11-00  REV26
+
+LH SIDE FUEL NOZZLES INSTALLED:
+ 
+LPTACC AND  HPTACC VALVES  INSTALLED IAW AMM 75-24-01-000-801-G00 &amp; 75-24-04-000-801-G00 REV 26
+ HPT/LPT-ACC AIR FLEX DUCT INSTALLED,CDP MANIFOL DUCTS INSTALLED IAW AMM36-11-01-000-801 REV 26
+LPTACC FUEL DRAIN LINE  INSTALLED IAW AMM 74-24-01 REV 26
+7TH STAGE MANIFOLD , T3  SENSOR PRO INSTALLED IAW AMM 73-21-64-000-801-G00
+LH SIDE HARDWARE INSTALLED POST FUEL NOZZLES  INSTALLED
+LH SIDE ALL HARDWARE AND LH SIDE DUCTS INSTALLED IAW AMM 36-11-00  REV26</actionText>
+            <performedData>
+              <performedDateTime>2025-11-22T01:18:00.000Z</performedDateTime>
+              <performedSign>EDPI1</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSP COUT IAW CAME SUN 1.6.3.1  ISSU 2 REV 58</inspectionText>
+              <performedData>
+                <performedDateTime>2025-11-22T02:18:00.000Z</performedDateTime>
+                <performedSign>EDPI1</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDEND  INSP COUT IAW CAME SUN 1.6.3.1  ISSU 2 REV 58</inspectionText>
+              <performedData>
+                <performedDateTime>2025-11-22T02:18:00.000Z</performedDateTime>
+                <performedSign>PAES1</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

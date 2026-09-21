@@ -1,0 +1,168 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487017819</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:37.819Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7a5ada73-ee55-11ef-a037-005056b18588">
+    <workorderNumber>55698308</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00601</aircraftFullRegistration>
+        <aircraftRegistration>REG00601</aircraftRegistration>
+        <aircraftMsn>44749</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55698308</barcode>
+      <ataChapter>33-22</ataChapter>
+      <issueData>
+        <issueDate>2025-02-18Z</issueDate>
+        <issueSign>VNOR</issueSign>
+        <issueStation>VIE</issueStation>
+        <issueFltTo>VIE</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-18T02:58:00.000Z</closingDateTime>
+        <closingStation>VIE</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1494701</closingTahMinutes>
+        <closingTac>14103</closingTac>
+        <closingSign>VNOR</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-18T02:58:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-18T02:58:00.000Z</dateTime>
+        <releaseSign>VNOR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7a5bc4d4-ee55-11ef-a037-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-18T00:30:00.000Z</workStepDateTime>
+        <description>7DEF WINDOW LIGHT IS NOT WORKING AND 16DEF WINDOW LIGHT IS BLINKING.</description>
+        <descriptionSign>VNOR</descriptionSign>
+        <actions>
+          <action uuid="7a5d7285-ee55-11ef-a037-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT AT ROW 7DEF REPLACED IAW AMM 33-21-00-960-804 REV 85. TESTED. SATIS.
+
+WINDOW LIGHT AT ROW 16DEF REPLACED IAW AMM 33-21-00-960-805 REV 85. TESTED. SATIS. PART USED 
+PN 9701-14-0001 BN 10901</actionText>
+            <performedData>
+              <performedDateTime>2025-02-18T00:30:00.000Z</performedDateTime>
+              <performedSign>VNOR</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="7a5eab06-ee55-11ef-a037-005056b18588">
+                <position>7 RH</position>
+                <labelNumber>3794209</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>22026</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>19290</serialNumber>
+                </partOn>
+                <certificateNumber>ARC138481</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="7a600a97-ee55-11ef-a037-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>VNOR</userSign>
+                <startDateTime>2025-02-18T00:55:00.000Z</startDateTime>
+                <endDateTime>2025-02-18T02:55:00.000Z</endDateTime>
+                <duration>120</duration>
+                <typeOfWork>LB</typeOfWork>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="7a6317d8-ee55-11ef-a037-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>INSA</userSign>
+                <startDateTime>2025-02-18T00:56:00.000Z</startDateTime>
+                <endDateTime>2025-02-18T02:56:00.000Z</endDateTime>
+                <duration>120</duration>
+                <typeOfWork>LB</typeOfWork>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="7a645059-ee55-11ef-a037-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>PNO</userSign>
+                <startDateTime>2025-02-18T00:56:00.000Z</startDateTime>
+                <endDateTime>2025-02-18T02:56:00.000Z</endDateTime>
+                <duration>120</duration>
+                <typeOfWork>LB</typeOfWork>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="7a6513aa-ee55-11ef-a037-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>AZF</userSign>
+                <startDateTime>2025-02-18T00:56:00.000Z</startDateTime>
+                <endDateTime>2025-02-18T02:56:00.000Z</endDateTime>
+                <duration>120</duration>
+                <typeOfWork>LB</typeOfWork>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="7a670f7b-ee55-11ef-a037-005056b18588">
+        <type>TQ</type>
+        <reference>83594</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 83594</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

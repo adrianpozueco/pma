@@ -1,0 +1,126 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486913360</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:53.360Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f9c32ef4-ed8b-11ef-a037-005056b18588">
+    <workorderNumber>55278666</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00016</aircraftFullRegistration>
+        <aircraftRegistration>REG00016</aircraftRegistration>
+        <aircraftMsn>67096</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55278666</barcode>
+      <ataChapter>26-16</ataChapter>
+      <issueData>
+        <issueDate>2025-02-17Z</issueDate>
+        <issueSign>AJI</issueSign>
+        <issueStation>LBA</issueStation>
+        <issueFltTo>LBA</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <position>A3</position>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2025-02-17T03:11:00.000Z</closingDateTime>
+        <closingStation>LBA</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>290444</closingTahMinutes>
+        <closingTac>2280</closingTac>
+        <closingSign>AJI</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-17T03:11:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-17T03:11:00.000Z</dateTime>
+        <releaseSign>AJI</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f9c6d875-ed8b-11ef-a037-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-17T03:09:00.000Z</workStepDateTime>
+        <description>REF HIL 55278661
+AFT CARGO COMP FIRE DET LOOP A INOP</description>
+        <descriptionSign>AJI</descriptionSign>
+        <actions>
+          <action uuid="f9c8d446-ed8b-11ef-a037-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>SMOKE DET A3 FOUND FAULTY &amp; REPLACED I.A.W AMM 26-16-01 REV.23 SATIS
+
+P/N OFF:473597-5 S/N OFF: 27428A
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-02-17T03:09:00.000Z</performedDateTime>
+              <performedSign>AJI</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="f9ca33d7-ed8b-11ef-a037-005056b18588">
+                <position>AFT</position>
+                <labelNumber>3795711</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>27428A</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>24561A</serialNumber>
+                </partOn>
+                <certificateNumber>R548879</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

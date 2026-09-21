@@ -1,0 +1,203 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487041826</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:01.826Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f6b8d6a3-d323-11f0-b7ce-005056b18588">
+    <workorderNumber>105180619</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00160</aircraftFullRegistration>
+        <aircraftRegistration>REG00160</aircraftRegistration>
+        <aircraftMsn>62378</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.105180619</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDateTime>2025-12-07T04:19:00.000Z</issueDateTime>
+        <issueSign>MAZD1</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-12-07T06:53:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>311805</closingTahMinutes>
+        <closingTac>2195</closingTac>
+        <closingSign>MAZD1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-07T06:53:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-07T06:53:00.000Z</dateTime>
+        <releaseSign>MAZD1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f6b999f4-d323-11f0-b7ce-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-07T04:19:00.000Z</workStepDateTime>
+        <headline>FINDING (NRC) W/O 190334625</headline>
+        <description>ENG #2 FUEL NOZZLES TO BE INSTALLED
+
+#2 AND #7 
+ #3,#6,#8 AND #12 REPLACE WITH NEW ONE</description>
+        <descriptionSign>MAZD1</descriptionSign>
+        <actions>
+          <action uuid="049913b9-d33a-11f0-b7ce-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ENG FUEL NOZZLES (X6) REINSTALLED IAW AMM 73-11-05-400-802-G00 REV 26
+
+#2 AND #7 REINSTALLED
+  #3,#6,#8 AND #12 REPLACED
+
+BOLT P/N: AS3237-12  B/N: 1117469 (X25) 
+GASKET P/N: 2085M48P01  B/N: 1537269 (X6) 
+GREASE P/N: T8E-8  B/N: 1484950  
+
+TOOLING FUEL NOZZLE KIT - S/N: RYR01 
+TORQUE WRENCH P/N: TECH2FR100  S/N:SNNFR100
+
+ASSISTED BY MEDE,JLVZ,FKGT,ALSR
+
+INDEPENDANT INSPECTION C/O ON NOZZLE MOUNT BOLTS INSTALLATION IAW DAC MOE 2.23 ISS 2 REV 14 AND AMM 73-11-05-400-802-G00 REV 26 PARA I 11</actionText>
+            <performedData>
+              <performedDateTime>2025-12-07T06:49:00.000Z</performedDateTime>
+              <performedSign>MAZD1</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION C/O ON #2 ENG  NOZZLE MOUNTING BOLTS  IAW DAC MOE 2.23 ISS 2 REV 14 AND AMM 73-11-05-400-802-G00 REV 26 PARA I 11</inspectionText>
+              <performedData>
+                <performedDateTime>2025-12-07T06:52:00.000Z</performedDateTime>
+                <performedSign>MAZD1</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION C/O ON #2 ENG  NOZZLE MOUNTING BOLTS  IAW DAC MOE 2.23 ISS 2 REV 14 AND AMM 73-11-05-400-802-G00 REV 26 PARA I 11</inspectionText>
+              <performedData>
+                <performedDateTime>2025-12-07T06:52:00.000Z</performedDateTime>
+                <performedSign>KLGZ</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="049a9a5a-d33a-11f0-b7ce-005056b18588">
+                <position>#2</position>
+                <labelNumber>4001506</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT1H531</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT99J84</serialNumber>
+                </partOn>
+                <certificateNumber>RG81032-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="049b5dab-d33a-11f0-b7ce-005056b18588">
+                <position>#2</position>
+                <labelNumber>4001509</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT1H536</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE338</serialNumber>
+                </partOn>
+                <certificateNumber>RG81227-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="049bf9ec-d33a-11f0-b7ce-005056b18588">
+                <position>#2</position>
+                <labelNumber>4001490</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT1H535</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT65E68</serialNumber>
+                </partOn>
+                <certificateNumber>RF72678-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="049c6f1d-d33a-11f0-b7ce-005056b18588">
+                <position>#2</position>
+                <labelNumber>4001492</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT1H454</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE864</serialNumber>
+                </partOn>
+                <certificateNumber>RG84980-1</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <originWorkorderOfFinding>
+      <uniqueWorkorderReference uuid="b7731fed-d313-11f0-b7ce-005056b18588" />
+    </originWorkorderOfFinding>
+    <references>
+      <reference uuid="f6bd6a85-d323-11f0-b7ce-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>190334625</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>190334625</description>
+        <remarks>SOURCE EVENT</remarks>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

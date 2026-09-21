@@ -1,0 +1,132 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486931081</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:11.081Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="b0fbe9a7-c437-11f0-af70-005056b18588">
+    <workorderNumber>55358906</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00385</aircraftFullRegistration>
+        <aircraftRegistration>REG00385</aircraftRegistration>
+        <aircraftMsn>62328</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55358906</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-11-18Z</issueDate>
+        <issueSign>LMNS</issueSign>
+        <issueStation>CRL</issueStation>
+        <issueFltTo>CRL</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-11-18T04:32:00.000Z</closingDateTime>
+        <closingStation>CRL</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>958775</closingTahMinutes>
+        <closingTac>8537</closingTac>
+        <closingSign>LMNS</closingSign>
+      </closingData>
+      <certification>
+        <number>BE.145.01</number>
+        <dateTime>2025-11-18T04:32:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>BE.145.01</number>
+        <dateTime>2025-11-18T04:32:00.000Z</dateTime>
+        <releaseSign>LMNS</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="b0fdbe68-c437-11f0-af70-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-11-18T04:29:00.000Z</workStepDateTime>
+        <description>REF WO: 55358901 WIND LT 16ABC HALF INOP</description>
+        <descriptionSign>LMNS</descriptionSign>
+        <actions>
+          <action uuid="b10119c9-c437-11f0-af70-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WIND LT 16ABC RPL IAW AMM 33-21-00-460-801 REV26
+UNABLE TO UPLOAD SFTWARE DUE TO OVWING EXIT LT 17ABC INOP AND WIND LT ROW 11ABC INOP 
+OVWING EXIT LT 17ABC RPL IAW WO: 55358907
+WIND LT ROW 11ABC RPL IAW WO: 55358908
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-11-18T04:29:00.000Z</performedDateTime>
+              <performedSign>LMNS</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="b102c77a-c437-11f0-af70-005056b18588">
+                <position>16ABC</position>
+                <labelNumber>3935380</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>50822</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>59135</serialNumber>
+                </partOn>
+                <certificateNumber>20107894</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="04123aac-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>95120</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 95120</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

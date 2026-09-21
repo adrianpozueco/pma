@@ -1,0 +1,139 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486991883</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:11.882Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="2842254f-b11c-11f1-8509-005056b1ed97">
+    <workorderNumber>55594325</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00386</aircraftFullRegistration>
+        <aircraftRegistration>REG00386</aircraftRegistration>
+        <aircraftMsn>44723</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55594325</barcode>
+      <ataChapter>33-20</ataChapter>
+      <issueData>
+        <issueDate>2025-02-19Z</issueDate>
+        <issueSign>MIHA1</issueSign>
+        <issueStation>HHN</issueStation>
+        <issueFltTo>HHN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-19T22:00:00.000Z</closingDateTime>
+        <closingStation>HHN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1558162</closingTahMinutes>
+        <closingTac>16099</closingTac>
+        <closingSign>DZK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-19T22:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-19T22:00:00.000Z</dateTime>
+        <releaseSign>DZK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="284559a0-b11c-11f1-8509-005056b1ed97">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-19T22:00:00.000Z</workStepDateTime>
+        <description>WINDOW LIGHT ON ROW 32F FOUND INOP</description>
+        <descriptionSign>MIHA1</descriptionSign>
+        <actions>
+          <action uuid="2847caa1-b11c-11f1-8509-005056b1ed97">
+            <actionType>Action</actionType>
+            <actionText>ROW #32F WINDOW LIGHT REPLACED AND TESTED SATISFACTORY I.A.W. AMM 33-21-00-960-804 REV.85
+
+ASSISTED BY WAJ</actionText>
+            <performedData>
+              <performedDateTime>2025-02-19T22:00:00.000Z</performedDateTime>
+              <performedSign>DZK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="28492a32-b11c-11f1-8509-005056b1ed97">
+                <position>CABIN</position>
+                <labelNumber>3676145</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>49631</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>45708</serialNumber>
+                </partOn>
+                <certificateNumber>128697</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="284bc243-b11c-11f1-8509-005056b1ed97">
+            <category>AMM</category>
+            <description>33-21-00-960-804 rev.85</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="284e5a54-b11c-11f1-8509-005056b1ed97">
+        <category>F</category>
+        <description>55594321</description>
+      </reference>
+      <reference uuid="284fb9e5-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>83668</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 83668</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

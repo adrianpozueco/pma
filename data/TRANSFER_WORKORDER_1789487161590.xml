@@ -1,0 +1,141 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487161590</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:01.589Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="bc53740d-bb87-11f0-af70-005056b18588">
+    <workorderNumber>190450474</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00264</aircraftFullRegistration>
+        <aircraftRegistration>REG00264</aircraftRegistration>
+        <aircraftMsn>67100</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190450474</barcode>
+      <ataChapter>30-31</ataChapter>
+      <issueData>
+        <issueDate>2025-11-06Z</issueDate>
+        <issueSign>LHM</issueSign>
+        <issueStation>BER</issueStation>
+        <issueFltTo>BER</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-11-07T02:00:00.000Z</closingDateTime>
+        <closingStation>BER</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>419141</closingTahMinutes>
+        <closingTac>3397</closingTac>
+        <closingSign>KEGA</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-07T02:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-07T02:00:00.000Z</dateTime>
+        <releaseSign>KEGA</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="bc556fde-bb87-11f0-af70-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-11-06T22:00:00.000Z</workStepDateTime>
+        <description>REF OPEN HIL WO 190450469
+AUX PITOT HEAT SYS. INOP</description>
+        <descriptionSign>LHM</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="bc5bb16f-bb87-11f0-af70-005056b18588">
+            <partNumber>232N9003-1</partNumber>
+            <description>GASKET</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="bc5c73c0-bb87-11f0-af70-005056b18588">
+            <partNumber>PS870B1-2</partNumber>
+            <description>SEALANT BMS5-95</description>
+            <neededQuantity UOM="SKIT">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="bc5dac41-bb87-11f0-af70-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>T/S C/O ACC IFIM TASK 30-31-00-810-804 REV.104
+FOUND DURING RESISTANCE CHECK OF AUX PITOT PROBE WITH OPEN LOOP. 
+AUX PITOT PROBE REPLACED AND INSTALLATION TEST PERFORMED ACC AMM 34-11-01/401 REV.26
+
+HIL CLOSED
+
+PERFORMED BY NDT AND BGZ</actionText>
+            <performedData>
+              <performedDateTime>2025-11-07T02:00:00.000Z</performedDateTime>
+              <performedSign>LHM</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="d5a5c62f-bb89-11f0-af70-005056b18588">
+                <position>ALT</position>
+                <labelNumber>3312902</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>446804</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>437124</serialNumber>
+                </partOn>
+                <certificateNumber>405269726</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

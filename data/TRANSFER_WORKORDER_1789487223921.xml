@@ -1,0 +1,135 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487223919</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:03.919Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="66c7c9fe-8163-11f0-9490-005056b18588">
+    <workorderNumber>190628104</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00100</aircraftFullRegistration>
+        <aircraftRegistration>REG00100</aircraftRegistration>
+        <aircraftMsn>44745</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190628104</barcode>
+      <ataChapter>36-00</ataChapter>
+      <issueData>
+        <issueDate>2025-08-25Z</issueDate>
+        <issueSign>RBG</issueSign>
+        <issueStation>BLQ</issueStation>
+        <issueFltTo>BLQ</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-25T03:26:00.000Z</closingDateTime>
+        <closingStation>BLQ</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1636859</closingTahMinutes>
+        <closingTac>16722</closingTac>
+        <closingSign>RBG</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-08-25T03:26:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-08-25T03:26:00.000Z</dateTime>
+        <releaseSign>RBG</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="66c9c5cf-8163-11f0-9490-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-25T01:00:00.000Z</workStepDateTime>
+        <description>IN REF WO 104209596
+HIGH STAGE REGULATOR TO BE REPLACED</description>
+        <descriptionSign>RBG</descriptionSign>
+        <actions>
+          <action uuid="66cd2130-8163-11f0-9490-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>HSR REPLACED AND TESTED SATIS IAW AMM 36-11-07/401 REV.86 
+DUPLICATE INSP C/O IAW MAY CAME APP "A" 2.23 REV 22</actionText>
+            <performedData>
+              <performedDateTime>2025-08-25T01:00:00.000Z</performedDateTime>
+              <performedSign>CSJ</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSP. C/O IAW MAY CAME APP"A" 2.23 REV 22</inspectionText>
+              <performedData>
+                <performedDateTime>2025-08-25T01:00:00.000Z</performedDateTime>
+                <performedSign>RBG</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>SECOND INSP C/O IAW MAY CAME APP "A" 2.23 REV 22</inspectionText>
+              <performedData>
+                <performedDateTime>2025-08-25T01:15:00.000Z</performedDateTime>
+                <performedSign>LRG</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="66cf1d01-8163-11f0-9490-005056b18588">
+                <position>#2</position>
+                <labelNumber>3905522</labelNumber>
+                <partOff>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>17813</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>9202</serialNumber>
+                </partOn>
+                <certificateNumber>2025001752</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

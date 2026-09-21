@@ -1,0 +1,140 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487013809</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:33.809Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="b3175452-386c-11f1-9a9d-005056b18588">
+    <workorderNumber>55683156</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00404</aircraftFullRegistration>
+        <aircraftRegistration>REG00404</aircraftRegistration>
+        <aircraftMsn>61578</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55683156</barcode>
+      <ataChapter>33-42</ataChapter>
+      <issueData>
+        <issueDate>2026-04-14Z</issueDate>
+        <issueSign>KBL</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-14T23:45:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1991366</closingTahMinutes>
+        <closingTac>17972</closingTac>
+        <closingSign>KBL</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-14T23:45:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-14T23:45:00.000Z</dateTime>
+        <releaseSign>KBL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="b31817a3-386c-11f1-9a9d-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-14T23:45:00.000Z</workStepDateTime>
+        <description>REF HIL 55676083
+RH RETRACT LT ASSY INOP</description>
+        <descriptionSign>KBL</descriptionSign>
+        <actions>
+          <action uuid="b319ec64-386c-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH RETRACT LAND LT ASSY REPLACED IAW AMM 33-42-02/201 R.89
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-04-14T23:45:00.000Z</performedDateTime>
+              <performedSign>KBL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="b31afdd5-386c-11f1-9a9d-005056b18588">
+                <position>RH</position>
+                <labelNumber>4096341</labelNumber>
+                <partOff>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>5749</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>5790</serialNumber>
+                </partOn>
+                <certificateNumber>PAV13508</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="b31cd296-386c-11f1-9a9d-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>KBL</userSign>
+                <startDateTime>2026-04-14T23:43:00.000Z</startDateTime>
+                <endDateTime>2026-04-15T01:43:00.000Z</endDateTime>
+                <duration>120</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="b31e5937-386c-11f1-9a9d-005056b18588">
+            <category>W</category>
+            <type>WO</type>
+            <reference>55676083</reference>
+            <typeDescription>Workorder</typeDescription>
+            <description>55676083</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

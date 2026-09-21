@@ -1,0 +1,130 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487209476</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:49.476Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0208c8d7-5a0d-11f0-bb09-005056b18588">
+    <workorderNumber>190584513</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00241</aircraftFullRegistration>
+        <aircraftRegistration>REG00241</aircraftRegistration>
+        <aircraftMsn>44760</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190584513</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-07-06Z</issueDate>
+        <issueSign>RCHB</issueSign>
+        <issueStation>TLS</issueStation>
+        <issueFltTo>TLS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-06T02:02:00.000Z</closingDateTime>
+        <closingStation>TLS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1496894</closingTahMinutes>
+        <closingTac>15644</closingTac>
+        <closingSign>RCHB</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2025-07-06T02:02:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2025-07-06T02:02:00.000Z</dateTime>
+        <releaseSign>RCHB</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="020a7688-5a0d-11f0-bb09-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-06T01:57:00.000Z</workStepDateTime>
+        <headline>TX FROM CLB - SIDEWALL LT AT 7DEF INOP</headline>
+        <description>TX FROM CLB - SIDEWALL LT AT 7DEF INOP</description>
+        <descriptionSign>RCHB</descriptionSign>
+        <actions>
+          <action uuid="020cc079-5a0d-11f0-bb09-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>SIDEWALL LT AT 6DEF CAUSING ISSUE AT 7DEF. 
+
+SIDEWALL LT BSI TYPE-C REPLACED IAW AMM 33-21-00-960-804 REV.86. OPS TEST OK</actionText>
+            <performedData>
+              <performedDateTime>2025-07-06T01:58:00.000Z</performedDateTime>
+              <performedSign>RCHB</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="020e471a-5a0d-11f0-bb09-005056b18588">
+                <position>6DEF</position>
+                <labelNumber>3890631</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>23636</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>16078</serialNumber>
+                </partOn>
+                <certificateNumber>148952</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="54856b70-5a0d-11f0-bb09-005056b18588">
+        <type>TQ</type>
+        <reference>89739</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 89739</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

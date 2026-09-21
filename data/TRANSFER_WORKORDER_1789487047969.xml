@@ -1,0 +1,218 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487047966</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:07.966Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="d8b43ea6-781a-11f1-b2b3-005056b18588">
+    <workorderNumber>106934128</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>G-REG00062</aircraftFullRegistration>
+        <aircraftRegistration>REG00062</aircraftRegistration>
+        <aircraftMsn>67128</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.106934128</barcode>
+      <ataChapter>34-00</ataChapter>
+      <issueData>
+        <issueDate>2026-06-30Z</issueDate>
+        <issueSign>FLNR</issueSign>
+        <issueStation>DUB</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-07-05T02:35:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>133988</closingTahMinutes>
+        <closingTac>1042</closingTac>
+        <closingSign>SAS</closingSign>
+      </closingData>
+      <certification>
+        <number>UK.145.00897</number>
+        <dateTime>2026-07-05T02:35:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>UK.145.00897</number>
+        <dateTime>2026-07-05T02:35:00.000Z</dateTime>
+        <releaseSign>SAS</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="d8b501f7-781a-11f1-b2b3-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-30T10:36:00.000Z</workStepDateTime>
+        <headline>***RIT W/O***</headline>
+        <description>TSRV AVO REPEAT FAIL OF F/O PITOT HEAT
+
+1. CARRY OUT ALL SAFETY PROTOCOLS AND GAIN ACCESS TO AIRCRAFT
+
+2. REPLACE FIRST OFFICER PITOT PROBE I.A.W AMM TASK 34-11-01/401
+
+3. RETURN AIRCRAFT TO SERVICEABLE STATUS</description>
+        <descriptionSign>FLNR</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="d8b96ec8-781a-11f1-b2b3-005056b18588">
+            <partNumber>0851HT1</partNumber>
+            <description>PITOT PROBE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="d8ba8039-781a-11f1-b2b3-005056b18588">
+            <partNumber>BMS5-95</partNumber>
+            <description>SEALANT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="d8baf56a-781a-11f1-b2b3-005056b18588">
+            <partNumber>M1</partNumber>
+            <description>BONDING METER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="d8bb91ab-781a-11f1-b2b3-005056b18588">
+            <partNumber>DPS1000</partNumber>
+            <description>PITOT STATIC TEST SET HIGH RANGE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="d8bc7c0c-781a-11f1-b2b3-005056b18588">
+            <partNumber>232N9003-1</partNumber>
+            <description>GASKET</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="d8bdb48d-781a-11f1-b2b3-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>1. CARRIED OUT ALL SAFETY PROTOCOLS AND GAINED ACCESS TO AIRCRAFT  
+
+2. REPLACED FIRST OFFICER PITOT PROBE I.A.W AMM TASK 34-11-01/401 REV 28
+
+LEAK TEST C/OUT IAW AMM 34-11-00-790-807 REV 28 SATIS. 
+
+3. RETURNED AIRCRAFT TO SERVICEABLE STATUS
+
+GASKET
+P/N: 232N9003-1
+B/N: 1513693
+
+DPS1000
+S/N: 01421
+
+GENERAL VERIFICATION CHECK C/OUT</actionText>
+            <performedData>
+              <performedDateTime>2026-07-05T02:35:00.000Z</performedDateTime>
+              <performedSign>LFHS</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="d8bf141e-781a-11f1-b2b3-005056b18588">
+                <position>F/O</position>
+                <labelNumber>4164915</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>426995</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>475811</serialNumber>
+                </partOn>
+                <certificateNumber>13757881</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="49bc179e-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>105905</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 105905</description>
+      </reference>
+    </references>
+    <remarks>IS-MATERIALS - IN STN STOCK WED 01/07 LIMA
+
+IS-MATERIALS - IN STN STOCK TUE 30/06 LIMA</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

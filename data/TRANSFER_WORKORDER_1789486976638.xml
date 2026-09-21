@@ -1,0 +1,133 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486976637</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:56.637Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="1f2cb47a-b11c-11f1-8509-005056b1ed97">
+    <workorderNumber>55536248</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00308</aircraftFullRegistration>
+        <aircraftRegistration>REG00308</aircraftRegistration>
+        <aircraftMsn>44754</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55536248</barcode>
+      <ataChapter>23-44</ataChapter>
+      <issueData>
+        <issueDate>2025-02-20Z</issueDate>
+        <issueSign>SAHB</issueSign>
+        <issueStation>BER</issueStation>
+        <issueFltTo>BER</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-20T23:30:00.000Z</closingDateTime>
+        <closingStation>BER</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1431026</closingTahMinutes>
+        <closingTac>14955</closingTac>
+        <closingSign>SAHB</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-20T23:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-20T23:30:00.000Z</dateTime>
+        <releaseSign>SAHB</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="1f31485b-b11c-11f1-8509-005056b1ed97">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-20T23:30:00.000Z</workStepDateTime>
+        <description>CREW REPORT, AFT ATT HANDSET COVER MISSING</description>
+        <descriptionSign>SAHB</descriptionSign>
+        <actions>
+          <action uuid="1f34559c-b11c-11f1-8509-005056b1ed97">
+            <actionType>Action</actionType>
+            <actionText>AFT ATT HANDSET REPLACED I.A.W. AMM:
+23-42-01/401 REV.85
+FUNCTION TEST SATIS.
+
+P/N: 285W0024-1M
+S/N OFF: F25144
+S/N ON: F52791</actionText>
+            <performedData>
+              <performedDateTime>2025-02-20T23:30:00.000Z</performedDateTime>
+              <performedSign>SAHB</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="1f362a5d-b11c-11f1-8509-005056b1ed97">
+                <position>AFT CAB</position>
+                <labelNumber>3788859</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F52408</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1M</partNumber>
+                  <serialNumber>F52791</serialNumber>
+                </partOn>
+                <certificateNumber>139072</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="1f38c26e-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>83716</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 83716</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

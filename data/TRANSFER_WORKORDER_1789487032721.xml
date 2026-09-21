@@ -1,0 +1,324 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487032720</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:52.720Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="9caa3efa-155d-11f0-bbbc-005056b18588">
+    <workorderNumber>102851821</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00568</aircraftFullRegistration>
+        <aircraftRegistration>REG00568</aircraftRegistration>
+        <aircraftMsn>37512</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.102851821</barcode>
+      <ataChapter>36-00</ataChapter>
+      <issueData>
+        <issueDate>2025-04-09Z</issueDate>
+        <issueSign>MMJ</issueSign>
+        <issueStation>WAMS</issueStation>
+        <issueFltTo>WAMS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-04-10T14:10:00.000Z</closingDateTime>
+        <closingStation>WAMS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2991109</closingTahMinutes>
+        <closingTac>28138</closingTac>
+        <closingSign>MSS</closingSign>
+      </closingData>
+      <certification>
+        <number>EASA.145.3122</number>
+        <dateTime>2025-04-10T14:10:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>EASA.145.3122</number>
+        <dateTime>2025-04-10T14:10:00.000Z</dateTime>
+        <releaseSign>MSS</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="9cb3189b-155d-11f0-bbbc-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-04-09T16:11:00.000Z</workStepDateTime>
+        <description>X REF WO 26121159 ENG#2 BLEED  VALVE NOT RESPONDING</description>
+        <descriptionSign>MMJ</descriptionSign>
+        <actions>
+          <action uuid="802e1ce1-155e-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>CARRIED OUT  T/S IAW FIM 36-10 TASK 802 REV.86 AND WDM 36-11-11-1 REV.126
+
+MEASURED THE VOLTAGE BETWEEN PINS 7-6 OF CONNECTOR DP1102 ON BAR ENG#2 WHEN BLEED SWITCH SET TO OFF - FOUND 25.7 VDC - SATIS
+
+MEASURED THE VOLTAGE BETWEEN PINS 7-6 OF CONNECTOR DP1102 ON BAR ENG#2 WHEN BLEED SWITCH SET TO ON - FOUND 0 VDC - SATIS
+
+MEASURED THE VOLTAGE BETWEEN PINS 5-6 OF CONNECTOR DP1102 ON BAR ENG#2 WHEN BLEED SWITCH SET TO OFF - FOUND 0 VDC - SATIS
+
+MEASURED THE VOLTAGE BETWEEN PINS 5-6 OF CONNECTOR DP1102 ON BAR ENG#2 WHEN BLEED SWITCH SET TO ON - FOUND 25.7 VDC - SATIS
+
+MEASURED THE RESISTANCE BETWEEN PINS 7-6 OF THE CONNECTOR ON THE BAR M1180  FOUND 39.8 OHM - SATIS
+
+MEASURED THE RESISTANCE BETWEEN PINS 5-6 OF THE CONNECTOR ON THE BAR M1180  FOUND 31.7 OHM - SATIS
+
+MEASURED CONN DP1102 PIN 6 TO GND FOUND 0.6 OHM - SATIS
+
+DURING MEASURMENTS MADE WIRE SHAKE TEST TO DETECT INTERMITTENT FAULTS - NO CHANGE OBSERVED
+
+USED:
+FLUKE111    SN: 90070435
+
+RECONNECTED CONNECTOR DP1102 AND TESTED ENG#2 BLEED AIR REGULATOR IAW BTC 26-110-00-01 PARA C (9-11) REV.85 - TEST SATIS
+
+FOR T/S CONTINUATION REF TO WORK STEP 2
+
+GENERAL VERIFICATION CHECK CARRIED OUT</actionText>
+            <performedData>
+              <performedDateTime>2025-04-09T16:17:00.000Z</performedDateTime>
+              <performedSign>MMJ</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+      <workStep uuid="336923c8-155f-11f0-bbbc-005056b18588">
+        <workStepSequenceNumber>2</workStepSequenceNumber>
+        <workStepDateTime>2025-04-09T16:24:00.000Z</workStepDateTime>
+        <description>X REF WORK STEP 1 CONTINUE T/S</description>
+        <descriptionSign>MMJ</descriptionSign>
+        <actions>
+          <action uuid="9b7bd499-1561-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>DUE TO BLEED VALVE NOT RESPONDING AND LOW RH DUCT PRESSURE TROUBLESHOOTING PERFORMED IAW FIM 36-10 TASK 810 REV. 86 UP TO AND INCLUDING PARA. F (2) ON ENGINE #2
+
+ENGINE BLEED AIR SYSTEM HEALTH CHECK PERFORMED IAW AMM 36-11-00-700-801 UP AND INCLUDING PARA. I (4) REV. 85
+
+FOLLOWING ITEMS FAILED HEALTH CHECK AND REQUIRE REPLACEMENT:
+- PCCV
+- HSV
+
+PARTS REQUIRED:
+PCCV P/N 3289562-6
+HSV P/N 3214446-4
+
+SEE WORKSTEP 3 FOR TASK CONTINUATION
+
+GENERAL VERIFICATION CHECK PERFORMED</actionText>
+            <performedData>
+              <performedDateTime>2025-04-09T16:39:00.000Z</performedDateTime>
+              <performedSign>TZG</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+      <workStep uuid="59a85dfa-1562-11f0-bbbc-005056b18588">
+        <workStepSequenceNumber>3</workStepSequenceNumber>
+        <workStepDateTime>2025-04-09T16:45:00.000Z</workStepDateTime>
+        <headline>WORKSTEP 3</headline>
+        <description>REPLACE PCCV IAW AMM 36-12-02-000-801 LATEST REV. AND IAW AMM 36-12-02-400-801 LATEST REV.
+
+REPLACE HIGH STAGE VALVE IAW AMM 36-11-06-000-801 LATEST REV. AND IAW AMM 36-11-06-400-801 LATEST REV.
+
+CONTINUE ENG #2 BLEED AIR SYSTEM HEALTH CHECK IAW AMM 36-11-00-700-801 PARA. I (5) ONWARDS LATEST REV.
+
+CONTINUE TROUBLESHOOTING IAW FIM 36-10 TASK 810 PARA. H (REPAIR CONFIRMATION) POST ENGINE BLEED SYSTEM HEALTH CHECK ACCOMPLISHMENT AND COMPONENTS REPLACEMENT.
+
+PARTS REQUIRED:
+PCCV P/N 3289562-6
+HSV P/N 3214446-4
+
+REF. TO W/O 26121159 FOR BLEED SYSTEM ORDERED PARTS
+
+CARRY OUT GENERAL VERIFICATION CHECK</description>
+        <descriptionSign>TZG</descriptionSign>
+        <actions>
+          <action uuid="e8c57b60-15dc-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>PCCV REPLACED AND TESTED IAW AMM 36-12-02-000-801 REV. 85 AND AMM 36-12-02-400-801 REV. 85 - SATIS
+
+HIGH STAGE VALVE REPLACED AND TESTED IAW AMM 36-11-06-000-801 REV. 85 AND AMM 36-11-06-400-801 REV. 85 -SATIS
+
+TROUBLESHOOTING CONTINUED  IAW FIM 36-10 TASK 810 PARA. H REV. 86 - HSR FAILED HEALTH CHECK AND REQUIRE REPLACEMENT.
+
+TOOL USED:
+TORQUE WRENCH P/N: 11123 S/N: 79107629542
+TEST EQUIP - ENGINE BLEED AIR SYSTEM P/N: C36001-64 S/N:M15491-111
+TORQUE WRENCH 20-100N P/N: 7465-100 S/N: 0823114272
+
+CONSUMABLES USED:
+NEVER SEEZ COMPOUND ANTISEIZE P/N: NSBT8N B/N: 878839
+
+GENERAL VERIFICATION CHECK PERFORMED
+
+SEE WORKSTEP 4 FOR TASK CONTINUATION</actionText>
+            <performedData>
+              <performedDateTime>2025-04-10T07:21:00.000Z</performedDateTime>
+              <performedSign>KNW</performedSign>
+            </performedData>
+            <inspection>
+              <headline>INITIAL INSPECTION</headline>
+              <inspectionText>INITIAL INSPECTION CARRIED OUT IAW PAML PROCEDURE NOTICE 2003-10 REV.35, TABLE 2, ITEM 15 FOR SATISFACTORY COMPLETION OF THE TASK AND THAT NO DEFICIENCIES HAVE BEEN FOUND.
+
+DATE: 10/APR/2025	TIME: 07:37 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-10T07:37:00.000Z</performedDateTime>
+                <performedSign>MSS</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <headline>INDEPENDENT INSPECTION</headline>
+              <inspectionText>INDEPENDENT INSPECTION CARRIED OUT IAW PAML PROCEDURE NOTICE 2003-10 REV.35, TABLE 2, ITEM 15 FOR SATISFACTORY COMPLETION OF THE TASK AND THAT NO DEFICIENCIES HAVE BEEN FOUND.
+
+DATE 10/APR/2025	TIME: 07:37 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-10T07:37:00.000Z</performedDateTime>
+                <performedSign>MCHW</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="81da19e3-15df-11f0-bbbc-005056b18588">
+                <position>#2</position>
+                <labelNumber>3818488</labelNumber>
+                <partOff>
+                  <partNumber>3214446-4</partNumber>
+                  <serialNumber>12299</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>3214446-4</partNumber>
+                  <serialNumber>12360</serialNumber>
+                </partOn>
+                <certificateNumber>352134343</certificateNumber>
+              </componentChange>
+              <componentChange uuid="488d5e8d-15df-11f0-bbbc-005056b18588">
+                <position>#2</position>
+                <labelNumber>3827950</labelNumber>
+                <partOff>
+                  <partNumber>63292146-1</partNumber>
+                  <serialNumber>7034</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>63292146-1</partNumber>
+                  <serialNumber>2489</serialNumber>
+                </partOn>
+                <certificateNumber>30898</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+      <workStep uuid="ac8fb4ac-15dd-11f0-bbbc-005056b18588">
+        <workStepSequenceNumber>4</workStepSequenceNumber>
+        <workStepDateTime>2025-04-10T07:29:00.000Z</workStepDateTime>
+        <description>REPLACE HSR IAW AMM 36-11-07-000-801 (LATEST REV.) AND AMM 34-11-07-400-801 (LATEST REV.)
+
+PARTS REQUIRED:
+HSR P/N: 107484-6
+
+CONTINUE TROUBLESHOOTING IAW FIM 36-10 TASK 810 PARA. H (REPAIR CONFIRMATION) POST ENGINE BLEED SYSTEM HEALTH CHECK ACCOMPLISHMENT AND COMPONENTS REPLACEMENT.
+
+CONDUCT GENERAL VERIFICATION CHECK</description>
+        <descriptionSign>MSS</descriptionSign>
+        <actions>
+          <action uuid="5929c7f0-1615-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>HSR REPLACED AND TESTED IAW AMM 36-11-07-00-801 REV. 85 AND AMM 34-11-07-400-801 REV. 85 - SATIS
+
+TOOL USED:
+TORQUE WRENCH P/N: 11123 S/N: 79107629542
+
+CONSUMABLES USED:
+NEVER SEEZ COMPOUND ANTISEIZE P/N: NSBT8N B/N: 878839
+
+TROUBLESHOOTING CONTINUED/PERFORMED IAW FIM 36-10 TASK 810 PARA. H.
+
+XREF TO W/O: 102871139, 26121164 FOR BAR REPLACEMENT
+
+REPAIR CONFIRMATION PERFORMED - SATIS
+
+GENERAL VERIFICATION CHECK PERFORMED</actionText>
+            <performedData>
+              <performedDateTime>2025-04-10T13:00:00.000Z</performedDateTime>
+              <performedSign>KNW</performedSign>
+            </performedData>
+            <inspection>
+              <headline>INITIAL INSPECTION</headline>
+              <inspectionText>INITIAL INSPECTION CARRIED OUT IAW PAML PROCEDURE NOTICE 2003-10 REV.35, TABLE 2, ITEM 15 FOR SATISFACTORY COMPLETION OF THE TASK AND THAT NO DEFICIENCIES HAVE BEEN FOUND. 
+DATE: 10/APR/2025    TIME: 13:12 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-10T13:12:00.000Z</performedDateTime>
+                <performedSign>MSS</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <headline>INDEPENDENT INSPECTION</headline>
+              <inspectionText>INDEPENDENT INSPECTION CARRIED OUT IAW PAML PROCEDURE NOTICE 2003-10 REV.35, TABLE 2, ITEM 15 FOR SATISFACTORY COMPLETION OF THE TASK AND THAT NO DEFICIENCIES HAVE BEEN FOUND. 
+
+DATE 10/APR/2025    TIME: 13:12 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-10T13:12:00.000Z</performedDateTime>
+                <performedSign>MCHW</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="d47ab0f4-1615-11f0-bbbc-005056b18588">
+                <position>#2</position>
+                <labelNumber>3806957</labelNumber>
+                <partOff>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>7304</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>17742</serialNumber>
+                </partOn>
+                <certificateNumber>352315015</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

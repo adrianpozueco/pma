@@ -1,0 +1,148 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486879379</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:19.379Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="5ea61a08-1a91-11f1-8fad-005056b18588">
+    <workorderNumber>42210305</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00106</aircraftFullRegistration>
+        <aircraftRegistration>REG00106</aircraftRegistration>
+        <aircraftMsn>67078</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42210305</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2026-03-08Z</issueDate>
+        <issueSign>BAHO</issueSign>
+        <issueStation>FMM</issueStation>
+        <issueFltTo>FMM</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-03-08T00:00:00.000Z</closingDateTime>
+        <closingStation>FMM</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>660838</closingTahMinutes>
+        <closingTac>5151</closingTac>
+        <closingSign>BAHO</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-08T00:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-08T00:00:00.000Z</dateTime>
+        <releaseSign>BAHO</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="5ea9ea99-1a91-11f1-8fad-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-03-08T00:00:00.000Z</workStepDateTime>
+        <description>REF HIL# 41859846
+AFT LH LAV FAUCET IS LEAKING</description>
+        <descriptionSign>BAHO</descriptionSign>
+        <actions>
+          <action uuid="5eac0d7a-1a91-11f1-8fad-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FAUCET AY REPLACED, SATIS IAW AMM 38-11-05-000-801 R27 AND AMM 38-11-05-400-801 R27.
+LEAK TEST C/O, SATIS. NO LEAK.
+ADJUSTMENT OF TIMER C/O, SATIS IAW AMM 38-11-05-820-801 R27.
+AFT LH LAV FAUCET SERVICEABLE.
+HIL CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2026-03-08T00:00:00.000Z</performedDateTime>
+              <performedSign>CTV</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="a07506a6-1a91-11f1-8fad-005056b18588">
+                <position>AFT LH</position>
+                <labelNumber>4069152</labelNumber>
+                <partOff>
+                  <partNumber>SC4L500301-5</partNumber>
+                  <serialNumber>11303952-008</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>SC4L500301-5</partNumber>
+                  <serialNumber>174737229-007</serialNumber>
+                </partOn>
+                <certificateNumber>E-6088568</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="5eafde0b-1a91-11f1-8fad-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>BAHO</userSign>
+                <startDateTime>2026-03-07T23:51:00.000Z</startDateTime>
+                <endDateTime>2026-03-08T01:51:00.000Z</endDateTime>
+                <duration>120</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="5eb13d9c-1a91-11f1-8fad-005056b18588">
+            <category>H</category>
+            <description>41859846</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="e54120c8-b11b-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>100193</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 100193</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

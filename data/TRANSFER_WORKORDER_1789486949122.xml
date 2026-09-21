@@ -1,0 +1,120 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486949120</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:29.120Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f26da689-0b99-11f1-b626-005056b18588">
+    <workorderNumber>55427741</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00485</aircraftFullRegistration>
+        <aircraftRegistration>REG00485</aircraftRegistration>
+        <aircraftMsn>62363</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55427741</barcode>
+      <ataChapter>25-32</ataChapter>
+      <issueData>
+        <issueDate>2026-02-17Z</issueDate>
+        <issueSign>CHRL</issueSign>
+        <issueStation>ATH</issueStation>
+        <issueFltTo>ATH</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-02-17T00:44:00.000Z</closingDateTime>
+        <closingStation>ATH</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>579488</closingTahMinutes>
+        <closingTac>4878</closingTac>
+        <closingSign>CHRL</closingSign>
+      </closingData>
+      <certification>
+        <number>EL.145.0060</number>
+        <dateTime>2026-02-17T00:44:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>EL.145.0060</number>
+        <dateTime>2026-02-17T00:44:00.000Z</dateTime>
+        <releaseSign>CHRL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f26f7b4a-0b99-11f1-b626-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-02-17T00:43:00.000Z</workStepDateTime>
+        <description>REF WO 55427736 " AFT OVEN INOP"</description>
+        <descriptionSign>CHRL</descriptionSign>
+        <actions>
+          <action uuid="f272d6ab-0b99-11f1-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT OVEN REPLACED IAW AMM 25-32-03/401 REV.27. HIL CLOSED. 
+EASA FORM 1: PAV10417</actionText>
+            <performedData>
+              <performedDateTime>2026-02-17T00:43:00.000Z</performedDateTime>
+              <performedSign>CHRL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="f274d27c-0b99-11f1-b626-005056b18588">
+                <position>GALLEY G4</position>
+                <labelNumber>3856956</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>22-02-0638</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>10-07-29039</serialNumber>
+                </partOn>
+                <certificateNumber>PAV10417</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

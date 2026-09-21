@@ -1,0 +1,148 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487117422</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:17.422Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="83f93de8-83a4-11f0-9490-005056b18588">
+    <workorderNumber>190290010</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00339</aircraftFullRegistration>
+        <aircraftRegistration>REG00339</aircraftRegistration>
+        <aircraftMsn>62336</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190290010</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-08-27Z</issueDate>
+        <issueSign>WKR</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-27T23:50:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>792421</closingTahMinutes>
+        <closingTac>6554</closingTac>
+        <closingSign>MZM1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-27T23:50:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-27T23:50:00.000Z</dateTime>
+        <releaseSign>MZM1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="83fa4f59-83a4-11f0-9490-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-27T23:50:00.000Z</workStepDateTime>
+        <description>REF HIL WO 190290006
+WINDOW LT AT ROW 6 ABC FLICKERING</description>
+        <descriptionSign>WKR</descriptionSign>
+        <actions>
+          <action uuid="83fc994a-83a4-11f0-9490-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LT AT ROW 6 ABC REPLACED
+IAW AMM 33-21-00-960-801 REV 25
+
+TEST SATIS
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-08-27T23:50:00.000Z</performedDateTime>
+              <performedSign>WKR</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="83fdf8db-83a4-11f0-9490-005056b18588">
+                <position>6 ABC</position>
+                <labelNumber>3926050</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>38792</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>66418</serialNumber>
+                </partOn>
+                <certificateNumber>20107173</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="83ffa68c-83a4-11f0-9490-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>WKR</userSign>
+                <startDateTime>2025-08-27T23:16:00.000Z</startDateTime>
+                <endDateTime>2025-08-28T00:16:00.000Z</endDateTime>
+                <duration>60</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="732103b2-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>91775</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 91775</description>
+      </reference>
+      <reference uuid="73234da3-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>91776</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 91776</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

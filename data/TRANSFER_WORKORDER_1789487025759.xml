@@ -1,0 +1,122 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487025758</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:45.758Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="cc9fbdf2-00b4-11f1-b626-005056b18588">
+    <workorderNumber>55727705</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00382</aircraftFullRegistration>
+        <aircraftRegistration>REG00382</aircraftRegistration>
+        <aircraftMsn>44774</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55727705</barcode>
+      <ataChapter>34-11</ataChapter>
+      <issueData>
+        <issueDate>2026-02-03Z</issueDate>
+        <issueSign>SAOR</issueSign>
+        <issueStation>RAK</issueStation>
+        <issueFltTo>RAK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-02-03T01:00:00.000Z</closingDateTime>
+        <closingStation>RAK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1629379</closingTahMinutes>
+        <closingTac>15570</closingTac>
+        <closingSign>SAOR</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-03T01:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-03T01:00:00.000Z</dateTime>
+        <releaseSign>SAOR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="cca0cf63-00b4-11f1-b626-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-02-03T00:00:00.000Z</workStepDateTime>
+        <description>REF TO W/O: 55727702
+AUX PITOT PROBE TO BE REPLACED</description>
+        <descriptionSign>SAOR</descriptionSign>
+        <actions>
+          <action uuid="cca36774-00b4-11f1-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AUX PITOT PROBE REPLAED IAW AMM : 34-11-01/401 REV:88
+
+ASSISTED BY : AKSS; YSSR ; YSS</actionText>
+            <performedData>
+              <performedDateTime>2026-02-03T01:00:00.000Z</performedDateTime>
+              <performedSign>SAOR</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="cca56345-00b4-11f1-b626-005056b18588">
+                <position>ALT</position>
+                <labelNumber>3964802</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>408979</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>474631</serialNumber>
+                </partOn>
+                <certificateNumber>40839384</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

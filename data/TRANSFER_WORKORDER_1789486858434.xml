@@ -1,0 +1,126 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486858433</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:58.432Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="ad75c315-8c55-11f0-9490-005056b18588">
+    <workorderNumber>42021777</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00242</aircraftFullRegistration>
+        <aircraftRegistration>REG00242</aircraftRegistration>
+        <aircraftMsn>44782</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42021777</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-09-08Z</issueDate>
+        <issueSign>RJRL</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-09-08T01:46:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1420983</closingTahMinutes>
+        <closingTac>14976</closingTac>
+        <closingSign>PLH</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-08T01:46:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-08T01:46:00.000Z</dateTime>
+        <releaseSign>PLH</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="ad76d486-8c55-11f0-9490-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-09-08T01:44:00.000Z</workStepDateTime>
+        <description>REF HIL 42021774
+
+FWD OVEN INOP</description>
+        <descriptionSign>RJRL</descriptionSign>
+        <actions>
+          <action uuid="ad794587-8c55-11f0-9490-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD OVEN REPLACED
+
+IAW CMM 25-37-26
+REV. 0
+
+* HIL NOW CLOSED *</actionText>
+            <performedData>
+              <performedDateTime>2025-09-08T01:44:00.000Z</performedDateTime>
+              <performedSign>RJRL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="ad7af338-8c55-11f0-9490-005056b18588">
+                <position>FWDGALLY</position>
+                <labelNumber>3932221</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>04-02-19748</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>17-11-39510</serialNumber>
+                </partOn>
+                <certificateNumber>PAV11150</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

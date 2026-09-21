@@ -1,0 +1,157 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487013528</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:33.527Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="42c544b7-4c13-11f1-afd7-005056b18588">
+    <workorderNumber>55682946</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00323</aircraftFullRegistration>
+        <aircraftRegistration>REG00323</aircraftRegistration>
+        <aircraftMsn>44840</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.55682946</barcode>
+      <externalWorkorderNumber>55682946</externalWorkorderNumber>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-05-09Z</issueDate>
+        <issueSign>NKKV</issueSign>
+        <issueStation>WMI</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-09T23:30:00.000Z</closingDateTime>
+        <closingStation>WMI</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1470320</closingTahMinutes>
+        <closingTac>12848</closingTac>
+        <closingSign>NKKV</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-09T23:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-09T23:30:00.000Z</dateTime>
+        <releaseSign>NKKV</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="42c6f268-4c13-11f1-afd7-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-09T23:30:00.000Z</workStepDateTime>
+        <headline>WO 55682925</headline>
+        <description>WINDOW LT IN ROW 7DEF WORKS PARTIALLY</description>
+        <descriptionSign>NKKV</descriptionSign>
+        <actions>
+          <action uuid="42d01a29-4c13-11f1-afd7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ASSY HAS BEEN REPLACED IAW AMM 33-21-00-960-804 REV 89. TEST SATIS. HIL ITEM IS CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2026-05-09T23:30:00.000Z</performedDateTime>
+              <performedSign>NKKV</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="42d2b23a-4c13-11f1-afd7-005056b18588">
+                <position>7 DEF</position>
+                <labelNumber>4121843</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>53959</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>41269</serialNumber>
+                </partOn>
+                <certificateNumber>170256</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="42d76d2b-4c13-11f1-afd7-005056b18588">
+            <type>WO</type>
+            <reference>55682925</reference>
+            <typeDescription>Workorder</typeDescription>
+            <description>55682925</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

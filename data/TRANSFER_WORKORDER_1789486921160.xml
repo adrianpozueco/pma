@@ -1,0 +1,123 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486921159</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:01.159Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="52003476-11a0-11f0-b322-005056b18588">
+    <workorderNumber>55309295</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00471</aircraftFullRegistration>
+        <aircraftRegistration>REG00471</aircraftRegistration>
+        <aircraftMsn>62301</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55309295</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-04-04Z</issueDate>
+        <issueSign>CAZO1</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-04-04T22:01:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>864818</closingTahMinutes>
+        <closingTac>6517</closingTac>
+        <closingSign>CAZO1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-04T22:01:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-04T22:01:00.000Z</dateTime>
+        <releaseSign>CAZO1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="5206c427-11a0-11f0-b322-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-04-04T21:59:00.000Z</workStepDateTime>
+        <description>REF HIL: 55309289, 55309290 &amp; 55309292
+
+RH LTRTL POWER SUPPLY TO BE REPLACED</description>
+        <descriptionSign>CAZO1</descriptionSign>
+        <actions>
+          <action uuid="52095c38-11a0-11f0-b322-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH LTRTL POWER SUPPLY REPLACED IAW AMM 33-42-21/201 REV 23
+
+**HIL`S CLOSED**</actionText>
+            <performedData>
+              <performedDateTime>2025-04-04T22:00:00.000Z</performedDateTime>
+              <performedSign>CAZO1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="520b5809-11a0-11f0-b322-005056b18588">
+                <position>RH</position>
+                <labelNumber>3809695</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>5550</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>5226</serialNumber>
+                </partOn>
+                <certificateNumber>352438505</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

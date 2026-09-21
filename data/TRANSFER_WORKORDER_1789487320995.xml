@@ -1,0 +1,140 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487320994</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:40.994Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="6d6bfb97-4590-4365-8474-bdd4ef597a31">
+    <workorderNumber>980008579</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>G-REG00015</aircraftFullRegistration>
+        <aircraftRegistration>REG00015</aircraftRegistration>
+        <aircraftMsn>44690</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.980008579</barcode>
+      <externalWorkorderNumber>ELB1821112-76123759-0</externalWorkorderNumber>
+      <ataChapter>26-16</ataChapter>
+      <issueData>
+        <issueDateTime>2026-05-31T00:00:00.000Z</issueDateTime>
+        <issueSign>RORI1</issueSign>
+        <issueStation>STN</issueStation>
+        <issueLeg>LEG_ANON</issueLeg>
+        <issueTahHours>37314</issueTahHours>
+        <issueTac>16639</issueTac>
+        <issueFltFrom>AGA</issueFltFrom>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-31T01:35:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2238869</closingTahMinutes>
+        <closingTac>16639</closingTac>
+        <closingSign>RORI1</closingSign>
+      </closingData>
+      <certification>
+        <number>UK.145.00897</number>
+        <dateTime>2026-05-31T01:35:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>UK.145.00897</number>
+        <dateTime>2026-05-31T01:35:00.000Z</dateTime>
+        <releaseSign>RORI1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="3aaacac1-67fa-4672-af92-47a5f54c11e4">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-31T01:26:00.000Z</workStepDateTime>
+        <description>THIS WORKORDER CLOSES ELB1821112-76002420-0</description>
+        <descriptionSign>RORI1</descriptionSign>
+        <actions>
+          <action uuid="bdc28968-0953-4145-8db2-0b5e1d586c6e">
+            <actionType>Action</actionType>
+            <actionText>AFT CARGO LOOP B 3 SMOKE DETECTOR REPLACED AND OP CHECKED STATIS IAW AMM 26-16-01/401 REV 89
+HIL NOW CLOSED
+GENERAL VERIFICATION CHECK CARRIED OUT.         UK14500897</actionText>
+            <performedData>
+              <performedDateTime>2026-05-31T01:29:00.000Z</performedDateTime>
+              <performedSign>RORI1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="a8a5fdb6-5c91-11f1-8538-005056b18588">
+                <position>AFT</position>
+                <labelNumber>4123782</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>66421</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>39196</serialNumber>
+                </partOn>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="49e6a053-6fbb-49e5-a833-235741d79228">
+        <category>PDF_L</category>
+        <reference>web://eTechLog/PDFs/WO/wo_ELB1821112-76123759-0_0B07B642-03AA-4F7F-BBA0-411A315449CD_31-05-2026_01.39.10.pdf</reference>
+        <typeDescription>Web-Drive</typeDescription>
+        <description>wo_ELB1821112-76123759-0_0B07B642-03AA-4F7F-BBA0-411A315449CD_31-05-2026_01.39.10.pdf</description>
+      </reference>
+      <reference uuid="0078d6af-f93a-438d-ab1a-8f974d7ba56c">
+        <category>ROC_ID_O</category>
+        <description>19015399</description>
+      </reference>
+      <reference uuid="3d648146-2c10-438c-b643-b39c382067c5">
+        <category>WO</category>
+        <description>ELB1821112-76002420-0</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

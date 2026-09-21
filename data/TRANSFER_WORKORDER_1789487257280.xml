@@ -1,0 +1,146 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487257280</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:37.279Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="79d8def3-8a3d-11f1-9888-005056b18588">
+    <workorderNumber>190905930</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00085</aircraftFullRegistration>
+        <aircraftRegistration>REG00085</aircraftRegistration>
+        <aircraftMsn>33599</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190905930</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDate>2026-07-28Z</issueDate>
+        <issueSign>JAGNU</issueSign>
+        <issueStation>TTU</issueStation>
+        <issueFltTo>TTU</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-07-28T03:00:00.000Z</closingDateTime>
+        <closingStation>TTU</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3758927</closingTahMinutes>
+        <closingTac>36826</closingTac>
+        <closingSign>JAGNU</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-07-28T03:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-07-28T03:00:00.000Z</dateTime>
+        <releaseSign>JAGNU</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="79d9f064-8a3d-11f1-9888-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-07-28T02:50:00.000Z</workStepDateTime>
+        <description>REF W/O 190905929 POST BLADE #3 REPLACED 
+PAIR BLADE NEED TO BE REPLACED</description>
+        <descriptionSign>JAGNU</descriptionSign>
+        <actions>
+          <action uuid="79dc6165-8a3d-11f1-9888-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>BLADE #15 REPLACED IW AMM 72-21-02-000-802-F00 R90
+ITEM 95,178,179 ON RA805 UPDATED
+INDEP INSP C/O IAW DAC CAME APP"A" ISS 5 REV 21 AND SEAS PN 01/18 R10 FOR W/O 190905927,190905928,190905929,190905930.
+IDLE POWER RUN C/O IAW AMM 71-00-00-700-801-F00 REV 90 SATIS
+FOB: #1:3810KG CTR:1410KG #2:3870
+ALSO PERFORMED BY FDN</actionText>
+            <performedData>
+              <performedDateTime>2026-07-28T02:50:00.000Z</performedDateTime>
+              <performedSign>JAGNU</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INSP C/O IAW DAC CAME APP"A" ISS 5 REV 21 AND SEAS PN 01/18 R10</inspectionText>
+              <performedData>
+                <performedDateTime>2026-07-28T03:00:00.000Z</performedDateTime>
+                <performedSign>JAGNU</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INSP C/O IAW DAC CAME APP"A" ISS 5 REV 21 AND SEAS PN 01/18 R10</inspectionText>
+              <performedData>
+                <performedDateTime>2026-07-28T03:00:00.000Z</performedDateTime>
+                <performedSign>JALE3</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="79de3626-8a3d-11f1-9888-005056b18588">
+                <position>#2</position>
+                <labelNumber>4190889</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DE804470</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM130751</serialNumber>
+                </partOn>
+                <certificateNumber>R26060518001</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="c67ff0e0-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>106729</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 106729</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

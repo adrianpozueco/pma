@@ -1,0 +1,164 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486843840</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:43.840Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="c8216bb8-a423-11f1-ab51-005056b18588">
+    <workorderNumber>41595035</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00585</aircraftFullRegistration>
+        <aircraftRegistration>REG00585</aircraftRegistration>
+        <aircraftMsn>35020</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.41595035</barcode>
+      <ataChapter>26-16</ataChapter>
+      <issueData>
+        <issueDate>2026-08-30Z</issueDate>
+        <issueSign>MZMZ</issueSign>
+        <issueStation>KTW</issueStation>
+        <issueFltTo>KTW</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-08-30T03:00:00.000Z</closingDateTime>
+        <closingStation>KTW</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3223060</closingTahMinutes>
+        <closingTac>27551</closingTac>
+        <closingSign>MZMZ</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-30T03:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-30T03:00:00.000Z</dateTime>
+        <releaseSign>MZMZ</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c8222f09-a423-11f1-ab51-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-08-30T03:00:00.000Z</workStepDateTime>
+        <description>REF TO HIL 41595001
+AFT CARGO SMOKE DETECTION  LOOP A INOP</description>
+        <descriptionSign>MZMZ</descriptionSign>
+        <actions>
+          <action uuid="c824a00a-a423-11f1-ab51-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>TWO SMOKE DETECTORS REPLACED AT POSITION A1 AND A2  IAW AMM 26-16-01/401 REV 90 
+SATIS - HIL CLEARED</actionText>
+            <performedData>
+              <performedDateTime>2026-08-30T03:00:00.000Z</performedDateTime>
+              <performedSign>MZMZ</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="c82626ab-a423-11f1-ab51-005056b18588">
+                <position>AFT</position>
+                <labelNumber>4225772</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>44257</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>49011</serialNumber>
+                </partOn>
+                <certificateNumber>14029026</certificateNumber>
+              </componentChange>
+              <componentChange uuid="c8275f2c-a423-11f1-ab51-005056b18588">
+                <position>AFT</position>
+                <labelNumber>4225769</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>44414</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJB0790</serialNumber>
+                </partOn>
+                <certificateNumber>14028720</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,122 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486902186</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:42.186Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7e6e4a9d-e354-11ef-be60-005056b18588">
+    <workorderNumber>55181072</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00118</aircraftFullRegistration>
+        <aircraftRegistration>REG00118</aircraftRegistration>
+        <aircraftMsn>35032</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55181072</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2025-02-04Z</issueDate>
+        <issueSign>DHL</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-04T05:00:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2801337</closingTahMinutes>
+        <closingTac>24134</closingTac>
+        <closingSign>DHL</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-04T05:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-04T05:00:00.000Z</dateTime>
+        <releaseSign>DHL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7e6f831e-e354-11ef-be60-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-04T05:00:00.000Z</workStepDateTime>
+        <description>LAV E FLUSHING FOUND INOP</description>
+        <descriptionSign>DHL</descriptionSign>
+        <actions>
+          <action uuid="7e71a5ff-e354-11ef-be60-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FLUSH VALVE FOUND INOP, THEN FLUSH CONTROL ASSY ASWELL IAW FIM 38-30 TASK 820 REV 85
+TOILET ASSY CHANGED IAW AMM 38-32-01-000-805-001 REV 85 AND 38-32-01-400-805-001 REV 85, SATIS
+
+JOB DONE ALSO BY RIAM FOR OJT</actionText>
+            <performedData>
+              <performedDateTime>2025-02-04T05:00:00.000Z</performedDateTime>
+              <performedSign>DHL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="7e732ca0-e354-11ef-be60-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>3776860</labelNumber>
+                <partOff>
+                  <partNumber>15800-029-3</partNumber>
+                  <serialNumber>7259</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>15800-029-3</partNumber>
+                  <serialNumber>4101</serialNumber>
+                </partOn>
+                <certificateNumber>1087402</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

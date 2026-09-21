@@ -1,0 +1,139 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487322527</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:42.526Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="83edbb97-bf12-46dc-9a59-40782cb3dd38">
+    <workorderNumber>980010977</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>G-REG00204</aircraftFullRegistration>
+        <aircraftRegistration>REG00204</aircraftRegistration>
+        <aircraftMsn>33587</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.980010977</barcode>
+      <externalWorkorderNumber>ELB1821119-79154307-0</externalWorkorderNumber>
+      <ataChapter>23-42</ataChapter>
+      <issueData>
+        <issueDateTime>2026-07-05T00:00:00.000Z</issueDateTime>
+        <issueSign>EDMR</issueSign>
+        <issueStation>STN</issueStation>
+        <issueLeg>LEG_ANON</issueLeg>
+        <issueFltFrom>RAK</issueFltFrom>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-07-05T03:21:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3814131</closingTahMinutes>
+        <closingTac>38034</closingTac>
+        <closingSign>EDMR</closingSign>
+      </closingData>
+      <certification>
+        <number>UK.145.00897</number>
+        <dateTime>2026-07-05T03:21:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>UK.145.00897</number>
+        <dateTime>2026-07-05T03:21:00.000Z</dateTime>
+        <releaseSign>EDMR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c7420200-0def-4f58-8291-02824592f3c7">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-07-05T03:17:00.000Z</workStepDateTime>
+        <description>THIS WORKORDER CLOSES ELB1821119-79031759-0</description>
+        <descriptionSign>EDMR</descriptionSign>
+        <actions>
+          <action uuid="20b7ec7c-4dba-4442-9e5c-9b6d283cda1b">
+            <actionType>Action</actionType>
+            <actionText>AFT ATTENDENTS HANDSET REPLACED TESTED SATIS IAW AMM 23-42-01 REV 90
+
+HIL NOW CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-07-05T03:18:00.000Z</performedDateTime>
+              <performedSign>EDMR</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="db07209f-7820-11f1-b2b3-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>4179139</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F27393</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-23M</partNumber>
+                  <serialNumber>F60020</serialNumber>
+                </partOn>
+                <certificateNumber>ARC174558</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="97c93a71-d5d1-4016-b518-a9926eba4e7d">
+        <category>PDF_L</category>
+        <reference>web://eTechLog/PDFs/WO/wo_ELB1821119-79154307-0_91FB07D8-C2EE-48B1-9C61-1A4D3286D138_05-07-2026_03.21.32.pdf</reference>
+        <typeDescription>Web-Drive</typeDescription>
+        <description>wo_ELB1821119-79154307-0_91FB07D8-C2EE-48B1-9C61-1A4D3286D138_05-07-2026_03.21.32.pdf</description>
+      </reference>
+      <reference uuid="5cb085e6-73b0-464b-9a83-689064dd7161">
+        <category>ROC_ID_O</category>
+        <description>RK7871-G-RUKI-04/07/2026-RAK-STN</description>
+      </reference>
+      <reference uuid="0a48fc5c-f05e-4f64-bb85-20e08f3c1b7a">
+        <category>WO</category>
+        <description>ELB1821119-79031759-0</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

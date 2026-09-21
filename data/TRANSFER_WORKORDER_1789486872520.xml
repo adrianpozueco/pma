@@ -1,0 +1,131 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486872519</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:12.519Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="e11b92cc-b11b-11f1-8509-005056b1ed97">
+    <workorderNumber>42155930</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00325</aircraftFullRegistration>
+        <aircraftRegistration>REG00325</aircraftRegistration>
+        <aircraftMsn>62362</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42155930</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-02-18Z</issueDate>
+        <issueSign>BIA</issueSign>
+        <issueStation>CIA</issueStation>
+        <issueFltTo>CIA</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-18T23:30:00.000Z</closingDateTime>
+        <closingStation>CIA</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>381921</closingTahMinutes>
+        <closingTac>2949</closingTac>
+        <closingSign>BIA</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-18T23:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-18T23:30:00.000Z</dateTime>
+        <releaseSign>BIA</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="e11fd88d-b11b-11f1-8509-005056b1ed97">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-18T23:30:00.000Z</workStepDateTime>
+        <description>DURING RAMP 1 FOUND LAMP 15-16 DEF FLICKERING</description>
+        <descriptionSign>BIA</descriptionSign>
+        <actions>
+          <action uuid="e1235afe-b11b-11f1-8509-005056b1ed97">
+            <actionType>Action</actionType>
+            <actionText>LED ASSY POS 15-16 DEF REPLACED IAW AMM 33-21-00-960-801 REV 23 SATIS 
+
+WORK ALSO PERFORMED BY:
+ MARCO DI PAOLA ( AMOS ID MDPA)
+MICHELANGELO MIANO ( AMOS ID MIKM)</actionText>
+            <performedData>
+              <performedDateTime>2025-02-18T23:30:00.000Z</performedDateTime>
+              <performedSign>BIA</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="e125cbff-b11b-11f1-8509-005056b1ed97">
+                <position>16 RH</position>
+                <labelNumber>3767050</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>61612</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>16754</serialNumber>
+                </partOn>
+                <certificateNumber>ARC137342</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="e1294e70-b11b-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>83633</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 83633</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

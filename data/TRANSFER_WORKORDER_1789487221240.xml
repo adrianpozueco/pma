@@ -1,0 +1,118 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487221239</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:01.239Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f31f1787-02f5-11f1-b626-005056b18588">
+    <workorderNumber>190620935</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00142</aircraftFullRegistration>
+        <aircraftRegistration>REG00142</aircraftRegistration>
+        <aircraftMsn>44737</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190620935</barcode>
+      <ataChapter>33-20</ataChapter>
+      <issueData>
+        <issueDate>2026-02-05Z</issueDate>
+        <issueSign>NKKV</issueSign>
+        <issueStation>WMI</issueStation>
+        <issueFltTo>WMI</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-02-05T23:59:00.000Z</closingDateTime>
+        <closingStation>WMI</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1728726</closingTahMinutes>
+        <closingTac>18144</closingTac>
+        <closingSign>NKKV</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-05T23:59:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-05T23:59:00.000Z</dateTime>
+        <releaseSign>NKKV</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f32028f8-02f5-11f1-b626-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-02-05T23:59:00.000Z</workStepDateTime>
+        <description>WINDOW LIGHT ROW 9ABC INOP</description>
+        <descriptionSign>NKKV</descriptionSign>
+        <actions>
+          <action uuid="1d3ad0fa-02f6-11f1-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>BSI WINDOW LIGHT ASSY HAS BEN REPLACED IAW AMM 33-21-00/201 REV 88. TEST PASS.</actionText>
+            <performedData>
+              <performedDateTime>2026-02-05T23:59:00.000Z</performedDateTime>
+              <performedSign>NKKV</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="6019f410-02f6-11f1-b626-005056b18588">
+                <position>9ABC</position>
+                <labelNumber>3986345</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0003</partNumber>
+                  <serialNumber>10537</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0003</partNumber>
+                  <serialNumber>6841</serialNumber>
+                </partOn>
+                <certificateNumber>158236</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

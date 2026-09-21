@@ -1,0 +1,220 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487042295</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:02.295Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="38d7ec63-dced-11f0-8331-005056b18588">
+    <workorderNumber>105317951</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00100</aircraftFullRegistration>
+        <aircraftRegistration>REG00100</aircraftRegistration>
+        <aircraftMsn>44745</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.105317951</barcode>
+      <ataChapter>38-32</ataChapter>
+      <issueData>
+        <issueDateTime>2025-12-19T15:13:00.000Z</issueDateTime>
+        <issueSign>VVJ</issueSign>
+        <issueStation>DUB</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-12-23T03:00:00.000Z</closingDateTime>
+        <closingStation>KUN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1704249</closingTahMinutes>
+        <closingTac>17352</closingTac>
+        <closingSign>NIP</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-23T03:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-23T03:00:00.000Z</dateTime>
+        <releaseSign>NIP</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="38dc0b14-dced-11f0-8331-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-19T15:13:00.000Z</workStepDateTime>
+        <headline>REPEAT ITEM TRACKING</headline>
+        <description>BACKGROUND:
+ Multiple reports of a blocked RH aft (lav. E) toilet or that does not flush or does not stop to flush.
+ 
+ ACTION:
+ 1. Obey safety precautions and get access to the aircraft.
+  
+ 2. Do the fault isolation for the RH aft (lav. E) toilet that is blocked or does not flush. Refer to FIM 38-30 TASK 820.
+  
+ 3. Replace the flush valve of the RH aft (lav. E) toilet. Refer to AMM 38-32-01-000-808-001 and 38-32-01-400-808-001.
+ NOTE 
+ 
+ 
+ Be careful when you tighten the nuts that attach the flush valve with the flange on the toilet elbow and support bracket.
+ This step complies with TT 38-007.
+ 
+ 
+  
+ 4. Record all findings in this workorder.
+  
+ 5. Return the aircraft to service with all findings from this workorder documented and closed either through positive maintenance action or an acceptable deferral.</description>
+        <descriptionSign>VVJ</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="38de06e5-dced-11f0-8331-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>45</totalHours>
+              <quantity>1.0</quantity>
+              <duration>45</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="38df8d86-dced-11f0-8331-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <requiredParts>
+          <partRequest uuid="38e49697-dced-11f0-8331-005056b18588">
+            <partNumber>14330-230</partNumber>
+            <description>FLUSH VALVE ASSY</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="38e5cf18-dced-11f0-8331-005056b18588">
+            <partNumber>2-135N506-65</partNumber>
+            <description>PACKING</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="38e6e089-dced-11f0-8331-005056b18588">
+            <partNumber>MS29513-226</partNumber>
+            <description>PACKING</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="8d3de96d-dced-11f0-8331-005056b18588">
+            <partNumber>15800-246</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="0ce38b67-dfbc-11f0-8331-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>TROUBLESHOOTING C/O IAW FIM 38-30 TASK 820 REV.88
+ 
+AFT RH TOILET FLUSH VALVE REPALCED IAW AMM 38-32-01-000-808-001 AND 38-32-01-400-808-001 REV.88 AND TT 38-007
+ 
+OLD VALVE HAD A LOT OF DRIED DIRT ON BOTH SIDES OF THE GUILLOTINE</actionText>
+            <performedData>
+              <performedDateTime>2025-12-23T03:00:00.000Z</performedDateTime>
+              <performedSign>BMAD</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="0ce4c3e8-dfbc-11f0-8331-005056b18588">
+                <position>LAV E</position>
+                <labelNumber>3995929</labelNumber>
+                <partOff>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>37928</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>21283</serialNumber>
+                </partOn>
+                <certificateNumber>0501</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS - T45667525 AGP-KAMS MON 22-12 QUF</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

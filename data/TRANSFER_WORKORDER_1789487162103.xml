@@ -1,0 +1,142 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487162102</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:02.102Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7746f2a3-b19f-11f0-a240-005056b18588">
+    <workorderNumber>190451336</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00184</aircraftFullRegistration>
+        <aircraftRegistration>REG00184</aircraftRegistration>
+        <aircraftMsn>65883</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190451336</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-10-25Z</issueDate>
+        <issueSign>BAYR</issueSign>
+        <issueStation>MAN</issueStation>
+        <issueFltTo>MAN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-10-27T04:49:00.000Z</closingDateTime>
+        <closingStation>MAN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>854944</closingTahMinutes>
+        <closingTac>7729</closingTac>
+        <closingSign>MEGD</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-27T04:49:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-27T04:49:00.000Z</dateTime>
+        <releaseSign>MEGD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7748a054-b19f-11f0-a240-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-10-25T12:34:00.000Z</workStepDateTime>
+        <headline>**HIL**MAN**25/10/25** FWD OVEN INOP</headline>
+        <description>FWD OVEN TOO HOT AND THE CYCLE LIGHT/OVEN STAYS ON FOR A FEW MINUTES AFTER SWITCHING IT OFF</description>
+        <descriptionSign>BAYR</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="fd9f01ed-b1a2-11f0-a240-005056b18588">
+            <partNumber>8201-11-0000-01</partNumber>
+            <description>OVEN - BRITAX SELL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="774ac335-b19f-11f0-a240-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>A/C DISPATCHED IAW MEL PREAMBLE AS A PCI REV:3A
+
+TX TO HIL LIST</actionText>
+            <performedData>
+              <performedDateTime>2025-10-25T12:36:00.000Z</performedDateTime>
+              <performedSign>BAYR</performedSign>
+            </performedData>
+          </action>
+          <action uuid="4c00ef27-b2f0-11f0-a240-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REF TLP: 190451340		
+FWD GALLEY OVEN REPLACED IAW AMM 25-32-03/401 REV: 25
+OPR TEST SATIS</actionText>
+            <performedData>
+              <performedDateTime>2025-10-27T04:47:00.000Z</performedDateTime>
+              <performedSign>MEGD</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="4c02eaf8-b2f0-11f0-a240-005056b18588">
+                <position>FWD GALLEY</position>
+                <labelNumber>3819135</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>09-04-26804</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>09-12-27995</serialNumber>
+                </partOn>
+                <certificateNumber>KAV0125048</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>IS-MATERIALS - IN MAN STOCK SAT 25/10 LIMA</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

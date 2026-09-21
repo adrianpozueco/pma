@@ -1,0 +1,132 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487100468</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:00.468Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="696488be-4119-11f1-a458-005056b18588">
+    <workorderNumber>190224420</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00418</aircraftFullRegistration>
+        <aircraftRegistration>REG00418</aircraftRegistration>
+        <aircraftMsn>40304</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190224420</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-04-26Z</issueDate>
+        <issueSign>BMB</issueSign>
+        <issueStation>RAK</issueStation>
+        <issueFltTo>RAK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-26T02:52:00.000Z</closingDateTime>
+        <closingStation>RAK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2815013</closingTahMinutes>
+        <closingTac>23871</closingTac>
+        <closingSign>BMB</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-26T02:52:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-26T02:52:00.000Z</dateTime>
+        <releaseSign>BMB</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="6965731f-4119-11f1-a458-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-26T02:38:00.000Z</workStepDateTime>
+        <description>REF TO HIL : 190224407
+
+RH RETRACTABLE LANDING LIGHT INOP</description>
+        <descriptionSign>BMB</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="ee52aeef-4119-11f1-a458-005056b18588">
+            <partNumber>PR1440B1-2</partNumber>
+            <description>SEALANT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="6967e420-4119-11f1-a458-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH RETRACTABLE LANDING LIGHT ASSEMBLY REPLACED AND TESTED SATIS IAW : AMM : 33-42-02-960-802 REV : 89 .
+
+* HIL CLOSED *</actionText>
+            <performedData>
+              <performedDateTime>2026-04-26T02:39:00.000Z</performedDateTime>
+              <performedSign>RRQ</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="69696ac1-4119-11f1-a458-005056b18588">
+                <position>RH</position>
+                <labelNumber>4112750</labelNumber>
+                <partOff>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>4703</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>5917</serialNumber>
+                </partOn>
+                <certificateNumber>PAV13655</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

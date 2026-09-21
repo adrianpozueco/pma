@@ -1,0 +1,140 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486982977</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:02.977Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="60c02273-784b-11f0-9490-005056b18588">
+    <workorderNumber>55562073</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00051</aircraftFullRegistration>
+        <aircraftRegistration>REG00051</aircraftRegistration>
+        <aircraftMsn>44744</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55562073</barcode>
+      <ataChapter>26-00</ataChapter>
+      <issueData>
+        <issueDate>2025-08-13Z</issueDate>
+        <issueSign>HPU</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-13T13:44:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1626876</closingTahMinutes>
+        <closingTac>16897</closingTac>
+        <closingSign>SDTP</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-13T13:44:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-13T13:44:00.000Z</dateTime>
+        <releaseSign>SDTP</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="60c133e4-784b-11f0-9490-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-13T13:38:00.000Z</workStepDateTime>
+        <description>FWD DETECTOR CARGO INOP</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="60c32fb5-784b-11f0-9490-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD CARGO FIRE DETECTOR BITE C.O IAW FIM 26-16 TASK 801 REV 87
+
+FOUND A1 AND A2 WITH B1 AND B2 SLOW TO RESPOND TO BITE.
+
+A1 AND A2 SMOKE DETECTORS REPLACED IAW AMM 26-16-01/401 REV 86
+
+OPS TEST SATIS 
+
+ASSISTED BY ASW, LDJ, IFV, LRI</actionText>
+            <performedData>
+              <performedDateTime>2025-08-13T13:38:00.000Z</performedDateTime>
+              <performedSign>HPU</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="60c4dd66-784b-11f0-9490-005056b18588">
+                <position>FWD</position>
+                <labelNumber>3920831</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJA5174</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>36831</serialNumber>
+                </partOn>
+                <certificateNumber>63485</certificateNumber>
+              </componentChange>
+              <componentChange uuid="60c63cf7-784b-11f0-9490-005056b18588">
+                <position>FWD</position>
+                <labelNumber>3921471</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJA5699</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>40765</serialNumber>
+                </partOn>
+                <certificateNumber>63500</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

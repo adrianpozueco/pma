@@ -1,0 +1,131 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486963769</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:43.769Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0af19af8-5625-11f0-bb09-005056b18588">
+    <workorderNumber>55478736</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00133</aircraftFullRegistration>
+        <aircraftRegistration>REG00133</aircraftRegistration>
+        <aircraftMsn>62337</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55478736</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-07-01Z</issueDate>
+        <issueSign>BPZ</issueSign>
+        <issueStation>ALC</issueStation>
+        <issueFltTo>ALC</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType>L</maintenanceType>
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-01T02:42:00.000Z</closingDateTime>
+        <closingStation>ALC</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>733188</closingTahMinutes>
+        <closingTac>6768</closingTac>
+        <closingSign>BPZ</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-01T02:42:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-01T02:42:00.000Z</dateTime>
+        <releaseSign>BPZ</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="0af2d379-5625-11f0-bb09-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-01T02:39:00.000Z</workStepDateTime>
+        <description>IN REF HIL 55478725 WINDOW LIGHT FROM ROW 5 TO 10 NOT WORKING</description>
+        <descriptionSign>BPZ</descriptionSign>
+        <actions>
+          <action uuid="0af51d6a-5625-11f0-bb09-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT AT ROW 5DEF REPLACED IAW AMM 33-21-00-960-801 REV 24. NEW SOFTWARE LOADED TO NEW LRU IAW AMM 23-42-03-470-801 REV 24. HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-07-01T02:40:00.000Z</performedDateTime>
+              <performedSign>BPZ</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="0af655eb-5625-11f0-bb09-005056b18588">
+                <position>CAB</position>
+                <labelNumber>3890933</labelNumber>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>56644</serialNumber>
+                </partOn>
+                <certificateNumber>20101735</certificateNumber>
+              </componentChange>
+              <componentChange uuid="6b0ae512-5625-11f0-bb09-005056b18588">
+                <position>CAB</position>
+                <labelNumber>9545372</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>56331</serialNumber>
+                </partOff>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="178d1aed-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>89616</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 89616</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

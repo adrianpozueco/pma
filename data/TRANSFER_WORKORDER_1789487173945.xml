@@ -1,0 +1,123 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487173943</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:13.943Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="987320ef-ba05-11f0-a240-005056b18588">
+    <workorderNumber>190492342</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00541</aircraftFullRegistration>
+        <aircraftRegistration>REG00541</aircraftRegistration>
+        <aircraftMsn>67073</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190492342</barcode>
+      <ataChapter>25-35</ataChapter>
+      <issueData>
+        <issueDate>2025-11-04Z</issueDate>
+        <issueSign>GTI</issueSign>
+        <issueStation>SOF</issueStation>
+        <issueFltTo>SOF</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-11-04T19:50:00.000Z</closingDateTime>
+        <closingStation>SOF</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>629759</closingTahMinutes>
+        <closingTac>4767</closingTac>
+        <closingSign>GTI</closingSign>
+      </closingData>
+      <certification>
+        <number>BG.145.4041</number>
+        <dateTime>2025-11-04T19:50:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>BG.145.4041</number>
+        <dateTime>2025-11-04T19:50:00.000Z</dateTime>
+        <releaseSign>GTI</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="98743260-ba05-11f0-a240-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-11-04T19:50:00.000Z</workStepDateTime>
+        <description>FOLLOWING HIL 190492341, AFT INBOARD WATER BOILER,WATER LEAK,PLEASE PERFORM CORRECTIVE ACTION</description>
+        <descriptionSign>GTI</descriptionSign>
+        <actions>
+          <action uuid="98760721-ba05-11f0-a240-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT INBOARD WATER BOILER REPLACED IAW AMM 25-32-21-000-801/-400-801 REV.26
+AFT GALLEY WATER SUPPLY REACTIVATED IAW AMM 38-00-00-440-805 REV.26
+NO LEAKS,INBOARD WATER BOILER TESTS - OK
+
+HIL 190492341 CLOSED AT ATL:190492342</actionText>
+            <performedData>
+              <performedDateTime>2025-11-04T19:50:00.000Z</performedDateTime>
+              <performedSign>GTI</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="987766b2-ba05-11f0-a240-005056b18588">
+                <position>GALLEY G4</position>
+                <labelNumber>3979765</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>14-07-6899</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>17-07-0381</serialNumber>
+                </partOn>
+                <certificateNumber>1440170</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

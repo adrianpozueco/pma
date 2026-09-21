@@ -1,0 +1,121 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487108487</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:08.487Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="60a59383-d43e-11f0-b7ce-005056b18588">
+    <workorderNumber>190258648</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00338</aircraftFullRegistration>
+        <aircraftRegistration>REG00338</aircraftRegistration>
+        <aircraftMsn>33586</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190258648</barcode>
+      <ataChapter>23-40</ataChapter>
+      <issueData>
+        <issueDate>2025-12-08Z</issueDate>
+        <issueSign>GCA</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-12-08T13:45:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3732422</closingTahMinutes>
+        <closingTac>36840</closingTac>
+        <closingSign>GCA</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-12-08T13:45:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-12-08T13:45:00.000Z</dateTime>
+        <releaseSign>GCA</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="60a6cc04-d43e-11f0-b7ce-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-08T13:45:00.000Z</workStepDateTime>
+        <description>AFT INTERPHONE HANDSET U/S</description>
+        <descriptionSign>GCA</descriptionSign>
+        <actions>
+          <action uuid="60a98b25-d43e-11f0-b7ce-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT INTERPHONE HANDSET RPL IAW AMM 23-42-01 R 88 
+
+ASSISTED BY MOFO</actionText>
+            <performedData>
+              <performedDateTime>2025-12-08T13:45:00.000Z</performedDateTime>
+              <performedSign>GCA</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="60abfc26-d43e-11f0-b7ce-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>4002026</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F26884</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1M</partNumber>
+                  <serialNumber>F55267</serialNumber>
+                </partOn>
+                <certificateNumber>ARC160031</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

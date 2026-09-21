@@ -1,0 +1,129 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486863812</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:03.811Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="5803b7d3-d741-11f0-b7ce-005056b18588">
+    <workorderNumber>42098601</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00500</aircraftFullRegistration>
+        <aircraftRegistration>REG00500</aircraftRegistration>
+        <aircraftMsn>62310</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42098601</barcode>
+      <ataChapter>33-42</ataChapter>
+      <issueData>
+        <issueDate>2025-12-12Z</issueDate>
+        <issueSign>JAOJ</issueSign>
+        <issueStation>ARN</issueStation>
+        <issueFltTo>ARN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-12-12T09:20:00.000Z</closingDateTime>
+        <closingStation>ARN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>883973</closingTahMinutes>
+        <closingTac>6759</closingTac>
+        <closingSign>JAOJ</closingSign>
+      </closingData>
+      <certification>
+        <number>DK.145.0103</number>
+        <dateTime>2025-12-12T09:20:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DK.145.0103</number>
+        <dateTime>2025-12-12T09:20:00.000Z</dateTime>
+        <releaseSign>JAOJ</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="58056584-d741-11f0-b7ce-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-12T09:20:00.000Z</workStepDateTime>
+        <description>REF. TO WO #55371648 - L/H RWY TURNOFF LIGHT AND LANDING LIGHT FLICKERING</description>
+        <descriptionSign>JAOJ</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="97fafe62-d741-11f0-b7ce-005056b18588">
+            <partNumber>PR1826B1-2</partNumber>
+            <description>COLD CURE SEALANT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="5807fd95-d741-11f0-b7ce-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>L/H FIXED LANDING LIGHT POWER SUPPLY REPLACED IAW AMM 33-42-21-960-802 REV.26.
+TEST SATIS.</actionText>
+            <performedData>
+              <performedDateTime>2025-12-12T09:20:00.000Z</performedDateTime>
+              <performedSign>JAOJ</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="580a95a6-d741-11f0-b7ce-005056b18588">
+                <position>LH</position>
+                <labelNumber>4001897</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>4883</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>1877</serialNumber>
+                </partOn>
+                <certificateNumber>354743865</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

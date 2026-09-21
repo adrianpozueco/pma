@@ -1,0 +1,194 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486901226</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:41.226Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="b966f0e9-10bd-11f0-b322-005056b18588">
+    <workorderNumber>55168666</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00409</aircraftFullRegistration>
+        <aircraftRegistration>REG00409</aircraftRegistration>
+        <aircraftMsn>35004</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55168666</barcode>
+      <ataChapter>72-21</ataChapter>
+      <issueData>
+        <issueDate>2025-04-03Z</issueDate>
+        <issueSign>CIMC</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-04-03T18:58:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3067251</closingTahMinutes>
+        <closingTac>27524</closingTac>
+        <closingSign>CIMC</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-03T18:58:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-03T18:58:00.000Z</dateTime>
+        <releaseSign>CIMC</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="b96bd2ea-10bd-11f0-b322-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-04-03T18:41:00.000Z</workStepDateTime>
+        <description>ON DEP IN GLA STRANGE NOISE, ONCE WHEELS UP NOISE STOPPED BUT ON LOWER DU 1.4 - .16 VIN ON ENG 2 ( DU DID NOT POP UP). ON POST FLIGHT INSP FAN BLADE FOUND BENT ( NO SIGN OF BIRD INGESTION).</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="b96df5cb-10bd-11f0-b322-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FAN BLADES INSPECTED IAW AMM 72-21-02-200-801-F00 REV 85. #2 ENGINE FAN BLADE #18 FOUND DISTORTED OUT OF LIMITS. FAN BLADE PAIRS #18+#6,#17+#5 REPLACED IAW AMM 72-21-02-000-802-F00 REV 85. FAN MODULE REBUILT UP TO PART K OF AMM TASK 72-21-02-000-802-F00 REV 85. REF TLP 55168667 FOR SPINNER CONE INSTALLATION, REF TLP 55168668 FOR IDLE RUN.
+
+NEW FAN BLADE POSITIONS:
+#6   P/N: 340-001-038-0 
+        S/N: PC366013
+#18 P/N: 340-001-038-0
+        B/N: PA219870
+
+#5   P/N:340-001-036-0
+        B/N: PF440044
+#17 P/N: 340-001-036-0
+        B/N: PF459365
+
+CONSUMABLES:
+P/N:MOLYKOTEUN           P/N: 340-116-931-0
+B/N: 1265027                       B/N: 1136889</actionText>
+            <performedData>
+              <performedDateTime>2025-04-03T18:42:00.000Z</performedDateTime>
+              <performedSign>CIMC</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSP C/O IAW MOE 2.23 ISSUE 2 REV 6.</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-03T18:58:00.000Z</performedDateTime>
+                <performedSign>CIMC</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSP C/O IAW MOE 2.23 ISSUE 2 REV 6.</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-03T18:58:00.000Z</performedDateTime>
+                <performedSign>RGU</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="b9708ddd-10bd-11f0-b322-005056b18588">
+                <position>#2</position>
+                <labelNumber>3805388</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DE184699</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF459365</serialNumber>
+                </partOn>
+                <certificateNumber>1138419</certificateNumber>
+              </componentChange>
+              <componentChange uuid="b971030e-10bd-11f0-b322-005056b18588">
+                <position>#2</position>
+                <labelNumber>3668214</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DE190292</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PA219870</serialNumber>
+                </partOn>
+                <certificateNumber>13001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="b971783f-10bd-11f0-b322-005056b18588">
+                <position>#2</position>
+                <labelNumber>3668432</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DE177658</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PC366013</serialNumber>
+                </partOn>
+                <certificateNumber>R24071002001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="b96fa37c-10bd-11f0-b322-005056b18588">
+                <position>#2</position>
+                <labelNumber>3774436</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM020118</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF440044</serialNumber>
+                </partOn>
+                <certificateNumber>1140555-1</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="f245a5ea-b11b-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>86048</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 86048</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

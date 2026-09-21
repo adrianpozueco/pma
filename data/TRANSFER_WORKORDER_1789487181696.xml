@@ -1,0 +1,145 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487181695</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:21.695Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="3ab41234-bf4a-11f0-af70-005056b18588">
+    <workorderNumber>190514055</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00542</aircraftFullRegistration>
+        <aircraftRegistration>REG00542</aircraftRegistration>
+        <aircraftMsn>44779</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.190514055</barcode>
+      <ataChapter>33-20</ataChapter>
+      <issueData>
+        <issueDate>2025-11-11Z</issueDate>
+        <issueSign>UWE</issueSign>
+        <issueStation>FMM</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-11-11T22:02:00.000Z</closingDateTime>
+        <closingStation>FMM</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1526655</closingTahMinutes>
+        <closingTac>14615</closingTac>
+        <closingSign>UWE</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-11T22:02:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-11T22:02:00.000Z</dateTime>
+        <releaseSign>UWE</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="3ab8f435-bf4a-11f0-af70-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-11-11T21:58:00.000Z</workStepDateTime>
+        <description>REF WO 190514053 HIL 
+ WINDOW LIGHT ROW 21 U/S</description>
+        <descriptionSign>UWE</descriptionSign>
+        <actions>
+          <action uuid="3abd8816-bf4a-11f0-af70-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>LAMP LED BSI -35  REPLACED ACC AMM 33-20-00-470-801-001 REV 88
+, TEST SATIS 
+THIS ITEM CLOSES HIL 
+ASSIST BY NKP</actionText>
+            <performedData>
+              <performedDateTime>2025-11-11T21:59:00.000Z</performedDateTime>
+              <performedSign>UWE</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="99726ec2-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>94820</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 94820</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

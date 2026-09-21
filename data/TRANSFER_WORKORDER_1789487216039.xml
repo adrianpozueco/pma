@@ -1,0 +1,125 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487216038</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:56.038Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="5353dd6b-74d0-11f0-a1ec-005056b18588">
+    <workorderNumber>190603800</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00019</aircraftFullRegistration>
+        <aircraftRegistration>REG00019</aircraftRegistration>
+        <aircraftMsn>36075</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190603800</barcode>
+      <ataChapter>26-00</ataChapter>
+      <issueData>
+        <issueDate>2025-08-09Z</issueDate>
+        <issueSign>ALGO</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-09T03:23:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3339801</closingTahMinutes>
+        <closingTac>32485</closingTac>
+        <closingSign>ALGO</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-09T03:23:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-09T03:23:00.000Z</dateTime>
+        <releaseSign>ALGO</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="5356004c-74d0-11f0-a1ec-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-09T03:21:00.000Z</workStepDateTime>
+        <description>REF HIL 190603797 FWD CARGO LOOP "B" INOP</description>
+        <descriptionSign>ALGO</descriptionSign>
+        <actions>
+          <action uuid="5358714d-74d0-11f0-a1ec-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>CREW REPORTED AFT CARGO FAILING ALSO INTERMITTENTLY. DURING TEST FWD AND AFT CARGO DET FAILING TIME TO TIME.
+ CARGO FIRE PANEL (P8) REPLACED IAW AMM 26-00-02 REV 86, NIL FIX.
+CEU BITE COUT IAW 26-16/802 REV 87, FOUND DETECTOR B1 FAILING IN FWD CARGO AND B2 INAFT CARGO.
+
+B1 DET REPLACED IN FWD CARGO IAW AMM 26-16-01 REV 86. TESTED SATIS.
+
+DUE NO MORE STOCK REF TO WO 190514351 FOR AFT CARGO HIL</actionText>
+            <performedData>
+              <performedDateTime>2025-08-09T03:22:00.000Z</performedDateTime>
+              <performedSign>ALGO</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="535a942e-74d0-11f0-a1ec-005056b18588">
+                <position>FWD</position>
+                <labelNumber>3908299</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>36282</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJE1336</serialNumber>
+                </partOn>
+                <certificateNumber>408095</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

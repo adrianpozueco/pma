@@ -1,0 +1,120 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487269952</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:49.952Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="22d7b63e-621a-11f1-9efb-005056b18588">
+    <workorderNumber>191164946</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00043</aircraftFullRegistration>
+        <aircraftRegistration>REG00043</aircraftRegistration>
+        <aircraftMsn>67079</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191164946</barcode>
+      <ataChapter>25-32</ataChapter>
+      <issueData>
+        <issueDate>2026-06-07Z</issueDate>
+        <issueSign>ANRO1</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-07T02:30:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>728033</closingTahMinutes>
+        <closingTac>5823</closingTac>
+        <closingSign>LOKO1</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-06-07T02:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-06-07T02:30:00.000Z</dateTime>
+        <releaseSign>LOKO1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="22d915cf-621a-11f1-9efb-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-07T02:30:00.000Z</workStepDateTime>
+        <description>ITEM TX FROM CBL: RH AFT OVEN IS NOT HEATING</description>
+        <descriptionSign>ANRO1</descriptionSign>
+        <actions>
+          <action uuid="22dbd4f0-621a-11f1-9efb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH AFT GALLEY OVEN REPLACED IAW AMM 25-32-03/401 REV.28
+PERFORMED ALSO BY RGGP</actionText>
+            <performedData>
+              <performedDateTime>2026-06-07T02:30:00.000Z</performedDateTime>
+              <performedSign>LOKO1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="22dda9b1-621a-11f1-9efb-005056b18588">
+                <position>GALLEY 4B</position>
+                <labelNumber>4121142</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>04-09-20366</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>07-08-24177</serialNumber>
+                </partOn>
+                <certificateNumber>KAV0426077</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

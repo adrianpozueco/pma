@@ -1,0 +1,132 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487013342</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:33.341Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="1431db95-3530-11f1-9a9d-005056b18588">
+    <workorderNumber>55682816</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00075</aircraftFullRegistration>
+        <aircraftRegistration>REG00075</aircraftRegistration>
+        <aircraftMsn>44845</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55682816</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-04-10Z</issueDate>
+        <issueSign>MAFI2</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-11T23:15:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1482668</closingTahMinutes>
+        <closingTac>12771</closingTac>
+        <closingSign>MZM1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-11T23:15:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-11T23:15:00.000Z</dateTime>
+        <releaseSign>MZM1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="143473a6-3530-11f1-9a9d-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-10T22:30:00.000Z</workStepDateTime>
+        <description>KRK*10/04/26**HALF WINDOW LIGHT AT ROW 19-20DEF INOP</description>
+        <descriptionSign>MAFI2</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="14381d27-3530-11f1-9a9d-005056b18588">
+            <partNumber>9651-35-0002</partNumber>
+            <description>LIGHT BSI-35 IN TYPE C HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="1439cad8-3530-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>LIGHT BSI INSTALLED IAW AMM 33-21-00/201 REV 89
+LIGHT FAIL ON FIT  ONE HALF OF THE LIGHT WITH STROBO EFFECT -SUSPECTED COLD SOLDER JOINT
+DUE TO NO SPARES A/C DISPATCHED IAW MEL 33-02-01 REV 22</actionText>
+            <performedData>
+              <performedDateTime>2026-04-10T22:30:00.000Z</performedDateTime>
+              <performedSign>MAFI2</performedSign>
+            </performedData>
+          </action>
+          <action uuid="dc3c8e9b-35fd-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>HIL CLOSED BY WO 55682820</actionText>
+            <performedData>
+              <performedDateTime>2026-04-11T23:15:00.000Z</performedDateTime>
+              <performedSign>MZM1</performedSign>
+            </performedData>
+            <references>
+              <reference uuid="ea593a5c-35fd-11f1-9a9d-005056b18588">
+                <category>W</category>
+                <type>WO</type>
+                <reference>55682820</reference>
+                <typeDescription>Workorder</typeDescription>
+                <description>55682820</description>
+              </reference>
+            </references>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS T52257926 MLA-KRK SAT 11/04 CBID</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

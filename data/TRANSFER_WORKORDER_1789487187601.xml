@@ -1,0 +1,141 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487187600</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:27.600Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="e9c77859-53f6-11f1-bd75-005056b18588">
+    <workorderNumber>190530377</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00108</aircraftFullRegistration>
+        <aircraftRegistration>REG00108</aircraftRegistration>
+        <aircraftMsn>44716</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190530377</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-05-20Z</issueDate>
+        <issueSign>STGO1</issueSign>
+        <issueStation>TRN</issueStation>
+        <issueFltTo>TRN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-20T02:30:00.000Z</closingDateTime>
+        <closingStation>TRN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1808181</closingTahMinutes>
+        <closingTac>18911</closingTac>
+        <closingSign>STGO1</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-05-20T02:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-05-20T02:30:00.000Z</dateTime>
+        <releaseSign>STGO1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="e9c889ca-53f6-11f1-bd75-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-20T02:30:00.000Z</workStepDateTime>
+        <description>REF HIL 190530372 WINDOW LT 10 AND 12  DEF INOP</description>
+        <descriptionSign>STGO1</descriptionSign>
+        <actions>
+          <action uuid="e9cb21db-53f6-11f1-bd75-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LT 10 AND 12 DEF RPL IAW AMM 33-21-00-960-804 R.89 SATIS
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-05-20T02:30:00.000Z</performedDateTime>
+              <performedSign>STGO1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="e9cccf8c-53f6-11f1-bd75-005056b18588">
+                <position>10 RH</position>
+                <labelNumber>4121736</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>8173</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>19097</serialNumber>
+                </partOn>
+                <certificateNumber>170381</certificateNumber>
+              </componentChange>
+              <componentChange uuid="e9cdb9ed-53f6-11f1-bd75-005056b18588">
+                <position>12 RH</position>
+                <labelNumber>4045089</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>50196</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>58358</serialNumber>
+                </partOn>
+                <certificateNumber>20155585</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="9cf728c4-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>103785</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 103785</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

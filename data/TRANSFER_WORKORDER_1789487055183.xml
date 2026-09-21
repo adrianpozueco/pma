@@ -1,0 +1,152 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487055182</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:15.182Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7e63c20a-5a4b-11f1-8538-005056b18588">
+    <workorderNumber>190017569</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00418</aircraftFullRegistration>
+        <aircraftRegistration>REG00418</aircraftRegistration>
+        <aircraftMsn>40304</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190017569</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2026-05-28Z</issueDate>
+        <issueSign>JMDG</issueSign>
+        <issueStation>FAO</issueStation>
+        <issueFltTo>FAO</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-28T04:17:00.000Z</closingDateTime>
+        <closingStation>FAO</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2836026</closingTahMinutes>
+        <closingTac>24068</closingTac>
+        <closingSign>JMDG</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-28T04:17:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-28T04:17:00.000Z</dateTime>
+        <releaseSign>JMDG</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7e65219b-5a4b-11f1-8538-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-28T04:08:00.000Z</workStepDateTime>
+        <description>REF TO HIL 190017563
+
+"LH AFT LAVATORY INOP"</description>
+        <descriptionSign>JMDG</descriptionSign>
+        <actions>
+          <action uuid="7e682edc-5a4b-11f1-8538-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FIM 38-30 TASK 820 REV 89 C/OUT, FOUND FLUSH VALVE INOP
+FLUSH VALVE ON AFT LH TOILET REPLACED IAW AMM 38-32-01/401 REV 89. SYS OPERATE NORMALLY, NO LEAKS FOUND. ALL SATIS
+
+P/N: 15800-246
+B/N: 1327049 AND 1671569
+QTY: 1 AND 1
+
+P/N: MS29513-226
+B/N: 1171644
+QTY: 2
+
+P/N: 2-135NM506-65
+B/N: 1463745/0080555497
+QTY: 1
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-05-28T04:08:00.000Z</performedDateTime>
+              <performedSign>JMDG</performedSign>
+            </performedData>
+          </action>
+          <action uuid="8a9f03a7-5a4b-11f1-8538-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>MECH WORKING TIME</actionText>
+            <performedData>
+              <performedDateTime>2026-05-28T04:12:00.000Z</performedDateTime>
+              <performedSign>GOSV</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="b3210a46-5a4b-11f1-8538-005056b18588">
+                <position>AFT LH</position>
+                <labelNumber>4128520</labelNumber>
+                <partOff>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>25041</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>19928</serialNumber>
+                </partOn>
+                <certificateNumber>67409</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="3b4d9331-5a4c-11f1-8538-005056b18588">
+        <type>TQ</type>
+        <reference>104053</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 104053</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

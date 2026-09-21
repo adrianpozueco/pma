@@ -1,0 +1,122 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486994145</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:14.144Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="5e8950da-2ede-11f0-99b7-005056b18588">
+    <workorderNumber>55600992</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00018</aircraftFullRegistration>
+        <aircraftRegistration>REG00018</aircraftRegistration>
+        <aircraftMsn>44819</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55600992</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-05-12Z</issueDate>
+        <issueSign>ABDE</issueSign>
+        <issueStation>RAK</issueStation>
+        <issueFltTo>RAK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-05-12T03:07:00.000Z</closingDateTime>
+        <closingStation>RAK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1304386</closingTahMinutes>
+        <closingTac>11766</closingTac>
+        <closingSign>ABDE</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-05-12T03:07:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-05-12T03:07:00.000Z</dateTime>
+        <releaseSign>ABDE</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="5e8ea80b-2ede-11f0-99b7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-05-12T03:04:00.000Z</workStepDateTime>
+        <description>REF TO A/C WO : 55600987 AFT GALLY G4 BOILER N#1 TO BE REPLACED</description>
+        <descriptionSign>ABDE</descriptionSign>
+        <actions>
+          <action uuid="5e90a3dc-2ede-11f0-99b7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>GALLY G4 BOILER N#1 REPLACED IAW AMM : 25-31-CAMO/0001 
+REV :85 
+*ALL SATIS *
+*HIL CLOSED *</actionText>
+            <performedData>
+              <performedDateTime>2025-05-12T03:05:00.000Z</performedDateTime>
+              <performedSign>ABDE</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="5e92036d-2ede-11f0-99b7-005056b18588">
+                <position>AFTGALLY</position>
+                <labelNumber>3838991</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>16-01-0176</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>19-07-0268</serialNumber>
+                </partOn>
+                <certificateNumber>WAV380</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

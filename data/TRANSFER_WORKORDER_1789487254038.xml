@@ -1,0 +1,123 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487254036</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:34.036Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="757c2190-5580-11f1-bd75-005056b18588">
+    <workorderNumber>190862696</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00567</aircraftFullRegistration>
+        <aircraftRegistration>REG00567</aircraftRegistration>
+        <aircraftMsn>37522</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190862696</barcode>
+      <ataChapter>34-11</ataChapter>
+      <issueData>
+        <issueDate>2026-05-22Z</issueDate>
+        <issueSign>JNB</issueSign>
+        <issueStation>VLC</issueStation>
+        <issueFltTo>VLC</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-22T01:51:00.000Z</closingDateTime>
+        <closingStation>VLC</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3198428</closingTahMinutes>
+        <closingTac>30921</closingTac>
+        <closingSign>JNB</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-22T01:51:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-22T01:51:00.000Z</dateTime>
+        <releaseSign>JNB</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="757d0bf1-5580-11f1-bd75-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-22T01:44:00.000Z</workStepDateTime>
+        <description>DUE TO BIRD STRIKE IMPACT ON ALTN PITOT REF TO 190862692</description>
+        <descriptionSign>JNB</descriptionSign>
+        <actions>
+          <action uuid="757f7cf2-5580-11f1-bd75-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ALTN PITOT REPLACED IAW AMM 34-11-01/401 R.89 AND TESTED SATIS IAW AMM 34-11-00-790-812 R.89
+
+PITOT QUICK DISCONNECT CONFIRMED INST.
+
+INDEP. INSP C/O IAW MOE 2.23.2.1 ISS.02 REV.19</actionText>
+            <performedData>
+              <performedDateTime>2026-05-22T01:44:00.000Z</performedDateTime>
+              <performedSign>JNB</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="75812aa3-5580-11f1-bd75-005056b18588">
+                <position>RH</position>
+                <labelNumber>4111668</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>356008</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>482014</serialNumber>
+                </partOn>
+                <certificateNumber>408996417</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

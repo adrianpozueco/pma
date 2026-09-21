@@ -1,0 +1,117 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486907502</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:47.502Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="9169eddc-fc10-11f0-b626-005056b18588">
+    <workorderNumber>55236544</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00421</aircraftFullRegistration>
+        <aircraftRegistration>REG00421</aircraftRegistration>
+        <aircraftMsn>44836</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55236544</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-01-28Z</issueDate>
+        <issueSign>GRD</issueSign>
+        <issueStation>BTS</issueStation>
+        <issueFltTo>BTS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-01-28T06:13:00.000Z</closingDateTime>
+        <closingStation>BTS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1460748</closingTahMinutes>
+        <closingTac>11539</closingTac>
+        <closingSign>GRD</closingSign>
+      </closingData>
+      <certification>
+        <number>SK.145.015</number>
+        <dateTime>2026-01-28T06:13:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>SK.145.015</number>
+        <dateTime>2026-01-28T06:13:00.000Z</dateTime>
+        <releaseSign>GRD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="916ad83d-fc10-11f0-b626-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-28T00:10:00.000Z</workStepDateTime>
+        <description>DURING THE RAMP  2 FOUND 
+WINDOW LIGHT ON POS 30 DEF PARTIALLY INOP</description>
+        <descriptionSign>GRD</descriptionSign>
+        <actions>
+          <action uuid="916cacfe-fc10-11f0-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT POS 30 DEF REPLACED IAW AMM 33-21-00-960-804 REV 88 
+
+DATA LOAD SATIS</actionText>
+            <performedData>
+              <performedDateTime>2026-01-28T00:10:00.000Z</performedDateTime>
+              <performedSign>GRD</performedSign>
+            </performedData>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="916ef6ef-fc10-11f0-b626-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>GRD</userSign>
+                <startDateTime>2026-01-28T05:43:00.000Z</startDateTime>
+                <endDateTime>2026-01-28T06:13:00.000Z</endDateTime>
+                <duration>30</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

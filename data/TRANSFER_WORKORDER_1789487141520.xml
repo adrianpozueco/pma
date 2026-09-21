@@ -1,0 +1,133 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487141519</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:41.519Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="68764cc6-edcc-11f0-8331-005056b18588">
+    <workorderNumber>190375110</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00488</aircraftFullRegistration>
+        <aircraftRegistration>REG00488</aircraftRegistration>
+        <aircraftMsn>65076</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190375110</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2026-01-10Z</issueDate>
+        <issueSign>ANAL2</issueSign>
+        <issueStation>OPO</issueStation>
+        <issueFltTo>OPO</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-01-10T02:35:00.000Z</closingDateTime>
+        <closingStation>OPO</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>984827</closingTahMinutes>
+        <closingTac>7441</closingTac>
+        <closingSign>ANAL2</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-10T02:35:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-10T02:35:00.000Z</dateTime>
+        <releaseSign>ANAL2</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="68775e37-edcc-11f0-8331-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-10T00:10:00.000Z</workStepDateTime>
+        <description>REF TO PCI 190375107 " G4 WATER BOILER #1 LEAKING "</description>
+        <descriptionSign>ANAL2</descriptionSign>
+        <actions>
+          <action uuid="68795a08-edcc-11f0-8331-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WATER BOILER #1 AT GALLEY G4 REPLACED SATIS IAW AMM 25-32-21/401 REV. 26 
+SWANNECK SWAPPED FROM REMOVED BOILER TO THE NEW WATER BOILER IAW AMM 25-31 CAMO REV. 26 
+PCI CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-01-10T00:20:00.000Z</performedDateTime>
+              <performedSign>FNSC</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="687b55d9-edcc-11f0-8331-005056b18588">
+                <position>AFT CAB</position>
+                <labelNumber>4016348</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>15-10-8023</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>18-03-0517</serialNumber>
+                </partOn>
+                <certificateNumber>PAV12361</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="24f80d7f-edcd-11f0-8331-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>SNTS</userSign>
+                <startDateTime>2026-01-10T02:05:00.000Z</startDateTime>
+                <endDateTime>2026-01-10T02:35:00.000Z</endDateTime>
+                <duration>30</duration>
+                <skill>MECH</skill>
+                <scope>MECH</scope>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

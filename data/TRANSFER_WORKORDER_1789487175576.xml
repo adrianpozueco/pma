@@ -1,0 +1,141 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487175575</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:15.575Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0dc23bd9-71ad-11f1-8a65-005056b18588">
+    <workorderNumber>190495073</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00179</aircraftFullRegistration>
+        <aircraftRegistration>REG00179</aircraftRegistration>
+        <aircraftMsn>62317</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190495073</barcode>
+      <ataChapter>34-11</ataChapter>
+      <issueData>
+        <issueDate>2026-06-26Z</issueDate>
+        <issueSign>8888</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-26T21:30:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>868055</closingTahMinutes>
+        <closingTac>6980</closingTac>
+        <closingSign>IOS</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-06-26T21:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-06-26T21:30:00.000Z</dateTime>
+        <releaseSign>IOS</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="0dc6819a-71ad-11f1-8a65-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-26T21:30:00.000Z</workStepDateTime>
+        <description>REJECTED TAKE0FF DUE TO IAS DISAGREE.
+FLAG APPEARED AT ABOUT 70KTS. MANOUVRE EXECUTED. AT THE LOW SPEED-HIGH SPEED BOUNDARY.</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="0dc919ab-71ad-11f1-8a65-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>T/S FOLLOWED IFIM TASK 34-10-00-810-801, REV 115, CPT PITOT PROBE FOUND BLOCKED. CPT PITOT SYSTEM FLUSHING C/O IAW AMM TASK 34-11-00-170-802, REV 28. CPT PITOT PROBE REPLACED IAW AMM 34-11-01/401, REV 28. AIR DATA SYS TEST C/O IAW AMM 34-21-00-730-802, REV 28. TEST SATIS.
+INDEPENDENT INSP FOR CPT AND F/O QUICK DISCONNECT C/O IAW DAC CAME 1.6.3.1, REV 21 AND SEAS P/N: 01/18, REV 10.
+
+USED:
+P/N:DPS1000, S/N:01233
+P/N:M1, S/N:DC006987
+P/N:232N9003-1, B/N:000007167/1424867
+
+WORK PERFORMED ALSO BY SEAS STAFF: CLI, CSLO. DCST</actionText>
+            <performedData>
+              <performedDateTime>2026-06-26T21:30:00.000Z</performedDateTime>
+              <performedSign>IOS</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSP FOR CPT AND F/O QUICK DISCONNECT C/O IAW DAC CAME 1.6.3.1, REV 21 AND SEAS P/N: 01/18, REV 10.</inspectionText>
+              <performedData>
+                <performedDateTime>2026-06-26T21:30:00.000Z</performedDateTime>
+                <performedSign>IOS</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSP FOR CPT AND F/O QUICK DISCONNECT C/O IAW DAC CAME 1.6.3.1, REV 21 AND SEAS P/N: 01/18, REV 10.</inspectionText>
+              <performedData>
+                <performedDateTime>2026-06-26T21:30:00.000Z</performedDateTime>
+                <performedSign>JAGNU</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="0dcb157c-71ad-11f1-8a65-005056b18588">
+                <position>CAPT</position>
+                <labelNumber>4170642</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>400595</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>484003</serialNumber>
+                </partOn>
+                <certificateNumber>409190749</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

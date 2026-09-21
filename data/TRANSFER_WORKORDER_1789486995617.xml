@@ -1,0 +1,126 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486995616</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:15.616Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="b6504d45-09e2-11f0-a385-005056b18588">
+    <workorderNumber>55604235</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00214</aircraftFullRegistration>
+        <aircraftRegistration>REG00214</aircraftRegistration>
+        <aircraftMsn>44742</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55604235</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-03-26Z</issueDate>
+        <issueSign>LARB</issueSign>
+        <issueStation>BLQ</issueStation>
+        <issueFltTo>BLQ</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-03-26T01:35:00.000Z</closingDateTime>
+        <closingStation>BLQ</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1524773</closingTahMinutes>
+        <closingTac>15970</closingTac>
+        <closingSign>LARB</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-03-26T01:35:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-03-26T01:35:00.000Z</dateTime>
+        <releaseSign>LARB</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="b656dcf6-09e2-11f0-a385-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-03-26T00:30:00.000Z</workStepDateTime>
+        <description>REF W/O 55604225
+LH TURNOFF LIGHT INOP.</description>
+        <descriptionSign>LARB</descriptionSign>
+        <actions>
+          <action uuid="b658ffd7-09e2-11f0-a385-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FAULT ISOLATION C/O IAW FIM 33-40TASK 803 REV 86
+REPLACED MAIN POWER SUPPLY 
+IAW AMM 33-42-01 REV 85. NIL FIX
+SEE NEX TLP 55604236 FOR HIL CLOUSURE.
+
+TOOL USED:
+P/N: M1 S/N: DC006956</actionText>
+            <performedData>
+              <performedDateTime>2025-03-26T00:30:00.000Z</performedDateTime>
+              <performedSign>LARB</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="b65aad88-09e2-11f0-a385-005056b18588">
+                <position>LH</position>
+                <labelNumber>3815281</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>6317</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>5507</serialNumber>
+                </partOn>
+                <certificateNumber>352545245</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

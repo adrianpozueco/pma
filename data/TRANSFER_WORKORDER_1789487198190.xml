@@ -1,0 +1,113 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487198188</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:38.188Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="89e51646-1a94-11f1-8fad-005056b18588">
+    <workorderNumber>190554315</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00163</aircraftFullRegistration>
+        <aircraftRegistration>REG00163</aircraftRegistration>
+        <aircraftMsn>62690</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190554315</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2006-02-07Z</issueDate>
+        <issueSign>CTNR</issueSign>
+        <issueStation>MXP</issueStation>
+        <issueFltTo>MXP</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-03-07T23:30:00.000Z</closingDateTime>
+        <closingStation>MXP</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1747524</closingTahMinutes>
+        <closingTac>18034</closingTac>
+        <closingSign>CTNR</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-03-07T23:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-03-07T23:30:00.000Z</dateTime>
+        <releaseSign>CTNR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="89e64ec7-1a94-11f1-8fad-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2006-02-07T23:30:00.000Z</workStepDateTime>
+        <description>REF WO 190554312
+WDW LIGHT AT POS 28 DEF PARTI. INOP</description>
+        <descriptionSign>CTNR</descriptionSign>
+        <actions>
+          <action uuid="89e8bfc8-1a94-11f1-8fad-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WDW LIGHT 28 DEF REPLACED AND TESTED SATIS IAW AMM 33-21-00-960-804 REV.89
+
+HIL CLOSED 
+
+
+PART ON:
+PN:9651-35-0005 SN:45612
+
+PART OFF:
+PN:9651-35-0005 SN:15746</actionText>
+            <performedData>
+              <performedDateTime>2006-02-07T23:30:00.000Z</performedDateTime>
+              <performedSign>CTNR</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

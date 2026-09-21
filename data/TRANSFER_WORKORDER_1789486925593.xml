@@ -1,0 +1,123 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486925592</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:05.592Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="9d0bca72-4b23-11f1-afd7-005056b18588">
+    <workorderNumber>55332452</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00150</aircraftFullRegistration>
+        <aircraftRegistration>REG00150</aircraftRegistration>
+        <aircraftMsn>67095</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55332452</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-05-08Z</issueDate>
+        <issueSign>VACO1</issueSign>
+        <issueStation>CIA</issueStation>
+        <issueFltTo>CIA</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-08T21:19:00.000Z</closingDateTime>
+        <closingStation>CIA</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>563986</closingTahMinutes>
+        <closingTac>4372</closingTac>
+        <closingSign>RFF</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-05-08T21:19:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-05-08T21:19:00.000Z</dateTime>
+        <releaseSign>RFF</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="9d0d2a03-4b23-11f1-afd7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-08T21:16:00.000Z</workStepDateTime>
+        <description>REF HIL 190431798 "LH AFT O/W SIDEWALL LT ALWAYS ON (GREEN)"</description>
+        <descriptionSign>VACO1</descriptionSign>
+        <actions>
+          <action uuid="9d0fc214-4b23-11f1-afd7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>IFIM 33-20-00-810-824 R113 C/OUT; FOUND SIDEWALL LT 2ABC DEFECTIVE;
+2ABC WINDOW LT REPLACED IAW AMM 33-21-00-960-801 R27
+SOFTWARE LOADING C/OUT IAW AMM 23-42-03-470-801 R27 NOW SATIS
+HIL CLOSED
+TOOL USED FLUKE177 SN 63400006</actionText>
+            <performedData>
+              <performedDateTime>2026-05-08T21:17:00.000Z</performedDateTime>
+              <performedSign>VACO1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="9d11e4f5-4b23-11f1-afd7-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>4110269</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>62748</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>21281</serialNumber>
+                </partOn>
+                <certificateNumber>ARC169705</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

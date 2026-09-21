@@ -1,0 +1,203 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487032337</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:52.337Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="580f8fb2-144c-11f0-b322-005056b18588">
+    <workorderNumber>102829906</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00074</aircraftFullRegistration>
+        <aircraftRegistration>REG00074</aircraftRegistration>
+        <aircraftMsn>62388</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.102829906</barcode>
+      <ataChapter>30-31</ataChapter>
+      <issueData>
+        <issueDate>2025-04-08Z</issueDate>
+        <issueSign>KCY</issueSign>
+        <issueStation>SNN</issueStation>
+        <issueFltTo>SNN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-04-10T02:56:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>4865</closingTahMinutes>
+        <closingTac>37</closingTac>
+        <closingSign>TILE1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-10T02:56:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-10T02:56:00.000Z</dateTime>
+        <releaseSign>TILE1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="581b7693-144c-11f0-b322-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-04-08T07:22:00.000Z</workStepDateTime>
+        <headline>TSRV AVO - DELAY ACTION</headline>
+        <description>BACKGROUND:
+REPORT OF F/O PITOT HEAT CB TRIPPED AND POSSIBLE RELAY DAMAGE. WO HAS BEEN RAISED TO CARRY OUT INSPECTIONS AND REPLACEMENTS AS REQUIRED.
+
+ACTION:  
+1:  OBSERVING ALL SAFETY PRECAUTIONS GAIN ACCESS TO THE AIRCRAFT.  
+
+2:  REMOVE ELECTRICAL POWER FROM THE AIRCRAFT BEFORE PROCEEDING WITH THE INSPECTIONS BELOW.  
+
+3:  GAIN ACCESS TO THE INTERIOR OF THE P18-2 AND P18-3 PANEL AND PERFORM THE FOLLOWING GENERAL VISUAL INSPECTIONS IAW AMM TASK 20-60-02-100-801:      
+
+A)  INSPECT RELAY R1018, R1070 AND R1073 IN SITU AND RECORD IF ANY MOISTURE IS PRESENT OR IF THERE IS ANY EVIDENCE OF MOISTURE HAVING BEEN PRESENT (WATER STAINS ETC.).      
+
+B)  INSPECT THE AREA AROUND RELAY R1018, R1070 AND R1073, AND RECORD IF ANY MOISTURE IS PRESENT OR IF THERE IS ANY EVIDENCE OF MOISTURE HAVING BEEN PRESENT (WATER STAINS ETC.).      
+
+C)   INSPECT THE INSULATION BLANKET ADJACENT TO RELAYS, AND RECORD IF ANY MOISTURE IS PRESENT OR IF THERE IS ANY EVIDENCE OF MOISTURE HAVING BEEN PRESENT (WATER STAINS ETC.).      
+
+D)  INSPECT THE LOWER SIDE OF THE BASE OF RELAYS IN SITU, INCLUDING THE VISIBLE WIRES, AND RECORD IF THERE IS ANY MOISTURE PRESENT OR EVIDENCE OF OR ARCING/BURNING (BLACK MARKS ETC.)       
+
+E)  REMOVE RELAYS R1018, R1070 &amp; R1073  AND INSPECT ALL CONTACTS OF BOTH THE RELAY AND BASE FOR THE PRESENCE OF MOISTURE AND/OR EVIDENCE OF ARCING/BURNING.   
+
+4:  RECTIFY ANY FINDINGS BEFORE CONTINUING. REFER AS REQUIRED TO RELAY/BASE REPLACEMENT IAW SWPM 20-81.  CLEANING IAW AMM TASK 20-60-02-100-803. RECORD THE PART NUMBER AND BATCH NUMBER OF ANY NEW PART INSTALLED.  
+
+5:  IF NFF, REPLACE RELAY R1018, R1073 &amp; INSTALL RELAY R1070 IAW 20-81 AND CLOSE THE P18-2 AND P18-3 PANEL.  
+
+6:  IAW AMM TASK 30-31-00-750-801, PERFORM AN OPERATIONAL TEST OF THE AUTO AIR DATA SENSOR HEATING.</description>
+        <descriptionSign>KCY</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="810c6abe-144c-11f0-b322-005056b18588">
+            <partNumber>FLUKE177</partNumber>
+            <description>MULTIMETER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="810f77ff-144c-11f0-b322-005056b18588">
+            <partNumber>BACR13CG2AB</partNumber>
+            <description>RELAY</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="5590f0a2-1470-11f0-b322-005056b18588">
+            <partNumber>YD4N</partNumber>
+            <description>RELAY</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="32ae1a35-15b5-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>GENERAL VISUAL INSPECTION OF BELOW ITEMS C/OUT IAW AMM TASK 20-60-02-100-801 REV 23:      
+
+--------------------------
+
+INSPECTED RELAY R1018, R1070 AND R1073 IN SITU - NO MOISTURE OR EVIDENCE OF MOISTURE PRESENT
+
+INSPECTED  AREA AROUND RELAY R1018, R1070 AND R1073 -  NO MOISTURE OR EVIDENCE OF MOISTURE PRESENT
+
+INSPECTED THE INSULATION BLANKET ADJACENT TO RELAYS -  NO MOISTURE OR EVIDENCE OF MOISTURE PRESENT
+
+INSPECTED THE LOWER SIDE OF THE BASE OF RELAYS IN SITU, INCLUDING THE VISIBLE WIRES - NO MOISTURE OR EVIDENCE OF MOISTURE PRESENT
+
+REMOVED RELAYS R1018, R1070 &amp; R1073  FOR INSPECTION - NO MOISTURE OR EVIDENCE OF ARCING/BURNING. 
+
+------------------------
+
+DUE TO NFF, RELAY R1018 AND R1073 REPLACED &amp; RELAY R1070 REFITTED IAW SWPM 20-81-22 REV 88
+
+RELAY PN BACR13CG2AB, BN 1136574
+
+RELAY PN YD4N, BN 1141739
+
+F/O`S PITOT PROBE REPLACED IAW AMM 34-11-01 REV 23 AND LEAK TEST C/OUT IAW AMM 34-11-00-790-807 REV 23
+
+AIR DATA TEST SET PN: DPS 1000, SN: 01316
+
+OPERATIONAL TEST OF THE AUTO AIR DATA SENSOR HEATING C/OUT IAW AMM TASK 30-31-00-750-801 REV 23
+
+ASSISTED BY TLH AND MNFR</actionText>
+            <performedData>
+              <performedDateTime>2025-04-10T02:20:00.000Z</performedDateTime>
+              <performedSign>JUN</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="32b17596-15b5-11f0-bbbc-005056b18588">
+                <position>F/O</position>
+                <labelNumber>3795325</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>453624</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>466204</serialNumber>
+                </partOn>
+                <certificateNumber>407560538</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="406c361a-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>86347</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 86347</description>
+      </reference>
+    </references>
+    <remarks>IS-MATERIALS - IN SOF STOCK TUE 08/04 HVTY</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

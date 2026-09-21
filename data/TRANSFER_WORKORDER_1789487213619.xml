@@ -1,0 +1,127 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487213618</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:53.618Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="9486db79-42ac-11f1-a458-005056b18588">
+    <workorderNumber>190596308</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00394</aircraftFullRegistration>
+        <aircraftRegistration>REG00394</aircraftRegistration>
+        <aircraftMsn>44720</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190596308</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2026-04-28Z</issueDate>
+        <issueSign>JEQS</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-28T02:46:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1790230</closingTahMinutes>
+        <closingTac>18801</closingTac>
+        <closingSign>JEQS</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-28T02:46:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-28T02:46:00.000Z</dateTime>
+        <releaseSign>FMM</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="94879eca-42ac-11f1-a458-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-28T02:42:00.000Z</workStepDateTime>
+        <description>DURING RAMP 1 FOUND 27 DEF BSI LIGHT DOES NOT ILUMINATED</description>
+        <descriptionSign>JEQS</descriptionSign>
+        <actions>
+          <action uuid="94894c7b-42ac-11f1-a458-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>27 DEF BSI LIGHT REPLACED IAW AMM 33-21-00-960-802 R89</actionText>
+            <performedData>
+              <performedDateTime>2026-04-28T02:43:00.000Z</performedDateTime>
+              <performedSign>JEQS</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="948aac0c-42ac-11f1-a458-005056b18588">
+                <position>27 DEF</position>
+                <labelNumber>4061535</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>49530</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>32452</serialNumber>
+                </partOn>
+                <certificateNumber>ARC165910</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="ac797e4d-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>102750</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 102750</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

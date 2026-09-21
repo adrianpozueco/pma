@@ -1,0 +1,168 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486907580</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:47.579Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="a2ee7405-fc98-11f0-b626-005056b18588">
+    <workorderNumber>55236549</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00421</aircraftFullRegistration>
+        <aircraftRegistration>REG00421</aircraftRegistration>
+        <aircraftMsn>44836</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55236549</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-01-28Z</issueDate>
+        <issueSign>GRD</issueSign>
+        <issueStation>BTS</issueStation>
+        <issueFltTo>BTS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-01-28T22:27:00.000Z</closingDateTime>
+        <closingStation>BTS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1460748</closingTahMinutes>
+        <closingTac>11539</closingTac>
+        <closingSign>GRD</closingSign>
+      </closingData>
+      <certification>
+        <number>SK.145.015</number>
+        <dateTime>2026-01-28T22:27:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>SK.145.015</number>
+        <dateTime>2026-01-28T22:27:00.000Z</dateTime>
+        <releaseSign>GRD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="a2f06fd6-fc98-11f0-b626-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-28T20:30:00.000Z</workStepDateTime>
+        <description>REF TO WO 55236544
+WINDOW LIGHT ON POS 18 DEF PARTIALLY INOP</description>
+        <descriptionSign>GRD</descriptionSign>
+        <actions>
+          <action uuid="a2f2e0d7-fc98-11f0-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT POS 18 DEF REPLACED IAW AMM 33-21-00-960-804 REV 88 
+
+DATA LOAD SATIS</actionText>
+            <performedData>
+              <performedDateTime>2026-01-28T20:30:00.000Z</performedDateTime>
+              <performedSign>GRD</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="a2f4b598-fc98-11f0-b626-005056b18588">
+                <position>#18 RH</position>
+                <labelNumber>4019671</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>24893</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>26804</serialNumber>
+                </partOn>
+                <certificateNumber>ARC162340</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="a2f74da9-fc98-11f0-b626-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>GRD</userSign>
+                <startDateTime>2026-01-28T21:56:00.000Z</startDateTime>
+                <endDateTime>2026-01-28T22:26:00.000Z</endDateTime>
+                <duration>30</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+            <uplifts>
+              <oilUplifts>
+                <uplift>
+                  <code>APU1</code>
+                  <measure>0.0</measure>
+                </uplift>
+                <uplift>
+                  <code>ENGINE1</code>
+                  <measure>0.0</measure>
+                </uplift>
+                <uplift>
+                  <code>ENGINE2</code>
+                  <measure>0.0</measure>
+                </uplift>
+                <uplift>
+                  <code>IDG1</code>
+                  <measure>0.0</measure>
+                </uplift>
+                <uplift>
+                  <code>IDG2</code>
+                  <measure>0.0</measure>
+                </uplift>
+                <sign>GRD</sign>
+              </oilUplifts>
+              <hydraulicUplifts>
+                <uplift>
+                  <code>HYD1</code>
+                  <measure>0.0</measure>
+                </uplift>
+                <uplift>
+                  <code>HYD2</code>
+                  <measure>0.0</measure>
+                </uplift>
+                <sign>GRD</sign>
+              </hydraulicUplifts>
+            </uplifts>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

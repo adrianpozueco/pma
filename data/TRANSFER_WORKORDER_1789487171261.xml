@@ -1,0 +1,127 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487171260</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:11.260Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="76590bab-b9bd-11f0-a240-005056b18588">
+    <workorderNumber>190481686</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00089</aircraftFullRegistration>
+        <aircraftRegistration>REG00089</aircraftRegistration>
+        <aircraftMsn>62305</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190481686</barcode>
+      <ataChapter>38-11</ataChapter>
+      <issueData>
+        <issueDate>2025-11-04Z</issueDate>
+        <issueSign>WPG</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-11-04T20:20:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>878239</closingTahMinutes>
+        <closingTac>7290</closingTac>
+        <closingSign>WPG</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-04T20:20:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-04T20:20:00.000Z</dateTime>
+        <releaseSign>WPG</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="765a442c-b9bd-11f0-a240-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-11-04T20:20:00.000Z</workStepDateTime>
+        <description>AFT R/H LAV FAUCET WORKS CONSTANTLY</description>
+        <descriptionSign>WPG</descriptionSign>
+        <actions>
+          <action uuid="765eff1d-b9bd-11f0-a240-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT R/H LAV FAUCET REPLACED IAW AMM 38-11-05/401 REV 26</actionText>
+            <performedData>
+              <performedDateTime>2025-11-04T20:20:00.000Z</performedDateTime>
+              <performedSign>PYKK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="7660acce-b9bd-11f0-a240-005056b18588">
+                <position>AFT RH</position>
+                <labelNumber>3967373</labelNumber>
+                <partOff>
+                  <partNumber>SC4L500301-5</partNumber>
+                  <serialNumber>11039486</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>SC4L500301-5</partNumber>
+                  <serialNumber>173942740-009</serialNumber>
+                </partOn>
+                <certificateNumber>E-5943492</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="933af0b7-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>94472</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 94472</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

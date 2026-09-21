@@ -1,0 +1,159 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486980796</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:00.795Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="cb60a82f-65f8-11f1-b670-005056b18588">
+    <workorderNumber>55553249</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00489</aircraftFullRegistration>
+        <aircraftRegistration>REG00489</aircraftRegistration>
+        <aircraftMsn>44748</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55553249</barcode>
+      <ataChapter>33-20</ataChapter>
+      <issueData>
+        <issueDate>2026-06-12Z</issueDate>
+        <issueSign>NIB1</issueSign>
+        <issueStation>MRS</issueStation>
+        <issueFltTo>MRS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-13T01:13:00.000Z</closingDateTime>
+        <closingStation>MRS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1703982</closingTahMinutes>
+        <closingTac>17535</closingTac>
+        <closingSign>CLNL</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2026-06-13T01:13:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2026-06-13T01:13:00.000Z</dateTime>
+        <releaseSign>CLNL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="cb619290-65f8-11f1-b670-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-12T00:45:00.000Z</workStepDateTime>
+        <headline>12/06/2026 - MRS -</headline>
+        <description>WINDOW LIGHT SEAT ROW 8DEF IT`S BLINKING</description>
+        <descriptionSign>NIB1</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="474e6d56-65f9-11f1-b670-005056b18588">
+            <partNumber>9651-35-0002</partNumber>
+            <description>LIGHT BSI-35 IN TYPE C HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="47506927-65f9-11f1-b670-005056b18588">
+            <partNumber>C33001-58</partNumber>
+            <description>BSI LIGHT CABLE TESTER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="cb636751-65f8-11f1-b670-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>A/C DISPATCHED IAW MEL 33-02-02 CAT C REV 6B
+HIL OPEN</actionText>
+            <performedData>
+              <performedDateTime>2026-06-12T00:47:00.000Z</performedDateTime>
+              <performedSign>NIB1</performedSign>
+            </performedData>
+          </action>
+          <action uuid="d53e46b2-66c3-11f1-b670-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>BSI LIGHT SEAT ROW 8DEF REPLACED IAW AMM 33-21-00-960-804 REV 89 
+TEST SATIS 
+
+REF TLP 191306754
+
+		***HIL CLOSED***</actionText>
+            <performedData>
+              <performedDateTime>2026-06-13T01:03:00.000Z</performedDateTime>
+              <performedSign>JPPB</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="fa95e81b-66c3-11f1-b670-005056b18588">
+                <position>8DEF</position>
+                <labelNumber>4128909</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>21929</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>51507</serialNumber>
+                </partOn>
+                <certificateNumber>170997</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="96f975e9-66c4-11f1-b670-005056b18588">
+        <type>TQ</type>
+        <reference>105010</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 105010</description>
+      </reference>
+    </references>
+    <remarks>TO-MATERIALS - T55818526 ALC-MRS FRI 12/06 LIMA</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

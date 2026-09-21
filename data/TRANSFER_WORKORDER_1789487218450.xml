@@ -1,0 +1,156 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487218449</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:58.449Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="64461b70-2fdd-11f1-9a9d-005056b18588">
+    <workorderNumber>190610231</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00051</aircraftFullRegistration>
+        <aircraftRegistration>REG00051</aircraftRegistration>
+        <aircraftMsn>44744</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190610231</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-04-04Z</issueDate>
+        <issueSign>MCDT</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-07T02:07:00.000Z</closingDateTime>
+        <closingStation>MRS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1737512</closingTahMinutes>
+        <closingTac>18074</closingTac>
+        <closingSign>CLNL</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2026-04-07T02:07:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2026-04-07T02:07:00.000Z</dateTime>
+        <releaseSign>CLNL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="644753f1-2fdd-11f1-9a9d-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-04T04:17:00.000Z</workStepDateTime>
+        <headline>***STN HIL***04/04/26***ROW19-33DEF WINDOW LIGHTS INOP***</headline>
+        <description>XFRD FROM CLB
+WINDOW AND AFT GALLEY LTS WONT DIM RHS CABIN FROM SEATS 19-33</description>
+        <descriptionSign>MCDT</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="2c40af44-2fec-11f1-9a9d-005056b18588">
+            <partNumber>9651-35-0002</partNumber>
+            <description>LIGHT BSI-35 IN TYPE C HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="f059c102-2feb-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHTS FROM ROW 19-33 DEF TX TO HIL IAW MALTA MEL 33-02-02 REV 6B 
+
+CAT C ITEM</actionText>
+            <performedData>
+              <performedDateTime>2026-04-04T06:01:00.000Z</performedDateTime>
+              <performedSign>HPU</performedSign>
+            </performedData>
+          </action>
+          <action uuid="25d507b3-3226-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>T/S PERFORMED IAW FIM 33-20 TASK 805 REV 89  
+
+WINDOW LIGHT 18DEF REPLACED AND TESTED SATIS IAW AMM 33-21-00-960-804 REV 89 
+
+TOOL USED 
+
+BSI LIGHT CABLE TESTER 
+P/N C33001-58
+S/N M17259-107
+
+REF TLP 190610245
+
+***HIL CLOSED***</actionText>
+            <performedData>
+              <performedDateTime>2026-04-07T02:03:00.000Z</performedDateTime>
+              <performedSign>CLNL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="3ffac0fc-3226-11f1-9a9d-005056b18588">
+                <position>18DEF</position>
+                <labelNumber>4072609</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>33916</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>68541</serialNumber>
+                </partOn>
+                <certificateNumber>20169015</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>IS-MATERIALS - IN MRS STOCK MON 06/04 BEC
+
+TO-MATERIALS - T51887926 PMI-MRS SUN 05-04 QUF
+
+TO-MATERIALS - T51838026 CRL-MRS SAT 04/04 DRLV</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

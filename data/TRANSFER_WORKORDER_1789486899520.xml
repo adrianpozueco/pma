@@ -1,0 +1,147 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486899518</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:39.518Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="a3ccca93-2b2f-11f0-99b7-005056b18588">
+    <workorderNumber>55162434</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00586</aircraftFullRegistration>
+        <aircraftRegistration>REG00586</aircraftRegistration>
+        <aircraftMsn>40288</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55162434</barcode>
+      <ataChapter>25-35</ataChapter>
+      <issueData>
+        <issueDate>2025-05-07Z</issueDate>
+        <issueSign>WAC</issueSign>
+        <issueStation>MAN</issueStation>
+        <issueFltTo>MAN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <special>PCI</special>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2025-05-09T00:58:00.000Z</closingDateTime>
+        <closingStation>CPH</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2405990</closingTahMinutes>
+        <closingTac>20076</closingTac>
+        <closingSign>MSKD</closingSign>
+      </closingData>
+      <certification>
+        <number>DK.145.0120</number>
+        <dateTime>2025-05-09T00:58:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DK.145.0120</number>
+        <dateTime>2025-05-09T00:58:00.000Z</dateTime>
+        <releaseSign>MSKD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="a3d7ee25-2b2f-11f0-99b7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-05-07T10:38:00.000Z</workStepDateTime>
+        <headline>***HIL*** MAN - 07MAY25</headline>
+        <description>FWD WATER BOILER LEAKING</description>
+        <descriptionSign>WAC</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="ee5f5e87-2b2f-11f0-99b7-005056b18588">
+            <partNumber>72184025</partNumber>
+            <description>WATER BOILER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="a31ec0d1-2bb2-11f0-99b7-005056b18588">
+            <partNumber>62197-301-001</partNumber>
+            <description>WATER BOILER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="a3da8636-2b2f-11f0-99b7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>TRANSFERED TO HIL IAW MEL PREAMBLE REV 6A, INTERVAL D, 120 DAYS</actionText>
+            <performedData>
+              <performedDateTime>2025-05-07T10:39:00.000Z</performedDateTime>
+              <performedSign>WAC</performedSign>
+            </performedData>
+          </action>
+          <action uuid="7dcfaa87-2bb2-11f0-99b7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD GALLEY WATER BOILER REPLACED IAW AMM 25-31-CAMO/0001 REV 85. BOILER OP TEST FAILED.
+SUSPECT NEW BOILER INOP. ADDITIONAL BOILER NEEDS TO BE ORDERED.
+HIL REMAINS OPEN.
+
+FOR CRS REF TLP: 55162438.</actionText>
+            <performedData>
+              <performedDateTime>2025-05-07T22:30:00.000Z</performedDateTime>
+              <performedSign>TITM</performedSign>
+            </performedData>
+          </action>
+          <action uuid="a2012a60-2c70-11f0-99b7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>CLOSED BY W/O 55162446</actionText>
+            <performedData>
+              <performedDateTime>2025-05-09T00:57:00.000Z</performedDateTime>
+              <performedSign>MSKD</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS- T33026025 BGY-CPH THUR 08/05 CHLC
+
+IS-MATERIALS - IN CPH STOCK WED 07-05 QUF</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

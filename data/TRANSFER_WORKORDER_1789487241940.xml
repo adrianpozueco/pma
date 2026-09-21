@@ -1,0 +1,147 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487241939</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:21.939Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="bd4cbef7-b11c-11f1-8509-005056b1ed97">
+    <workorderNumber>190707558</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00274</aircraftFullRegistration>
+        <aircraftRegistration>REG00274</aircraftRegistration>
+        <aircraftMsn>44783</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190707558</barcode>
+      <ataChapter>33-42</ataChapter>
+      <issueData>
+        <issueDate>2025-08-07Z</issueDate>
+        <issueSign>WPG</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-07T00:30:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1478587</closingTahMinutes>
+        <closingTac>14245</closingTac>
+        <closingSign>WPG</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-07T00:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-07T00:30:00.000Z</dateTime>
+        <releaseSign>WPG</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="bd528b58-b11c-11f1-8509-005056b1ed97">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-07T00:30:00.000Z</workStepDateTime>
+        <description>R/H LANDING LIGHT AND R/H TURNOFF LIGHT INOP</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="bd55bfa9-b11c-11f1-8509-005056b1ed97">
+            <actionType>Action</actionType>
+            <actionText>FIXED LANDING LIGHT -POWER SUPPLY REPLACED IAW AMM 33-42-01-960-804 REV 86
+FIXED LANDING LIGHT -MAIN ARRAY ASSY REPLACED IAW AMM 33-42-01-960-803 REV 86
+SATIS</actionText>
+            <performedData>
+              <performedDateTime>2025-08-07T00:30:00.000Z</performedDateTime>
+              <performedSign>PYKK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="bd57e28a-b11c-11f1-8509-005056b1ed97">
+                <position>RH OUTBD</position>
+                <labelNumber>3872529</labelNumber>
+                <partOff>
+                  <partNumber>72500410-3</partNumber>
+                  <serialNumber>11119</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72500410-3</partNumber>
+                  <serialNumber>4019</serialNumber>
+                </partOn>
+                <certificateNumber>3233038</certificateNumber>
+              </componentChange>
+              <componentChange uuid="bd59903b-b11c-11f1-8509-005056b1ed97">
+                <position>RH INBD</position>
+                <labelNumber>3805668</labelNumber>
+                <partOff>
+                  <partNumber>72500410-4</partNumber>
+                  <serialNumber>2935</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72500410-4</partNumber>
+                  <serialNumber>9774</serialNumber>
+                </partOn>
+                <certificateNumber>352297817</certificateNumber>
+              </componentChange>
+              <componentChange uuid="bd5aefcc-b11c-11f1-8509-005056b1ed97">
+                <position>RH</position>
+                <labelNumber>3889809</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>1775</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>2761</serialNumber>
+                </partOn>
+                <certificateNumber>353504972</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

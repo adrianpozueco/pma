@@ -1,0 +1,124 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487231793</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:11.793Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="bd3a7261-ad7c-11f1-8ff2-005056b18588">
+    <workorderNumber>190654800</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00048</aircraftFullRegistration>
+        <aircraftRegistration>REG00048</aircraftRegistration>
+        <aircraftMsn>44709</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190654800</barcode>
+      <ataChapter>23-42</ataChapter>
+      <issueData>
+        <issueDate>2026-09-11Z</issueDate>
+        <issueSign>ADIF</issueSign>
+        <issueStation>BLQ</issueStation>
+        <issueFltTo>BLQ</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-09-11T01:00:00.000Z</closingDateTime>
+        <closingStation>BLQ</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1983303</closingTahMinutes>
+        <closingTac>18749</closingTac>
+        <closingSign>ADIF</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-09-11T01:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-09-11T01:00:00.000Z</dateTime>
+        <releaseSign>ADIF</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="bd3bf902-ad7c-11f1-8ff2-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-09-11T01:00:00.000Z</workStepDateTime>
+        <description>REF HIL #190654794 - AFT INTERPHONE INOP</description>
+        <descriptionSign>ADIF</descriptionSign>
+        <actions>
+          <action uuid="bd3e42f3-ad7c-11f1-8ff2-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT ATTENDANT HANDSET REPLACED IAW AMM 23-42-01/401 REV 90, SATIS.
+ATTENDANT HANDSET INSTALLATION TEST C/O IAW AMM 23-42-01-700-801 REV 90, SATIS.
+
+P/N INT600
+BCHN 953448
+QTY 1PC</actionText>
+            <performedData>
+              <performedDateTime>2026-09-11T01:00:00.000Z</performedDateTime>
+              <performedSign>ADIF</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="bd40b3f4-ad7c-11f1-8ff2-005056b18588">
+                <position>AFT CAB</position>
+                <labelNumber>4221366</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F24478</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>D22147</serialNumber>
+                </partOn>
+                <certificateNumber>178574</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

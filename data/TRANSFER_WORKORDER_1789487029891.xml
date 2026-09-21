@@ -1,0 +1,119 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487029890</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:49.890Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="a5734348-e8d4-11ef-9b8c-005056b18588">
+    <workorderNumber>102224761</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00089</aircraftFullRegistration>
+        <aircraftRegistration>REG00089</aircraftRegistration>
+        <aircraftMsn>62305</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.102224761</barcode>
+      <ataChapter>23-42</ataChapter>
+      <issueData>
+        <issueDate>2025-02-11Z</issueDate>
+        <issueSign>JALI1</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-11T12:16:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>697276</closingTahMinutes>
+        <closingTac>5826</closingTac>
+        <closingSign>JALI1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-11T12:16:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-11T12:16:00.000Z</dateTime>
+        <releaseSign>JALI1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="a5753f19-e8d4-11ef-9b8c-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-11T12:00:00.000Z</workStepDateTime>
+        <description>CABIN AFT HANDSET DOES NOT WORK.</description>
+        <descriptionSign>JALI1</descriptionSign>
+        <actions>
+          <action uuid="a5773aea-e8d4-11ef-9b8c-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>HANDSET REPLACED IAW AMM 23-42-01/401 REV.23.</actionText>
+            <performedData>
+              <performedDateTime>2025-02-11T12:00:00.000Z</performedDateTime>
+              <performedSign>JALI1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="a578e89b-e8d4-11ef-9b8c-005056b18588">
+                <position>AFT CAB</position>
+                <labelNumber>3730913</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F52190</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1M</partNumber>
+                  <serialNumber>F52816</serialNumber>
+                </partOn>
+                <certificateNumber>ARC133626</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

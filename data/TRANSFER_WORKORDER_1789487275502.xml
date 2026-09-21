@@ -1,0 +1,154 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487275500</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:55.500Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="727172e6-eeee-11f0-9077-005056b18588">
+    <workorderNumber>191271312</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00153</aircraftFullRegistration>
+        <aircraftRegistration>REG00153</aircraftRegistration>
+        <aircraftMsn>65888</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191271312</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2026-01-11Z</issueDate>
+        <issueSign>SNN</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <special>PCI</special>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2026-01-13T11:44:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>915872</closingTahMinutes>
+        <closingTac>6972</closingTac>
+        <closingSign>UDC</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-01-13T11:44:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-01-13T11:44:00.000Z</dateTime>
+        <releaseSign>UDC</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7274ce47-eeee-11f0-9077-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-11T13:06:00.000Z</workStepDateTime>
+        <headline>HIL DUB 11/01/25</headline>
+        <description>CREW REPORT:
+
+G1 BOILER LEAKING</description>
+        <descriptionSign>SNN</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="98391481-eeee-11f0-9077-005056b18588">
+            <partNumber>62197-301-001</partNumber>
+            <description>WATER BOILER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="7276ca18-eeee-11f0-9077-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WATER SUPPLY OFF, LEAK EMMINATING FROM UNDER BOILER
+
+TX TO HIL IAW MEL PREAMBLE REV.3A</actionText>
+            <performedData>
+              <performedDateTime>2026-01-11T13:06:00.000Z</performedDateTime>
+              <performedSign>SNN</performedSign>
+            </performedData>
+          </action>
+          <action uuid="eea97c30-f075-11f0-9077-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>GALLEY 1 WATER BOILER REPLACED IAW AMM 25-32-21/401 REV.26
+WATER BOILER OP/TEST C/OUT IAW AMM 25-32-21-710-801 REV.26, SATIS.
+
+WORK PERFORMED ALSO BY SCSS AND SZH IN OJT</actionText>
+            <performedData>
+              <performedDateTime>2026-01-13T11:44:00.000Z</performedDateTime>
+              <performedSign>UDC</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="eeab7801-f075-11f0-9077-005056b18588">
+                <position>GALLEY G1</position>
+                <labelNumber>4015513</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>14-09-7016</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>14-07-6905</serialNumber>
+                </partOn>
+                <certificateNumber>WAV1010</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>IS-MATERIALS - IN BGY STOCK TUE 13/01 LIMA
+
+IS-MATERIALS - IN BGY STOCK MON 12/01 FJN
+
+TO-MATERIALS - T46533026 BCN-DUB SUN 11/01 LIMA
+
+TO-MATERIALS - T46529926  BVA-DUB SUN 11/01 LIMA</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

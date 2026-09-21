@@ -1,0 +1,421 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487045085</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:05.085Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="ade29f8a-347e-11f1-9a9d-005056b18588">
+    <workorderNumber>106279755</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <workorderOriginType>AMP</workorderOriginType>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00280</aircraftFullRegistration>
+        <aircraftRegistration>REG00280</aircraftRegistration>
+        <aircraftMsn>65874</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.106279755</barcode>
+      <ataChapter>73-11</ataChapter>
+      <issueData>
+        <issueDateTime>2026-04-10T01:39:00.000Z</issueDateTime>
+        <issueSign>MCDT</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-11T01:22:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1043932</closingTahMinutes>
+        <closingTac>9247</closingTac>
+        <closingSign>MCDT</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-11T01:22:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-11T01:22:00.000Z</dateTime>
+        <releaseSign>MCDT</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="ade362db-347e-11f1-9a9d-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-10T01:39:00.000Z</workStepDateTime>
+        <headline>FINDING (NRC) DOCUMENT LEAP-BORESCOPE</headline>
+        <description>#1 ENGINE 
+ESN:60A669
+
+LEAP-FULL SET REPLACEMENT(X18) REQUIRED POST BOROSCOPE INSPECTION.</description>
+        <descriptionSign>MCDT</descriptionSign>
+        <actions>
+          <action uuid="8fd56c80-34c0-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>1. FULL SHIP SET OF FUEL NOZZLES REPLACED ON WORKORDERS, 106280757, AND 106280796.</actionText>
+            <performedData>
+              <performedDateTime>2026-04-10T09:34:00.000Z</performedDateTime>
+              <performedSign>MCDT</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="c0638a18-34c0-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4095263</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE635</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT56T74</serialNumber>
+                </partOn>
+                <certificateNumber>RH42364-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="74e0fc4d-34c1-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4026003</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE981</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMA626</serialNumber>
+                </partOn>
+                <certificateNumber>RH00589-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="01679b19-34c3-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4095271</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE634</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT3H174</serialNumber>
+                </partOn>
+                <certificateNumber>RH49969-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="e8a37750-34c3-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4077581</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE636</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT2C850</serialNumber>
+                </partOn>
+                <certificateNumber>RH45584-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="5ff4f7fb-34c4-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4063628</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMF430</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNG048</serialNumber>
+                </partOn>
+                <certificateNumber>RG87913-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="0fed2f2e-34c5-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4095307</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT37T22</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF788</serialNumber>
+                </partOn>
+                <certificateNumber>RH54078-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="73fdf1ff-34c5-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4095300</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE987</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT56R83</serialNumber>
+                </partOn>
+                <certificateNumber>RH54050-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="3e64d3bc-34c6-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4095316</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT47T69</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMD219</serialNumber>
+                </partOn>
+                <certificateNumber>RH54776-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="9beb16a8-34c6-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4095310</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE988</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT31E32</serialNumber>
+                </partOn>
+                <certificateNumber>RH54268-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="93e2054f-34c9-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4096105</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE403</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT21C89</serialNumber>
+                </partOn>
+                <certificateNumber>RH55091-2</certificateNumber>
+              </componentChange>
+              <componentChange uuid="5c97f0e2-34cc-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4096116</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE734</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT59F71</serialNumber>
+                </partOn>
+                <certificateNumber>RH58048-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="401c0a5e-34cf-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4096114</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE986</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNG914</serialNumber>
+                </partOn>
+                <certificateNumber>RH58753-2</certificateNumber>
+              </componentChange>
+              <componentChange uuid="ae1dd000-34cf-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4096112</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE984</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNG929</serialNumber>
+                </partOn>
+                <certificateNumber>RH58745-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="d39030ff-34d0-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4096121</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE980</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT6H827</serialNumber>
+                </partOn>
+                <certificateNumber>RH52315-2</certificateNumber>
+              </componentChange>
+              <componentChange uuid="466e7800-34d1-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4096119</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE985</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT5A045</serialNumber>
+                </partOn>
+                <certificateNumber>RH58618-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="74020887-34d3-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4077596</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE633</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT1G192</serialNumber>
+                </partOn>
+                <certificateNumber>RH40399-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="ea206047-34d3-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4096126</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE983</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT94J43</serialNumber>
+                </partOn>
+                <certificateNumber>RH58615-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="b0ab6678-34d4-11f1-9a9d-005056b18588">
+                <position>#1</position>
+                <labelNumber>4096129</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNE982</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNG925</serialNumber>
+                </partOn>
+                <certificateNumber>RH58744-1</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+          <action uuid="2cdaf068-3544-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REF W/O:106280796 FOR INDEPENDENT INSPECTIONS FOR FUEL  FULL SET NOZZLE INSTALLATION .</actionText>
+            <performedData>
+              <performedDateTime>2026-04-11T01:14:00.000Z</performedDateTime>
+              <performedSign>MCDT</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <originWorkorderOfFinding>
+      <uniqueWorkorderReference uuid="ade5faec-347e-11f1-9a9d-005056b18588" />
+    </originWorkorderOfFinding>
+    <references>
+      <reference uuid="ade7f6bd-347e-11f1-9a9d-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>105881915</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>105881915</description>
+        <remarks>SOURCE EVENT</remarks>
+      </reference>
+      <reference uuid="8fda0061-34c0-11f1-9a9d-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>106280742</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>106280742</description>
+        <remarks>NRC FINDING Automatic Crossreference created by Workflow</remarks>
+      </reference>
+      <reference uuid="8fdd34b2-34c0-11f1-9a9d-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>106280749</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>106280749</description>
+        <remarks>NRC FINDING Automatic Crossreference created by Workflow</remarks>
+      </reference>
+      <reference uuid="8fdebb53-34c0-11f1-9a9d-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>106280757</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>106280757</description>
+        <remarks>NRC FINDING Automatic Crossreference created by Workflow</remarks>
+      </reference>
+      <reference uuid="8fe0b724-34c0-11f1-9a9d-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>106280796</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>106280796</description>
+        <remarks>NRC FINDING Automatic Crossreference created by Workflow</remarks>
+      </reference>
+      <reference uuid="8fe216b5-34c0-11f1-9a9d-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>106280841</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>106280841</description>
+        <remarks>NRC FINDING Automatic Crossreference created by Workflow</remarks>
+      </reference>
+      <reference uuid="8fe2da06-34c0-11f1-9a9d-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>106280894</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>106280894</description>
+        <remarks>NRC FINDING Automatic Crossreference created by Workflow</remarks>
+      </reference>
+      <reference uuid="8fe4fce7-34c0-11f1-9a9d-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>106280919</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>106280919</description>
+        <remarks>NRC FINDING Automatic Crossreference created by Workflow</remarks>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

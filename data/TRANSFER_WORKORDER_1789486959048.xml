@@ -1,0 +1,128 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486959046</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:39.046Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="14ad2c5f-b11c-11f1-8509-005056b1ed97">
+    <workorderNumber>55461691</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00289</aircraftFullRegistration>
+        <aircraftRegistration>REG00289</aircraftRegistration>
+        <aircraftMsn>62323</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55461691</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-02-22Z</issueDate>
+        <issueSign>MAFI2</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-22T23:15:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>772304</closingTahMinutes>
+        <closingTac>6455</closingTac>
+        <closingSign>MAFI2</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-22T23:15:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-22T23:15:00.000Z</dateTime>
+        <releaseSign>MAFI2</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="14b20e60-b11c-11f1-8509-005056b1ed97">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-22T23:15:00.000Z</workStepDateTime>
+        <description>REF. TO WO; 55461686
+WINDOW LT AT ROW 11/16 DEF INOP</description>
+        <descriptionSign>ARDZ1</descriptionSign>
+        <actions>
+          <action uuid="14b51ba1-b11c-11f1-8509-005056b1ed97">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LT AT ROW 11-16 DEF REPLACED IAW AMM 33-21-00-960-801 REV 23</actionText>
+            <performedData>
+              <performedDateTime>2025-02-22T23:15:00.000Z</performedDateTime>
+              <performedSign>MAFI2</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="14b8c522-b11c-11f1-8509-005056b1ed97">
+                <position>CABIN</position>
+                <labelNumber>3752532</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>47689</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>21208</serialNumber>
+                </partOn>
+                <certificateNumber>135643</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="14bcbcc3-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>83787</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 83787</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

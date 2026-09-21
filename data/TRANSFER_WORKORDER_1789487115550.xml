@@ -1,0 +1,151 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487115549</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:15.548Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="6fe945cb-bbc7-11f0-af70-005056b18588">
+    <workorderNumber>190286496</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00123</aircraftFullRegistration>
+        <aircraftRegistration>REG00123</aircraftRegistration>
+        <aircraftMsn>62355</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190286496</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-11-07Z</issueDate>
+        <issueSign>JYA</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-11-08T02:08:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>530216</closingTahMinutes>
+        <closingTac>4145</closingTac>
+        <closingSign>AGMA1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-08T02:08:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-11-08T02:08:00.000Z</dateTime>
+        <releaseSign>AGMA1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="6feb419c-bbc7-11f0-af70-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-11-07T10:46:00.000Z</workStepDateTime>
+        <headline>07/11/2025 -  MAD  -  WINDOW LIGHT ROW 22A INOP</headline>
+        <description>DEFECT FROM CLB
+
+WINDOW LIGHT ROW 22A FLICKERING CONSIDERED INOP</description>
+        <descriptionSign>JYA</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="046a64fe-bbc8-11f0-af70-005056b18588">
+            <partNumber>9651-35-0002</partNumber>
+            <description>LIGHT BSI-35 IN TYPE C HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="046b9d7f-bbc8-11f0-af70-005056b18588">
+            <partNumber>C33001-58</partNumber>
+            <description>BSI LIGHT CABLE TESTER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="6fee4edd-bbc7-11f0-af70-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ITEM TX TO HIL IAW MEL 33-21-01-02 REV 6A</actionText>
+            <performedData>
+              <performedDateTime>2025-11-07T10:47:00.000Z</performedDateTime>
+              <performedSign>JYA</performedSign>
+            </performedData>
+          </action>
+          <action uuid="204fe7fc-bc48-11f0-af70-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT REPLACED IAW AMM 33-21-00-960-801 REV. 26  
+ 
+ATTENDANT CONTROL PANEL SOFTWARE LOADING IAW AMM 23-42-03-470-801 REV. 26 
+
+LIGHT OPERATION CHECKED IAW MM 33-21-00 REV26. FOUND-SATISF.</actionText>
+            <performedData>
+              <performedDateTime>2025-11-08T02:08:00.000Z</performedDateTime>
+              <performedSign>AGMA1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="205195ad-bc48-11f0-af70-005056b18588">
+                <position>CAB</position>
+                <labelNumber>3958841</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>18924</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>24553</serialNumber>
+                </partOn>
+                <certificateNumber>56127</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>IS-MATERIALS - IN MAD STOCK FRI 07/11 FJN</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

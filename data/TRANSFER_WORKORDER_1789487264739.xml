@@ -1,0 +1,199 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487264738</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:44.738Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="99cc5550-a539-11f1-ab51-005056b18588">
+    <workorderNumber>191065017</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00578</aircraftFullRegistration>
+        <aircraftRegistration>REG00578</aircraftRegistration>
+        <aircraftMsn>33571</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191065017</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDate>2026-08-31Z</issueDate>
+        <issueSign>BUA</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-08-31T12:42:00.000Z</closingDateTime>
+        <closingStation>MAH</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>4030174</closingTahMinutes>
+        <closingTac>40323</closingTac>
+        <closingSign>BUA</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-31T12:42:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-31T12:42:00.000Z</dateTime>
+        <releaseSign>BUA</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="99cd8dd1-a539-11f1-ab51-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-08-31T12:36:00.000Z</workStepDateTime>
+        <description>SUSPECTED BIRDSTRIKE DURING TAKE OFF ON THE LEFT ENGINE.</description>
+        <descriptionSign>BUA</descriptionSign>
+        <actions>
+          <action uuid="99d04cf3-a539-11f1-ab51-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>BIRDSTRIKE INSP C/OUT IAW AMM 05-51-18 REV 90 #1ENG FOUND WITH X2 FANDBLADE DAMAGE, NO CORE INGESTION. BLADES OUT OF LIMITS, X6 FANDBLADES REPLACED IAW AMM 72-21-02/401 REV 90 TT 72-012 AND TN 72-07 REV 1
+A/C RELEASE TO SERVICE.</actionText>
+            <performedData>
+              <performedDateTime>2026-08-31T12:36:00.000Z</performedDateTime>
+              <performedSign>BUA</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INSP C/OUT IAW MOE 2.23 ISS 2 REV 21.</inspectionText>
+              <performedData>
+                <performedDateTime>2026-08-31T12:37:00.000Z</performedDateTime>
+                <performedSign>BUA</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSP C/OUT IAW MOE 2.23 ISS 2 REV 21</inspectionText>
+              <performedData>
+                <performedDateTime>2026-08-31T12:37:00.000Z</performedDateTime>
+                <performedSign>MSZ</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="99d296e4-a539-11f1-ab51-005056b18588">
+                <position>#1</position>
+                <labelNumber>4151919</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>BB532760-C</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF389289</serialNumber>
+                </partOn>
+                <certificateNumber>GEAMS1164858-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="99d38145-a539-11f1-ab51-005056b18588">
+                <position>#1</position>
+                <labelNumber>4178059</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PA470517-2</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM157827</serialNumber>
+                </partOn>
+                <certificateNumber>R260423</certificateNumber>
+              </componentChange>
+              <componentChange uuid="99d41d86-a539-11f1-ab51-005056b18588">
+                <position>#1</position>
+                <labelNumber>4190499</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC768953</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM176310</serialNumber>
+                </partOn>
+                <certificateNumber>R26052222001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="99d4b9c7-a539-11f1-ab51-005056b18588">
+                <position>#1</position>
+                <labelNumber>4190525</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC613292</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM176637</serialNumber>
+                </partOn>
+                <certificateNumber>R26052219001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="99d55608-a539-11f1-ab51-005056b18588">
+                <position>#1</position>
+                <labelNumber>4217353</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC613242</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF591149</serialNumber>
+                </partOn>
+                <certificateNumber>925-26-28717</certificateNumber>
+              </componentChange>
+              <componentChange uuid="99d6dca9-a539-11f1-ab51-005056b18588">
+                <position>#1</position>
+                <labelNumber>4217348</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DC768926</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF585170</serialNumber>
+                </partOn>
+                <certificateNumber>925-26-28717</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

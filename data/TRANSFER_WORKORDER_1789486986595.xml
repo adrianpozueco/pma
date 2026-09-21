@@ -1,0 +1,140 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486986594</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:06.593Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7a9a76a2-45ac-11f0-a446-005056b18588">
+    <workorderNumber>55569854</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00032</aircraftFullRegistration>
+        <aircraftRegistration>REG00032</aircraftRegistration>
+        <aircraftMsn>44833</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55569854</barcode>
+      <ataChapter>33-20</ataChapter>
+      <issueData>
+        <issueDate>2025-06-10Z</issueDate>
+        <issueSign>RUS</issueSign>
+        <issueStation>MAN</issueStation>
+        <issueFltTo>MAN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-06-11T03:47:00.000Z</closingDateTime>
+        <closingStation>MAN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1249894</closingTahMinutes>
+        <closingTac>11664</closingTac>
+        <closingSign>GKCK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-11T03:47:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-11T03:47:00.000Z</dateTime>
+        <releaseSign>GKCK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7aa2b403-45ac-11f0-a446-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-06-10T03:20:00.000Z</workStepDateTime>
+        <description>###HIL - MAN - 10/06/25 ###    WINDOW LIGHT INOP @ ROW 33L</description>
+        <descriptionSign>RUS</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="90987fb9-45ac-11f0-a446-005056b18588">
+            <partNumber>9651-35-0000</partNumber>
+            <description>LIGHT BSI-35 IN TYPE A HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="7aa4d6e4-45ac-11f0-a446-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>TX TO HIL IAW MEL 33-02-02 REV 6A</actionText>
+            <performedData>
+              <performedDateTime>2025-06-10T03:20:00.000Z</performedDateTime>
+              <performedSign>RUS</performedSign>
+            </performedData>
+          </action>
+          <action uuid="aeb973da-4676-11f0-a446-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>SEE WO 55569859
+ROW 33L WINDOW LIGHT ASSY REPLACED + TESTED IAW AMM 33-21-00-960-804 R86.
+SATIS WITH NO FAULTS.
+HIL CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2025-06-11T03:45:00.000Z</performedDateTime>
+              <performedSign>GKCK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="be868ebe-4676-11f0-a446-005056b18588">
+                <position>25 DEF</position>
+                <labelNumber>3855253</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>12252</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>6775</serialNumber>
+                </partOn>
+                <certificateNumber>145165</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS - T34643825 STN-MAN TUE 10/06 DORZ</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

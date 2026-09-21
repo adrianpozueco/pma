@@ -1,0 +1,121 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487142828</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:42.827Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="c2effa1c-7409-11f0-a1ec-005056b18588">
+    <workorderNumber>190383910</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00440</aircraftFullRegistration>
+        <aircraftRegistration>REG00440</aircraftRegistration>
+        <aircraftMsn>67089</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190383910</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-08-07Z</issueDate>
+        <issueSign>NTM</issueSign>
+        <issueStation>CRL</issueStation>
+        <issueFltTo>CRL</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-07T22:05:00.000Z</closingDateTime>
+        <closingStation>CRL</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>424396</closingTahMinutes>
+        <closingTac>3138</closingTac>
+        <closingSign>NTM</closingSign>
+      </closingData>
+      <certification>
+        <number>BE.145.01</number>
+        <dateTime>2025-08-07T22:05:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>BE.145.01</number>
+        <dateTime>2025-08-07T22:05:00.000Z</dateTime>
+        <releaseSign>NTM</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c2f0e47d-7409-11f0-a1ec-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-07T22:05:00.000Z</workStepDateTime>
+        <description>REF. HILL 190383905
+" WIDOW LIGHTS 12 A AND 33 A, HALF INOP "</description>
+        <descriptionSign>NTM</descriptionSign>
+        <actions>
+          <action uuid="c2f2b93e-7409-11f0-a1ec-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT 12 A REPLACED IAW AMM TASK 33-21-00-960-801, REV. 24.
+PASSENGER COMPARTMENT LIGHTS OPERATIONAL TEST C/O IAW AMM TASK 33-20-00-710-801, REV. 24.
+TEST SATIS 
+HIL CLOSED
+
+
+P/N: 9651-35-0005; S/N: 32690; QTY: 1</actionText>
+            <performedData>
+              <performedDateTime>2025-08-07T22:05:00.000Z</performedDateTime>
+              <performedSign>NTM</performedSign>
+            </performedData>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="d484dcb0-7409-11f0-a1ec-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>PHNA</userSign>
+                <startDateTime>2025-08-08T03:13:00.000Z</startDateTime>
+                <endDateTime>2025-08-08T03:43:00.000Z</endDateTime>
+                <duration>30</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

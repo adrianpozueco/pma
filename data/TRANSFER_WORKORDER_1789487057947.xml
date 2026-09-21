@@ -1,0 +1,124 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487057946</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:17.946Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7f4f3e88-798f-11f1-b2b3-005056b18588">
+    <workorderNumber>190030058</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00502</aircraftFullRegistration>
+        <aircraftRegistration>REG00502</aircraftRegistration>
+        <aircraftMsn>33616</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190030058</barcode>
+      <ataChapter>23-00</ataChapter>
+      <issueData>
+        <issueDate>2026-07-06Z</issueDate>
+        <issueSign>DABE1</issueSign>
+        <issueStation>TRN</issueStation>
+        <issueFltTo>TRN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-07-06T23:07:00.000Z</closingDateTime>
+        <closingStation>TRN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3535632</closingTahMinutes>
+        <closingTac>34478</closingTac>
+        <closingSign>DABE1</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-07-06T23:07:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-07-06T23:07:00.000Z</dateTime>
+        <releaseSign>DABE1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7f544799-798f-11f1-b2b3-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-07-06T23:04:00.000Z</workStepDateTime>
+        <description>REF HIL 190030055
+CPT ACP INOP</description>
+        <descriptionSign>DABE1</descriptionSign>
+        <actions>
+          <action uuid="7f56b89a-798f-11f1-b2b3-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>CPT AND OBS ACP POS RESTORED
+CPT ACP REPLACED IAW AMM 23-51-02/401 REV 90
+TESTED SATIS
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-07-06T23:05:00.000Z</performedDateTime>
+              <performedSign>DABE1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="7f58664b-798f-11f1-b2b3-005056b18588">
+                <position>FL DK</position>
+                <labelNumber>4172636</labelNumber>
+                <partOff>
+                  <partNumber>5145-1-82</partNumber>
+                  <serialNumber>12762</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>5145-1-88</partNumber>
+                  <serialNumber>25803</serialNumber>
+                </partOn>
+                <certificateNumber>PAV14327</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>
