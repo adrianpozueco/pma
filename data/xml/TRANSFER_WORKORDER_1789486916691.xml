@@ -1,0 +1,122 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486916690</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:56.690Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="4f19a116-df9b-11f0-8331-005056b18588">
+    <workorderNumber>55290364</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00268</aircraftFullRegistration>
+        <aircraftRegistration>REG00268</aircraftRegistration>
+        <aircraftMsn>62349</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55290364</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-12-23Z</issueDate>
+        <issueSign>IBV</issueSign>
+        <issueStation>CPH</issueStation>
+        <issueFltTo>CPH</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-12-23T01:03:00.000Z</closingDateTime>
+        <closingStation>CPH</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>672820</closingTahMinutes>
+        <closingTac>5272</closingTac>
+        <closingSign>IBV</closingSign>
+      </closingData>
+      <certification>
+        <number>DK.145.0120</number>
+        <dateTime>2025-12-23T01:03:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DK.145.0120</number>
+        <dateTime>2025-12-23T01:03:00.000Z</dateTime>
+        <releaseSign>IBV</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="4f1c6037-df9b-11f0-8331-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-23T01:01:00.000Z</workStepDateTime>
+        <description>IN REF HIL WO: 55290357
+"BEVERAGE MAKER #1 INOP (FWD GALLEY)"</description>
+        <descriptionSign>IBV</descriptionSign>
+        <actions>
+          <action uuid="4f1eaa28-df9b-11f0-8331-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WATER BOILER FWD GALLEY REPLACED
+IAW AMM: 25-32-21/401 R26
+
+-CLOSE HIL-</actionText>
+            <performedData>
+              <performedDateTime>2025-12-23T01:02:00.000Z</performedDateTime>
+              <performedSign>IBV</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="4f20cd09-df9b-11f0-8331-005056b18588">
+                <position>FWD GALLEY</position>
+                <labelNumber>4009637</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>17-01-0364</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>17-11-0448</serialNumber>
+                </partOn>
+                <certificateNumber>KAV1225047</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,125 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486902599</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:42.599Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="36c7547d-9f48-11f0-9f6e-005056b18588">
+    <workorderNumber>55186740</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00585</aircraftFullRegistration>
+        <aircraftRegistration>REG00585</aircraftRegistration>
+        <aircraftMsn>35020</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55186740</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2025-10-02Z</issueDate>
+        <issueSign>LRD</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-10-02T00:00:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3042423</closingTahMinutes>
+        <closingTac>25982</closingTac>
+        <closingSign>LRD</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-10-02T00:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-10-02T00:00:00.000Z</dateTime>
+        <releaseSign>LRD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="36c88cfe-9f48-11f0-9f6e-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-10-02T00:00:00.000Z</workStepDateTime>
+        <description>REF TO HIL W/O 55215927 AND RIT W/O 104560307.
+AFT L/H TOILET LAV D DOESN`T FLUSH.</description>
+        <descriptionSign>LRD</descriptionSign>
+        <actions>
+          <action uuid="36caafdf-9f48-11f0-9f6e-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>DURING T/S SUSPECTED PREVIOUS FLUSH VALVE INSTALLED FAIL ON FIT.
+AFT L/H TOILET FLUSH VALVE REPLACED IAW AMM 38-32-01/401 R.87, SATIS.
+OPERATIONAL TEST C/O AND TOILET SYSTEM IS FLUSHING SATIS.
+HIL CLOSED.
+C/O ALSO BY LUX AND GIME IN OJT.
+
+PART USED:
+PN: MS29513-226
+BN: 1382448/0000404864
+QTY: 2</actionText>
+            <performedData>
+              <performedDateTime>2025-10-02T00:00:00.000Z</performedDateTime>
+              <performedSign>LRD</performedSign>
+            </performedData>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="36ccf9d0-9f48-11f0-9f6e-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>LRD</userSign>
+                <startDateTime>2025-10-02T01:57:00.000Z</startDateTime>
+                <endDateTime>2025-10-02T04:27:00.000Z</endDateTime>
+                <duration>150</duration>
+                <typeOfWork>B1</typeOfWork>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

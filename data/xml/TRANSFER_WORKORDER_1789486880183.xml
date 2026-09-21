@@ -1,0 +1,134 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486880182</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:20.181Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="c616c8be-2a1f-11f0-99b7-005056b18588">
+    <workorderNumber>42216047</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>32S</aircraftType>
+        <aircraftFullRegistration>9H-REG00617</aircraftFullRegistration>
+        <aircraftRegistration>REG00617</aircraftRegistration>
+        <aircraftMsn>2502</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42216047</barcode>
+      <ataChapter>38-31</ataChapter>
+      <issueData>
+        <issueDate>2025-05-06Z</issueDate>
+        <issueSign>FDC</issueSign>
+        <issueStation>VIE</issueStation>
+        <issueFltTo>VIE</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-05-06T02:13:00.000Z</closingDateTime>
+        <closingStation>VIE</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3121403</closingTahMinutes>
+        <closingTac>28013</closingTac>
+        <closingSign>AUJ</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-05-06T02:13:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-05-06T02:13:00.000Z</dateTime>
+        <releaseSign>AUJ</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c61ce33f-2a1f-11f0-99b7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-05-06T02:08:00.000Z</workStepDateTime>
+        <description>REF TO HIL 42216046: "LAV A INOP"</description>
+        <descriptionSign>FDC</descriptionSign>
+        <actions>
+          <action uuid="c61fa260-2a1f-11f0-99b7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>T/S PERF IAW TSM 38-31-00-810-857A REV 18. 
+VACUUM LINE OPENED AND INSPECTED, NO FIDINGS.
+SUCTION POWER GOOD, SUSPECTED BLOCKGE IN THE FLUSH VALVE. 
+FOUND FLUSH VALVE STUCK IN MID-OPEN POSITION.
+
+FLUSH VALVE ASSY REPLACED AND TESTED SATIS IAW AMM 38-31-57-04 REV 18.
+TOILET FUNCTION RESTORED.
+
+CLAMP PN: NSA5516CA51NJ BN: RD192280 QTY: 1
+PACKING PN: 2135N506-65 BN: 735814 QTY: 2
+
+HIL CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2025-05-06T02:09:00.000Z</performedDateTime>
+              <performedSign>FDC</performedSign>
+            </performedData>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="c6223a71-2a1f-11f0-99b7-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>GCS</userSign>
+                <startDateTime>2025-05-06T00:13:00.000Z</startDateTime>
+                <endDateTime>2025-05-06T02:13:00.000Z</endDateTime>
+                <duration>120</duration>
+                <typeOfWork>LB</typeOfWork>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="c6234be2-2a1f-11f0-99b7-005056b18588">
+            <type>WO</type>
+            <reference>42216046</reference>
+            <typeDescription>Workorder</typeDescription>
+            <description>42216046</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

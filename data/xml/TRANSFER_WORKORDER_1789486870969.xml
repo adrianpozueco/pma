@@ -1,0 +1,116 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486870967</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:10.967Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="8be18724-4bf1-11f0-bb09-005056b18588">
+    <workorderNumber>42147059</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00304</aircraftFullRegistration>
+        <aircraftRegistration>REG00304</aircraftRegistration>
+        <aircraftMsn>62366</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42147059</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-06-18Z</issueDate>
+        <issueSign>NSTR</issueSign>
+        <issueStation>MAN</issueStation>
+        <issueFltTo>MAN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-06-18T03:10:00.000Z</closingDateTime>
+        <closingStation>MAN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>355765</closingTahMinutes>
+        <closingTac>2736</closingTac>
+        <closingSign>NSTR</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-18T03:10:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-18T03:10:00.000Z</dateTime>
+        <releaseSign>NSTR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="8be382f5-4bf1-11f0-bb09-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-06-18T03:05:00.000Z</workStepDateTime>
+        <description>REF HIL 42147049
+WINDOW LIGHTS AT 8ABC AND 12ABC ONLY PARTIALLY WORKING</description>
+        <descriptionSign>NSTR</descriptionSign>
+        <actions>
+          <action uuid="8be64216-4bf1-11f0-bb09-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>LED ASSY AT 12ABC REPLACED ON WO 42147055
+LED ASSY AT 8ABC REPLACED IAW AMM 33-21-00 REV24 AND FUNCTION CHECK C/O
+ALL NOW SATIS
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-06-18T03:07:00.000Z</performedDateTime>
+              <performedSign>NSTR</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="e72d6a86-4bf1-11f0-bb09-005056b18588">
+        <type>TQ</type>
+        <reference>89230</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 89230</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

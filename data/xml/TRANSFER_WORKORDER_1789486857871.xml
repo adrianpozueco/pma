@@ -1,0 +1,147 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486857870</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:57.869Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="9bc0512a-8896-11f1-9888-005056b18588">
+    <workorderNumber>42013723</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00320</aircraftFullRegistration>
+        <aircraftRegistration>REG00320</aircraftRegistration>
+        <aircraftMsn>44767</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42013723</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2026-07-26Z</issueDate>
+        <issueSign>JOMD</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <special>PCI</special>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2026-07-28T01:30:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1659273</closingTahMinutes>
+        <closingTac>17042</closingTac>
+        <closingSign>JOMD</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-07-28T01:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-07-28T01:30:00.000Z</dateTime>
+        <releaseSign>JOMD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="9bc2e93b-8896-11f1-9888-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-07-26T02:04:00.000Z</workStepDateTime>
+        <headline>*** DUB PCI 26/07/2026 ***</headline>
+        <description>AFT L/H BOILER INOP</description>
+        <descriptionSign>JOMD</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="bf4cf6ef-8896-11f1-9888-005056b18588">
+            <partNumber>72184025</partNumber>
+            <description>WATER BOILER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="9bc5814c-8896-11f1-9888-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>DUE TO NIL PX ITEM TX TO PCI IAW MEL PREAMBLE REV.6B
+
+CAT D ITEM</actionText>
+            <performedData>
+              <performedDateTime>2026-07-26T02:05:00.000Z</performedDateTime>
+              <performedSign>JOMD</performedSign>
+            </performedData>
+          </action>
+          <action uuid="2f16921d-8a24-11f1-9888-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>HIL CLOSED USING W/O: 42`013`730</actionText>
+            <performedData>
+              <performedDateTime>2026-07-28T01:30:00.000Z</performedDateTime>
+              <performedSign>JOMD</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="2f1866de-8a24-11f1-9888-005056b18588">
+                <position>7050MM3</position>
+                <labelNumber>4187170</labelNumber>
+                <partOff>
+                  <partNumber>72184025</partNumber>
+                  <serialNumber>N09050469044521</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>23-07-0421</serialNumber>
+                </partOn>
+                <certificateNumber>WAV1526</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>IS-MATERIALS - IN DUB STOCK SUN 26/07 RLBK
+
+IS-MATERIALS - IN EMA STOCK SUN 26/07 RLBK
+
+IS-MATERIALS - IN DUB STOCK SUN 26/07 RLBK</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

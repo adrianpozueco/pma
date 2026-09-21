@@ -1,0 +1,123 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486816270</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:16.270Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="e10b7cbe-e2f0-11f0-8331-005056b18588">
+    <workorderNumber>35050304</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00570</aircraftFullRegistration>
+        <aircraftRegistration>REG00570</aircraftRegistration>
+        <aircraftMsn>35023</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.35050304</barcode>
+      <ataChapter>23-42</ataChapter>
+      <issueData>
+        <issueDate>2025-12-27Z</issueDate>
+        <issueSign>AMZ</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-12-27T00:30:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3043583</closingTahMinutes>
+        <closingTac>26755</closingTac>
+        <closingSign>AMZ</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-27T00:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-27T00:30:00.000Z</dateTime>
+        <releaseSign>AMZ</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="e10c8e2f-e2f0-11f0-8331-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-27T00:30:00.000Z</workStepDateTime>
+        <description>REF TO HIL #35050301
+AFT CABIN INTERPHONE HAND SET INOP</description>
+        <descriptionSign>AMZ</descriptionSign>
+        <actions>
+          <action uuid="e10eb110-e2f0-11f0-8331-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT CABIN INTERPHONE HANDSET REPLACED AND TESTED
+I.A.W AMM 23-42-01 REV.88
+TEST SATIS
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-12-27T00:30:00.000Z</performedDateTime>
+              <performedSign>MJZW</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="e1105ec1-e2f0-11f0-8331-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>4005600</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F46943</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1M</partNumber>
+                  <serialNumber>F48304</serialNumber>
+                </partOn>
+                <certificateNumber>160590</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

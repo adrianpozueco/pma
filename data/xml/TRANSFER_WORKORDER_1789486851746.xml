@@ -1,0 +1,196 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486851744</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:51.744Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="754f4439-d39d-11ef-85cb-005056b18588">
+    <workorderNumber>41917236</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00111</aircraftFullRegistration>
+        <aircraftRegistration>REG00111</aircraftRegistration>
+        <aircraftMsn>44792</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.41917236</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDate>2025-01-15Z</issueDate>
+        <issueSign>DHL</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-01-15T04:40:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1314994</closingTahMinutes>
+        <closingTac>13919</closingTac>
+        <closingSign>DHL</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-01-15T04:40:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-01-15T04:40:00.000Z</dateTime>
+        <releaseSign>DHL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="754fe07a-d39d-11ef-85cb-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-01-15T04:40:00.000Z</workStepDateTime>
+        <description>ENG #2 FAN BLADE #8 LEADING EDGE DAMAGE FOUND DURING WALK AROUND</description>
+        <descriptionSign>DHL</descriptionSign>
+        <actions>
+          <action uuid="7551400b-d39d-11ef-85cb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>DISTORTION OF LEADING EDGE OF FAN BLADE #8 IN AREA K FOUND APROX 30MM FROM THE TIP EDGE
+AS PER AMM 72-21-02-200-801-F00 REV 84, FLUORESCENT PENETRANT INSPECTION TO BE DONE
+
+BLADE #8 AND ADJACENT #7 CHANGED IN PAIRS PER AMM 72-21-02-010-802-F00 REV 84 ( WITH BLADES #19 AND #20) 
+
+IDLE POWER PER AMM 71-00-00-700-801-F00 REV 84, SATIS
+
+BLADE DAMAGE CHART UPDATED
+
+INITIAL AND INDEPENDENT INSPECTION C/O IAW SEAS P/N 01/18 REV 8
+
+REF TO PICKSLIP NO 5299280 AND 5299310 FOR MATERIAL USED
+
+TOOL USED
+P/N 11123
+S/N 79117983397
+
+JOB DONE ALSO BY SAGU FOR OJT</actionText>
+            <performedData>
+              <performedDateTime>2025-01-15T04:40:00.000Z</performedDateTime>
+              <performedSign>DHL</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL  INSPECTION C/O IAW SEAS P/N 01/18 REV 8</inspectionText>
+              <performedData>
+                <performedDateTime>2025-01-15T04:40:00.000Z</performedDateTime>
+                <performedSign>DHL</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION C/O IAW SEAS P/N 01/18 REV 8</inspectionText>
+              <performedData>
+                <performedDateTime>2025-01-15T04:40:00.000Z</performedDateTime>
+                <performedSign>ELNI1</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="7552788c-d39d-11ef-85cb-005056b18588">
+                <position>#2</position>
+                <labelNumber>3763662</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM129709</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF389143</serialNumber>
+                </partOn>
+                <certificateNumber>1146310</certificateNumber>
+              </componentChange>
+              <componentChange uuid="7553d81d-d39d-11ef-85cb-005056b18588">
+                <position>#2</position>
+                <labelNumber>3763703</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM131186</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF440035</serialNumber>
+                </partOn>
+                <certificateNumber>1135587-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="7554745e-d39d-11ef-85cb-005056b18588">
+                <position>#2</position>
+                <labelNumber>3763659</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM129718</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF333866</serialNumber>
+                </partOn>
+                <certificateNumber>1146310-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="7554e98f-d39d-11ef-85cb-005056b18588">
+                <position>#2</position>
+                <labelNumber>3763670</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM130867</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF389360</serialNumber>
+                </partOn>
+                <certificateNumber>1146313</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="7555fb00-d39d-11ef-85cb-005056b18588">
+        <type>TQ</type>
+        <reference>81828</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 81828</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

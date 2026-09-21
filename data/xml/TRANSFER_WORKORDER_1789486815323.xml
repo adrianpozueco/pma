@@ -1,0 +1,115 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486815322</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:15.321Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="957d4de0-6b53-11f0-a4a7-005056b18588">
+    <workorderNumber>35048222</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00177</aircraftFullRegistration>
+        <aircraftRegistration>REG00177</aircraftRegistration>
+        <aircraftMsn>44835</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.35048222</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-07-27Z</issueDate>
+        <issueSign>MSZK</issueSign>
+        <issueStation>POZ</issueStation>
+        <issueFltTo>POZ</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-27T23:00:00.000Z</closingDateTime>
+        <closingStation>POZ</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1363076</closingTahMinutes>
+        <closingTac>11720</closingTac>
+        <closingSign>MSZK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-27T23:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-27T23:00:00.000Z</dateTime>
+        <releaseSign>MSZK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="957efb91-6b53-11f0-a4a7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-27T23:00:00.000Z</workStepDateTime>
+        <description>REF TO HIL 35048219	
+ROW 18 ABC LIGHT INOP</description>
+        <descriptionSign>MSZK</descriptionSign>
+        <actions>
+          <action uuid="958193a2-6b53-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ROW 18 ABC LIGHT REPLACED IAW AMM 33-21-00-960-804 R 86
+
+ASSISTED BY BZKL</actionText>
+            <performedData>
+              <performedDateTime>2025-07-27T23:00:00.000Z</performedDateTime>
+              <performedSign>MSZK</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="bf1147b3-b11b-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>90517</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 90517</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

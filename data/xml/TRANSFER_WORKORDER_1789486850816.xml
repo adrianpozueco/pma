@@ -1,0 +1,121 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486850815</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:50.815Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="d42ae499-b11b-11f1-8509-005056b1ed97">
+    <workorderNumber>41882902</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00419</aircraftFullRegistration>
+        <aircraftRegistration>REG00419</aircraftRegistration>
+        <aircraftMsn>62333</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.41882902</barcode>
+      <ataChapter>23-00</ataChapter>
+      <issueData>
+        <issueDate>2025-02-15Z</issueDate>
+        <issueSign>GTI</issueSign>
+        <issueStation>SOF</issueStation>
+        <issueFltTo>SOF</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-15T23:55:00.000Z</closingDateTime>
+        <closingStation>SOF</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>689220</closingTahMinutes>
+        <closingTac>5776</closingTac>
+        <closingSign>GTI</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0001</number>
+        <dateTime>2025-02-15T23:55:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0001</number>
+        <dateTime>2025-02-15T23:55:00.000Z</dateTime>
+        <releaseSign>GTI</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="d43014ba-b11b-11f1-8509-005056b1ed97">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-15T22:35:00.000Z</workStepDateTime>
+        <description>FOLLOWING HIL 55396847, FWD FL ATTENDANT HANDSET DOES NOT RECEIVE COMM. PLEASE PERFORM CORRECTIVE ACTION.</description>
+        <descriptionSign>GTI</descriptionSign>
+        <actions>
+          <action uuid="d43544db-b11b-11f1-8509-005056b1ed97">
+            <actionType>Action</actionType>
+            <actionText>FWD FLIGHT ATTENDANT HANDSET REPLACED IAW AMM 23-42-01-000-801/-400-803 REV 23 FLIGHT ATTENDANT 
+INSTALLATION TEST C/O IAW AMM 23-42-01-700-802 REV 23 TEST O.K.
+HIL 55396847 CLOSED AT ATL 41882902.</actionText>
+            <performedData>
+              <performedDateTime>2025-02-15T23:55:00.000Z</performedDateTime>
+              <performedSign>GTI</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="d438521c-b11b-11f1-8509-005056b1ed97">
+                <position>AFT CAB</position>
+                <labelNumber>3758378</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>D17022</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F25913</serialNumber>
+                </partOn>
+                <certificateNumber>136245</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

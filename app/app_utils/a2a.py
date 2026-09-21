@@ -78,6 +78,34 @@ def _default_capabilities() -> AgentCapabilities:
     )
 
 
+def _resolve_app_url(app_url: str | None) -> str:
+    """Resolve the public base URL advertised inside the agent card.
+
+    Falls back in order: explicit ``app_url``, the ``APP_URL`` env var, the
+    Agent Runtime ``/api`` passthrough self-built from runtime env vars (valid
+    on the first deploy, before the CLI knows the server-assigned engine ID),
+    then a local default.
+    """
+    if app_url:
+        return app_url
+    if env_url := os.getenv("APP_URL"):
+        return env_url
+
+    agent_engine_id = os.getenv("GOOGLE_CLOUD_AGENT_ENGINE_ID")
+    project = os.getenv("GOOGLE_CLOUD_PROJECT")
+    # Not GOOGLE_CLOUD_LOCATION: the agent pins it to "global", which would build
+    # an invalid "global-aiplatform.googleapis.com" URL.
+    location = os.getenv("GOOGLE_CLOUD_AGENT_ENGINE_LOCATION", "us-east1")
+    if agent_engine_id and project and location:
+        return (
+            f"https://{location}-aiplatform.googleapis.com/reasoningEngines/v1"
+            f"/projects/{project}/locations/{location}"
+            f"/reasoningEngines/{agent_engine_id}/api"
+        )
+
+    return "http://0.0.0.0:8000"
+
+
 async def attach_a2a_routes(
     app: FastAPI,
     *,
@@ -98,7 +126,7 @@ async def attach_a2a_routes(
     ``APP_URL``). Call once per app — typically in a FastAPI ``lifespan``, since
     the card is built asynchronously; repeated calls register duplicate routes.
     """
-    resolved_app_url = app_url or os.getenv("APP_URL", "http://0.0.0.0:8000")
+    resolved_app_url = _resolve_app_url(app_url)
     resolved_agent_version = agent_version or os.getenv("AGENT_VERSION", "0.1.0")
     resolved_capabilities = capabilities or _default_capabilities()
 

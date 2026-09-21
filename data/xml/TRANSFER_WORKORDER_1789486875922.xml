@@ -1,0 +1,122 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486875920</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:15.920Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="309a760c-d30d-11f0-b7ce-005056b18588">
+    <workorderNumber>42183250</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00598</aircraftFullRegistration>
+        <aircraftRegistration>REG00598</aircraftRegistration>
+        <aircraftMsn>67108</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42183250</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2025-12-07Z</issueDate>
+        <issueSign>DRL</issueSign>
+        <issueStation>FCO</issueStation>
+        <issueFltTo>FCO</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-12-07T00:45:00.000Z</closingDateTime>
+        <closingStation>FCO</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>323129</closingTahMinutes>
+        <closingTac>2597</closingTac>
+        <closingSign>DRL</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-12-07T00:45:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-12-07T00:45:00.000Z</dateTime>
+        <releaseSign>DRL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="309b877d-d30d-11f0-b7ce-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-07T00:45:00.000Z</workStepDateTime>
+        <description>REF HIL: 42183245
+
+"FWD LAV FAUCET LEAKING, FWD LAV INOP"</description>
+        <descriptionSign>DRL</descriptionSign>
+        <actions>
+          <action uuid="309df87e-d30d-11f0-b7ce-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD LAV FAUCET REPLACED IAW AMM 38-11-05/201 REV.26 SATIS
+LAV A SHUTOFF VALVE MOVED TO "ON" POSITION
+
+HIL CLOSED
+
+TOOL USED
+P/N: 11037   S/N: 2014/184448
+
+WORK PERFORMED ALSO BY GIB, LZZ AND TZV</actionText>
+            <performedData>
+              <performedDateTime>2025-12-07T00:45:00.000Z</performedDateTime>
+              <performedSign>DRL</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="a17311d9-d4d9-11f0-b7ce-005056b18588">
+        <type>TQ</type>
+        <reference>95978</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 95978</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

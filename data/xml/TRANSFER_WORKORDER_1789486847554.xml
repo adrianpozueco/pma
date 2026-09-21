@@ -1,0 +1,127 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486847553</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:47.553Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="d6164266-141f-11f0-b322-005056b18588">
+    <workorderNumber>41750120</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00565</aircraftFullRegistration>
+        <aircraftRegistration>REG00565</aircraftRegistration>
+        <aircraftMsn>44802</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.41750120</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-04-08Z</issueDate>
+        <issueSign>ADF</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-04-08T02:18:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1428266</closingTahMinutes>
+        <closingTac>11027</closingTac>
+        <closingSign>ADRY1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-08T02:18:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-08T02:18:00.000Z</dateTime>
+        <releaseSign>ADRY1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="d61bc0a7-141f-11f0-b322-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-04-08T02:15:00.000Z</workStepDateTime>
+        <description>TX FROM CLB WINDOW LIGHTS NOT WORKING 26-27 ABC</description>
+        <descriptionSign>ADF</descriptionSign>
+        <actions>
+          <action uuid="d61d9568-141f-11f0-b322-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT ASSY @ ROW 28-29 REPLACED + TESTED SATIS IAW AMM 33-21-00-960-804 R85</actionText>
+            <performedData>
+              <performedDateTime>2025-04-08T02:15:00.000Z</performedDateTime>
+              <performedSign>ADF</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="d61f4319-141f-11f0-b322-005056b18588">
+                <position>LH</position>
+                <labelNumber>3826336</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>28551</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>32660</serialNumber>
+                </partOn>
+                <certificateNumber>ARC142825</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="d2477e8f-b11b-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>86185</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 86185</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

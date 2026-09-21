@@ -1,0 +1,130 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486873684</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:13.684Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="de737fbf-19cc-11f1-8fad-005056b18588">
+    <workorderNumber>42169347</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00052</aircraftFullRegistration>
+        <aircraftRegistration>REG00052</aircraftRegistration>
+        <aircraftMsn>62306</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.42169347</barcode>
+      <ataChapter>25-32</ataChapter>
+      <issueData>
+        <issueDate>2026-03-07Z</issueDate>
+        <issueSign>BTK</issueSign>
+        <issueStation>BUD</issueStation>
+        <issueFltTo>BUD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-03-07T02:24:00.000Z</closingDateTime>
+        <closingStation>BUD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>921543</closingTahMinutes>
+        <closingTac>7333</closingTac>
+        <closingSign>BTK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-07T02:24:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-07T02:24:00.000Z</dateTime>
+        <releaseSign>BTK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="de744310-19cc-11f1-8fad-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-03-07T02:23:00.000Z</workStepDateTime>
+        <description>REF HIL 42169320
+AFT IB BOILER LEAKING</description>
+        <descriptionSign>BTK</descriptionSign>
+        <actions>
+          <action uuid="de75f0c1-19cc-11f1-8fad-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT IB BOILER REPLACED AND TESTED SATIS IAW AMM 25-32-21/401 REV 27 
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-03-07T02:23:00.000Z</performedDateTime>
+              <performedSign>BTK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="de775052-19cc-11f1-8fad-005056b18588">
+                <position>GALLEY G4</position>
+                <labelNumber>4066706</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>22-02-0466</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>23-06-0210</serialNumber>
+                </partOn>
+                <certificateNumber>SAV806</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="4cd68096-1bc1-11f1-8fad-005056b18588">
+        <type>TQ</type>
+        <reference>100157</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 100157</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

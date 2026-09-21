@@ -1,0 +1,129 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486921519</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:01.518Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="6cfdac2f-e28b-11ef-8ecf-005056b18588">
+    <workorderNumber>55309760</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00402</aircraftFullRegistration>
+        <aircraftRegistration>REG00402</aircraftRegistration>
+        <aircraftMsn>65891</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55309760</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-02-03Z</issueDate>
+        <issueSign>TOSE</issueSign>
+        <issueStation>BLQ</issueStation>
+        <issueFltTo>BLQ</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-03T00:00:00.000Z</closingDateTime>
+        <closingStation>BLQ</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>654614</closingTahMinutes>
+        <closingTac>5089</closingTac>
+        <closingSign>TOSE</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-03T00:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-03T00:00:00.000Z</dateTime>
+        <releaseSign>TOSE</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="6cff0ac0-e28b-11ef-8ecf-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-03T00:00:00.000Z</workStepDateTime>
+        <description>REF TO HIL 55483488 "FWD WATER BOILER INOP"</description>
+        <descriptionSign>TOSE</descriptionSign>
+        <actions>
+          <action uuid="6d0154b1-e28b-11ef-8ecf-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD WATER BOILER REPLACED IAW AMM 25-32-21 R 23
+TESTED SATIS
+HIL CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2025-02-03T00:00:00.000Z</performedDateTime>
+              <performedSign>ASB</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="6d026622-e28b-11ef-8ecf-005056b18588">
+                <position>G1</position>
+                <labelNumber>3786240</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>22-11-0534</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>18-07-0588</serialNumber>
+                </partOn>
+                <certificateNumber>1265846</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="6d04b013-e28b-11ef-8ecf-005056b18588">
+        <type>TQ</type>
+        <reference>82910</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 82910</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

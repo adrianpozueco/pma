@@ -1,0 +1,144 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486833651</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:33.650Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="3fe4e609-1893-11f0-ac64-005056b18588">
+    <workorderNumber>40880778</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00383</aircraftFullRegistration>
+        <aircraftRegistration>REG00383</aircraftRegistration>
+        <aircraftMsn>37529</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.40880778</barcode>
+      <ataChapter>31-00</ataChapter>
+      <issueData>
+        <issueDate>2025-04-13Z</issueDate>
+        <issueSign>8888</issueSign>
+        <issueStation>VRN</issueStation>
+        <issueFltTo>VRN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-04-13T16:50:00.000Z</closingDateTime>
+        <closingStation>VRN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3008929</closingTahMinutes>
+        <closingTac>28868</closingTac>
+        <closingSign>CUD</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-04-13T16:50:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-04-13T16:50:00.000Z</dateTime>
+        <releaseSign>CUD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="3fedbfaa-1893-11f0-ac64-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-04-13T16:20:00.000Z</workStepDateTime>
+        <description>AIRSPEED URRELIABLE LH PFD AIRSPEED DETERMINED UNRELIABLE</description>
+        <descriptionSign>8888</descriptionSign>
+        <doubleInspectionRequired>Y</doubleInspectionRequired>
+        <actions>
+          <action uuid="3fef6d5b-1893-11f0-ac64-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REF TO WO: 102893097, FIM: 31-621876 REV 86 C/OUT, ADIRU BITE TESTS PASSED, CDS BITE SHOWS FAULT FOR LEGS 0 AND 1 WITH MAINT MESSAGE: AIRSPEED DISAGREE, 31-65060, 31-65010, 31-65020, 31-65050, 31-65060.
+PITOT SYSTEM FLUSHING C/OUT IAW AMM 34-11-60-170-802 REV 85.
+FOUND PIECES OF DEBRIS, POSSIBLE A BUG INSIDE THE PITOT PROBE ON CAPT SIDE.
+CAPT SIDE PITOT REPLACED IAW AMM 34-11-01-400-801 REV 85.
+CAPT AND F/O AS WELL AS WELL AS CAPT AND F/O PITOT AND STATIC SYSTEMS LEAK TEST C/OUT IAW AMM 34-21-00-730-802 REV 85, NO LEAKS DETECTED/ IN LIMITS , NO AIRSPEED DISAGREE FLAG SHOWN ON PFD AT ALL TIMES.
+CAPT PITOT HEATER TEST C/OUT IAW AMM 34-11-01/401 REV 85. SATIS.
+PITOT PROBE, AOA, TAT HEATER SYSTEM TEST C/OUT IAW AMM 34-21-05-730-801 REV 85 SATIS.
+RESISTANCE CHECK OF F/O AND CAPT PITOTS C/OUT SATIS IAW WDM 30-31-12-21 A/C IS SERVICEABLE.
+PITOT STATIC QUICK DISCONNECT LINES INDEP. INSP C/OUT IAW SEAS P/N 01/18 R8
+
+WORK PERFORMED ALSO BY STAFF IN OJT: AFBO</actionText>
+            <performedData>
+              <performedDateTime>2025-04-13T16:20:00.000Z</performedDateTime>
+              <performedSign>CUD</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION C/OUT IAW SEAS P/N 01/18 R8</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-13T16:20:00.000Z</performedDateTime>
+                <performedSign>CUD</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEP. INSPECTION C/OUT IAW SEAS P/N 01/18 R8</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-13T16:50:00.000Z</performedDateTime>
+                <performedSign>CUD</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="3ff07ecc-1893-11f0-ac64-005056b18588">
+                <position>CAPT</position>
+                <labelNumber>3817360</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>433960</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>468506</serialNumber>
+                </partOn>
+                <certificateNumber>12167766</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

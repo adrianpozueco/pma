@@ -1,0 +1,126 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486908300</conversationID>
+    <date timezone="UTC">2026-09-15T15:41:48.300Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="a598ab61-d141-11ef-85cb-005056b18588">
+    <workorderNumber>55241644</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00505</aircraftFullRegistration>
+        <aircraftRegistration>REG00505</aircraftRegistration>
+        <aircraftMsn>33624</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55241644</barcode>
+      <ataChapter>33-42</ataChapter>
+      <issueData>
+        <issueDate>2025-01-12Z</issueDate>
+        <issueSign>GRO</issueSign>
+        <issueStation>NRN</issueStation>
+        <issueFltTo>NRN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-01-12T03:00:00.000Z</closingDateTime>
+        <closingStation>NRN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3341553</closingTahMinutes>
+        <closingTac>33399</closingTac>
+        <closingSign>GRO</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-01-12T03:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-01-12T03:00:00.000Z</dateTime>
+        <releaseSign>GRO</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="a59a0af2-d141-11ef-85cb-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-01-12T03:00:00.000Z</workStepDateTime>
+        <description>REF. HIL 55241641:
+RH RETRACTABLE LANDING LIGHT STUCK IN EXTENDED POSITION</description>
+        <descriptionSign>GRO</descriptionSign>
+        <actions>
+          <action uuid="a59c2dd3-d141-11ef-85cb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH RETRACTABLE LANDING LIGHT ASSY REPLACED IAW AMM 33-42-02 REV.84
+DURING INSTALLATION, FOUND CONNECTOR CONTACTS BURNED. 
+CONNECTOR MUST BE REPLACED. HIL REMAINS OPEN.
+NEWLY INSTALLED LIGHT ASSY LEFT IN PLACE, WITH CONNECTOR CAPPED AND STOWED.
+
+NOTE:	NEWLY INSTALLED LIGHT ASSY IS IN THE RETRACTED POSITION.
+	OPERATIONAL LIMITATIONS NO LONGER APPLY</actionText>
+            <performedData>
+              <performedDateTime>2025-01-12T03:00:00.000Z</performedDateTime>
+              <performedSign>GRO</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="a59d8d64-d141-11ef-85cb-005056b18588">
+                <position>RH</position>
+                <labelNumber>3745383</labelNumber>
+                <partOff>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>6496</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>45-0351-6</partNumber>
+                  <serialNumber>8515</serialNumber>
+                </partOn>
+                <certificateNumber>PAV8778</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

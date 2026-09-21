@@ -1,0 +1,133 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486819023</conversationID>
+    <date timezone="UTC">2026-09-15T15:40:19.023Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="babbe3b7-1390-11f1-b5cd-005056b18588">
+    <workorderNumber>35084768</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00192</aircraftFullRegistration>
+        <aircraftRegistration>REG00192</aircraftRegistration>
+        <aircraftMsn>44847</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.35084768</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2026-02-27Z</issueDate>
+        <issueSign>KENN</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-02-27T04:02:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1379061</closingTahMinutes>
+        <closingTac>12061</closingTac>
+        <closingSign>MIBO1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-27T04:02:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-27T04:02:00.000Z</dateTime>
+        <releaseSign>MIBO1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="babcce18-1390-11f1-b5cd-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-02-27T03:55:00.000Z</workStepDateTime>
+        <description>REF CLB 
+
+SIDE WINDOW LIGHT INOP BETWEEN ROW 6DEF TO 9DEF.</description>
+        <descriptionSign>KENN</descriptionSign>
+        <actions>
+          <action uuid="babf3f19-1390-11f1-b5cd-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REPLACED WINDOW LIGHT ON 6DEF (4-4) IAW AMM TASK 33-21-00-960-804 REV 89. 
+
+TESTED SATIS. 
+
+ASSISTED BY MYSL</actionText>
+            <performedData>
+              <performedDateTime>2026-02-27T03:56:00.000Z</performedDateTime>
+              <performedSign>KENN</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="bac161fa-1390-11f1-b5cd-005056b18588">
+                <position>6DEF</position>
+                <labelNumber>4053622</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>38234</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>53913</serialNumber>
+                </partOn>
+                <certificateNumber>ARC1665246</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="2d572f52-1391-11f1-b5cd-005056b18588">
+        <type>TQ</type>
+        <reference>99732</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 99732</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>
