@@ -1,0 +1,402 @@
+[
+  {
+    "name": "OperatorControlNumber",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "DifficultyDate",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "SubmissionDate",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "OperatorDesignator",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "SubmitterDesignator",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "SubmitterTypeCode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ReceivingRegionCode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ReceivingDistrictOffice",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "SDRType",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "JASCCode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "NatureOfConditionA",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "NatureOfConditionB",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "NatureOfConditionC",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PrecautionaryProcedureA",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PrecautionaryProcedureB",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PrecautionaryProcedureC",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PrecautionaryProcedureD",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "StageOfOperationCode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "HowDiscoveredCode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "RegistryNNumber",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "AircraftMake",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "AircraftModel",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "AircraftSerialNumber",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "AircraftTotalTime",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "AircraftTotalCycles",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "EngineMake",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "EngineModel",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "EngineSerialNumber",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "EngineTotalTime",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "EngineTotalCycles",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PropellerMake",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PropellerModel",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PropellerSerialNumber",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PropellerTotalTime",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PropellerTotalCycles",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartMake",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartName",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartNumber",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartSerialNumber",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartCondition",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartLocation",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartTotalTime",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartTotalCycles",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartTimeSince",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "PartSinceCode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentMake",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentModel",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentName",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentPartNumber",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentSerialNumber",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentLocation",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentTotalTime",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentTotalCycles",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentTimeSince",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ComponentSinceCode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "FuselageStationFrom",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "FuselageStationTo",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "StringerFrom",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "StringerFromSide",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "StringerTo",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "StringerToSide",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "WingStationFrom",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "WingStationFromSide",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "WingStationTo",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "WingStationToSide",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ButtLineFrom",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ButtLineFromSide",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ButtlineTo",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ButtlineToSide",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "WaterLineFrom",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "WaterLineTo",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "CrackLength",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "NumberOfCracks",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "CorrosionLevel",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "StructuralOther",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "Discrepancy",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "match_key",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "match_field",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "wo_part_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "sdr_year",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  }
+]

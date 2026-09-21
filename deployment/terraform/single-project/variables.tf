@@ -15,7 +15,7 @@
 variable "project_name" {
   type        = string
   description = "Project name used as a base for resource naming"
-  default     = "caveman-agent"
+  default     = "pma-agent"
 }
 
 variable "project_id" {
@@ -26,13 +26,13 @@ variable "project_id" {
 variable "region" {
   type        = string
   description = "Google Cloud region for resource deployment."
-  default     = "us-east1"
+  default     = "us-central1"
 }
 
 variable "telemetry_logs_filter" {
   type        = string
   description = "Log Sink filter for capturing telemetry data. Captures logs with the `traceloop.association.properties.log_type` attribute set to `tracing`."
-  default     = "labels.service_name=\"caveman-agent\" labels.type=\"agent_telemetry\""
+  default     = "labels.service_name=\"pma-agent\" labels.type=\"agent_telemetry\""
 }
 
 variable "app_sa_roles" {

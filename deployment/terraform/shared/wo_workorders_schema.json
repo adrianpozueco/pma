@@ -1,0 +1,1109 @@
+[
+  {
+    "name": "source_file",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "envelope",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "sender_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "receiver_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "conversation_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "amos_version",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "instance_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "envelope_ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "date_timezone",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "envelope_version",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "payload_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "payload_version",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "transfer_workorder_version",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "workorder_uuid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "workorder_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "workorder_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "workorder_state",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "barcode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ata_chapter",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ata_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ata_major",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "remarks",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "external_workorder_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "workorder_origin_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "origin_workorder_of_finding_uuid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "position_info",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "position",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "special",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "zone",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "area",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "panel",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "component",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "part_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "serial_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "event",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "event_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "event_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "event_sub_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "description_title",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "issuer_cage_code",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "issuer_company",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "revision_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "aircraft",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "type_raw",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "variant",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "full_registration",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "registration",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "reg_country_prefix",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "aoc",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "msn",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "operator",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "routine_checks",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+          {
+            "name": "check_code",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "performed",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "issue",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "date",
+        "type": "DATE",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "sign",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "station",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "leg",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "flt_from",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "flt_to",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "tah_hours",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "tac",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "closing",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "date",
+        "type": "DATE",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "leg",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "sign",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "station",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "total_aircraft_cycles",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "total_aircraft_hours_minutes",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "certification",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "date",
+        "type": "DATE",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "release_to_service",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "release_sign",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "classifications",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "administrative_service_check",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "aog_risk",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "cdccl",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "cdcp",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "defect_classification",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "maintenance_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "occurence_report",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ops_consequence",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "structural_damage",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "tal",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "watch_item",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "statistics",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "accident",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "incident",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "not_contracted",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "requests",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "engine_change",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "hangar_costs",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "towing_costs",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "other",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ramp_activity",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "special_equipment",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "special_equipment2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "srm_repair",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "taxi",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "weight_and_balance",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "references",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "uuid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "category",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "description",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "reference",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "remarks",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "type_description",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "work_steps",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "uuid",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "sequence_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "work_phase",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "description",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "description_sign",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "headline",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "ts",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "state",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "double_inspection_required",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "references",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+          {
+            "name": "uuid",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "category",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "description",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "reference",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "remarks",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "type",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "type_description",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "required_parts",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+          {
+            "name": "uuid",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "part_number",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "part_key",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "serial_number",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "description",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "needed_quantity",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "needed_quantity_uom",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "probability_of_usage",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "tool",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "ipc_reference",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "location_on_aircraft",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          }
+        ]
+      },
+      {
+        "name": "resource_requirements",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+          {
+            "name": "uuid",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "classification",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "duration",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "quantity",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "resource_type",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "total_hours",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "constraints",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+              {
+                "name": "uuid",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "property_type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "value_string",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "actions",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+          {
+            "name": "uuid",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "action_type",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "action_text",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "closing_action",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "performed_ts",
+            "type": "TIMESTAMP",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "performed_sign",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "inspection",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+              {
+                "name": "headline",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "inspection_text",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "performed_ts",
+                "type": "TIMESTAMP",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "performed_sign",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              }
+            ]
+          },
+          {
+            "name": "double_inspection",
+            "type": "RECORD",
+            "mode": "NULLABLE",
+            "fields": [
+              {
+                "name": "headline",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "inspection_text",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "performed_ts",
+                "type": "TIMESTAMP",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "performed_sign",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              }
+            ]
+          },
+          {
+            "name": "references",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+              {
+                "name": "uuid",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "category",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "description",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "reference",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "remarks",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "type_description",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              }
+            ]
+          },
+          {
+            "name": "component_changes",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+              {
+                "name": "uuid",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "position",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "label_number",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "certificate_number",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "part_off_number",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "part_off_serial",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "part_on_number",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "part_on_serial",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "part_key",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "like_for_like",
+                "type": "BOOL",
+                "mode": "NULLABLE"
+              }
+            ]
+          },
+          {
+            "name": "staff_time_bookings",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+              {
+                "name": "uuid",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "booking_status",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "duration",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "start_ts",
+                "type": "TIMESTAMP",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "end_ts",
+                "type": "TIMESTAMP",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "entity_code",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "type_of_work",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "skill",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "scope",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "user_sign",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "remarks",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              }
+            ]
+          },
+          {
+            "name": "uplifts",
+            "type": "RECORD",
+            "mode": "REPEATED",
+            "fields": [
+              {
+                "name": "system",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "code",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "measure",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              },
+              {
+                "name": "sign",
+                "type": "STRING",
+                "mode": "NULLABLE"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "part_swap_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "part_keys",
+    "type": "STRING",
+    "mode": "REPEATED"
+  }
+]

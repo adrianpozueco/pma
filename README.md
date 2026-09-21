@@ -1,4 +1,4 @@
-# caveman-agent
+# pma-agent
 
 Simple ReAct agent
 Agent generated with `agents-cli` version `1.6.1`
@@ -6,7 +6,7 @@ Agent generated with `agents-cli` version `1.6.1`
 ## Project Structure
 
 ```
-caveman-agent/
+pma-agent/
 ├── app/         # Core agent code
 │   ├── agent.py               # Main agent logic
 │   ├── fast_api_app.py        # FastAPI Backend server

@@ -21,3 +21,13 @@ output "logs_bucket_name" {
   description = "Logs storage bucket name"
   value       = google_storage_bucket.logs_data_bucket.name
 }
+
+output "analytics_dataset_id" {
+  description = "BigQuery dataset holding workorder and FAA SDR tables"
+  value       = google_bigquery_dataset.analytics.dataset_id
+}
+
+output "analytics_data_bucket_name" {
+  description = "Bucket staging the analytics source files"
+  value       = google_storage_bucket.analytics_data_bucket.name
+}
