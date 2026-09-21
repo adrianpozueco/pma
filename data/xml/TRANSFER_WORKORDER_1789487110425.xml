@@ -1,0 +1,121 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487110424</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:10.424Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7c633e21-5300-11f1-bd75-005056b18588">
+    <workorderNumber>190272776</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00112</aircraftFullRegistration>
+        <aircraftRegistration>REG00112</aircraftRegistration>
+        <aircraftMsn>35027</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190272776</barcode>
+      <ataChapter>26-00</ataChapter>
+      <issueData>
+        <issueDate>2026-05-18Z</issueDate>
+        <issueSign>DASZ1</issueSign>
+        <issueStation>FMM</issueStation>
+        <issueFltTo>FMM</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-18T21:27:00.000Z</closingDateTime>
+        <closingStation>FMM</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2962867</closingTahMinutes>
+        <closingTac>26875</closingTac>
+        <closingSign>DASZ1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-18T21:27:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-18T21:27:00.000Z</dateTime>
+        <releaseSign>DASZ1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7c649db2-5300-11f1-bd75-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-18T21:24:00.000Z</workStepDateTime>
+        <description>DURING TEST AFT CARGO SMOKE DETECTOR "B2" POS. FOUND U/S.</description>
+        <descriptionSign>DASZ1</descriptionSign>
+        <actions>
+          <action uuid="7c66c093-5300-11f1-bd75-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>CARGO SMOKE DETECTOR AT POS AFT CARGO "B2" REPLACED AND TESTED IAW AMM 26-16-01-000/400-801 REV.89.
+
+ALL TEST FOUND OK/SATIS.</actionText>
+            <performedData>
+              <performedDateTime>2026-05-18T21:26:00.000Z</performedDateTime>
+              <performedSign>DASZ1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="7c68e374-5300-11f1-bd75-005056b18588">
+                <position>AFT</position>
+                <labelNumber>4052202</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>45525</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJA7598</serialNumber>
+                </partOn>
+                <certificateNumber>13264893</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

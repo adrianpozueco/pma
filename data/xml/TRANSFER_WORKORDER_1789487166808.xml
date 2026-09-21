@@ -1,0 +1,123 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487166807</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:06.807Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="8f64c532-b537-11f0-a240-005056b18588">
+    <workorderNumber>190464386</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00529</aircraftFullRegistration>
+        <aircraftRegistration>REG00529</aircraftRegistration>
+        <aircraftMsn>67077</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190464386</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-10-30Z</issueDate>
+        <issueSign>LEES</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-10-30T02:33:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>589727</closingTahMinutes>
+        <closingTac>4504</closingTac>
+        <closingSign>LEES</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-30T02:33:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-30T02:33:00.000Z</dateTime>
+        <releaseSign>LEES</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="8f6699f3-b537-11f0-a240-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-10-30T02:22:00.000Z</workStepDateTime>
+        <description>RHS RUNWAY TURNOFF LIGHT U/S</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="8f698024-b537-11f0-a240-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FOUND R/H RUNWAY TURNOFF LIGHT + R/H LANDING LIGHT INOP 
+
+REPLACED R/H POWER SUPPLY IAW AMM 33-42-21-960-802 R.25 
+
+TESTED SATIS</actionText>
+            <performedData>
+              <performedDateTime>2025-10-30T02:23:00.000Z</performedDateTime>
+              <performedSign>LEES</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="cae5d003-b538-11f0-a240-005056b18588">
+                <position>RH</position>
+                <labelNumber>3965727</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>6441</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>5928</serialNumber>
+                </partOn>
+                <certificateNumber>354320035</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

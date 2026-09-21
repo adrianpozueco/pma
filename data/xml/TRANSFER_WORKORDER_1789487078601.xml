@@ -1,0 +1,218 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487078600</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:38.600Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="5191a571-99c2-11f0-9f6e-005056b18588">
+    <workorderNumber>190118445</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00114</aircraftFullRegistration>
+        <aircraftRegistration>REG00114</aircraftRegistration>
+        <aircraftMsn>38505</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190118445</barcode>
+      <ataChapter>05</ataChapter>
+      <issueData>
+        <issueDate>2025-09-24Z</issueDate>
+        <issueSign>MSX</issueSign>
+        <issueStation>BLQ</issueStation>
+        <issueFltTo>BLQ</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-09-25T02:00:00.000Z</closingDateTime>
+        <closingStation>BLQ</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2999299</closingTahMinutes>
+        <closingTac>25744</closingTac>
+        <closingSign>MSX</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-09-25T02:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-09-25T02:00:00.000Z</dateTime>
+        <releaseSign>MSX</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="51932c12-99c2-11f0-9f6e-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-09-24T17:45:00.000Z</workStepDateTime>
+        <description>SUSPECTED BIRD STRIKE ON THE LEFT ENGINE OB T/O.</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="5195c423-99c2-11f0-9f6e-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>BIRD STRIKE INSPECTION C/O IAW AMM 05-51-18-210-801 REV 87 - FOUND SIGN OF IMPACT IN ENG #1. ENG #1 INSPECTED IAW AMM 71-00-00-800-802-F00 REV 87 - FOUND FAN BLADES #14 AND #15 WITH DAMAGE OUT OF LIMITS AW 72-21-02-200-801-F00 REV 87.
+
+3 PAIRS OF FAN BLADES REPLACED (1-13, 2-14, 3-15) AND PLATFORMS BETWEEN 13 AND 14 AND BETWEEN 14 AND 15 IAW AMM 72-21-02-000-802-F00 REV 87 AND TN 72/07 REV 01 - SATIS. IDLE ENG RUN UP C/O IAW AMM 71-00-00-800-808-F00 REV 87 - SATIS. INITIAL AND INDEPENDENT INSPECTION C/O IAW DAC CAME CHAPTER 1.6.3.1 ISS 05 REV 16 AND SEAS PN 01/18 REV 9.
+
+TOOL USED:
+PN: 11123
+SN: 79127809910
+
+P/S: 5882064
+
+ALSO PERFORMED BY DAB1 AND AABM.</actionText>
+            <performedData>
+              <performedDateTime>2025-09-25T02:00:00.000Z</performedDateTime>
+              <performedSign>MSX</performedSign>
+            </performedData>
+            <inspection>
+              <headline>INITIAL INSPECTION</headline>
+              <inspectionText>INITIAL INSPECTION C/O IAW DAC CAME CHAPTER 1.6.3.1 ISS 05 REV 16 AND SEAS PN 01/18 REV 9.</inspectionText>
+              <performedData>
+                <performedDateTime>2025-09-25T02:00:00.000Z</performedDateTime>
+                <performedSign>MSX</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <headline>INDEPENDENT INSPECTIN</headline>
+              <inspectionText>INDEPENDENT INSPECTION C/O IAW DAC CAME CHAPTER 1.6.3.1 ISS 05 REV 16 AND SEAS PN 01/18 REV 9.</inspectionText>
+              <performedData>
+                <performedDateTime>2025-09-25T02:00:00.000Z</performedDateTime>
+                <performedSign>TUN</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="b19a266a-99c2-11f0-9f6e-005056b18588">
+                <position>#1</position>
+                <labelNumber>3951654</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DB857428-2</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM008002</serialNumber>
+                </partOn>
+                <certificateNumber>R25082803001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="4d5bf600-99c3-11f0-9f6e-005056b18588">
+                <position>#1</position>
+                <labelNumber>3946974</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>BB887987-8</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM169838</serialNumber>
+                </partOn>
+                <certificateNumber>R25062009000</certificateNumber>
+              </componentChange>
+              <componentChange uuid="c663d837-99c3-11f0-9f6e-005056b18588">
+                <position>#1</position>
+                <labelNumber>3951676</labelNumber>
+                <partOff>
+                  <partNumber>340-001-039-0</partNumber>
+                  <serialNumber>BB472095-9</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM007857</serialNumber>
+                </partOn>
+                <certificateNumber>R25082713001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="f06504bf-99c3-11f0-9f6e-005056b18588">
+                <position>#1</position>
+                <labelNumber>3951658</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PA443869-B</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM008377</serialNumber>
+                </partOn>
+                <certificateNumber>R25082711001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="4d2893cf-99c4-11f0-9f6e-005056b18588">
+                <position>#1</position>
+                <labelNumber>3951648</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>BB865743-4</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM008052</serialNumber>
+                </partOn>
+                <certificateNumber>R25082717001</certificateNumber>
+              </componentChange>
+              <componentChange uuid="9d7ba08b-99c4-11f0-9f6e-005056b18588">
+                <position>#1</position>
+                <labelNumber>3951669</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>BB887997-N</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM007905</serialNumber>
+                </partOn>
+                <certificateNumber>R25082710001</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="357396d2-99c5-11f0-9f6e-005056b18588">
+        <type>TQ</type>
+        <reference>92769</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 92769</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

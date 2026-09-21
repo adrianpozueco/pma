@@ -1,0 +1,147 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487239084</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:19.083Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="ee510086-f295-11f0-847a-005056b18588">
+    <workorderNumber>190684043</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00173</aircraftFullRegistration>
+        <aircraftRegistration>REG00173</aircraftRegistration>
+        <aircraftMsn>44797</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190684043</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-01-16Z</issueDate>
+        <issueSign>8888</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-01-16T04:43:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1700570</closingTahMinutes>
+        <closingTac>12351</closingTac>
+        <closingSign>MAST5</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-16T04:43:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-16T04:43:00.000Z</dateTime>
+        <releaseSign>MAST5</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="ee5211f7-f295-11f0-847a-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-16T04:40:00.000Z</workStepDateTime>
+        <description>PORT LDG LIGHT INTERMITTENT WHEN SWITCHED ON</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="ee54aa08-f295-11f0-847a-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>INBD + OUTBD + PWR SUPPLY REPLACED AND TESTED SATIS IAW AMM REV 88 33-42-01.
+
+ASSISTED BY COA AND LMBT</actionText>
+            <performedData>
+              <performedDateTime>2026-01-16T04:40:00.000Z</performedDateTime>
+              <performedSign>SJN</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="ee56a5d9-f295-11f0-847a-005056b18588">
+                <position>LH OUTBD</position>
+                <labelNumber>4030880</labelNumber>
+                <partOff>
+                  <partNumber>72500410-1</partNumber>
+                  <serialNumber>3543</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72500410-1</partNumber>
+                  <serialNumber>1445</serialNumber>
+                </partOn>
+                <certificateNumber>88107</certificateNumber>
+              </componentChange>
+              <componentChange uuid="ee57de5a-f295-11f0-847a-005056b18588">
+                <position>LH INBD</position>
+                <labelNumber>4030113</labelNumber>
+                <partOff>
+                  <partNumber>72500410-2</partNumber>
+                  <serialNumber>1491</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72500410-2</partNumber>
+                  <serialNumber>10329</serialNumber>
+                </partOn>
+                <certificateNumber>5052534</certificateNumber>
+              </componentChange>
+              <componentChange uuid="ee5916db-f295-11f0-847a-005056b18588">
+                <position>LH</position>
+                <labelNumber>4026623</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>1174</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>5622</serialNumber>
+                </partOn>
+                <certificateNumber>355114724</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

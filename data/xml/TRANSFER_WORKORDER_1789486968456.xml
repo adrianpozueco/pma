@@ -1,0 +1,118 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486968455</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:48.454Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="65835129-6a83-11f0-a4a7-005056b18588">
+    <workorderNumber>55503159</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00262</aircraftFullRegistration>
+        <aircraftRegistration>REG00262</aircraftRegistration>
+        <aircraftMsn>44764</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55503159</barcode>
+      <ataChapter>23-31</ataChapter>
+      <issueData>
+        <issueDate>2025-07-27Z</issueDate>
+        <issueSign>BRKF</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-27T00:56:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1487216</closingTahMinutes>
+        <closingTac>15474</closingTac>
+        <closingSign>BRKF</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-27T00:56:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-27T00:56:00.000Z</dateTime>
+        <releaseSign>BRKF</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="658489aa-6a83-11f0-a4a7-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-27T00:45:00.000Z</workStepDateTime>
+        <description>REF HIL W/O:55503155
+
+FWD ATTENDANT HANDSET INTERMITTENT FOR ALL COMMS.</description>
+        <descriptionSign>BRKF</descriptionSign>
+        <actions>
+          <action uuid="6586d39b-6a83-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>PA SYSTEM OPERATIONAL TEST C/OUT IAW AMM 23-31-00-740-801 REV 86.
+OBSERVED FWD ATT HANDSET OPERATING INTERMITTENTLY DUE TO CORD AND HANDSET FAILURE.
+
+FWD ATT HANDSET AND CORD REPLACED AND TESTED SATIS IAW AMM 23-42-01/401 REV 86.
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-07-27T00:46:00.000Z</performedDateTime>
+              <performedSign>BRKF</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="8d00c391-6a84-11f0-a4a7-005056b18588">
+        <type>TQ</type>
+        <reference>90492</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 90492</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,115 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487265366</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:45.366Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="cc501b19-a357-11f1-ab51-005056b18588">
+    <workorderNumber>191070111</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00112</aircraftFullRegistration>
+        <aircraftRegistration>REG00112</aircraftRegistration>
+        <aircraftMsn>35027</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191070111</barcode>
+      <ataChapter>05-00</ataChapter>
+      <issueData>
+        <issueDate>2026-08-29Z</issueDate>
+        <issueSign>EDPA1</issueSign>
+        <issueStation>FAO</issueStation>
+        <issueFltTo>FAO</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-08-29T15:06:00.000Z</closingDateTime>
+        <closingStation>FAO</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3024253</closingTahMinutes>
+        <closingTac>27512</closingTac>
+        <closingSign>GEKA1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-29T15:06:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-29T15:06:00.000Z</dateTime>
+        <releaseSign>GEKA1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="cc51057a-a357-11f1-ab51-005056b18588">
+        <workstepState>C</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-08-29T03:14:00.000Z</workStepDateTime>
+        <description>ON DEPARTURE PILOT REPORTED BIRDSTRIKE ON CPT SIDE PITOT PROBE</description>
+        <descriptionSign>EDPA1</descriptionSign>
+        <actions>
+          <action uuid="5f69593f-a3ba-11f1-ab51-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>BAT DEBRIES REMOVED/CLEANED
+CPT PITOP SYSTEM FLUSHING CARRIED OUT IAW AMM 34-11-00-170-802 R90
+CPT PITOT PROBE REPLACED AND TESTED  IAW AMM 34-11-01-000/400-801
+SYSTEM SERVICEABLE
+
+FLUSH KIT PN:DPS1000HOSEKIT  SN:RYR43
+ADTS PN:DPS1000   SV:1037
+SEALANT PNPR1826B1-4  BN:1579426
+INT INSPECTION CARRIED OUT IAW MOE 2-23 REV 21 ISS 2 (REF APP IV PARA2.3)
+
+GENERAL VERIFICATION CHECK CARRIED OUT.</actionText>
+            <closingAction>Y</closingAction>
+            <performedData>
+              <performedDateTime>2026-08-29T14:54:00.000Z</performedDateTime>
+              <performedSign>GEKA1</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

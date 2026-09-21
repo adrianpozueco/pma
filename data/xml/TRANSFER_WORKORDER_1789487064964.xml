@@ -1,0 +1,125 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487064963</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:24.963Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="fe2c8273-739f-11f1-8a65-005056b18588">
+    <workorderNumber>190061262</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00017</aircraftFullRegistration>
+        <aircraftRegistration>REG00017</aircraftRegistration>
+        <aircraftMsn>38497</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190061262</barcode>
+      <ataChapter>25-36</ataChapter>
+      <issueData>
+        <issueDate>2026-06-29Z</issueDate>
+        <issueSign>MTHU</issueSign>
+        <issueStation>BTS</issueStation>
+        <issueFltTo>BTS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-29T09:50:00.000Z</closingDateTime>
+        <closingStation>BTS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3114767</closingTahMinutes>
+        <closingTac>26928</closingTac>
+        <closingSign>MTHU</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-29T09:50:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-29T09:50:00.000Z</dateTime>
+        <releaseSign>MTHU</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="fe2e0914-739f-11f1-8a65-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-29T09:47:00.000Z</workStepDateTime>
+        <description>XREF TLP 190061261
+
+DURING T/SHOOTING FOR FUMES IN AFT GALLEY FOUND AFT LH OVEN DIRTY AND HAS PLASTIC RESIDUE INSIDE</description>
+        <descriptionSign>MTHU</descriptionSign>
+        <actions>
+          <action uuid="fe30c835-739f-11f1-8a65-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>OVEN REPLACED IAW CMM 25-36-33 REV 07
+
+OPS TEST SATIS
+
+ASSISTED BY AWM</actionText>
+            <performedData>
+              <performedDateTime>2026-06-29T09:48:00.000Z</performedDateTime>
+              <performedSign>MTHU</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="fe336046-739f-11f1-8a65-005056b18588">
+                <position>AFT CAB</position>
+                <labelNumber>3429372</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>21-10-0528</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>23-04-0139</serialNumber>
+                </partOn>
+                <certificateNumber>S23/2386H-1</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

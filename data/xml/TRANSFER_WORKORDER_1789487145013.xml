@@ -1,0 +1,145 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487145012</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:45.012Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0197171f-a632-11f0-b9d3-005056b18588">
+    <workorderNumber>190395539</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00170</aircraftFullRegistration>
+        <aircraftRegistration>REG00170</aircraftRegistration>
+        <aircraftMsn>62351</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190395539</barcode>
+      <ataChapter>38-11</ataChapter>
+      <issueData>
+        <issueDate>2025-10-10Z</issueDate>
+        <issueSign>PRS</issueSign>
+        <issueStation>PIK</issueStation>
+        <issueFltTo>PIK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-10-12T00:49:00.000Z</closingDateTime>
+        <closingStation>ALC</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>614864</closingTahMinutes>
+        <closingTac>4603</closingTac>
+        <closingSign>FGR</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-12T00:49:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-12T00:49:00.000Z</dateTime>
+        <releaseSign>FGR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="019876b0-a632-11f0-b9d3-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-10-10T23:30:00.000Z</workStepDateTime>
+        <description>10 OCT PIK    TRANS FROM CABIN DEFECT LOG. AFT BOILER 406 SWAN NECK ADRIFT. TAP ADAPTER THREADS DAMAGED.
+
+SWAN NECK ASSY PLACED IN CABIN LOG.</description>
+        <descriptionSign>PRS</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="019fa2a1-a632-11f0-b9d3-005056b18588">
+            <partNumber>62197-301-001</partNumber>
+            <description>WATER BOILER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="01a08d02-a632-11f0-b9d3-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ITEM TRANS TO HIL IAW MEL 38-10-01A REV 3A. 
+SWAN NECK ASSY PLACED IN CABIN LOG.
+BOILER 406 (AFT) CB PULLED AND COLLARED. NO LEAKS EVIDENT.</actionText>
+            <performedData>
+              <performedDateTime>2025-10-10T23:30:00.000Z</performedDateTime>
+              <performedSign>PRS</performedSign>
+            </performedData>
+          </action>
+          <action uuid="2ff5d352-a705-11f0-b9d3-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>NEW WATER BOILER INSTALLED AT REAR GALLEY STATION.
+OPERATED SATIS.
+**HIL CLOSED**</actionText>
+            <performedData>
+              <performedDateTime>2025-10-12T00:45:00.000Z</performedDateTime>
+              <performedSign>FGR</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="2ff81d43-a705-11f0-b9d3-005056b18588">
+                <position>GALLEY G4</position>
+                <labelNumber>3960108</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>15-11-0130</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>17-11-0451</serialNumber>
+                </partOn>
+                <certificateNumber>KAV0925025</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS - T41206225 KAMS-ALC SAT 11-10 QUF
+
+TO-MATERIALS - T41175325 STN-PIK SAT 11/10 DRLV</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

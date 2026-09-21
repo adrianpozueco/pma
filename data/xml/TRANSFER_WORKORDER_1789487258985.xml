@@ -1,0 +1,162 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487258984</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:38.984Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="959bba89-6bf0-11f1-8a65-005056b18588">
+    <workorderNumber>190944837</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00021</aircraftFullRegistration>
+        <aircraftRegistration>REG00021</aircraftRegistration>
+        <aircraftMsn>33619</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190944837</barcode>
+      <ataChapter>26-00</ataChapter>
+      <issueData>
+        <issueDate>2026-06-19Z</issueDate>
+        <issueSign>DECU2</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-19T15:16:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3541704</closingTahMinutes>
+        <closingTac>33891</closingTac>
+        <closingSign>DECU2</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-19T15:16:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-19T15:16:00.000Z</dateTime>
+        <releaseSign>DECU2</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="959ccbfa-6bf0-11f1-8a65-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-19T15:03:00.000Z</workStepDateTime>
+        <description>REF HIL 190944837
+FWD AND AFT CARGO FIRE DET SYS</description>
+        <descriptionSign>DECU2</descriptionSign>
+        <actions>
+          <action uuid="959eeedb-6bf0-11f1-8a65-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD CARGO FIRE LT DOES NOT ILLUM ON FIRE TEST APPROX 10 PC OF TESTS
+FWD CARGO BAY FIRE DET UNITS A1, A2, B1, B2 REPLD
+TESTING PERF SATIS, FAULT CLEARED 
+AMM REF 26-16-01  REV90
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-06-19T15:04:00.000Z</performedDateTime>
+              <performedSign>DECU2</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="b395d4de-6bf0-11f1-8a65-005056b18588">
+                <position>FWD</position>
+                <labelNumber>4157122</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>35816</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>48996</serialNumber>
+                </partOn>
+                <certificateNumber>13743935</certificateNumber>
+              </componentChange>
+              <componentChange uuid="f96e14b0-6bf0-11f1-8a65-005056b18588">
+                <position>FWD</position>
+                <labelNumber>4153683</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>36356</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>48999</serialNumber>
+                </partOn>
+                <certificateNumber>13726264</certificateNumber>
+              </componentChange>
+              <componentChange uuid="3fb36e36-6bf1-11f1-8a65-005056b18588">
+                <position>FWD</position>
+                <labelNumber>4140147</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>35712</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>54185</serialNumber>
+                </partOn>
+                <certificateNumber>13661404</certificateNumber>
+              </componentChange>
+              <componentChange uuid="92173272-6bf1-11f1-8a65-005056b18588">
+                <position>FWD</position>
+                <labelNumber>4153675</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>35733</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>49025</serialNumber>
+                </partOn>
+                <certificateNumber>13726713</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

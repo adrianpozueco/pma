@@ -1,0 +1,125 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487273868</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:53.868Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="fbd2fabe-32a0-11f1-9a9d-005056b18588">
+    <workorderNumber>191259140</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00387</aircraftFullRegistration>
+        <aircraftRegistration>REG00387</aircraftRegistration>
+        <aircraftMsn>62331</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191259140</barcode>
+      <ataChapter>34-00</ataChapter>
+      <issueData>
+        <issueDate>2026-04-07Z</issueDate>
+        <issueSign>DFF</issueSign>
+        <issueStation>HAM</issueStation>
+        <issueFltTo>HAM</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-07T16:49:00.000Z</closingDateTime>
+        <closingStation>HAM</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>947066</closingTahMinutes>
+        <closingTac>8500</closingTac>
+        <closingSign>DFF</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-07T16:49:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-07T16:49:00.000Z</dateTime>
+        <releaseSign>DFF</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="fbd4f68f-32a0-11f1-9a9d-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-07T16:43:00.000Z</workStepDateTime>
+        <description>BIRDSTRIKE TO RH UPPER (F/O`S) PITOT PROBE.</description>
+        <descriptionSign>DFF</descriptionSign>
+        <actions>
+          <action uuid="47657241-32a1-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>NO EVIDENCE OF INGRESS TO PITOT PROBE OBSERVED.  RH UPPER (F/O`S) PITOT PROBE REPLACED AND TESTED, REF AMM 34-11-01-400-801 REV27.  FOUND OK.</actionText>
+            <performedData>
+              <performedDateTime>2026-04-07T16:44:00.000Z</performedDateTime>
+              <performedSign>OVPC</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INSP OK, REF AMM.</inspectionText>
+              <performedData>
+                <performedDateTime>2026-04-07T16:49:00.000Z</performedDateTime>
+                <performedSign>DFF</performedSign>
+              </performedData>
+            </inspection>
+            <componentChanges>
+              <componentChange uuid="79f3f38a-32a1-11f1-9a9d-005056b18588">
+                <position>F/O</position>
+                <labelNumber>4077915</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>405908</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>480141</serialNumber>
+                </partOn>
+                <certificateNumber>408859605</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

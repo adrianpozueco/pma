@@ -1,0 +1,139 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486986145</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:06.145Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="6278b8a1-e824-11ef-be60-005056b18588">
+    <workorderNumber>55568391</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00242</aircraftFullRegistration>
+        <aircraftRegistration>REG00242</aircraftRegistration>
+        <aircraftMsn>44782</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55568391</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-02-11Z</issueDate>
+        <issueSign>RICE</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-14T01:14:00.000Z</closingDateTime>
+        <closingStation>TLS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1297073</closingTahMinutes>
+        <closingTac>13622</closingTac>
+        <closingSign>KLYD</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2025-02-14T01:14:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2025-02-14T01:14:00.000Z</dateTime>
+        <releaseSign>KLYD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="627b50b2-e824-11ef-be60-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-11T00:30:00.000Z</workStepDateTime>
+        <description>11 FEB BGY - WINDOW LT AT 22-23 F INOP</description>
+        <descriptionSign>RICE</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="62816b33-e824-11ef-be60-005056b18588">
+            <partNumber>9651-35-0002</partNumber>
+            <description>LIGHT BSI-35 IN TYPE C HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="6282a3b4-e824-11ef-be60-005056b18588">
+            <partNumber>C33001-58</partNumber>
+            <description>BSI LIGHT CABLE TESTER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="6283dc35-e824-11ef-be60-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ITEM TX TO HIL IAW MEL 33-02-02 CAT C REV 6A</actionText>
+            <performedData>
+              <performedDateTime>2025-02-11T00:30:00.000Z</performedDateTime>
+              <performedSign>RICE</performedSign>
+            </performedData>
+          </action>
+          <action uuid="24df7235-b11c-11f1-8509-005056b1ed97">
+            <actionType>Action</actionType>
+            <actionText>BSI LIGHT ROW 22-23 F REPLACED IAW 33-21-00-960-804 REV85  TEST OK  HIL CLEARED</actionText>
+            <performedData>
+              <performedDateTime>2025-02-14T01:06:00.000Z</performedDateTime>
+              <performedSign>KLYD</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="24e31bb6-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>83449</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 83449</description>
+      </reference>
+    </references>
+    <remarks>TO-MATERIALS - T28342025 BGY-TLS THUR 13-02 QUF
+
+IS-MATERIALS - IN BGY STOCK TUE 11/02 ATAK</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

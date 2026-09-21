@@ -1,0 +1,143 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487323491</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:43.491Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="ec7cf0e2-c9a0-4071-a5ca-a5a5bd420ac7">
+    <workorderNumber>980015110</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>G-REG00564</aircraftFullRegistration>
+        <aircraftRegistration>REG00564</aircraftRegistration>
+        <aircraftMsn>44687</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.980015110</barcode>
+      <externalWorkorderNumber>ELB1821111-84860616-0</externalWorkorderNumber>
+      <ataChapter>23-00</ataChapter>
+      <issueData>
+        <issueDateTime>2026-09-09T00:00:00.000Z</issueDateTime>
+        <issueSign>NJC</issueSign>
+        <issueStation>STN</issueStation>
+        <issueLeg>LEG_ANON</issueLeg>
+        <issueTahHours>38679</issueTahHours>
+        <issueTac>17810</issueTac>
+        <issueFltFrom>RAK</issueFltFrom>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-09-09T04:33:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2320786</closingTahMinutes>
+        <closingTac>17810</closingTac>
+        <closingSign>BETA1</closingSign>
+      </closingData>
+      <certification>
+        <number>UK.145.00897</number>
+        <dateTime>2026-09-09T04:33:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>UK.145.00897</number>
+        <dateTime>2026-09-09T04:33:00.000Z</dateTime>
+        <releaseSign>BETA1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="18db32e4-8246-4732-b390-0d4cb4698910">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-09-09T04:22:00.000Z</workStepDateTime>
+        <description>REF CLB
+
+INTERPHONE AT THE BACK DOESN`T WORK</description>
+        <descriptionSign>NJC</descriptionSign>
+        <actions>
+          <action uuid="6462b43a-6ca7-474f-a50c-527fef451177">
+            <actionType>Action</actionType>
+            <actionText>REPLACED HANDSET ASSY AT AFT GALLEY, OPC SATIS
+
+IAW AMM 23-42-01/401
+REV. 90
+
+ASSISTED BY: KSB, RKGS
+
+GENERAL VERIFICATION CHECK C/O</actionText>
+            <performedData>
+              <performedDateTime>2026-09-09T04:23:00.000Z</performedDateTime>
+              <performedSign>NJC</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="c21df357-ac06-11f1-8ff2-005056b18588">
+                <position>FWD CAB</position>
+                <labelNumber>4221365</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F26471</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F63446</serialNumber>
+                </partOn>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="ca6f634a-2466-4ab7-ba07-96771aa5efed">
+        <category>PDF_L</category>
+        <reference>web://eTechLog/PDFs/WO/wo_ELB1821111-84860616-0_E48D8D88-D6EE-4097-94C4-7777611D8C89_09-09-2026_04.33.51.pdf</reference>
+        <typeDescription>Web-Drive</typeDescription>
+        <description>wo_ELB1821111-84860616-0_E48D8D88-D6EE-4097-94C4-7777611D8C89_09-09-2026_04.33.51.pdf</description>
+      </reference>
+      <reference uuid="08c89569-232c-42ee-90f0-d451cdc3216b">
+        <category>ROC_ID_O</category>
+        <description>19960306</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

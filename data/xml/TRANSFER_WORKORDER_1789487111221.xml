@@ -1,0 +1,145 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487111220</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:11.220Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="e7ed2b8e-a960-11f0-95d9-005056b18588">
+    <workorderNumber>190275440</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00176</aircraftFullRegistration>
+        <aircraftRegistration>REG00176</aircraftRegistration>
+        <aircraftMsn>62377</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190275440</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2025-10-14Z</issueDate>
+        <issueSign>WKR</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-10-15T23:27:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>277350</closingTahMinutes>
+        <closingTac>2225</closingTac>
+        <closingSign>MCDT</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-15T23:27:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-10-15T23:27:00.000Z</dateTime>
+        <releaseSign>MCDT</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="e7ee8b1f-a960-11f0-95d9-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-10-14T23:00:00.000Z</workStepDateTime>
+        <description>***HIL*** 14/10/25 KRK***
+WATER BOILER IN FWD GALLEY INOP,
+RED WATER FLOW SWITCH DETACHED</description>
+        <descriptionSign>WKR</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="e7f2d0e0-a960-11f0-95d9-005056b18588">
+            <partNumber>62197-301-001</partNumber>
+            <description>WATER BOILER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="e7f3bb41-a960-11f0-95d9-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>DUE TO PNA A/C DISPATCHED IAW SUN MEL 38-10-01A REV 10
+
+NO LEAKS OBSERVED</actionText>
+            <performedData>
+              <performedDateTime>2025-10-14T23:00:00.000Z</performedDateTime>
+              <performedSign>WKR</performedSign>
+            </performedData>
+          </action>
+          <action uuid="59749afb-aa1e-11f0-95d9-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REF TLP:190275445
+
+FWD GALLEY WATER BOILER REPLACED IAW AMM 25-32-21/401 REV.25.
+OP TEST SATIS.
+HIL CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2025-10-15T23:22:00.000Z</performedDateTime>
+              <performedSign>MRRY</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="5976bddc-aa1e-11f0-95d9-005056b18588">
+                <position>G1</position>
+                <labelNumber>3965213</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>23-06-0201</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>16-12-0316</serialNumber>
+                </partOn>
+                <certificateNumber>1428766</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS - T41419625 SNNH-STN WED 15/10 DORZ</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,125 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487266613</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:46.613Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="268d7a87-ee91-11f0-8331-005056b18588">
+    <workorderNumber>191122936</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00237</aircraftFullRegistration>
+        <aircraftRegistration>REG00237</aircraftRegistration>
+        <aircraftMsn>67132</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191122936</barcode>
+      <ataChapter>23-42</ataChapter>
+      <issueData>
+        <issueDate>2026-01-11Z</issueDate>
+        <issueSign>RCG1</issueSign>
+        <issueStation>LIS</issueStation>
+        <issueFltTo>LIS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-01-11T01:58:00.000Z</closingDateTime>
+        <closingStation>LIS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>707853</closingTahMinutes>
+        <closingTac>5553</closingTac>
+        <closingSign>RCG1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-11T01:58:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-11T01:58:00.000Z</dateTime>
+        <releaseSign>RCG1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="268e8bf8-ee91-11f0-8331-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-11T01:57:00.000Z</workStepDateTime>
+        <description>IN REF WITH HIL WO: 191`122`933
+"AFT ATTENDANT HANDSET INOP"</description>
+        <descriptionSign>RCG1</descriptionSign>
+        <actions>
+          <action uuid="2690aed9-ee91-11f0-8331-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REPLACED AFT HANDSET IAW AMM 23-42-01-000/400-803 REV 26
+HIL CLOSED
+
+ASSISTED BY:
+DJSC
+JTMM</actionText>
+            <performedData>
+              <performedDateTime>2026-01-11T01:57:00.000Z</performedDateTime>
+              <performedSign>GMCM</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="2692f8ca-ee91-11f0-8331-005056b18588">
+                <position>AFT CAB</position>
+                <labelNumber>4022597</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F47982</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F63416</serialNumber>
+                </partOn>
+                <certificateNumber>10930</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

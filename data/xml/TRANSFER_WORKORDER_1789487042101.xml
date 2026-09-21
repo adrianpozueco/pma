@@ -1,0 +1,121 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487042100</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:02.100Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="00149968-da1a-11f0-b7ce-005056b18588">
+    <workorderNumber>105247488</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00128</aircraftFullRegistration>
+        <aircraftRegistration>REG00128</aircraftRegistration>
+        <aircraftMsn>44719</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.105247488</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-12-16Z</issueDate>
+        <issueSign>KBL</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-12-16T00:54:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1770547</closingTahMinutes>
+        <closingTac>18158</closingTac>
+        <closingSign>KBL</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-16T00:54:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-16T00:54:00.000Z</dateTime>
+        <releaseSign>KBL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="0015d1e9-da1a-11f0-b7ce-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-16T00:49:00.000Z</workStepDateTime>
+        <description>CREW REPORT WINDOW LT AT 25 DEF IS FLICKERING</description>
+        <descriptionSign>KBL</descriptionSign>
+        <actions>
+          <action uuid="0018910a-da1a-11f0-b7ce-005056b18588">
+            <actionType>Action</actionType>
+            <actionText> WINDOW LT ASSY AT 25 DEF REWPLACED IAW AMM 33-21-00 REV.88
+
+TESTED SATIS</actionText>
+            <performedData>
+              <performedDateTime>2025-12-16T00:49:00.000Z</performedDateTime>
+              <performedSign>KBL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="001a8cdb-da1a-11f0-b7ce-005056b18588">
+                <position>25 RH</position>
+                <labelNumber>4001719</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>18162</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>12013</serialNumber>
+                </partOn>
+                <certificateNumber>60043</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

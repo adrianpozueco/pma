@@ -1,0 +1,137 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487141123</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:41.123Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="65e9f84c-6815-11f1-b670-005056b18588">
+    <workorderNumber>190374204</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00479</aircraftFullRegistration>
+        <aircraftRegistration>REG00479</aircraftRegistration>
+        <aircraftMsn>67081</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190374204</barcode>
+      <ataChapter>27-00</ataChapter>
+      <issueData>
+        <issueDate>2026-06-14Z</issueDate>
+        <issueSign>JHRG</issueSign>
+        <issueStation>ALC</issueStation>
+        <issueFltTo>ALC</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-14T17:19:00.000Z</closingDateTime>
+        <closingStation>ALC</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>708659</closingTahMinutes>
+        <closingTac>5591</closingTac>
+        <closingSign>JHRG</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-14T17:19:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-14T17:19:00.000Z</dateTime>
+        <releaseSign>JHRG</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="65eb09bd-6815-11f1-b670-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-14T17:00:00.000Z</workStepDateTime>
+        <description>REF HIL 190374203
+LH FEEL ELEVATOR PITOT HEATER INOP</description>
+        <descriptionSign>JHRG</descriptionSign>
+        <actions>
+          <action uuid="65ed7abe-6815-11f1-b670-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REPLACED FEEL SYS PITOT PROBE LH IAW AMM TASK 27-31-94/401 REV 28
+LEAK TEST OF ELEVATOR PITOT SYS C/OUT SATIS IAW AMM 27-31-17-790-801 REV 28
+PITOT PROBE HEATER SYS TEST C/OUT SATIS IAW AMM 30-31-00-730-801 REV 28 
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-06-14T17:00:00.000Z</performedDateTime>
+              <performedSign>JHRG</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSP PERFORMED IAW MOE 2.23 ISS 2 REV 19</inspectionText>
+              <performedData>
+                <performedDateTime>2026-06-14T17:00:00.000Z</performedDateTime>
+                <performedSign>JHRG</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSP C/OUT IAW MOE 2.23 ISS 2 REV 19</inspectionText>
+              <performedData>
+                <performedDateTime>2026-06-14T17:17:00.000Z</performedDateTime>
+                <performedSign>PASA1</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="65ef286f-6815-11f1-b670-005056b18588">
+                <position>LH STAB</position>
+                <labelNumber>4102282</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>428325</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>481511</serialNumber>
+                </partOn>
+                <certificateNumber>408962252</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

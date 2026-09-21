@@ -1,0 +1,166 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487200013</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:40.013Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="b6517841-adba-11f0-95d9-005056b18588">
+    <workorderNumber>190559940</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00572</aircraftFullRegistration>
+        <aircraftRegistration>REG00572</aircraftRegistration>
+        <aircraftMsn>44705</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190559940</barcode>
+      <ataChapter>23-00</ataChapter>
+      <issueData>
+        <issueDate>2025-10-20Z</issueDate>
+        <issueSign>PAGO2</issueSign>
+        <issueStation>TLS</issueStation>
+        <issueFltTo>TLS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-10-22T01:56:00.000Z</closingDateTime>
+        <closingStation>TLS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1818415</closingTahMinutes>
+        <closingTac>17427</closingTac>
+        <closingSign>KLYD</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2025-10-22T01:56:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2025-10-22T01:56:00.000Z</dateTime>
+        <releaseSign>KLYD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="b652d7d2-adba-11f0-95d9-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-10-20T12:27:00.000Z</workStepDateTime>
+        <description>20/10.2025 - TLS- SERV. MIC SELECTOR CPT. SIDE NOT WORKING PROPERLY.</description>
+        <descriptionSign>PAGO2</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="b6571d93-adba-11f0-95d9-005056b18588">
+            <partNumber>5145-1-82</partNumber>
+            <description>AUDIO CONTROL PANEL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="f9995e2f-adbc-11f0-95d9-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>CAPT. ACP SWAPPED WITH FIRST. OBSERVER 
+TX TO HIL IAW MEL 25-11 REV.6A
+CTP. ACP P/N: 5145-1-82, S/N: 15918
+FIRST OBSERVER ACP P/N: 5145-1-88, S/N: 29417
+
+REPLACE FIRST OBSERVER ACP P/N: 5145-1-82, S/N: 15918
+
+FIRST OBSERVER SEAT INOP IAW MEL 25-11 CAT C. REV 6A</actionText>
+            <performedData>
+              <performedDateTime>2025-10-20T13:44:00.000Z</performedDateTime>
+              <performedSign>PAGO2</performedSign>
+            </performedData>
+          </action>
+          <action uuid="820a645f-aee8-11f0-b035-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>MIC SELECTOR CAPT SIDE REPLACED IAW AMM 23-51-02/401 REV 87 
+PN ON  5145-1-88   SER  ON  26781
+PN OFF  5145-1-82   SER  OFF 215918
+LABEL 3948115 
+TEST SATIS  HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-10-22T01:42:00.000Z</performedDateTime>
+              <performedSign>KLYD</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="ceeb7b04-aee8-11f0-b035-005056b18588">
+                <position>CAPT</position>
+                <labelNumber>3948115</labelNumber>
+                <partOff>
+                  <partNumber>5145-1-82</partNumber>
+                  <serialNumber>15918</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>5145-1-88</partNumber>
+                  <serialNumber>26781</serialNumber>
+                </partOn>
+                <certificateNumber>PAV11364</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <references>
+              <reference uuid="f31b97df-aee9-11f0-b035-005056b18588">
+                <reference>C:/Users/tlseng/AppData/Local/Temp/amos_tmp/1761064443089-c11c3309-ae9b-11f0-9042-98597a7a450e/Screenshot 2025-10-22 024731.png</reference>
+                <typeDescription>File</typeDescription>
+                <description>Screenshot 2025-10-22 024731.png</description>
+              </reference>
+            </references>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="5169e4e0-aeea-11f0-b035-005056b18588">
+        <type>TQ</type>
+        <reference>93809</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 93809</description>
+      </reference>
+    </references>
+    <remarks>TO-MATERIALS - T41796725 - BGY-TLS TUE 21/10 RYMD
+
+IS-MATERIALS- IN BGY STOCK TUE 21-10 QUF
+
+TO-MATERIALS - T41747225 - BGY-TLS - TUE 21/10 RYMD</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

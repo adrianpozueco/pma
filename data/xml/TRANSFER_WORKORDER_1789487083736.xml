@@ -1,0 +1,126 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487083735</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:43.735Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="acab174d-48cb-11f0-a446-005056b18588">
+    <workorderNumber>190143576</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00538</aircraftFullRegistration>
+        <aircraftRegistration>REG00538</aircraftRegistration>
+        <aircraftMsn>33629</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190143576</barcode>
+      <ataChapter>23-00</ataChapter>
+      <issueData>
+        <issueDate>2025-06-14Z</issueDate>
+        <issueSign>MASO1</issueSign>
+        <issueStation>PSA</issueStation>
+        <issueFltTo>PSA</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-06-14T00:00:00.000Z</closingDateTime>
+        <closingStation>PSA</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3279696</closingTahMinutes>
+        <closingTac>31046</closingTac>
+        <closingSign>MASO1</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-06-14T00:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-06-14T00:00:00.000Z</dateTime>
+        <releaseSign>MASO1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="acb1ce0e-48cb-11f0-a446-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-06-14T00:00:00.000Z</workStepDateTime>
+        <description>REPORTED BY CABIN CREW:
+"AFT ATTENDANT HANDSET NOT WORKING PROPERLY."</description>
+        <descriptionSign>MASO1</descriptionSign>
+        <actions>
+          <action uuid="acb3f0ef-48cb-11f0-a446-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT ATTENDANT HANDSET REPLACED AS REQUIRED IAW AMM 23-42-01/401 REV 86.
+ATTENDANT HANDSET INSTALLATION TEST C/O AS REQUIRED IAW AMM 23-42-01-700-801 REV 86.
+
+PART USED:
+INT600
+B/N: 953448
+Q.TY: 1</actionText>
+            <performedData>
+              <performedDateTime>2025-06-14T00:00:00.000Z</performedDateTime>
+              <performedSign>MASO1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="acb59ea0-48cb-11f0-a446-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>3844951</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F30624</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F25355</serialNumber>
+                </partOn>
+                <certificateNumber>4532</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,158 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487254098</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:34.098Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="3c309c9c-a588-11f1-ab51-005056b18588">
+    <workorderNumber>190862819</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00346</aircraftFullRegistration>
+        <aircraftRegistration>REG00346</aircraftRegistration>
+        <aircraftMsn>33610</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190862819</barcode>
+      <ataChapter>26-00</ataChapter>
+      <issueData>
+        <issueDate>2026-08-31Z</issueDate>
+        <issueSign>AGU</issueSign>
+        <issueStation>ALC</issueStation>
+        <issueFltTo>ALC</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-08-31T22:13:00.000Z</closingDateTime>
+        <closingStation>ALC</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3702070</closingTahMinutes>
+        <closingTac>36196</closingTac>
+        <closingSign>AGU</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-31T22:13:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-31T22:13:00.000Z</dateTime>
+        <releaseSign>AGU</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="3c31d51d-a588-11f1-ab51-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-08-31T21:58:00.000Z</workStepDateTime>
+        <description>CARGO FIRE TEST FAILING IN DIFFERENT CONFIGURATOINS, ON BOTH LOOPS  IN BOTH FWD AND AFT COMPARTMENTS.
+DETECTOR FAULT IS ALSO VISIBLE</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="3c34461e-a588-11f1-ab51-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>CARGO SMOKE DETECTION SYST TEST C/OUT IAW AMM 26-16-00-710-801 REV 90
+FWD CARGO LOOPS  A AND B  FAIL INTERMITENTLY
+FWD CARGO CEU BITE  C/OUT IAW FIM 26-16 T801 REV 90
+DETECTORS A1 + B1 REPLACED IAW AMM 26-16-01/401 REV 90
+AS A PRECAUTION , CARGO FIRE  CONTROL PANEL REPLACED IAW AMM26-00-02/401 REV 90</actionText>
+            <performedData>
+              <performedDateTime>2026-08-31T22:00:00.000Z</performedDateTime>
+              <performedSign>AGU</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="3c35f3cf-a588-11f1-ab51-005056b18588">
+                <position>FL DK</position>
+                <labelNumber>4220557</labelNumber>
+                <partOff>
+                  <partNumber>473955-1</partNumber>
+                  <serialNumber>8090</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473955-1</partNumber>
+                  <serialNumber>8593</serialNumber>
+                </partOn>
+                <certificateNumber>14013822</certificateNumber>
+              </componentChange>
+              <componentChange uuid="3c372c50-a588-11f1-ab51-005056b18588">
+                <position>FWD</position>
+                <labelNumber>4222729</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>33844</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>49112</serialNumber>
+                </partOn>
+                <certificateNumber>R554465-66838</certificateNumber>
+              </componentChange>
+              <componentChange uuid="3c37efa1-a588-11f1-ab51-005056b18588">
+                <position>FWD</position>
+                <labelNumber>4227590</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>33845</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJA2723</serialNumber>
+                </partOn>
+                <certificateNumber>14028224</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="c49b043a-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>107965</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 107965</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

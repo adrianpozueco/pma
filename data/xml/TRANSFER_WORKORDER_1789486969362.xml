@@ -1,0 +1,127 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486969361</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:49.361Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f971d3ff-fd42-11ef-8851-005056b18588">
+    <workorderNumber>55506942</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00474</aircraftFullRegistration>
+        <aircraftRegistration>REG00474</aircraftRegistration>
+        <aircraftMsn>44827</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55506942</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-03-09Z</issueDate>
+        <issueSign>IBY</issueSign>
+        <issueStation>FMM</issueStation>
+        <issueFltTo>FMM</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-03-09T21:45:00.000Z</closingDateTime>
+        <closingStation>FMM</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1243790</closingTahMinutes>
+        <closingTac>11343</closingTac>
+        <closingSign>IBY</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-03-09T21:45:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-03-09T21:45:00.000Z</dateTime>
+        <releaseSign>IBY</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f9733390-fd42-11ef-8851-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-03-09T21:45:00.000Z</workStepDateTime>
+        <description>TEMPERATURE INDICATOR OF OVEN IN FWD GALLY IS NOT WORKING</description>
+        <descriptionSign>IBY</descriptionSign>
+        <actions>
+          <action uuid="f9750851-fd42-11ef-8851-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>OVEN IN FWD GALLEY REPLACED IAW CMM:25-37-26 REV:4 SATIS</actionText>
+            <performedData>
+              <performedDateTime>2025-03-09T21:45:00.000Z</performedDateTime>
+              <performedSign>IBY</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="f9768ef2-fd42-11ef-8851-005056b18588">
+                <position>FWDGALLY</position>
+                <labelNumber>3721667</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>02-10-18260</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>21-06-0255</serialNumber>
+                </partOn>
+                <certificateNumber>1214029</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="f9794e13-fd42-11ef-8851-005056b18588">
+        <type>TQ</type>
+        <reference>84633</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 84633</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

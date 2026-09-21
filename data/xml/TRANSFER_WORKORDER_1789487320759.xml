@@ -1,0 +1,146 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487320758</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:40.757Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="99f38164-e927-4734-8b7f-8422aa88a2a2">
+    <workorderNumber>980007950</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00581</aircraftFullRegistration>
+        <aircraftRegistration>REG00581</aircraftRegistration>
+        <aircraftMsn>67118</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.980007950</barcode>
+      <externalWorkorderNumber>ELB91119-75172123-0</externalWorkorderNumber>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDateTime>2026-05-20T00:00:00.000Z</issueDateTime>
+        <issueSign>ROBY1</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueLeg>LEG_ANON</issueLeg>
+        <issueTahHours>3170</issueTahHours>
+        <issueTac>1348</issueTac>
+        <issueFltFrom>LIS</issueFltFrom>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-20T01:14:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>190245</closingTahMinutes>
+        <closingTac>1348</closingTac>
+        <closingSign>ROBY1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-20T01:14:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-05-20T01:14:00.000Z</dateTime>
+        <releaseSign>ROBY1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="58b652d2-c743-49fa-9de5-15ef786a150e">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-20T01:07:00.000Z</workStepDateTime>
+        <description>REF W/O 190409102
+AFT LH LAV FAUCET LEAKING</description>
+        <descriptionSign>ROBY1</descriptionSign>
+        <actions>
+          <action uuid="25566aab-7e87-4558-9a65-2654844d6724">
+            <actionType>Action</actionType>
+            <actionText>AFT LH LAV FAUCET REPLACED IAW AMM 38-11-05 REV 28
+
+HIL CLOSED
+
+REF TLP 190409105</actionText>
+            <performedData>
+              <performedDateTime>2026-05-20T01:08:00.000Z</performedDateTime>
+              <performedSign>ROBY1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="25280157-53e9-11f1-bd75-005056b18588">
+                <position>AFT LH</position>
+                <labelNumber>4135155</labelNumber>
+                <partOff>
+                  <partNumber>SC4L500301-5</partNumber>
+                  <serialNumber>172159910-007</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>SC4L500301-5</partNumber>
+                  <serialNumber>175167866-009</serialNumber>
+                </partOn>
+                <certificateNumber>E-6173310</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="d53ca14e-2372-447e-8833-470cab5c1614">
+        <category>PDF_L</category>
+        <reference>web://eTechLog/PDFs/WO/wo_ELB91119-75172123-0_B509D090-321D-4171-B5B2-B7ECBB62E734_20-05-2026_01.14.42.pdf</reference>
+        <typeDescription>Web-Drive</typeDescription>
+        <description>wo_ELB91119-75172123-0_B509D090-321D-4171-B5B2-B7ECBB62E734_20-05-2026_01.14.42.pdf</description>
+      </reference>
+      <reference uuid="e621a82f-d4ca-42d4-b468-887b80abb0c9">
+        <category>ROC_ID_O</category>
+        <description>18917479</description>
+      </reference>
+      <reference uuid="7bfe418d-54ff-11f1-bd75-005056b18588">
+        <type>TQ</type>
+        <reference>103777</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 103777</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

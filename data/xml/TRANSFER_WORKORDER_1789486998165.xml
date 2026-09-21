@@ -1,0 +1,135 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486998163</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:18.162Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="2bff0569-b11c-11f1-8509-005056b1ed97">
+    <workorderNumber>55610796</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00321</aircraftFullRegistration>
+        <aircraftRegistration>REG00321</aircraftRegistration>
+        <aircraftMsn>44703</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55610796</barcode>
+      <ataChapter>23-51</ataChapter>
+      <issueData>
+        <issueDate>2025-02-03Z</issueDate>
+        <issueSign>STPA1</issueSign>
+        <issueStation>HHNH</issueStation>
+        <issueFltTo>HHNH</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <position>OBS</position>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2025-02-04T10:00:00.000Z</closingDateTime>
+        <closingStation>HHNH</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1672723</closingTahMinutes>
+        <closingTac>16591</closingTac>
+        <closingSign>IVX</closingSign>
+      </closingData>
+      <certification>
+        <number>EASA.145.3122</number>
+        <dateTime>2025-02-04T10:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>EASA.145.3122</number>
+        <dateTime>2025-02-04T10:00:00.000Z</dateTime>
+        <releaseSign>IVX</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="2c034b2a-b11c-11f1-8509-005056b1ed97">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-03T10:00:00.000Z</workStepDateTime>
+        <description>TX FROM TLP 55610787 - COM 3 BACKGROUND LIGHT U/S
+
+REPLACE OBS AUDIO CONTROL PANEL IAW AMM 23-51-02/401</description>
+        <descriptionSign>STPA1</descriptionSign>
+        <actions>
+          <action uuid="2c067f7b-b11c-11f1-8509-005056b1ed97">
+            <actionType>Action</actionType>
+            <actionText>OBS AUDIO CONTROL PANEL REPLACED IAW AMM 23-51-02/401 REV.85.
+
+INSTALLATION TEST PASSED
+
+A/C SERVICABLE</actionText>
+            <performedData>
+              <performedDateTime>2025-02-04T10:00:00.000Z</performedDateTime>
+              <performedSign>IVX</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="2c08a25c-b11c-11f1-8509-005056b1ed97">
+                <position>OBS</position>
+                <labelNumber>3774211</labelNumber>
+                <partOff>
+                  <partNumber>5145-1-82</partNumber>
+                  <serialNumber>17077</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>5145-1-82</partNumber>
+                  <serialNumber>17963</serialNumber>
+                </partOn>
+                <certificateNumber>PAV9169</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="2c0b888d-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>83087</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 83087</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

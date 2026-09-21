@@ -1,0 +1,181 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487157105</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:57.105Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="13aa30f7-8eed-11f1-8caf-005056b18588">
+    <workorderNumber>190436696</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00045</aircraftFullRegistration>
+        <aircraftRegistration>REG00045</aircraftRegistration>
+        <aircraftMsn>62326</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190436696</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-08-03Z</issueDate>
+        <issueSign>BAYR</issueSign>
+        <issueStation>MAN</issueStation>
+        <issueFltTo>MAN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-08-11T03:02:00.000Z</closingDateTime>
+        <closingStation>MAN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1045135</closingTahMinutes>
+        <closingTac>9070</closingTac>
+        <closingSign>GKCK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-11T03:02:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-11T03:02:00.000Z</dateTime>
+        <releaseSign>GKCK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="13aaf448-8eed-11f1-8caf-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-08-03T03:37:00.000Z</workStepDateTime>
+        <description>**HIL**MAN**03/08/2026**  33A WINDOW LIGHT IS INOP
+
+TX FROM CLB
+WINDOW LIGHT 33A/32A FLASHES BRIGHT WHITE WHEN OFF OR ON NIGHT /SLEEP</description>
+        <descriptionSign>BAYR</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="9c748ad9-8eee-11f1-8caf-005056b18588">
+            <partNumber>C33001-58</partNumber>
+            <description>BSI LIGHT CABLE TESTER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="227b7325-9456-11f1-8b28-005056b18588">
+            <partNumber>9651-35-0002</partNumber>
+            <description>LIGHT BSI-35 IN TYPE C HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="13acc909-8eed-11f1-8caf-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>A/C DISPATCHED IAW MEL: 33-21-01-02 REV: 3B CAT"C"
+
+TX TO HIL LIST</actionText>
+            <performedData>
+              <performedDateTime>2026-08-03T03:39:00.000Z</performedDateTime>
+              <performedSign>BAYR</performedSign>
+            </performedData>
+          </action>
+          <action uuid="d19f97a4-93a5-11f1-8b28-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REF W/O 190433513
+
+WINDOW LIGHT LED ASSY REPLACED IAW AMM TASK 33-21-00-960-801 REV28A ,LIGHT STILL DID NOT RSPONDING CONFRIGUATION FROM ACP ,FURTHER T/S REQ ,HIL REMAINS OPEN</actionText>
+            <performedData>
+              <performedDateTime>2026-08-09T03:52:00.000Z</performedDateTime>
+              <performedSign>MMNH</performedSign>
+            </performedData>
+          </action>
+          <action uuid="09edbe58-9456-11f1-8b28-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>SEE WO 190`433`516
+T/S C/O IAW AMM 23-42-03/201 REV28A. THERE IS DATABREAKE AT ROW 6ABC WINDOW LIGHT (FITH FROM FWD).
+THE LIGHT NEEDS REPLACEMENT TO DO THE DATALOAD FOR ROW 33A.
+HIL REMAINS OPEN. PARTS ADDED.</actionText>
+            <performedData>
+              <performedDateTime>2026-08-10T00:54:00.000Z</performedDateTime>
+              <performedSign>GKCK</performedSign>
+            </performedData>
+          </action>
+          <action uuid="a09d7b75-9530-11f1-8b28-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>SEE WO 190`433`520
+ROW 6ABC WINDOW LIGHT REPLACED AND PHASE II DAYALOAD C/O IAW AMM 33-21-00-960-801 REV28A. 
+SATIS.
+HIL ITEM CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2026-08-11T02:58:00.000Z</performedDateTime>
+              <performedSign>GKCK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="cc29664a-9530-11f1-8b28-005056b18588">
+                <position>CAB</position>
+                <labelNumber>4207410</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>53812</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>16946</serialNumber>
+                </partOn>
+                <certificateNumber>177252</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS - T58964326 STN-MAN MON 10-08 QUF
+
+IS-MATERIALS - IN MAN STOCK TUE 04/08 RLBK
+
+TO-MATERIALS - T58624926 LBA-MAN TUE 04/08 RLBK
+
+IS-MATERIALS - IN MAN STOCK MON 03/08 RLBK
+
+TO-MATERIALS - T58567426 LPL-MAN MON 03/08 ISAD</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

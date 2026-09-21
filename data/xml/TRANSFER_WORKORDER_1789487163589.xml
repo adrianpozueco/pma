@@ -1,0 +1,142 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487163587</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:03.587Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="c5784b94-3adb-11f1-a458-005056b18588">
+    <workorderNumber>190456624</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00559</aircraftFullRegistration>
+        <aircraftRegistration>REG00559</aircraftRegistration>
+        <aircraftMsn>62338</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190456624</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDate>2026-04-18Z</issueDate>
+        <issueSign>FSE</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-18T16:30:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>905724</closingTahMinutes>
+        <closingTac>8351</closingTac>
+        <closingSign>DABR</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-04-18T16:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-04-18T16:30:00.000Z</dateTime>
+        <releaseSign>DABR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c57df0e5-3adb-11f1-a458-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-18T04:03:00.000Z</workStepDateTime>
+        <description>REF TO W/O 106154443 AND TLP 190456624 PLEASE REPL THE FN #12  ON ENG#1</description>
+        <descriptionSign>FSE</descriptionSign>
+        <actions>
+          <action uuid="c0b02b06-3b27-11f1-a458-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ENG #1 FUEL NOZZLE #12 REMOVED IAW AMM 73-11-05-000-801-G00 R27
+NEW FUEL NOZZLE IN POS #12 INST. IAW AMM 73-11-05-400-801-G00 R27
+ALL TESTS PERMORMED SATIS INCLUDED PART POWR ENSURANCE
+SEE NEXT TLP 
+SEE P/S #6468384 FOR CONSUMABLE 
+
+T/W USED:
+PN: 11123   SN: 79117735662
+PN: EVT600A   SN:B090143
+INDP. INSP C/O IAW SEAS P/N 01-18 R10 AND MAY CAME APP A R26</actionText>
+            <performedData>
+              <performedDateTime>2026-04-18T12:20:00.000Z</performedDateTime>
+              <performedSign>DABR</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSP. C/O IAW SEAS P/N 01-18 R10 AND MAY CAME APP A R26</inspectionText>
+              <performedData>
+                <performedDateTime>2026-04-18T12:20:00.000Z</performedDateTime>
+                <performedSign>DABR</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEP INSP. C/O IAW SEAS P/N 01-18 R10 AND MAY CAME APP A R26</inspectionText>
+              <performedData>
+                <performedDateTime>2026-04-18T12:20:00.000Z</performedDateTime>
+                <performedSign>CLC</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="dd496737-3b4a-11f1-a458-005056b18588">
+                <position>#1</position>
+                <labelNumber>4108649</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT52F33</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT45T86</serialNumber>
+                </partOn>
+                <certificateNumber>RH61577-1</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

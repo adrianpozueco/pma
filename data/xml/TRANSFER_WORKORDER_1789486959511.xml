@@ -1,0 +1,619 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486959510</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:39.510Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="aaefd616-0add-11f0-a385-005056b18588">
+    <workorderNumber>55461808</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00289</aircraftFullRegistration>
+        <aircraftRegistration>REG00289</aircraftRegistration>
+        <aircraftMsn>62323</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55461808</barcode>
+      <ataChapter>73-11</ataChapter>
+      <issueData>
+        <issueDate>2025-03-27Z</issueDate>
+        <issueSign>SAU</issueSign>
+        <issueStation>WAMS</issueStation>
+        <issueFltTo>WAMS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-03-28T08:27:00.000Z</closingDateTime>
+        <closingStation>WAMS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>793499</closingTahMinutes>
+        <closingTac>6614</closingTac>
+        <closingSign>VHV</closingSign>
+      </closingData>
+      <certification>
+        <number>EASA.145.3122</number>
+        <dateTime>2025-03-28T08:27:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>EASA.145.3122</number>
+        <dateTime>2025-03-28T08:27:00.000Z</dateTime>
+        <releaseSign>VHV</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="aafb6ed7-0add-11f0-a385-005056b18588">
+        <workstepState>C</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-03-27T07:32:00.000Z</workStepDateTime>
+        <description>REF. TO W/O: 101688097 FOR ENG#2 BSI
+REF. TO EASA FORM 1 FTN: B1-31933 AND BORESCOPE INSPECTION REPORT REFERENCE: B1-31933
+ENG #2 FUEL NOZZLES #2,#3,#5,#6,#9,#13,#15,#16 TO BE REPLACED IAW AMM 73-11-05-000-801-G00 AND AMM 73-11-05-400-801-G00 LATEST REV.</description>
+        <descriptionSign>SAU</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="6902d110-0af6-11f0-a385-005056b18588">
+            <partNumber>2085M31G03</partNumber>
+            <description>FUEL NOZZLE ASSEMBLY</description>
+            <neededQuantity UOM="EA">8.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="69039461-0af6-11f0-a385-005056b18588">
+            <partNumber>2085M48P07</partNumber>
+            <description>GASKET, FUEL NOZZLES</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="6904f3f2-0af6-11f0-a385-005056b18588">
+            <partNumber>AS3237-12</partNumber>
+            <description>BOLT</description>
+            <neededQuantity UOM="EA">40.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="69062c73-0af6-11f0-a385-005056b18588">
+            <partNumber>2085M48P07</partNumber>
+            <description>GASKET, FUEL NOZZLES</description>
+            <neededQuantity UOM="EA">8.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="23dc0f0a-0b0d-11f0-a385-005056b18588">
+            <partNumber>3M471-2</partNumber>
+            <description>3M 471 TAPE - RED - 2IN WIDE</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="7c7722c0-0b10-11f0-a385-005056b18588">
+            <partNumber>2085M48P07</partNumber>
+            <description>GASKET, FUEL NOZZLES</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="790efc55-0b11-11f0-a385-005056b18588">
+            <partNumber>BACB30US5-6</partNumber>
+            <description>BOLT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="cd1dbb56-0b12-11f0-a385-005056b18588">
+            <partNumber>AS3237-12</partNumber>
+            <description>BOLT</description>
+            <neededQuantity UOM="EA">4.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="fe9fd24f-0b19-11f0-a385-005056b18588">
+            <partNumber>2085M48P07</partNumber>
+            <description>GASKET, FUEL NOZZLES</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="ecfdac42-0b1d-11f0-a385-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FOLLOWING ITEMS WERE REMOVED FOR ACCESS PURPOSE:
+
+1.	PRESSURE REGULATING AND SHUT OFF VALVE (PRSOV) REMOVED IAW AMM 36-11-04-000-801 REV. 23
+2.	HIGH PRESSURE SHUT OFF VALVE (HPSOV) REMOVED IAW AMM 36-11-07-000-801 REV. 23
+3.	MIX MANIFOLD REMOVED IAW AMM 36-11-01-000-801 REV. 23
+4.	HPTACC VALVE REMOVED IAW AMM 75-24-04-000-801-G00 REV. 23
+5.	LPTACC VALVE REMOVED IAW AMM 75-24-01-000-801-G00 REV. 23
+6.	WYE DUCT REMOVED IAW AMM 73-11-05-000-801-G00 REV. 23
+7.	FUEL NOZZLE #10, #11 AND #12 WERE REMOVED IAW AMM 73-11-05-000-801-G00 REV. 23
+8.	START BLEED TUBE REMOVED IAW AMM SUBTASK 73-11-0-000-801-G00 REV. 23
+9.	T3 SENSOR DISCONNECTED IAW AMM TASK 73-21-64-000-801-G00 REV. 23
+10.	TRANSIENT BLEED AIR TUBE REMOVED IAW AMM SUBTASK 73-11-05-000-801-G00 REV. 23 
+11.	BAI DUCT REMOVED IAW AMM 73-11-05-000-801-G00 REV. 23
+12.	BAI TUBE REMOVED IAW AMM 73-11-05-000-801-G00 REV. 23 
+13.	L/H AND R/H 7TH STAGE DUCTS REMOVED IAW AMM 73-11-05-000-801-G00 REV. 23 
+14.	LPTACC FUEL MANIFOLD REMOVED IAW AMM 73-11-05-000-801-G00 REV. 23 
+15.	L/H UPPER CDP DUCT REMOVED IAW AMM 36-11-01-000-801 REV. 23
+16.	LOWER CDP DUCT REMOVED IAW AMM 36-11-01-000-801 REV. 23
+17.	PS3 TUBE DISCONNECTED IAW AMM 73-11-05-000-801-G00 REV. 23
+18.	FUEL NOZZLES #2,#3,#5,#6,#9,#13,#15,#16 WERE REMOVED IAW AMM 73-11-05-000-801-G00 REV. 23
+
+DURING REMOVAL UPR CDP DUCT MANIFOLD (P/N: 332A6321-1) FWD UPPER BOLT FOUND DAMAGED.
+BOLT P/N: BACB30US5-6, B /N: 1213619 WAS REPLACED IAW AMM: TASK 73-11-05-400-802-G00 
+
+1.	FUEL NOZZLES #2,#3,#5,#6,#9,#13,#15,#16 REPLACED IAW AMM 73-11-05-400-801-G00 REV. 23
+2.	FUEL NOZZLES #10, #11, #12 REINSTALLED IAW AMM 73-11-05-400-801-G00 REV. 23
+3.	T3 SENSOR REINSTALLED IAW AMM 73-11-05-400-801-G00 REV. 23
+4.	PS3 TUBE REINSTALLED IAW AMM 73-11-05-400-801-G00 REV. 23
+
+PARTS &amp; CONSUMABLES USED:
+GASKET, FUEL NOZZLES P/N: 2085M48P07, B/N: 1378256, 1151208, Q-TY: 11
+BOLTS P/N: AS3237-12, B/N: 1150957, Q-TY: 44
+GREASE P/N: T8E-H, B/N: 1226331 
+AEROKROIL P/N: AEROKROIL, B/N: 1229299/24052 
+
+TOOLS USED:
+TORQUE WRENCH 40-180 LBF.IN P/N: 11123, S/N: 79107629542
+DOG BONE TORQUE ADAPTER SET P/N: DOGBONEADAPTER, S/N: 831857
+TORQUE WRENCH 20-100N P/N: 7465-100, S/N: 0823114263
+SAFE T CABLE TOOL P/N: SCTR327L, S/N: 1222491WAMS
+TORQUE WRENCH 10-50 LBFT P/N: EVT600A, S/N: X050221
+
+SEE WORKSTEP 2 FOR TASK CONTINUATION
+
+GENERAL VERIFICATION CHECK CARRIED OUT</actionText>
+            <closingAction>Y</closingAction>
+            <performedData>
+              <performedDateTime>2025-03-27T15:12:00.000Z</performedDateTime>
+              <performedSign>SZMA</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION C/O IAW PAML PN 2003/10 REV. 35 FOR CORRECT/SECURE INSTALLATION AND SATISFACTORY COMPLETION OF THE TASK AND THAT NO DESCREPACIES HAVE BEEN FOUND 
+
+DATE: 27/MAR/2025, TIME: 17:46Z</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-27T17:46:00.000Z</performedDateTime>
+                <performedSign>SAU</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION C/O IAW PAML PN 2003/10 REV. 35 FOR CORRECT/SECURE INSTALLATION AND SATISFACTORY COMPLETION OF THE TASK AND THAT NO DESCREPACIES HAVE BEEN FOUND 
+
+DATE: 27/MAR/2025, TIME: 17:46Z</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-27T17:46:00.000Z</performedDateTime>
+                <performedSign>VHV</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="2d2885bf-0b1e-11f0-a385-005056b18588">
+                <position>#2</position>
+                <labelNumber>3820693</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT24F37</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMD172</serialNumber>
+                </partOn>
+                <certificateNumber>RF31290-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="52eca4d9-0b1e-11f0-a385-005056b18588">
+                <position>#2</position>
+                <labelNumber>3820696</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ723</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMF799</serialNumber>
+                </partOn>
+                <certificateNumber>RF43977-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="8d09f5d1-0b1e-11f0-a385-005056b18588">
+                <position>#2</position>
+                <labelNumber>3820690</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT63E23</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT8A442</serialNumber>
+                </partOn>
+                <certificateNumber>RF30412-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="c746ddb1-0b1e-11f0-a385-005056b18588">
+                <position>#2</position>
+                <labelNumber>3820678</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ268</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT4C100</serialNumber>
+                </partOn>
+                <certificateNumber>RF40852-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="eb8f805b-0b1e-11f0-a385-005056b18588">
+                <position>#2</position>
+                <labelNumber>3820683</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ270</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT3C239</serialNumber>
+                </partOn>
+                <certificateNumber>RF53033-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="4de80bdf-0b1f-11f0-a385-005056b18588">
+                <position>#2</position>
+                <labelNumber>3820699</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ271</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMD165</serialNumber>
+                </partOn>
+                <certificateNumber>RF31288-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="791953f8-0b1f-11f0-a385-005056b18588">
+                <position>#2</position>
+                <labelNumber>3820674</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT05T93</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT3C325</serialNumber>
+                </partOn>
+                <certificateNumber>RF31229-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="aa130472-0b1f-11f0-a385-005056b18588">
+                <position>#2</position>
+                <labelNumber>3820691</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT22F52</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT8C160</serialNumber>
+                </partOn>
+                <certificateNumber>RF11781-1</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+      <workStep uuid="96c5fa2b-0b33-11f0-a385-005056b18588">
+        <workstepState>C</workstepState>
+        <workStepSequenceNumber>2</workStepSequenceNumber>
+        <workStepDateTime>2025-03-27T17:47:00.000Z</workStepDateTime>
+        <description>FOLLOWING ITEMS TO BE REINSTALLED POST FUEL NOZZLES REPLACEMENT:
+
+1.	PRESSURE REGULATING AND SHUT OFF VALVE (PRSOV) TO BE INSTALLED IAW AMM 36-11-04-400-801 LATEST REV.
+2.	HIGH PRESSURE SHUT OFF VALVE (HPSOV) TO BE INSTALLED IAW AMM 36-11-07-400-801 LATEST REV.
+3.	MIX MANIFOLD TO BE INSTALLED IAW AMM 36-11-01-400-801 LATEST REV.
+4.	HPTACC VALVE TO BE INSTALLED IAW AMM 75-24-04-400-801-G00 LATEST REV.
+5.	LPTACC VALVE TO BE INSTALLED IAW AMM 75-24-04-400-801-G00 LATEST REV.
+6.	WYE DUCT TO BE INSTALLED IAW AMM 75-24-04-400-801-G00 LATEST REV.
+7.	START BLEED TUBE TO BE INSTALLED IAW AMM 75-24-04-400-801-G00 LATEST REV.
+8.	TRANSIENT BLEED AIR TUBE TO BE INSTALLED IAW AMM 75-24-04-400-801-G00 LATEST REV.
+9.	BAI DUCT TO BE INSTALLED IAW AMM 73-11-05-400-801-G00 LATEST REV.
+10.	BAI TUBE TO BE INSTALLED IAW AMM 73-11-05-400-801-G00 LATEST REV.
+11.	L/H AND R/H 7TH STAGE DUCTS TO BE INSTALLED IAW AMM 73-11-05-400-801-G00 LATEST REV.
+12.	LPTACC FUEL MANIFOLD TO BE INSTALLED IAW AMM 73-11-05-400-801-G00 LATEST REV.
+13.	L/H UPPER CDP DUCT TO BE INSTALLED IAW AMM 36-11-01-400-801 LATEST REV.
+14.	LOWER CDP DUCT TO BE INSTALLED IAW AMM 36-11-01-400-801 LATEST REV.
+
+POST INSTALLATION CARRY OUT FOLLOWING TESTS: 
+POST ENGINE PNEUMATIC DUCTS RE-INSTALLATION, DO THE FOLLOWING TEST:
+ - SUPPLY PRESSURE UPSTREAM OF THE PRSOV WITH ENGINES OFF, TASK 36-00-00-860-805 LATEST REV.
+ - TEST NO. 1 - PNEUMATIC LEAK TEST, IAW AMM: TASK 71-00-00-790-801-G00 LATEST REV.
+ - ENGINE BLEED AIR SYSTEM - LEAK CHECK, IAW AMM: TASK 36-11-00-700-802 LATEST REV.
+ - REMOVE PRESSURE FROM THE PNEUMATIC SYSTEM, IAW AMM: TASK 36-00-00-860-806 LATEST REV.
+
+ * DO A VISUAL CHECK ON ALL NON LRU AIR TUBES OR DUCTS THAT WERE DISCONNECTED OR REMOVED FOR ENGINE MAINTENANCE *
+
+ELECTRICAL LRU - REPLACEMENT TEST IAW AMM: 36-00-00-710-801 LATEST REV.
+TEST NO. 15 - ACTUATOR OPERATIONAL TEST, IAW AMM: TASK 71-00-00-730-802-G00 LATEST REV.
+
+DO AN ENGINE IDLE RUN IAW AMM: TASK 71-00-00-790-804-G00 LATEST REV. (CHECK FUEL NOZZLES #2,#3,#5,#6,#9,#10, #11,#12,#13,#15,#16  FOR ANY EVIDENCE OF LEAKS) &amp; CHECK THE ONBOARD MAINTENANCE FUNCTION (OMF) FOR ANY NEW FUEL SYSTEM FAULTS, AND, IF PRESENT, CLEAR THE FAULTS (TASK 71-00-00-700-811-G00 AND TASK 71-00-00-700-812-G00) LATEST REV.
+TEST NO. 17 - ELECTRONIC ENGINE CONTROL (EEC) SYSTEM TEST, IAW AMM: TASK 71-00-00-710-806-G00 LATEST REV.
+TEST NO. 32 - ENGINE IDLE SYSTEM TEST, IAW AMM: TASK 71-00-00-700-808-G00 LATEST REV.
+PNEUMATIC ENGINE ON - SYSTEM TEST, IAWAMM: 36-00-00-730-801 LATEST REV.
+
+TEST NO. 6 - POWER ASSURANCE TEST IAW AMM: TASK 71-00-00-720-802-G00 LATEST REV.
+
+AFTER THE TESTS ARE DONE, FOLLOW THE APPLICABLE INSPECTIONS:
+ - DO A VISUAL INSPECTION OF THE FUEL LINES AND CONNECTIONS AND CHECK FOR FUEL LEAKS.
+ - DO A VISUAL INSPECTION OF THE AIR DUCTS, TUBES, AND SEALS TO CHECK FOR HOT AIR LEAKAGE INDICATION AND/OR DAMAGE.
+
+ ***   PAY PARTICULAR ATTENTION TO THE 4TH &amp; 7TH STAGE BLEED AIR DUCTS.   ***
+CONDUCT GENERAL VERIFICATION CHECK</description>
+        <descriptionSign>SAU</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="521326f1-0b3e-11f0-a385-005056b18588">
+            <partNumber>AS1895-23-150</partNumber>
+            <description>SEAL- HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="52148682-0b3e-11f0-a385-005056b18588">
+            <partNumber>AS1895-23-200</partNumber>
+            <description>SEAL, HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="521570e3-0b3e-11f0-a385-005056b18588">
+            <partNumber>AS1895-23-100</partNumber>
+            <description>SEAL - HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="52168254-0b3e-11f0-a385-005056b18588">
+            <partNumber>AS1895-23-175</partNumber>
+            <description>SEAL- HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c6f93afc-0b40-11f0-a385-005056b18588">
+            <partNumber>AS1895-23-150</partNumber>
+            <description>SEAL- HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="5373e39e-0b48-11f0-a385-005056b18588">
+            <partNumber>AS1895-23-150</partNumber>
+            <description>SEAL- HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="466c712c-0b4b-11f0-a385-005056b18588">
+            <partNumber>BACC13AT3K18</partNumber>
+            <description>CABLE</description>
+            <neededQuantity UOM="EA">50.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="db778aa8-0b57-11f0-a385-005056b18588">
+            <partNumber>2525M65P02</partNumber>
+            <description>GASKET- SEAL - FUEL NOZZLES</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="e1b73379-0b59-11f0-a385-005056b18588">
+            <partNumber>2532M16P01</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="e1b844ea-0b59-11f0-a385-005056b18588">
+            <partNumber>AS1895-23-250</partNumber>
+            <description>SEAL- HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="45afa1b6-0b5c-11f0-a385-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ENG#2
+FOLLOWING ITEMS WERE RE-INSTALLED POST FUEL NOZZLES REPLACEMENT:
+
+1. PRESSURE REGULATING AND SHUT OFF VALVE (PRSOV) IAW AMM 36-11-04-400-801 
+2. HIGH PRESSURE SHUT OFF VALVE (HPSOV) IAW AMM 36-11-07-400-801 
+3. MIX MANIFOLD IAW AMM 36-11-01-400-801 
+4. HPTACC VALVE IAW AMM 75-24-04-400-801-G00 
+5. LPTACC VALVE IAW AMM 75-24-04-400-801-G00 
+6. WYE DUCT IAW AMM 75-24-04-400-801-G00 
+7. START BLEED TUBE IAW AMM 75-24-04-400-801-G00
+8. TRANSIENT BLEED AIR TUBE IAW AMM 75-24-04-400-801-G00
+9. BAI DUCT IAW AMM 73-11-05-400-801-G00 
+10. BAI TUBE IAW AMM 73-11-05-400-801-G00 
+11. L/H AND R/H 7TH STAGE DUCTS IAW AMM 73-11-05-400-801-G00 
+12. LPTACC FUEL MANIFOLD IAW AMM 73-11-05-400-801-G00 
+13. L/H UPPER CDP DUCT IAW AMM 36-11-01-400-801 
+14. LOWER CDP DUCT IAW AMM 36-11-01-400-801
+
+USED TOOLS:
+TORQUE WRENCH P/N: 11123, S/N: 79107629552
+TORQUE WRENCH P/N: 7465-100, S/N: 0823114272
+TORQUE WRENCH P/N: 80120000, S/N: 79118121629
+SAFE T CABLE TOOL P/N: SCTR327L , S/N: 1222491WAMS
+
+USED CONSUMABLES:
+ENGINE OIL P/N: MOBILJETII, B/N: 1340826
+T8E-H GREASE CP2961 P/N: T8E-H, B/N: 1226931
+NEVER SEEZ COMPOUND P/N: NSBT8N, B/N: 1152588
+
+USED PARTS:
+SEAL P/N: AS1895-23-100, B/N: 1147916 QTY: 2.00
+SEAL P/N: AS1895-23-150, B/N: 1185652 QTY: 6.00
+SEAL P/N: AS1895-23-175, B/N: 1362749 QTY: 2.00
+SEAL P/N: AS1895-23-200, B/N: 1101960 QTY: 2.00
+SEAL P/N: AS1895-23-250, B/N: 1216008 
+SEAL P/N: 2532M16P01, B/N: 1200735 
+SEAL P/N: 2525M65P02, B/N: 1381589 QTY: 2.00
+
+UPON COMPLETION OF ACCESS RE-BUILDING FOLLOWING TESTS/LEAK CHECKS WERE C/O:
+
+ - SUPPLY PRESSURE UPSTREAM OF THE PRSOV WITH ENGINES OFF, TASK 36-00-00-860-805
+ - ENGINE BLEED AIR SYSTEM - LEAK CHECK, IAW AMM: TASK 36-11-00-700-802
+ - REMOVE PRESSURE FROM THE PNEUMATIC SYSTEM, IAW AMM: TASK 36-00-00-860-806 
+ - ELECTRICAL LRU - REPLACEMENT TEST IAW AMM: 36-00-00-710-801
+- TEST NO. 15 - ACTUATOR OPERATIONAL TEST, IAW AMM: TASK 71-00-00-730-802-G00 
+- TEST NO. 3 - WET MOTORING LEAK TEST, IAW AMM: TASK 71-00-00-790-803-G00 (ON ENGINEER DISCRECTION TO PREVENT POTENTIONAL UNSAFE CONDTION DURING GROUND IDLE RUN)
+
+ * A VISUAL CHECK ON ALL NON LRU AIR TUBES AND DUCTS THAT WERE DISCONNECTED OR REMOVED FOR ENGINE MAINTENANCE WAS C/O*  - SATIS, NO EVIDENCE OF LEAKAGE WAS NOTED
+
+TEST NO. 17 - ELECTRONIC ENGINE CONTROL (EEC) SYSTEM TEST, IAW AMM: TASK 71-00-00-710-806-G00
+
+ENGINE IDLE RUN WAS C/O IAW AMM: TASK 71-00-00-790-804-G00
+- TEST NO. 32 - ENGINE IDLE SYSTEM TEST WAS C/O IAW AMM: TASK 71-00-00-700-808-G00 
+FUEL NOZZLES #2, #3 ,#5, #6, #9, #10, #11,#12,#13, #15 AND #16 CHECKED FOR ANY EVIDENCE OF LEAKS - SATIS, NO LEAKS NOTED
+ - (OMF) WAS CHECKED FOR ANY NEW FUEL SYSTEM FAULTS - NFF
+
+ - PNEUMATIC ENGINE ON - SYSTEM TEST WAS C/O IAW AMM: 36-00-00-730-801 
+ - TEST NO. 1 - PNEUMATIC LEAK TEST WAS C/O IAW AMM: TASK 71-00-00-790-801-G00
+
+RESULTS: ALL TESTS PASS
+
+- AMM (REV. 23)
+
+INDEPENDENT INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) ITEM 15 FOR CORRECT AND SECURE INSTALLATION OF ENG#2 ALL AFFECTED BLEED AIR TUBES, VLVS, LPTACC &amp; HPTACC REMOVED IN WAY FOR FUEL NOZZLES REPLACMENENT
+
+GENERAL VERIFICATION CHECK WAS C/O IAW PAML PN 2005/21 (REV. 27)
+
+SEE WORK STEP 3 FOR CONTINUATION OF THE TASK</actionText>
+            <closingAction>Y</closingAction>
+            <performedData>
+              <performedDateTime>2025-03-28T05:00:00.000Z</performedDateTime>
+              <performedSign>KWK</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15 FOR CORRECT AND SECURE INSTALLATION OF ENG#2 ALL AFFECTED BLEED AIR TUBES, VLVS, LPTACC &amp; HPTACC REMOVED IN WAY FOR FUEL NOZZLES REPLACMENENT
+
+DATE:   28. MARCH .2025   TIME:   05:00</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-28T05:00:00.000Z</performedDateTime>
+                <performedSign>PIMA1</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15 FOR CORRECT AND SECURE INSTALLATION OF ENG#2 ALL AFFECTED BLEED AIR TUBES, VLVS, LPTACC &amp; HPTACC REMOVED IN WAY FOR FUEL NOZZLES REPLACMENENT
+
+DATE:   28. MARCH. 2025   TIME:   05:00</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-28T05:00:00.000Z</performedDateTime>
+                <performedSign>IVR</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+      <workStep uuid="de3893e1-0b7e-11f0-a385-005056b18588">
+        <workStepSequenceNumber>3</workStepSequenceNumber>
+        <workStepDateTime>2025-03-28T05:03:00.000Z</workStepDateTime>
+        <description>
+DO THE FOLLOWING TASKS ON ENG#2:
+
+ - TEST NO. 6 - POWER ASSURANCE TEST IAW AMM: TASK 71-00-00-720-802-G00 LATEST REV.
+
+AFTER THE TEST IS DONE, FOLLOW THE APPLICABLE INSPECTIONS:
+ - DO A VISUAL INSPECTION OF THE FUEL LINES AND CONNECTIONS AND CHECK FOR FUEL LEAKS.
+ - DO A VISUAL INSPECTION OF THE AIR DUCTS, TUBES, AND SEALS TO CHECK FOR HOT AIR LEAKAGE INDICATION AND/OR DAMAGE.
+- CHECK FUEL NOZZLES #2, #3 ,#5, #6, #9, #10, #11,#12,#13, #15 AND #16 FOR ANY EVIDENCE OF LEAKS
+
+ ***   PAY PARTICULAR ATTENTION TO THE 4TH &amp; 7TH STAGE BLEED AIR DUCTS.   ***
+
+C/O INDEPENDENT INSPECTION AS PER PAML PN 2003/10 FOLLOWING THE LEAK CHECKS
+
+CONDUCT GENERAL VERIFICATION CHECK IAW PAML PN 2005/21.</description>
+        <descriptionSign>IVR</descriptionSign>
+        <actions>
+          <action uuid="ca7d4367-0bad-11f0-a385-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FOLLOWING TASKS CARRIED OUT ON ENG#2:
+
+ - TEST NO. 6 - POWER ASSURANCE TEST CARRIED OUT IAW AMM: TASK 71-00-00-720-802-G00 REV. 23
+RESULT-SATIS
+
+AFTER THE TEST IS DONE, APPLICABLE INSPECTIONS WAS CARRIED OUT IAW AMM 71-00-00-790-804-G00 REV. 23:
+
+ - A VISUAL CHECK OF THE FUEL LINES AND CONNECTIONS AND CHECK FOR WAS C/O - SATIS, NO EVIDENCE OF LEAKAGE WAS NOTED
+
+ - A VISUAL CHECK OF THE AIR DUCTS, TUBES, AND SEALS TO CHECK FOR HOT AIR LEAKAGE INDICATION AND/OR DAMAGE WAS C/O - SATIS, NO EVIDENCE OF LEAKAGE WAS NOTED
+
+- A VISUAL CHECK FUEL NOZZLES #2, #3, #5, #6, #9, #10, #11, #12, #13, #15 AND #16 WAS C/O - SATIS, NO EVIDENCE OF LEAKAGE WAS NOTED
+
+ *** PARTICULAR ATTENTION APPLIED TO THE 4TH &amp; 7TH STAGE BLEED AIR DUCTS.   ***
+
+GENERAL VERIFICATION CHECK CARRIED OUT</actionText>
+            <performedData>
+              <performedDateTime>2025-03-28T08:20:00.000Z</performedDateTime>
+              <performedSign>VHV</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15 FOR CORRECT AND SECURE INSTALLATION OF ENG#2 ALL AFFECTED BLEED AIR TUBES, VLVS, LPTACC &amp; HPTACC REMOVED IN WAY FOR FUEL NOZZLES REPLACMENENT AND ALL DISTURBED FUEL NOZZLES
+
+DATE:   28. MAR .2025   TIME:   08:20</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-28T08:20:00.000Z</performedDateTime>
+                <performedSign>VHV</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15 FOR CORRECT AND SECURE INSTALLATION OF ENG#2 ALL AFFECTED BLEED AIR TUBES, VLVS, LPTACC &amp; HPTACC REMOVED IN WAY FOR FUEL NOZZLES REPLACMENENT AND ALL DISTURBED FUEL NOZZLES
+
+DATE:   28. MAR. 2025   TIME:   08:20</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-28T08:20:00.000Z</performedDateTime>
+                <performedSign>OZA</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

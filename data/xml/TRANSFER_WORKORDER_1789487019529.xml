@@ -1,0 +1,107 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487019528</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:39.527Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="5f3acfb5-c10d-11ef-85cb-005056b18588">
+    <workorderNumber>55703435</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00082</aircraftFullRegistration>
+        <aircraftRegistration>REG00082</aircraftRegistration>
+        <aircraftMsn>44843</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55703435</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2024-12-23Z</issueDate>
+        <issueSign>MGZ</issueSign>
+        <issueStation>WRO</issueStation>
+        <issueFltTo>WRO</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2024-12-23T01:22:00.000Z</closingDateTime>
+        <closingStation>WRO</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1204412</closingTahMinutes>
+        <closingTac>10593</closingTac>
+        <closingSign>MGZ</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2024-12-23T01:22:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2024-12-23T01:22:00.000Z</dateTime>
+        <releaseSign>MGZ</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="5f3c0836-c10d-11ef-85cb-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2024-12-23T00:45:00.000Z</workStepDateTime>
+        <description>REF. HIL 55703430
+WINDOW LIGHT  AT 32ABC ROW FLICKERING</description>
+        <descriptionSign>MGZ</descriptionSign>
+        <actions>
+          <action uuid="5f3db5e7-c10d-11ef-85cb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>BSI LIGHT ASSY REPLACED IAW AMM 33-21-00-960-804 REV.84
+HIL CLOSED
+C/O BY SAZA</actionText>
+            <performedData>
+              <performedDateTime>2024-12-23T00:45:00.000Z</performedDateTime>
+              <performedSign>MGZ</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,131 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487279403</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:59.403Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="e1cbe103-a8c3-11f1-ab51-005056b18588">
+    <workorderNumber>191319822</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00188</aircraftFullRegistration>
+        <aircraftRegistration>REG00188</aircraftRegistration>
+        <aircraftMsn>44689</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191319822</barcode>
+      <ataChapter>23-42</ataChapter>
+      <issueData>
+        <issueDate>2026-09-05Z</issueDate>
+        <issueSign>SAPL</issueSign>
+        <issueStation>PMO</issueStation>
+        <issueFltTo>PMO</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-09-05T00:50:00.000Z</closingDateTime>
+        <closingStation>PMO</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2293114</closingTahMinutes>
+        <closingTac>19284</closingTac>
+        <closingSign>SAPL</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-09-05T00:50:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-09-05T00:50:00.000Z</dateTime>
+        <releaseSign>SAPL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="e1cf6374-a8c3-11f1-ab51-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-09-05T00:46:00.000Z</workStepDateTime>
+        <description>REF. TO HIL 191319809
+"AFT INTERPHONE HANDSET INOP"</description>
+        <descriptionSign>SAPL</descriptionSign>
+        <actions>
+          <action uuid="e1d35b15-a8c3-11f1-ab51-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT CABIN ATTENDANT HANDSET REPLACED IAW AMM 23-42-01 R.90
+TEST SATIS
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-09-05T00:47:00.000Z</performedDateTime>
+              <performedSign>SAPL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="e1d4e1b6-a8c3-11f1-ab51-005056b18588">
+                <position>AFT CAB</position>
+                <labelNumber>4213594</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F24620</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-23M</partNumber>
+                  <serialNumber>F59588</serialNumber>
+                </partOn>
+                <certificateNumber>177683</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="d3af7dc5-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>108089</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 108089</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

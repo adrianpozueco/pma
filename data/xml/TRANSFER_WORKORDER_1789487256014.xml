@@ -1,0 +1,137 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487256013</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:36.013Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="82898f8b-2d51-11f1-9a9d-005056b18588">
+    <workorderNumber>190888605</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00423</aircraftFullRegistration>
+        <aircraftRegistration>REG00423</aircraftRegistration>
+        <aircraftMsn>44849</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190888605</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2026-03-31Z</issueDate>
+        <issueSign>GIO</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-03-31T21:55:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1420868</closingTahMinutes>
+        <closingTac>10685</closingTac>
+        <closingSign>GIO</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-03-31T21:55:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-03-31T21:55:00.000Z</dateTime>
+        <releaseSign>GIO</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="828a2bcc-2d51-11f1-9a9d-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-03-31T21:55:00.000Z</workStepDateTime>
+        <description>REF. TO WO : 55210945/HIL 
+
+WINDOW LIGHT 8ABC DOES NOT TURN OFF WHEN IN NIGHT MODE</description>
+        <descriptionSign>GIO</descriptionSign>
+        <actions>
+          <action uuid="828c279d-2d51-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REPLACED WINDOW LIGHT IN POS 8 ABC IAW AMM TASK 33-21-00-960-804 R 89
+
+BSI WINDOW LED LIGHT ACTIVATION C/O AS PER AMM 33-21-00-440-801 R 89 
+
+"SATISF"
+
+HIL CLOSED 
+
+ALSO C/OUT BY VLSN AND EUG IN OJT</actionText>
+            <performedData>
+              <performedDateTime>2026-03-31T21:55:00.000Z</performedDateTime>
+              <performedSign>GIO</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="828dae3e-2d51-11f1-9a9d-005056b18588">
+                <position>08 ABC</position>
+                <labelNumber>4091538</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>54990</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>39721</serialNumber>
+                </partOn>
+                <certificateNumber>ARC168385</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="7abdce70-3283-11f1-9a9d-005056b18588">
+        <type>TQ</type>
+        <reference>101311</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 101311</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

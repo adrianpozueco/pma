@@ -1,0 +1,129 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486962566</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:42.566Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="c01d4796-3c2b-11f0-a888-005056b18588">
+    <workorderNumber>55472814</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00056</aircraftFullRegistration>
+        <aircraftRegistration>REG00056</aircraftRegistration>
+        <aircraftMsn>67110</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55472814</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-05-29Z</issueDate>
+        <issueSign>AGU</issueSign>
+        <issueStation>ALC</issueStation>
+        <issueFltTo>ALC</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-05-29T01:27:00.000Z</closingDateTime>
+        <closingStation>ALC</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>302251</closingTahMinutes>
+        <closingTac>2306</closingTac>
+        <closingSign>AGU</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-05-29T01:27:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-05-29T01:27:00.000Z</dateTime>
+        <releaseSign>AGU</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c024e8b7-3c2b-11f0-a888-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-05-29T01:21:00.000Z</workStepDateTime>
+        <description>REF HIL 55472805
+WINDOW LIGHTS 5ABC+24ABC U/S</description>
+        <descriptionSign>AGU</descriptionSign>
+        <actions>
+          <action uuid="5651bc15-3c2c-11f0-a888-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT 5ABC REPLACED IAW AMM 33-21-00/401 REV 24 WINDOW LIGHT 24ABC REPLACED IAW AMM 33-21-00/401 REV 24, INSTALLED UNIT IS DEFECTIVE. OLD PART RE INSTALLED 
+UNABLE TO LOAD PHASE II 
+HIL REMAINS OPEN</actionText>
+            <performedData>
+              <performedDateTime>2025-05-29T01:27:00.000Z</performedDateTime>
+              <performedSign>AGU</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="5652f496-3c2c-11f0-a888-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>3868900</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>72186</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>57548</serialNumber>
+                </partOn>
+                <certificateNumber>20097721-1.000</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="16d5ffe1-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>88527</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 88527</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

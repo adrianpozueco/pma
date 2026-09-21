@@ -1,0 +1,143 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487003908</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:23.908Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0fd967fd-c6ae-11ef-85cb-005056b18588">
+    <workorderNumber>55636997</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00061</aircraftFullRegistration>
+        <aircraftRegistration>REG00061</aircraftRegistration>
+        <aircraftMsn>44727</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55636997</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2024-12-30Z</issueDate>
+        <issueSign>8888</issueSign>
+        <issueStation>BVA</issueStation>
+        <issueFltTo>BVA</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <special>PCI</special>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2024-12-31T01:00:00.000Z</closingDateTime>
+        <closingStation>BVA</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1568474</closingTahMinutes>
+        <closingTac>16287</closingTac>
+        <closingSign>VAV</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2024-12-31T01:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2024-12-31T01:00:00.000Z</dateTime>
+        <releaseSign>VAV</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="0fdac78e-c6ae-11ef-85cb-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2024-12-30T11:41:00.000Z</workStepDateTime>
+        <headline>***PCI*** BVA - 30/11/24</headline>
+        <description>RH AFT OVEN INOP</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="0fdc9c4f-c6ae-11ef-85cb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>OVEN #3 TX TO PCI HIL IAW PREAMBLE MEL REV.6
+CAT D
+DUE DATE 29/04/25</actionText>
+            <performedData>
+              <performedDateTime>2024-12-30T12:20:00.000Z</performedDateTime>
+              <performedSign>MLKJ</performedSign>
+            </performedData>
+          </action>
+          <action uuid="677b963c-c723-11ef-85cb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>*** TLB PAGE 55636999***
+
+REPLACED OVEN MR 3 IAW AMM 25-31-00 REV 84</actionText>
+            <performedData>
+              <performedDateTime>2024-12-31T01:00:00.000Z</performedDateTime>
+              <performedSign>VAV</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="677d920d-c723-11ef-85cb-005056b18588">
+                <position>#3</position>
+                <labelNumber>3726433</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>09-12-27995</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>08-07-25656</serialNumber>
+                </partOn>
+                <certificateNumber>1218265</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="67802a1e-c723-11ef-85cb-005056b18588">
+        <type>TQ</type>
+        <reference>81187</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 81187</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

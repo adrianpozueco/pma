@@ -1,0 +1,199 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487035293</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:55.293Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7a94ea12-5738-11f0-bb09-005056b18588">
+    <workorderNumber>103657844</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00431</aircraftFullRegistration>
+        <aircraftRegistration>REG00431</aircraftRegistration>
+        <aircraftMsn>36080</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.103657844</barcode>
+      <ataChapter>23-42</ataChapter>
+      <issueData>
+        <issueDate>2025-07-02Z</issueDate>
+        <issueSign>KCY</issueSign>
+        <issueStation>SNN</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-04T22:55:00.000Z</closingDateTime>
+        <closingStation>FKB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3238554</closingTahMinutes>
+        <closingTac>31426</closingTac>
+        <closingSign>DSNU</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0260</number>
+        <dateTime>2025-07-04T22:55:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0260</number>
+        <dateTime>2025-07-04T22:55:00.000Z</dateTime>
+        <releaseSign>DSNU</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7a9697c3-5738-11f0-bb09-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-02T11:32:00.000Z</workStepDateTime>
+        <headline>***RIT***</headline>
+        <description>TSRV AVO
+
+BACKGROUND:  FWD HANDSET TRANSMITTING INTERMITTANTLY. PERFORM THE FOLLOWING TASKS:
+
+1. OBSERVING ALL SAFETY PRECAUTIONS, GAIN ACCESS TO THE AIRCRAFT.
+
+2. PERFORM PA PROBLEM FAULT ISOLATION IAW FIM 23-31 TASK 805.
+
+3. IF NFF, REPLACE THE FWD ATTENDANT HANDSET IAW AMM 23-42-01/401.
+
+4. RETURN THE AIRCRAFT TO A SERVICEABLE CONDITION.</description>
+        <descriptionSign>KCY</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="7a986c84-5738-11f0-bb09-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>120</totalHours>
+              <quantity>1.0</quantity>
+              <duration>120</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="7a99f325-5738-11f0-bb09-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1/B2</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <requiredParts>
+          <partRequest uuid="7a9f2346-5738-11f0-bb09-005056b18588">
+            <partNumber>FLUKE177</partNumber>
+            <description>MULTIMETER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="7aa05bc7-5738-11f0-bb09-005056b18588">
+            <partNumber>285W0024-1B</partNumber>
+            <description>HANDSET - DARK GREY</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="1fba3cd5-592b-11f0-bb09-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>PERFORMED PA PROBLEM FAULT ISOLATION IAW FIM 23-31 TASK805 R87
+NO FAULT FOUND.
+
+HANDSET REPLACED IAW AMM 23-42-01/401 R86.
+
+FUNCTIONAL TEST PERFORMED SATIS.</actionText>
+            <performedData>
+              <performedDateTime>2025-07-04T22:53:00.000Z</performedDateTime>
+              <performedSign>DSNU</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="90376335-592b-11f0-bb09-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>3871970</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F52034</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1M</partNumber>
+                  <serialNumber>F40811</serialNumber>
+                </partOn>
+                <certificateNumber>147151</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>IS-MATERIALS - IN FKB STOCK FRI 04/07 LIMA
+
+TO-MATERIALS - T35891225 BER-FKB THUR 03-07 EGT</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

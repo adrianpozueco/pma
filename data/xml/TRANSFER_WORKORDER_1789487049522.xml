@@ -1,0 +1,267 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487049521</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:09.521Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="e47dbc40-8faf-11f1-8caf-005056b18588">
+    <workorderNumber>107169556</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>G-REG00607</aircraftFullRegistration>
+        <aircraftRegistration>REG00607</aircraftRegistration>
+        <aircraftMsn>33640</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.107169556</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDate>2026-07-29Z</issueDate>
+        <issueSign>CONB</issueSign>
+        <issueStation>CHO</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <position>ENG1</position>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2026-08-04T02:51:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3678187</closingTahMinutes>
+        <closingTac>35373</closingTac>
+        <closingSign>DUSM1</closingSign>
+      </closingData>
+      <certification>
+        <number>UK.145.00897</number>
+        <dateTime>2026-08-04T02:51:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>UK.145.00897</number>
+        <dateTime>2026-08-04T02:51:00.000Z</dateTime>
+        <releaseSign>DUSM1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="e47ef4c1-8faf-11f1-8caf-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-07-29T11:24:00.000Z</workStepDateTime>
+        <headline>TSRV PP ADD 980`012`461 &amp; 980`012`462</headline>
+        <description>BACKGROUND :  ENG#1 BLADE #5 AND #8 TO BE REPLACED DUE TO FINDING CU-NI-IN COATING MISSING. PLEASE REPLACE BOTH AS MATCHED PAIRS FROM STOCK. 
+
+NOTE THIS IS A CRITICAL TASK.
+
+ACTION : 
+
+1. OBSERVING ALL SAFETY PRECAUTIONS, GAIN ACCESS TO THE AIRCRAFT.
+
+2.  REPLACE BLADE #5 AND MATCHING BLADE #17 IAW AMM TASK 72-21-02-000-802-F00  (FAN BLADE REPLACEMENT - BLADE PAIR)
+ 
+#5 OFF - SN PA393341 / MW 210090           #17 OFF - SN DD461777 / MW 209911
+** #5 ON -  SN DM114105 / MW 211212         #17 ON - SN DM191098 / MW 211158 ** 
+
+3.  REPLACE BLADE #8 AND MATCHING BLADE #20 IAW AMM TASK 72-21-02-000-802-F00  (FAN BLADE REPLACEMENT - BLADE PAIR)
+
+#8 OFF -  SN DM191077 / MW 210170       #20 OFF - SN DM190923 / MW 210230
+** #8 ON  -  SN DM192013 / MW 209960       #20 ON - SN PF541048   / MW 209935 ** 
+
+4. RETURN THE AIRCRAFT TO A SERVICEABLE CONDITION.</description>
+        <descriptionSign>CONB</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="e4847302-8faf-11f1-8caf-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>120</totalHours>
+              <quantity>1.0</quantity>
+              <duration>120</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="e48695e3-8faf-11f1-8caf-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <requiredParts>
+          <partRequest uuid="e48ab494-8faf-11f1-8caf-005056b18588">
+            <partNumber>340-001-038-0</partNumber>
+            <description>CFM56 FAN BLADE</description>
+            <neededQuantity UOM="EA">4.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <doubleInspectionRequired>Y</doubleInspectionRequired>
+        <actions>
+          <action uuid="e48c6245-8faf-11f1-8caf-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ENG #1 FAN BLADE #5 SN PA393341/ MW 210090 REMOVED.
+ENG #1 FAN BLADE #17 SN DD461777 MW 2009911 REMOVED.
+
+ENG #1 FAN BLADE #8 SN DM191077 MW 210170 REMOVED.
+ENG #1 FAN BLADE #20 SN DM190923 MW 210230 REMOVED.
+
+ENG #1 FAN BLADE #5 PN 340-001-038-0 SN DM190911 MW 211587 INSTALLED AS REPLACEMENT.
+ENG #1 FAN BLADE #17 PN 340-001-036-0 SN PF505157 MW 211575 INSTALLED AS REPLACEMENT.
+
+ENG#1 FAN BLADE #8 PN 340-001-036-0 SN PF541048  MW 209935 INSTALLED AS REPLACEMENT.
+ENG #1 FAN BLADE #20 PN 340-001-036-0 SN DM192013 MW 209960 INSTALLED AS REPLACEMENT.
+
+ALL WORK C/O IAW AMM 72-21-02 REV 90 
+EGR C/O IAW AMM 71-00-00 TEST 3A REV 90 SATIS.
+GENERAL VERIFICATION CHECK C/O.
+
+PN FANLUBEFULLKIT SN FR005
+PN MOLYLOTED321R BN 1405910
+PN 11037 SN 2014/274261
+ASSISTED BY GLBN AND ASSI</actionText>
+            <performedData>
+              <performedDateTime>2026-08-04T01:04:00.000Z</performedDateTime>
+              <performedSign>DUSM1</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION C/O IAW UK CAA MOE 2.23 APPENDIX 3 REF 8 REV 59 FOR CORRECT AND SECURE INSTALLATION</inspectionText>
+              <performedData>
+                <performedDateTime>2026-08-04T01:38:00.000Z</performedDateTime>
+                <performedSign>DUSM1</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION C/O IAW CAA UK MOE 2.23 APPENDIX 3 REV 3 REV 58 FOR CORRECT AND SECURE INSTALLATION.</inspectionText>
+              <performedData>
+                <performedDateTime>2026-08-04T01:42:00.000Z</performedDateTime>
+                <performedSign>CHLD</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="e48e0ff6-8faf-11f1-8caf-005056b18588">
+                <position>#1</position>
+                <labelNumber>4165571</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DD461777</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF505157</serialNumber>
+                </partOn>
+                <certificateNumber>1170361</certificateNumber>
+              </componentChange>
+              <componentChange uuid="e48fe4b7-8faf-11f1-8caf-005056b18588">
+                <position>#1</position>
+                <labelNumber>4139364</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM191077</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>PF541048</serialNumber>
+                </partOn>
+              </componentChange>
+              <componentChange uuid="e490cf18-8faf-11f1-8caf-005056b18588">
+                <position>#1</position>
+                <labelNumber>4169746</labelNumber>
+                <partOff>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>PA393341</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-038-0</partNumber>
+                  <serialNumber>DM190911</serialNumber>
+                </partOn>
+                <certificateNumber>R2605121</certificateNumber>
+              </componentChange>
+              <componentChange uuid="e4920799-8faf-11f1-8caf-005056b18588">
+                <position>#1</position>
+                <labelNumber>4139876</labelNumber>
+                <partOff>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM190923</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>340-001-036-0</partNumber>
+                  <serialNumber>DM192013</serialNumber>
+                </partOn>
+                <certificateNumber>1169368</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

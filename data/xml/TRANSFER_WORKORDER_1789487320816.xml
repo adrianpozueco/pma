@@ -1,0 +1,137 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487320815</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:40.815Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="fe71bb04-9569-4918-9ef9-6c575c0e1800">
+    <workorderNumber>980008289</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>G-REG00094</aircraftFullRegistration>
+        <aircraftRegistration>REG00094</aircraftRegistration>
+        <aircraftMsn>36575</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.980008289</barcode>
+      <externalWorkorderNumber>ELB1821117-75686978-0</externalWorkorderNumber>
+      <ataChapter>26-13</ataChapter>
+      <issueData>
+        <issueDateTime>2026-05-26T00:00:00.000Z</issueDateTime>
+        <issueSign>WLN</issueSign>
+        <issueStation>STN</issueStation>
+        <issueLeg>LEG_ANON</issueLeg>
+        <issueTahHours>57340</issueTahHours>
+        <issueTac>31968</issueTac>
+        <issueFltFrom>TIA</issueFltFrom>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-26T00:50:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3440435</closingTahMinutes>
+        <closingTac>31968</closingTac>
+        <closingSign>SAS</closingSign>
+      </closingData>
+      <certification>
+        <number>UK.145.00897</number>
+        <dateTime>2026-05-26T00:50:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>UK.145.00897</number>
+        <dateTime>2026-05-26T00:50:00.000Z</dateTime>
+        <releaseSign>SAS</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="085b33fc-5d7e-4ec1-8095-3db4eaf4900c">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-26T00:08:00.000Z</workStepDateTime>
+        <description>REF HIL: 980008265
+FWD CARGO FIRE DETECTION LOOP A INOP</description>
+        <descriptionSign>WLN</descriptionSign>
+        <actions>
+          <action uuid="972bbf38-54d7-4e88-ad11-a3689c9d5e8e">
+            <actionType>Action</actionType>
+            <actionText>FIM 26-16 TASK 805 REV 89 `DETECTOR FAULT` C/O
+
+CEU BITE REF FIM 26-16 TASK 801 SHOWED A2 DETECTOR WAS FAULTY DURING SELF TEST
+
+FWD CARGO COMPARTMENT SMOKE DETECTOR A2 (M2238) REPLACED AND TESTED SATIS IAW AMM 26-16-01/401 REV 89 SATIS
+
+GENERAL VERIFICATION CHECK C/O
+
+ASSISTED BY TCKR</actionText>
+            <performedData>
+              <performedDateTime>2026-05-26T00:09:00.000Z</performedDateTime>
+              <performedSign>WLN</performedSign>
+            </performedData>
+          </action>
+          <action uuid="06bc079a-cd86-4fae-a9f7-e6e9f59bf2ef">
+            <actionType>Action</actionType>
+            <actionText>HIL CLOSED, FWD CARGO LOOP A SERVICEABLE</actionText>
+            <performedData>
+              <performedDateTime>2026-05-26T00:47:00.000Z</performedDateTime>
+              <performedSign>SAS</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="6fb4477d-37e7-4c67-b4cf-3beb8aba194a">
+        <category>PDF_L</category>
+        <reference>web://eTechLog/PDFs/WO/wo_ELB1821117-75686978-0_72861C79-6D10-4FBC-AD91-77DAAAB77C4A_26-05-2026_00.50.35.pdf</reference>
+        <typeDescription>Web-Drive</typeDescription>
+        <description>wo_ELB1821117-75686978-0_72861C79-6D10-4FBC-AD91-77DAAAB77C4A_26-05-2026_00.50.35.pdf</description>
+      </reference>
+      <reference uuid="7929fdea-28ea-4d12-be14-f61265ad880d">
+        <category>ROC_ID_O</category>
+        <description>18970144</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

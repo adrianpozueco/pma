@@ -1,0 +1,146 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486933882</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:13.882Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="6435320b-0384-11f1-b626-005056b18588">
+    <workorderNumber>55369291</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00454</aircraftFullRegistration>
+        <aircraftRegistration>REG00454</aircraftRegistration>
+        <aircraftMsn>62346</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55369291</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2026-02-06Z</issueDate>
+        <issueSign>NAAT</issueSign>
+        <issueStation>MLA</issueStation>
+        <issueFltTo>MLA</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-02-07T22:00:00.000Z</closingDateTime>
+        <closingStation>MLA</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>726816</closingTahMinutes>
+        <closingTac>5591</closingTac>
+        <closingSign>DMLR</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-07T22:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-02-07T22:00:00.000Z</dateTime>
+        <releaseSign>DMLR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="64366a8c-0384-11f1-b626-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-02-06T17:33:00.000Z</workStepDateTime>
+        <headline>***HIL - MLA - 06/02/26***</headline>
+        <description>LH WINDOW LIGHTS 26-30ABC INOP</description>
+        <descriptionSign>NAAT</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="643c5dfd-0384-11f1-b626-005056b18588">
+            <partNumber>C33001-58</partNumber>
+            <description>BSI LIGHT CABLE TESTER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="643d967e-0384-11f1-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>A/C DISPATCHED IAW RYR MEL: 33-21-01-02 R.3B
+TROUBLESHOOTING REQUIRED</actionText>
+            <performedData>
+              <performedDateTime>2026-02-06T17:33:00.000Z</performedDateTime>
+              <performedSign>NAAT</performedSign>
+            </performedData>
+          </action>
+          <action uuid="98bcd6ec-04aa-11f1-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REF TO TLP: 55369295
+
+WINDOW LIGHT 31ABC REPLACED IAW
+AMM: 33-21-00-960-801 REV.27
+HIL CLOSED
+ASSISTED BY OMM</actionText>
+            <performedData>
+              <performedDateTime>2026-02-07T22:00:00.000Z</performedDateTime>
+              <performedSign>DMLR</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="98bf20dd-04aa-11f1-b626-005056b18588">
+                <position>31 ABC</position>
+                <labelNumber>4037020</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>51738</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>80209</serialNumber>
+                </partOn>
+                <certificateNumber>80422</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>IS-MATERIALS - IN MLA STOCK SUN 08/02 ATAK
+
+TO-MATERIALS - T48277426 BTS-MLA SAT 07/02 LIMA</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

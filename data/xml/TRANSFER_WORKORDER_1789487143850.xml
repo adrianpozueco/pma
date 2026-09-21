@@ -1,0 +1,128 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487143849</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:43.848Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="85d87b99-1aa1-11f1-8fad-005056b18588">
+    <workorderNumber>190388616</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00260</aircraftFullRegistration>
+        <aircraftRegistration>REG00260</aircraftRegistration>
+        <aircraftMsn>62329</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190388616</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2026-03-08Z</issueDate>
+        <issueSign>MASK</issueSign>
+        <issueStation>NUE</issueStation>
+        <issueFltTo>NUE</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-03-08T02:00:00.000Z</closingDateTime>
+        <closingStation>NUE</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>897211</closingTahMinutes>
+        <closingTac>6791</closingTac>
+        <closingSign>MASK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-08T02:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-08T02:00:00.000Z</dateTime>
+        <releaseSign>MASK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="85d98d0a-1aa1-11f1-8fad-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-03-08T02:00:00.000Z</workStepDateTime>
+        <description>WINDOW LIGHTS 23ABC AND 16DEF INOP.</description>
+        <descriptionSign>MASK</descriptionSign>
+        <actions>
+          <action uuid="85dbafeb-1aa1-11f1-8fad-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHTS REPLACED IAW 
+AMM 33-21-00-960-801 REV. 27 
+SATIS
+
+PART USED: 
+P/N: 9651-35-0005
+S/N:58463
+
+P/N: 9651-35-0002
+S/N: 22356
+
+U/S PARTS: 
+P/N: 9651-35-0005
+S/N: 50550
+
+P/N: 9651-35-0002
+S/N: 51203</actionText>
+            <performedData>
+              <performedDateTime>2026-03-08T02:00:00.000Z</performedDateTime>
+              <performedSign>MASK</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="82e2d367-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>100197</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 100197</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

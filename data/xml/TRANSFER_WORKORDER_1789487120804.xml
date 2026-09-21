@@ -1,0 +1,128 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487120802</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:20.802Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="b46268df-6507-11f0-a4a7-005056b18588">
+    <workorderNumber>190299880</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00368</aircraftFullRegistration>
+        <aircraftRegistration>REG00368</aircraftRegistration>
+        <aircraftMsn>62320</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190299880</barcode>
+      <ataChapter>23-00</ataChapter>
+      <issueData>
+        <issueDate>2025-07-20Z</issueDate>
+        <issueSign>LUD</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-20T01:00:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>818207</closingTahMinutes>
+        <closingTac>6838</closingTac>
+        <closingSign>LUD</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-20T01:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-20T01:00:00.000Z</dateTime>
+        <releaseSign>LUD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="b463c870-6507-11f0-a4a7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-20T01:00:00.000Z</workStepDateTime>
+        <description>AFT ATTENDANT HANDSET INOP</description>
+        <descriptionSign>LUD</descriptionSign>
+        <actions>
+          <action uuid="b4668791-6507-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AFT ATTENDANT HANDSET REPLACED
+IAW AMM 23-42-01/401 REV 24</actionText>
+            <performedData>
+              <performedDateTime>2025-07-20T01:00:00.000Z</performedDateTime>
+              <performedSign>LUD</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="b4680e32-6507-11f0-a4a7-005056b18588">
+                <position>AFT</position>
+                <labelNumber>3898107</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>D12570</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F60970</serialNumber>
+                </partOn>
+                <certificateNumber>05439</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="752670b0-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>90316</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 90316</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

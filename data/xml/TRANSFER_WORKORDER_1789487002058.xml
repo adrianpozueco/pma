@@ -1,0 +1,127 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487002057</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:22.057Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="3d0507e6-4758-11f1-a607-005056b18588">
+    <workorderNumber>55624993</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00061</aircraftFullRegistration>
+        <aircraftRegistration>REG00061</aircraftRegistration>
+        <aircraftMsn>44727</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55624993</barcode>
+      <ataChapter>23-00</ataChapter>
+      <issueData>
+        <issueDate>2026-05-04Z</issueDate>
+        <issueSign>MCI</issueSign>
+        <issueStation>PSA</issueStation>
+        <issueFltTo>PSA</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-05-04T01:20:00.000Z</closingDateTime>
+        <closingStation>PSA</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1836086</closingTahMinutes>
+        <closingTac>19009</closingTac>
+        <closingSign>MCI</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-05-04T01:20:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-05-04T01:20:00.000Z</dateTime>
+        <releaseSign>MCI</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="3d061957-4758-11f1-a607-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-05-04T01:20:00.000Z</workStepDateTime>
+        <description>AFT CAB HANDMIKE INOP
+REF HIL 55624988</description>
+        <descriptionSign>MCI</descriptionSign>
+        <actions>
+          <action uuid="3d083c38-4758-11f1-a607-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>HANDMIKE RPL IAW AMM 23-42-01 R 89
+TESTED SATIS
+HIL CLOSED
+PERFORMED BY VCN</actionText>
+            <performedData>
+              <performedDateTime>2026-05-04T01:20:00.000Z</performedDateTime>
+              <performedSign>MCI</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="f3b38bde-4fae-11f1-bd75-005056b18588">
+                <position>FWD CAB</position>
+                <labelNumber>4121449</labelNumber>
+                <partOn>
+                  <partNumber>285W0024-23B</partNumber>
+                  <serialNumber>F64022</serialNumber>
+                </partOn>
+                <certificateNumber>2026-03190</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="f829a2a2-502b-11f1-bd75-005056b18588">
+        <type>TQ</type>
+        <reference>103605</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 103605</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

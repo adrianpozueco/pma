@@ -1,0 +1,120 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487200791</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:40.791Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f21e4cad-ff25-11f0-b626-005056b18588">
+    <workorderNumber>190562820</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00093</aircraftFullRegistration>
+        <aircraftRegistration>REG00093</aircraftRegistration>
+        <aircraftMsn>44733</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190562820</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2026-02-01Z</issueDate>
+        <issueSign>CLCZ</issueSign>
+        <issueStation>NAP</issueStation>
+        <issueFltTo>NAP</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-02-01T04:24:00.000Z</closingDateTime>
+        <closingStation>NAP</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1738568</closingTahMinutes>
+        <closingTac>17871</closingTac>
+        <closingSign>CLCZ</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-02-01T04:24:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-02-01T04:24:00.000Z</dateTime>
+        <releaseSign>CLCZ</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f21f5e1e-ff25-11f0-b626-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-02-01T04:21:00.000Z</workStepDateTime>
+        <description>REF HIL 190562817 BOTH AFT BOILERS AND WATER SPIGOT INOPPED</description>
+        <descriptionSign>CLCZ</descriptionSign>
+        <actions>
+          <action uuid="f222444f-ff25-11f0-b626-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FOUND RIGHT AFT BOILER LEAKING AND REPLACED I.A.W CMM 25-39-55 REV 4 SATIS
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-02-01T04:22:00.000Z</performedDateTime>
+              <performedSign>CLCZ</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="f2248e40-ff25-11f0-b626-005056b18588">
+                <position>AFTGALLY</position>
+                <labelNumber>4042570</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>23-06-0201</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>16-02-0199</serialNumber>
+                </partOn>
+                <certificateNumber>SAV764</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,124 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487288565</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:08.565Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="56ca3719-9912-11f1-8b28-005056b18588">
+    <workorderNumber>191374980</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00394</aircraftFullRegistration>
+        <aircraftRegistration>REG00394</aircraftRegistration>
+        <aircraftMsn>44720</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191374980</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2026-08-15Z</issueDate>
+        <issueSign>PAJO1</issueSign>
+        <issueStation>CGN</issueStation>
+        <issueFltTo>CGN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <position>CABIN</position>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2026-08-16T00:50:00.000Z</closingDateTime>
+        <closingStation>CGN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1862159</closingTahMinutes>
+        <closingTac>19469</closingTac>
+        <closingSign>PAJO1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-16T00:50:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-08-16T00:50:00.000Z</dateTime>
+        <releaseSign>PAJO1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="56cb6f9a-9912-11f1-8b28-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-08-15T23:00:00.000Z</workStepDateTime>
+        <description>REF HIL : 191374955
+WINDOW LIGHT @ ROW 15 DEF - U/S - GOING TO RED WHEN OFF</description>
+        <descriptionSign>PAJO1</descriptionSign>
+        <actions>
+          <action uuid="56cdb98b-9912-11f1-8b28-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT LED ASSY REPLACED IAW AMM 33-21-00-960-804 REV 90
+HIL : 191374955 CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-08-16T00:45:00.000Z</performedDateTime>
+              <performedSign>PAJO1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="56cf673c-9912-11f1-8b28-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>4166981</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>31090</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>60140</serialNumber>
+                </partOn>
+                <certificateNumber>ARC173377</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

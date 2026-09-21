@@ -1,0 +1,159 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487110180</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:10.179Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="906b72e3-6b4d-11f0-a4a7-005056b18588">
+    <workorderNumber>190268451</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00335</aircraftFullRegistration>
+        <aircraftRegistration>REG00335</aircraftRegistration>
+        <aircraftMsn>33591</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190268451</barcode>
+      <ataChapter>33-42</ataChapter>
+      <issueData>
+        <issueDate>2025-07-27Z</issueDate>
+        <issueSign>MCSU</issueSign>
+        <issueStation>TLS</issueStation>
+        <issueFltTo>TLS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-28T22:30:00.000Z</closingDateTime>
+        <closingStation>TLS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3642370</closingTahMinutes>
+        <closingTac>35776</closingTac>
+        <closingSign>MCSU</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2025-07-28T22:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2025-07-28T22:30:00.000Z</dateTime>
+        <releaseSign>MCSU</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="906d47a4-6b4d-11f0-a4a7-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-27T23:30:00.000Z</workStepDateTime>
+        <headline>*** HIL *** TLS - 27/07/25 - RH RETRACTABLE LANDING LIGHT INOPERATIVE</headline>
+        <description>RIGHT HAND RETRACTABLE LIGHT INOP</description>
+        <descriptionSign>MCSU</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="f2361644-6b4d-11f0-a4a7-005056b18588">
+            <partNumber>45-0351-4</partNumber>
+            <description>RH LANDING LIGHT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="f2374ec5-6b4d-11f0-a4a7-005056b18588">
+            <partNumber>BACC63BP12C12SN</partNumber>
+            <description>CONNECTOR (RLL OLD CONNECTOR)</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="c0ebfbc9-6b4d-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH RETRACTABLE LANDING LIGHT LAMP REPLACED IAW AMM 33-42-02-960-801 REV86.
+NO CHANGE.
+
+XFR TO HIL AS PER MEL 33-08-01-A REV 6A
+CLASS C  - DEADLINE 06/08/25</actionText>
+            <performedData>
+              <performedDateTime>2025-07-27T23:30:00.000Z</performedDateTime>
+              <performedSign>MCSU</performedSign>
+            </performedData>
+          </action>
+          <action uuid="4bb7bd1f-6c0e-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH RETRACTABLE LANDING LIGHT ASSY REPLACED IAW AMM 33-42-02-960-802 REV86.
+TEST SATIS.
+
+MEL 33-08-01-A CLEARED.
+
+TLP 190268457</actionText>
+            <performedData>
+              <performedDateTime>2025-07-28T22:30:00.000Z</performedDateTime>
+              <performedSign>MCSU</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="b302ea69-6c0e-11f0-a4a7-005056b18588">
+                <position>RH</position>
+                <labelNumber>3911427</labelNumber>
+                <partOff>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>4434</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>5790</serialNumber>
+                </partOn>
+                <certificateNumber>PAV10924</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <references>
+              <reference uuid="5c639f40-6c0e-11f0-a4a7-005056b18588">
+                <category>TL</category>
+                <description>190268457</description>
+              </reference>
+            </references>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS T37072025 STN-TLS MON 28/07 CHLC</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

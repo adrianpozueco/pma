@@ -1,0 +1,133 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487145507</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:45.507Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7d1cafd9-9919-11f1-8b28-005056b18588">
+    <workorderNumber>190396599</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00435</aircraftFullRegistration>
+        <aircraftRegistration>REG00435</aircraftRegistration>
+        <aircraftMsn>62335</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190396599</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-08-16Z</issueDate>
+        <issueSign>DABR</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-08-16T02:23:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1058778</closingTahMinutes>
+        <closingTac>8140</closingTac>
+        <closingSign>DABR</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-08-16T02:23:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-08-16T02:23:00.000Z</dateTime>
+        <releaseSign>DABR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7d1d9a3a-9919-11f1-8b28-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-08-16T02:17:00.000Z</workStepDateTime>
+        <description>REF HIL 190396593
+WINDOW LIGHT ROW 32-33 DEF PARTYALLY INOP</description>
+        <descriptionSign>DABR</descriptionSign>
+        <actions>
+          <action uuid="7d20595b-9919-11f1-8b28-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>T/S C/O IAW IFIM 33-20-00-810-82 R 117
+WINDOW LIGHT ROW 32-33 DEF REPL. IAW AMM 33-21-00-960-801 R 28A
+TESTED SATIS 
+HIL CLOSED
+
+C/O FOR OJT ALSO BY BROJ &amp; FBA</actionText>
+            <performedData>
+              <performedDateTime>2026-08-16T02:19:00.000Z</performedDateTime>
+              <performedSign>DABR</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="7d22ca5c-9919-11f1-8b28-005056b18588">
+                <position>PAX CAB</position>
+                <labelNumber>4184099</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>52239</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>66393</serialNumber>
+                </partOn>
+                <certificateNumber>20232965</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="70dbac1c-991a-11f1-8b28-005056b18588">
+        <type>TQ</type>
+        <reference>107416</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 107416</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

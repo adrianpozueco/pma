@@ -1,0 +1,140 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487013762</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:33.762Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7eae15a7-386b-11f1-9a9d-005056b18588">
+    <workorderNumber>55683155</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00404</aircraftFullRegistration>
+        <aircraftRegistration>REG00404</aircraftRegistration>
+        <aircraftMsn>61578</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55683155</barcode>
+      <ataChapter>26-16</ataChapter>
+      <issueData>
+        <issueDate>2026-04-14Z</issueDate>
+        <issueSign>KBL</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-14T23:45:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1991366</closingTahMinutes>
+        <closingTac>17972</closingTac>
+        <closingSign>KBL</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-14T23:45:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-14T23:45:00.000Z</dateTime>
+        <releaseSign>KBL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7eaf0008-386b-11f1-9a9d-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-14T23:45:00.000Z</workStepDateTime>
+        <description>CREW REPORT : 
+AFT CARGO FIRE DETECTION SYS INOP</description>
+        <descriptionSign>KBL</descriptionSign>
+        <actions>
+          <action uuid="7eb122e9-386b-11f1-9a9d-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>SMOKE DETECTOR B1 AN AFT CARGO REPLACED IAW AMM 26-16-01/401 R89
+
+C/O BY  : DLDA</actionText>
+            <performedData>
+              <performedDateTime>2026-04-14T23:45:00.000Z</performedDateTime>
+              <performedSign>KBL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="7eb2d09a-386b-11f1-9a9d-005056b18588">
+                <position>AFT</position>
+                <labelNumber>4059909</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJA2380</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>25038A</serialNumber>
+                </partOn>
+                <certificateNumber>-13328242</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="7eb4a55b-386b-11f1-9a9d-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>DLDA</userSign>
+                <startDateTime>2026-04-15T00:34:00.000Z</startDateTime>
+                <endDateTime>2026-04-15T01:34:00.000Z</endDateTime>
+                <duration>60</duration>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="7eb58fbc-386b-11f1-9a9d-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>KBL</userSign>
+                <startDateTime>2026-04-15T00:34:00.000Z</startDateTime>
+                <endDateTime>2026-04-15T01:34:00.000Z</endDateTime>
+                <duration>60</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

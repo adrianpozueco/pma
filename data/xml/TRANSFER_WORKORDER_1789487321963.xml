@@ -1,0 +1,124 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487321962</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:41.962Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="47f13071-bd2e-411e-b769-6650d543c581">
+    <workorderNumber>980009983</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>G-REG00124</aircraftFullRegistration>
+        <aircraftRegistration>REG00124</aircraftRegistration>
+        <aircraftMsn>40289</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.980009983</barcode>
+      <externalWorkorderNumber>ELB1821113-77850899-0</externalWorkorderNumber>
+      <ataChapter>25-33</ataChapter>
+      <issueData>
+        <issueDateTime>2026-06-20T00:00:00.000Z</issueDateTime>
+        <issueSign>SGI</issueSign>
+        <issueStation>BFS</issueStation>
+        <issueLeg>LEG_ANON</issueLeg>
+        <issueTahHours>50140</issueTahHours>
+        <issueTac>25427</issueTac>
+        <issueFltFrom>ALC</issueFltFrom>
+        <issueFltTo>BFS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-20T01:16:00.000Z</closingDateTime>
+        <closingStation>BFS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3008425</closingTahMinutes>
+        <closingTac>25427</closingTac>
+        <closingSign>SGI</closingSign>
+      </closingData>
+      <certification>
+        <number>UK.145.01305</number>
+        <dateTime>2026-06-20T01:16:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>UK.145.01305</number>
+        <dateTime>2026-06-20T01:16:00.000Z</dateTime>
+        <releaseSign>SGI</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="15a8d3e8-84b6-4edf-8609-0256cb7c2bda">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-20T01:14:00.000Z</workStepDateTime>
+        <description>THIS WORKORDER CLOSES ELB1821113-77666289-0</description>
+        <descriptionSign>SGI</descriptionSign>
+        <actions>
+          <action uuid="8f434cbd-3b0d-4fd2-a6d3-1a09c38a0387">
+            <actionType>Action</actionType>
+            <actionText>AFT GALLEY NO4 OVEN REPLACED WRT CMM 25-37-26 REV 0 AND AMM 25-31-41 REV 90 AND OVEN TESTED SATIS, HIL CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2026-06-20T01:14:00.000Z</performedDateTime>
+              <performedSign>SGI</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="3000a7da-23f3-4d4b-bf10-c16e958e5a4f">
+        <category>PDF_L</category>
+        <reference>web://eTechLog/PDFs/WO/wo_ELB1821113-77850899-0_242A36A2-0A0F-4682-B9B7-810C045CD441_20-06-2026_01.17.09.pdf</reference>
+        <typeDescription>Web-Drive</typeDescription>
+        <description>wo_ELB1821113-77850899-0_242A36A2-0A0F-4682-B9B7-810C045CD441_20-06-2026_01.17.09.pdf</description>
+      </reference>
+      <reference uuid="629a99c7-7a4d-4c51-96fe-491e0e3a327e">
+        <category>ROC_ID_O</category>
+        <description>19192866</description>
+      </reference>
+      <reference uuid="15c0b054-e800-4f2b-b089-501b6a7f24e4">
+        <category>WO</category>
+        <description>ELB1821113-77666289-0</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

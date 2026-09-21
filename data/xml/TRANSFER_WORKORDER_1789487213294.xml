@@ -1,0 +1,182 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487213293</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:53.293Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="8574995a-6134-11f0-9b94-005056b18588">
+    <workorderNumber>190595492</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00066</aircraftFullRegistration>
+        <aircraftRegistration>REG00066</aircraftRegistration>
+        <aircraftMsn>44834</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190595492</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-07-15Z</issueDate>
+        <issueSign>DVRM</issueSign>
+        <issueStation>VCE</issueStation>
+        <issueFltTo>VCE</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-19T18:35:00.000Z</closingDateTime>
+        <closingStation>BRI</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1299933</closingTahMinutes>
+        <closingTac>11936</closingTac>
+        <closingSign>EMLI</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-07-19T18:35:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-07-19T18:35:00.000Z</dateTime>
+        <releaseSign>EMLI</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="85781bcb-6134-11f0-9b94-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-15T03:35:00.000Z</workStepDateTime>
+        <headline>***HIL*** 15/07/25 - VCE</headline>
+        <description>9,22,23,24DEF WINDOW LIGHT NOT WORKING</description>
+        <descriptionSign>DVRM</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="e9dbe07b-6134-11f0-9b94-005056b18588">
+            <partNumber>C33001-58</partNumber>
+            <description>BSI LIGHT CABLE TESTER</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="cf49f727-6380-11f0-a4a7-005056b18588">
+            <partNumber>9651-35-0002</partNumber>
+            <description>LIGHT BSI-35 IN TYPE C HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="cf4b0898-6380-11f0-a4a7-005056b18588">
+            <partNumber>9651-35-0003</partNumber>
+            <description>LIGHT BSI-35 IN TYPE D HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="bd810c87-6134-11f0-9b94-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>DUE TO OPS, ITEM TX TO HIL IAW MAY MEL 33-02-02, CAT "C", REV. 6A</actionText>
+            <performedData>
+              <performedDateTime>2025-07-15T03:35:00.000Z</performedDateTime>
+              <performedSign>DVRM</performedSign>
+            </performedData>
+          </action>
+          <action uuid="949da4a3-643c-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>22DEF LED LIGHT ASSY REPLACED AND TESTED SATIS IAW AMM 33-21-00-960-804 R 86
+HIL REMAIN OPEN DUE TO MISSING PART</actionText>
+            <performedData>
+              <performedDateTime>2025-07-19T01:04:00.000Z</performedDateTime>
+              <performedSign>EMLI</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="949edd24-643c-11f0-a4a7-005056b18588">
+                <position>22DEF</position>
+                <labelNumber>3886834</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>34691</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>22354</serialNumber>
+                </partOn>
+                <certificateNumber>148743</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+          <action uuid="67b6a1e1-64d1-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REF WO 190533012
+9 DEF LED LIGHT ASSY REPLACED IAW AMM 33-21-00-960-804 R86
+HIL NOW CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-07-19T18:35:00.000Z</performedDateTime>
+              <performedSign>EMLI</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="9b675a56-646d-11f0-a4a7-005056b18588">
+        <type>TQ</type>
+        <reference>90292</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 90292</description>
+      </reference>
+    </references>
+    <remarks>TO-MATERIALS - T36635225 FCO-BRI SAT 19/07 HVTY
+
+TO-MATERIALS - T36634325 VIE-BRI FRI 18/07 RLBK
+
+IS-MATERIALS - IN BRI STOCK THU 17-07 QUF
+
+TO-MATERIALS - T36564725 VCE-BRI WED 16/07 RLBK
+
+IS-MATERIALS - IN VCE STOCK WED 16/07 RLBK
+
+IS-MATERIALS - IN BER STOCK WED 16-07 QUF
+
+IS-MATERIALS - IN VCE STOCK TUE 15-07 QUF</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

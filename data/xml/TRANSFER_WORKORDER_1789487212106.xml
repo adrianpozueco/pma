@@ -1,0 +1,181 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487212105</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:52.105Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="3ed84e71-2451-11f1-a24f-005056b18588">
+    <workorderNumber>190593250</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00408</aircraftFullRegistration>
+        <aircraftRegistration>REG00408</aircraftRegistration>
+        <aircraftMsn>44820</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190593250</barcode>
+      <ataChapter>33-20</ataChapter>
+      <issueData>
+        <issueDate>2026-03-20Z</issueDate>
+        <issueSign>KZM</issueSign>
+        <issueStation>MRS</issueStation>
+        <issueFltTo>MRS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-03-22T03:05:00.000Z</closingDateTime>
+        <closingStation>MRS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1445407</closingTahMinutes>
+        <closingTac>13161</closingTac>
+        <closingSign>CLNL</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2026-03-22T03:05:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2026-03-22T03:05:00.000Z</dateTime>
+        <releaseSign>CLNL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="3edd0962-2451-11f1-a24f-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-03-20T11:36:00.000Z</workStepDateTime>
+        <headline>20/03/2026---MRE--- WINDOW LIGHT ROW 25ABC TO 28ABC INOP</headline>
+        <description>CREW REPORT
+WINDOW LIGHT ROW 25ABC TO 28ABC NOT WORKING</description>
+        <descriptionSign>KZM</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="d061e92b-24c9-11f1-a24f-005056b18588">
+            <partNumber>9651-35-0005</partNumber>
+            <description>LIGHT BSI-35 IN TYPE F HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="7da0b1c8-2451-11f1-a24f-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>TX TO HIL IAW MEL 33-02-02 INT"C" REV6B
+
+T/S REQUIRED
+
+HIL OPEN</actionText>
+            <performedData>
+              <performedDateTime>2026-03-20T11:38:00.000Z</performedDateTime>
+              <performedSign>KZM</performedSign>
+            </performedData>
+          </action>
+          <action uuid="b5c79b96-24c9-11f1-a24f-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>TROUBLESHOOTING CARRIED OUT IAW FIM 33-20 TASK 805 REV 89.
+
+FOUND BSI SEAT ROW 29ABC PARTIALLY INOP CAUSING LOSS OF POWER SUPPLY TO WINDOW LIGHTS ROW 25ABC TO 28ABC.
+
+FAULT ISOLATED TO BSI ROW 29ABC.
+
+BSI DECLARED DEFECTIVE
+
+ – PART ON ORDER.
+
+P/N 9651-35-0005
+
+SEE TLP 190583103</actionText>
+            <performedData>
+              <performedDateTime>2026-03-21T01:59:00.000Z</performedDateTime>
+              <performedSign>CLNL</performedSign>
+            </performedData>
+          </action>
+          <action uuid="7895567e-259a-11f1-a24f-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WDW LIGHT 29 ABC REPLACED AND TESTED SATIS IAW AMM 33-21-00-960-804 REV.89
+
+HIL CLOSED
+
+
+PART ON:
+PN:9651-35-0005 SN:23234
+
+PART OFF:
+PN:9651-35-0005 SN: 31217</actionText>
+            <performedData>
+              <performedDateTime>2026-03-22T02:51:00.000Z</performedDateTime>
+              <performedSign>CLNL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="7897042f-259a-11f1-a24f-005056b18588">
+                <position>29ABC</position>
+                <labelNumber>4001782</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>31217</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>23234</serialNumber>
+                </partOn>
+                <certificateNumber>160339</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="09bef035-259c-11f1-a24f-005056b18588">
+        <type>TQ</type>
+        <reference>100749</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 100749</description>
+      </reference>
+    </references>
+    <remarks>IS-MATERIALS - IN MRS STOCK SAT 21/03 BEC
+
+TO-MATERIALS - T50973226 - LIS-MRS SAT 21/03 RYMD</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

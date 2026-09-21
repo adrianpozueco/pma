@@ -1,0 +1,372 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487034836</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:54.836Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="c844835f-4d24-11f0-bb09-005056b18588">
+    <workorderNumber>103580983</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>G-REG00564</aircraftFullRegistration>
+        <aircraftRegistration>REG00564</aircraftRegistration>
+        <aircraftMsn>44687</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.103580983</barcode>
+      <ataChapter>36-00</ataChapter>
+      <issueData>
+        <issueDateTime>2025-06-19T15:47:00.000Z</issueDateTime>
+        <issueSign>JMON</issueSign>
+        <issueStation>CHO</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-06-20T16:38:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2036764</closingTahMinutes>
+        <closingTac>15612</closingTac>
+        <closingSign>ALI</closingSign>
+      </closingData>
+      <certification>
+        <number>UK.145.00897</number>
+        <dateTime>2025-06-20T16:38:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>UK.145.00897</number>
+        <dateTime>2025-06-20T16:38:00.000Z</dateTime>
+        <releaseSign>ALI</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c8463110-4d24-11f0-bb09-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-06-19T15:47:00.000Z</workStepDateTime>
+        <headline>DUAL BLEED ISSUE - WORK ORDER CANNOT BE PUSHED</headline>
+        <description>BACKGROUND: ACMS DATA SHOWS LH BLEED TRIP IN CLIMB. RH DUCT PRESSURE IS ALSO LOW IN DESCENT. THIS WORK ORDER HAS BEEN RAISED TO TROUBLESHOOT THE LH BLEED ISSUE.
+
+** LH BLEED SYSTEM TROUBLESHOOTING TO BE PRIORITIES **  
+ 
+ACTION:  
+ 
+1. GAIN ACCESS TO THE #1 BLEED COMPONENTS.  
+
+2. USING PNEUMATIC TESTING KIT (P/N 1945-04-08 ) PERFORM A COMPLETE PNEUMATIC HEALTH CHECK OF THE #1 BLEED COMPONENTS IAW AMM 36-11-00.      
+
+* RECORD THE RESULTS ON THE ATTACHED RA851 FORM AND SUBMIT TO BLEEDREVIEW@RYANAIR.COM        
+
+** RECORD THE SERIAL NUMBER OF THE TEST KIT USED ON THE RA851 FORM ALSO.
+
+3. INSPECT THE LH BAR HARNESS FOR PATH TO GROUND ON PINS 9 + 10 OF DP1102 OF BLEED AIR REGULATOR - IF CONTINUITY FOUND REFERENCE WDM 36-11-11 BLEED AIR VALVE CONTROL TO ISOLATE S20 OVERTEMP SWITCH. IF NIL FAULT FOUND PROCEED TO STEP 3.
+ 
+4. CHECK FOR CONTINUITY THROUGH LH BLEED AIR REGULATOR 220 PRESSURE SWITCH AT PINS 9 AND 10 OF BLEED AIR REGULATOR M1180 - IF CONTINUITY IS FOUND REPLACE BLEED AIR REGULATOR IAW AMM 36-11-03/401 BLEED AIR REGULATOR - REMOVAL/INSTALLATION.
+ 
+5. IF TROUBLESHOOTING IS INDETERMINATE DUE TO THE INTERMITTENT NATURE:
+
+REPLACE THE LH BAR HARNESS (MW0311) IAW AMM 73-21-06/401.
+ 
+REPLACE LH ACAU IAW AMM 21-51-02/401 AIR CONDITIONING ACCESSORY UNIT (ACAU) - REMOVAL/INSTALLATION.
+ 
+REPLACE LH BLEED AIR REGULATOR IAW AMM 36-11-03/401 BLEED AIR REGULATOR - REMOVAL/INSTALLATION.
+ 
+REPLACE LH 490 OVERHEAT SWITCH IAW AMM 36-11-08/401 490° F OVERTEMPERATURE SWITCH - REMOVAL/INSTALLATION AND
+ 
+6. RETURN THE AIRCRAFT TO SERVICE.   
+ 
+**AIRCRAFT IS EQUIPPED WITH ACMS - NO BLEED SHEETS WILL BE REQUIRED.  
+ 
+**PLEASE ENSURE THAT ALL ELECTRICAL (WHERE APPLICABLE) AND PNEUMATIC FITTINGS / COMPONENTS DISTURBED DURING ABOVE WORKS ARE RE-INSTATED TO CORRECT CONFIGURATION AFTER WORKS.</description>
+        <descriptionSign>JMON</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="c8493e51-4d24-11f0-bb09-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>180</totalHours>
+              <quantity>1.0</quantity>
+              <duration>180</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="c84a4fc2-4d24-11f0-bb09-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <requiredParts>
+          <partRequest uuid="c84ee3a3-4d24-11f0-bb09-005056b18588">
+            <partNumber>107492-5</partNumber>
+            <description>BLEED AIR CONTROL INSTL REGULATOR</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c8501c24-4d24-11f0-bb09-005056b18588">
+            <partNumber>975-0172-006</partNumber>
+            <description>TEMP SWITCH</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c850b865-4d24-11f0-bb09-005056b18588">
+            <partNumber>65-52810-64</partNumber>
+            <description>ACCESSORY UNIT - AIR CONDITIONING</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c85154a6-4d24-11f0-bb09-005056b18588">
+            <partNumber>1945-04-08</partNumber>
+            <description>PNEUMATIC TESTING KIT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="c8523f07-4d24-11f0-bb09-005056b18588">
+            <partNumber>3289562-5</partNumber>
+            <description>VALVE - FAN AIR (PCCV)</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c852db48-4d24-11f0-bb09-005056b18588">
+            <partNumber>129666-2</partNumber>
+            <description>ENGINE PRECOOLER CONT. VALVE SENSOR</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c8535079-4d24-11f0-bb09-005056b18588">
+            <partNumber>107484-6</partNumber>
+            <description>HIGH STAGE PNEU EBU REGULATOR</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c853ecba-4d24-11f0-bb09-005056b18588">
+            <partNumber>3214446-4</partNumber>
+            <description>HIGH STAGE VALVE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c854d71b-4d24-11f0-bb09-005056b18588">
+            <partNumber>3214552-6</partNumber>
+            <description>SHUT OFF PNEU SYS VALVE (PRSOV)</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c855735c-4d24-11f0-bb09-005056b18588">
+            <partNumber>801A50-0005A</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c85636ad-4d24-11f0-bb09-005056b18588">
+            <partNumber>801A50-0006A</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c857210e-4d24-11f0-bb09-005056b18588">
+            <partNumber>82C10020-1</partNumber>
+            <description>GASKET</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c857e45f-4d24-11f0-bb09-005056b18588">
+            <partNumber>S8990-611</partNumber>
+            <description>PACKING</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="c858f5d0-4d24-11f0-bb09-005056b18588">
+            <partNumber>325-029-905-0</partNumber>
+            <description>HARNESS (MW0311)</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="c0991467-4df1-11f0-bb09-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>CARRIED OUT PNEUMATIC HEALTH CHECK OF #1 ENGINE IAW AMM 36-11-00 REV 86
+FINDINGS
+
+RECORDED THE RESULTS ON THE ATTACHED RA851 FORM AND SUBMIT TO BLEEDREVIEW@RYANAIR.COM  
+
+1.PRSOV FAILED TEST WITH BLEED AIR COMING FROM MANUAL WRENCH BODY 
+PRSOV REPLACED IAW AMM 36-11-04/401 REV 86 FUNC CHECK SATIS
+
+2.HIGH STAGE VALVE REPLACED  DUE TO LARGE AMOUNT OF BLEED AIR COMING FROM THE BODY OF THE VALVE
+HSV REPLACED IAW AMM 36--11-06/401 REV 86 FUNC CHECK SATIS.
+
+3.HIGH STAGE REGULATOR REPLACED FAILED REV FLOW TEST 
+HSR REPLACED IAW AMM 36-11-07/401 REV86 FUNC CHECK SATIS
+
+4,PCCV REPLACED DUE TO KISS SEAL BOLTS BEING LOOSE AND DAMAGED THE FLANGE.
+PCCV REPLACED IAW AMM 36-12-02/401 REV86 FUNC CHECK SATIS
+
+GENERAL VERIFCATION CHECK SATIS
+
+P/N 82C10020-2 B/N 924601
+
+ASSISTED BY QSNN, MDJ, BRS</actionText>
+            <performedData>
+              <performedDateTime>2025-06-20T15:57:00.000Z</performedDateTime>
+              <performedSign>ALI</performedSign>
+            </performedData>
+          </action>
+          <action uuid="2f786942-4df2-11f0-bb09-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>5. INSPECTED THE LH BAR HARNESS FOR PATH TO GROUND ON PINS 9 + 10 OF DP1102 OF BLEED AIR REGULATOR - IF CONTINUITY FOUND REFERENCE WDM 36-11-11 REV 86 BLEED AIR VALVE CONTROL TO ISOLATE S20 OVERTEMP SWITCH. IF NIL FAULT FOUND 
+
+6.CHECK FOR CONTINUITY THROUGH LH BLEED AIR REGULATOR 220 PRESSURE SWITCH AT PINS 9 AND 10 OF BLEED AIR REGULATOR M1180 CARRIED OUT SATIS
+
+
+TECH SERVICE INFORMED OF MAINTENANCE AND AIRCRAFT RELEASED FOR MONITORING.
+
+GENERAL VERIFICATION CHECK SATIS</actionText>
+            <performedData>
+              <performedDateTime>2025-06-20T16:15:00.000Z</performedDateTime>
+              <performedSign>MAST5</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="83b6e114-4df2-11f0-bb09-005056b18588">
+                <position>#1</position>
+                <labelNumber>3879755</labelNumber>
+                <partOff>
+                  <partNumber>3214552-6</partNumber>
+                  <serialNumber>16156</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>3214552-6</partNumber>
+                  <serialNumber>17661</serialNumber>
+                </partOn>
+                <certificateNumber>3173221</certificateNumber>
+              </componentChange>
+              <componentChange uuid="dc365dc6-4df2-11f0-bb09-005056b18588">
+                <position>#1</position>
+                <labelNumber>3860211</labelNumber>
+                <partOff>
+                  <partNumber>3214446-4</partNumber>
+                  <serialNumber>16185</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>3214446-4</partNumber>
+                  <serialNumber>18555</serialNumber>
+                </partOn>
+                <certificateNumber>352696656</certificateNumber>
+              </componentChange>
+              <componentChange uuid="678a3e6c-4df3-11f0-bb09-005056b18588">
+                <position>#1</position>
+                <labelNumber>3871835</labelNumber>
+                <partOff>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>13216</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>18384</serialNumber>
+                </partOn>
+                <certificateNumber>353187052</certificateNumber>
+              </componentChange>
+              <componentChange uuid="909b3e8d-4df3-11f0-bb09-005056b18588">
+                <position>#1</position>
+                <labelNumber>3854333</labelNumber>
+                <partOff>
+                  <partNumber>63292146-1</partNumber>
+                  <serialNumber>5786</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>63292146-1</partNumber>
+                  <serialNumber>3009</serialNumber>
+                </partOn>
+                <certificateNumber>2809325</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

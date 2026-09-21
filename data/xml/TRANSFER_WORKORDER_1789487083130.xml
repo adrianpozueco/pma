@@ -1,0 +1,143 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487083129</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:43.129Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="c61cd2c1-99c5-11f0-9f6e-005056b18588">
+    <workorderNumber>190137687</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00555</aircraftFullRegistration>
+        <aircraftRegistration>REG00555</aircraftRegistration>
+        <aircraftMsn>40291</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190137687</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2025-09-25Z</issueDate>
+        <issueSign>SLL</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-09-25T04:11:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2498074</closingTahMinutes>
+        <closingTac>21274</closingTac>
+        <closingSign>SLL</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-25T04:11:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-25T04:11:00.000Z</dateTime>
+        <releaseSign>SLL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="c61e3252-99c5-11f0-9f6e-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-09-25T03:57:00.000Z</workStepDateTime>
+        <description>REF HIL: 190137685
+
+AFT L/H LAV BLOCKED</description>
+        <descriptionSign>SLL</descriptionSign>
+        <actions>
+          <action uuid="c6202e23-99c5-11f0-9f6e-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FIM 38-30 TASK 815 REV 87 C/O 
+LAV NOT BLOCKED, FLUSH VALVE NOT OPENING WHEN OPERATED
+
+FLUSH SWITCH REPLACED IAW AMM 38-02-04/401 REV 87 - NIL FIX 
+
+FLUSH VALVE REMOVED IAW AMM 38-32-01-000-808-001 REV 87 - FOUND VALVE SEIZED 
+
+NEW VALVE INSTALLED IAW AMM 38-32-01-400-808-001 REV 87 
+
+TOILET OPS TEST SATIS IAW AMM 38-32-00-700-802 REV 87 
+
+P/N: D72D93002-111
+B/N: 1457745
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-09-25T03:57:00.000Z</performedDateTime>
+              <performedSign>SLL</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="c621b4c4-99c5-11f0-9f6e-005056b18588">
+                <position>LAV D</position>
+                <labelNumber>3943272</labelNumber>
+                <partOff>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>22286</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>20568</serialNumber>
+                </partOn>
+                <certificateNumber>1138563</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="5eb2c217-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>92771</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 92771</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,133 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487090740</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:50.740Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="a6176c15-8600-11f0-9490-005056b18588">
+    <workorderNumber>190180369</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00591</aircraftFullRegistration>
+        <aircraftRegistration>REG00591</aircraftRegistration>
+        <aircraftMsn>35029</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190180369</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDate>2025-08-30Z</issueDate>
+        <issueSign>JOSC2</issueSign>
+        <issueStation>SKG</issueStation>
+        <issueFltTo>SKG</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-30T20:30:00.000Z</closingDateTime>
+        <closingStation>SKG</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2949110</closingTahMinutes>
+        <closingTac>25854</closingTac>
+        <closingSign>JOSC2</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-30T20:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-30T20:30:00.000Z</dateTime>
+        <releaseSign>JOSC2</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="a618a496-8600-11f0-9490-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-30T20:30:00.000Z</workStepDateTime>
+        <description>REF WO: 190180367
+
+#1 ENGINE BIRDSTRIKE WITH MULTIPLE DAMAGES FOUND TO FAN BLADES AND PLATFORMS</description>
+        <descriptionSign>JOSC2</descriptionSign>
+        <actions>
+          <action uuid="a61a7957-8600-11f0-9490-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>C/O REPLACEMENT OF COMPLETE SET OF #1 ENGINE FAN BLADES &amp; PLATFORMS (POSITIONS #1 - #24) SATIS IAW AMM 72-21-02-900-801-F00 &amp; 72-21-02-000-801-F00 &amp; 72-21-02-400-801-F00 REV 86
+
+INDEPENDENT INSP OF INSTALLATION C/O IAW RYR MOE 2.23 ISS 2 REV 11
+
+C/O #1 ENGINE IDLE POWER EGR SATIS IAW AMM 71-00-00 TEST 3A REV 86
+
+NIL FINDINGS. NO ABNORMAL ENGINE PARAMETERS
+
+TLP: 190180370 
+RAISED FOR #1 ENGINE BALANCE WEIGHT SCREWS TO BE REPLACED TO P7/P14 &amp; #1 ENGINE VIBRATION SURVEY TEST 7 TO BE C/O
+
+PLEASE SEE BLAMAP REF: 856A3770P05 FOR REMOVED / INSTALLED FAN BLADE P/N &amp; S/N
+
+ASSISTED BY JVS &amp; MDJ &amp; AKR</actionText>
+            <performedData>
+              <performedDateTime>2025-08-30T20:30:00.000Z</performedDateTime>
+              <performedSign>JOSC2</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSP C/O IAW RYR MOE 2.23 ISS 2 REV 11</inspectionText>
+              <performedData>
+                <performedDateTime>2025-08-30T20:30:00.000Z</performedDateTime>
+                <performedSign>JOSC2</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSP C/O IAW RYR MOE 2.23 ISS 2 REV 11</inspectionText>
+              <performedData>
+                <performedDateTime>2025-08-30T20:30:00.000Z</performedDateTime>
+                <performedSign>AKR</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

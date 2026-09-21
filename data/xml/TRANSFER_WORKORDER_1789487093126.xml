@@ -1,0 +1,156 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487093125</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:53.125Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="882e1f1f-a1c1-11f1-ab51-005056b18588">
+    <workorderNumber>190190674</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00475</aircraftFullRegistration>
+        <aircraftRegistration>REG00475</aircraftRegistration>
+        <aircraftMsn>33611</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190190674</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-08-27Z</issueDate>
+        <issueSign>ZGJ</issueSign>
+        <issueStation>MRS</issueStation>
+        <issueFltTo>MRS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-08-29T01:12:00.000Z</closingDateTime>
+        <closingStation>MRS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3678531</closingTahMinutes>
+        <closingTac>36756</closingTac>
+        <closingSign>CLNL</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2026-08-29T01:12:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2026-08-29T01:12:00.000Z</dateTime>
+        <releaseSign>CLNL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="882f0980-a1c1-11f1-ab51-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-08-27T02:40:00.000Z</workStepDateTime>
+        <headline>27/08/2026 - MRS - R/H RETRACTABLE LIGHT INOP</headline>
+        <description>FOUND R/H RETRACTABLE LIGHT INOP.</description>
+        <descriptionSign>ZGJ</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="cc22b734-a30f-11f1-ab51-005056b18588">
+            <partNumber>45-0351-4</partNumber>
+            <description>RH LANDING LIGHT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="cc23c8a5-a30f-11f1-ab51-005056b18588">
+            <partNumber>BACC63BP12C12SN</partNumber>
+            <description>CONNECTOR (RLL OLD CONNECTOR)</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="8835c042-a1c1-11f1-ab51-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>DUE TO NO SPARE AVAILABLE, A/C DISPATCHED IAW MEL 33-08-01-A REV 6B CAT C.</actionText>
+            <performedData>
+              <performedDateTime>2026-08-27T02:41:00.000Z</performedDateTime>
+              <performedSign>ZGJ</performedSign>
+            </performedData>
+          </action>
+          <action uuid="8a4805c5-a346-11f1-ab51-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REPLACE R/H RETRACTABLE LIGHT IAW AMM 33-42-02-960-802 REV 90 TEST SATIS 
+
+PART ON LABEL 4200078
+P/N:45-0351-4 S/N: 3185
+
+PART OFF 
+P/N:45-0351-4 S/N:5829 
+
+
+***HIL CLOSED***</actionText>
+            <performedData>
+              <performedDateTime>2026-08-29T01:09:00.000Z</performedDateTime>
+              <performedSign>MRSE</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="8a4b3a16-a346-11f1-ab51-005056b18588">
+                <position>RH</position>
+                <labelNumber>4200078</labelNumber>
+                <partOff>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>5829</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>3185</serialNumber>
+                </partOn>
+                <certificateNumber>PAV14666</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>IS-MATERIALS - IN MRS STOCK FRI 28/08 TFN
+
+TO-MATERIALS - T59965826 DUB-MRS THUR 27/08 DYLE</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

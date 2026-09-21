@@ -1,0 +1,138 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487095636</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:55.636Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="b30f47ab-6b64-11f0-a4a7-005056b18588">
+    <workorderNumber>190200963</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00533</aircraftFullRegistration>
+        <aircraftRegistration>REG00533</aircraftRegistration>
+        <aircraftMsn>40320</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190200963</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2025-07-27Z</issueDate>
+        <issueSign>MSX</issueSign>
+        <issueStation>BLQ</issueStation>
+        <issueFltTo>BLQ</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-28T01:00:00.000Z</closingDateTime>
+        <closingStation>BLQ</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2400805</closingTahMinutes>
+        <closingTac>19992</closingTac>
+        <closingSign>MSX</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-07-28T01:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-07-28T01:00:00.000Z</dateTime>
+        <releaseSign>MSX</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="b310320c-6b64-11f0-a4a7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-27T23:00:00.000Z</workStepDateTime>
+        <description>REF TO HIL 190200959 - AFT RH TOILET INOP.</description>
+        <descriptionSign>MSX</descriptionSign>
+        <actions>
+          <action uuid="b3122ddd-6b64-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FLUSH VALVE ASSY REPLACED IAW AMM 38-32-01 REV 86 - SATIS.
+HIL CLOSED.
+
+PART USED:
+PN: 2-135NM506-65
+BN: 936360
+
+TOOO USED:
+PN: 11037
+SN: 2013/123381
+
+ALSO PERFORMED ON OJT BY VVE AND VOAA.</actionText>
+            <performedData>
+              <performedDateTime>2025-07-28T01:00:00.000Z</performedDateTime>
+              <performedSign>MSX</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="dbd64694-6b64-11f0-a4a7-005056b18588">
+                <position>LAV E</position>
+                <labelNumber>3826421</labelNumber>
+                <partOff>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>ZSK551</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>14330-230</partNumber>
+                  <serialNumber>5332</serialNumber>
+                </partOn>
+                <certificateNumber>1105390</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="7c4f5caf-6b65-11f0-a4a7-005056b18588">
+        <type>TQ</type>
+        <reference>90532</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 90532</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

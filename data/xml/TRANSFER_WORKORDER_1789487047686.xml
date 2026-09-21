@@ -1,0 +1,172 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487047685</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:07.684Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="8c714679-71bc-11f1-8a65-005056b18588">
+    <workorderNumber>106913643</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00384</aircraftFullRegistration>
+        <aircraftRegistration>REG00384</aircraftRegistration>
+        <aircraftMsn>44844</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.106913643</barcode>
+      <externalWorkorderNumber>55695711</externalWorkorderNumber>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-06-27Z</issueDate>
+        <issueSign>NKKV</issueSign>
+        <issueStation>WMI</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-27T00:08:00.000Z</closingDateTime>
+        <closingStation>WMI</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1531877</closingTahMinutes>
+        <closingTac>13272</closingTac>
+        <closingSign>NKKV</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-27T00:08:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-27T00:08:00.000Z</dateTime>
+        <releaseSign>NKKV</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="8c79aaea-71bc-11f1-8a65-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-27T00:04:00.000Z</workStepDateTime>
+        <headline>HIL 55695711</headline>
+        <description>WINDOW LIGHT AT ROW 21 ABC PARTLY INOP</description>
+        <descriptionSign>NKKV</descriptionSign>
+        <actions>
+          <action uuid="8c7c1beb-71bc-11f1-8a65-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>LED LIGHT ASSY HAS BEEN REPLACED IAW AMM 33-21-00/201 REV 90. TEST SATIS.
+
+HIL ITEM CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-06-27T00:04:00.000Z</performedDateTime>
+              <performedSign>NKKV</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="8c7e3ecc-71bc-11f1-8a65-005056b18588">
+                <position>20 ABC</position>
+                <labelNumber>4160174</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>17659</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>52937</serialNumber>
+                </partOn>
+                <certificateNumber>173768</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="498f142b-b11c-11f1-8509-005056b1ed97">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>55695711</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>55695711</description>
+      </reference>
+      <reference uuid="8c80d6dd-71bc-11f1-8a65-005056b18588">
+        <type>TQ</type>
+        <reference>105548</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 105548</description>
+      </reference>
+      <reference uuid="4991d34c-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>105549</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 105549</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

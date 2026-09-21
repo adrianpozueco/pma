@@ -1,0 +1,116 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487295668</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:15.667Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="6a1a31a9-7106-11f1-8a65-005056b18588">
+    <workorderNumber>191406895</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00242</aircraftFullRegistration>
+        <aircraftRegistration>REG00242</aircraftRegistration>
+        <aircraftMsn>44782</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191406895</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2026-06-26Z</issueDate>
+        <issueSign>TNK</issueSign>
+        <issueStation>ATH</issueStation>
+        <issueFltTo>ATH</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-26T02:25:00.000Z</closingDateTime>
+        <closingStation>ATH</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1573465</closingTahMinutes>
+        <closingTac>16590</closingTac>
+        <closingSign>TNK</closingSign>
+      </closingData>
+      <certification>
+        <number>EL.145.0060</number>
+        <dateTime>2026-06-26T02:25:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>EL.145.0060</number>
+        <dateTime>2026-06-26T02:25:00.000Z</dateTime>
+        <releaseSign>TNK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="6a1b431a-7106-11f1-8a65-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-26T02:22:00.000Z</workStepDateTime>
+        <description>REF TO HIL: 191406882 - 18ABC WINDOW LIGHT IS FLICKERING</description>
+        <descriptionSign>TNK</descriptionSign>
+        <actions>
+          <action uuid="6a1d17db-7106-11f1-8a65-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>18ABC WINDOW LIGHT REPLACED SATIS AND TESTED IAW AMM: 33-21-00-960-804 R90
+
+EASA FORM 1: 173186
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-06-26T02:23:00.000Z</performedDateTime>
+              <performedSign>TNK</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="dd615478-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>105532</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 105532</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

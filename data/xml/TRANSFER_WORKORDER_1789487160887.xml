@@ -1,0 +1,150 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487160886</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:00.886Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0e28c5e4-8319-11f1-9888-005056b18588">
+    <workorderNumber>190449226</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00480</aircraftFullRegistration>
+        <aircraftRegistration>REG00480</aircraftRegistration>
+        <aircraftMsn>65881</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.190449226</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2026-07-19Z</issueDate>
+        <issueSign>MTSZ</issueSign>
+        <issueStation>BRS</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-07-19T02:22:00.000Z</closingDateTime>
+        <closingStation>BRS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1150188</closingTahMinutes>
+        <closingTac>8356</closingTac>
+        <closingSign>MTSZ</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-07-19T02:22:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-07-19T02:22:00.000Z</dateTime>
+        <releaseSign>MTSZ</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="0e29b045-8319-11f1-9888-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-07-19T02:21:00.000Z</workStepDateTime>
+        <description>REF HIL WO 190449219
+G4 GALLEY OVEN INOP</description>
+        <descriptionSign>MTSZ</descriptionSign>
+        <actions>
+          <action uuid="0e2c4856-8319-11f1-9888-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>G4 GALLEY OVEN REPLACED SATIS IAW AMM 25-32-03/401 REV28A
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-07-19T02:21:00.000Z</performedDateTime>
+              <performedSign>MTSZ</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="0e2e1d17-8319-11f1-9888-005056b18588">
+                <position>GALLEY 3</position>
+                <labelNumber>4086649</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>17-01-38352</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>07-09-24234</serialNumber>
+                </partOn>
+                <certificateNumber>PAV13278</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

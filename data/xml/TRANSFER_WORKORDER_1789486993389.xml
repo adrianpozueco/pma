@@ -1,0 +1,107 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486993388</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:13.388Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="a11229d8-8b97-11f0-9490-005056b18588">
+    <workorderNumber>55599604</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00111</aircraftFullRegistration>
+        <aircraftRegistration>REG00111</aircraftRegistration>
+        <aircraftMsn>44792</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55599604</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2025-09-07Z</issueDate>
+        <issueSign>CVLL</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-09-07T03:06:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1447774</closingTahMinutes>
+        <closingTac>15202</closingTac>
+        <closingSign>CVLL</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-07T03:06:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-07T03:06:00.000Z</dateTime>
+        <releaseSign>CVLL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="a1136259-8b97-11f0-9490-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-09-07T03:03:00.000Z</workStepDateTime>
+        <description>REF HIL 190632900
+AFT GALLEY WATER BOILERS INOP</description>
+        <descriptionSign>CVLL</descriptionSign>
+        <actions>
+          <action uuid="a115ac4a-8b97-11f0-9490-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FIM 38-10 TASK 828, WATER HEATER ON AFT LH POWER INDICATOR LIGHT DOES NOT OPERATE CORRECTLY.
+WATER HEATER REPLACED C/OUT IAW AMM 38-13-01-400-801 RV 86
+***HIL CLOSED***</actionText>
+            <performedData>
+              <performedDateTime>2025-09-07T03:04:00.000Z</performedDateTime>
+              <performedSign>CVLL</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

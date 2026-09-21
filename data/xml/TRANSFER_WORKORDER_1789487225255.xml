@@ -1,0 +1,154 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487225254</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:05.254Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="d1b764b2-6519-11f0-a4a7-005056b18588">
+    <workorderNumber>190631876</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00427</aircraftFullRegistration>
+        <aircraftRegistration>REG00427</aircraftRegistration>
+        <aircraftMsn>44816</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.190631876</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-07-20Z</issueDate>
+        <issueSign>SNDC</issueSign>
+        <issueStation>STN</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-20T03:29:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1342610</closingTahMinutes>
+        <closingTac>12401</closingTac>
+        <closingSign>WARE1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-20T03:29:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-20T03:29:00.000Z</dateTime>
+        <releaseSign>WARE1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="d1bb5c53-6519-11f0-a4a7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-20T03:27:00.000Z</workStepDateTime>
+        <description>REF HIL W/O: 190631872
+22 ABC WINDOW LIGHT FLASHING</description>
+        <descriptionSign>KERS</descriptionSign>
+        <actions>
+          <action uuid="d1bf05d4-6519-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>PERFORMED REPLACEMENT OF 22 ABC WINDOW LIGHT IAW AMM 33-21-00-960-804 REV. 86.
+PHASE 2 DOWNLOAD C/O. LIGHT TESTED SATISFACTORY
+
+HIL NOW CLOSED
+
+ASSISTED BY SNDC, SEKY</actionText>
+            <performedData>
+              <performedDateTime>2025-07-20T03:28:00.000Z</performedDateTime>
+              <performedSign>KERS</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="d1c0da95-6519-11f0-a4a7-005056b18588">
+                <position>22 ABC</position>
+                <labelNumber>3905565</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>52997</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>71302</serialNumber>
+                </partOn>
+                <certificateNumber>3119</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

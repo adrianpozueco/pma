@@ -1,0 +1,1031 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487032588</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:52.588Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f0c58c89-14e5-11f0-bbbc-005056b18588">
+    <workorderNumber>102846300</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00289</aircraftFullRegistration>
+        <aircraftRegistration>REG00289</aircraftRegistration>
+        <aircraftMsn>62323</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.102846300</barcode>
+      <ataChapter>73-11</ataChapter>
+      <issueData>
+        <issueDate>2025-04-09Z</issueDate>
+        <issueSign>IVR</issueSign>
+        <issueStation>WAMS</issueStation>
+        <issueFltTo>WAMS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-04-10T07:07:00.000Z</closingDateTime>
+        <closingStation>WAMS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>801333</closingTahMinutes>
+        <closingTac>6680</closingTac>
+        <closingSign>GFD</closingSign>
+      </closingData>
+      <certification>
+        <number>EASA.145.3122</number>
+        <dateTime>2025-04-10T07:07:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>EASA.145.3122</number>
+        <dateTime>2025-04-10T07:07:00.000Z</dateTime>
+        <releaseSign>GFD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f0cd069a-14e5-11f0-bbbc-005056b18588">
+        <workstepState>C</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-04-09T01:28:00.000Z</workStepDateTime>
+        <description>REF. WO# 101702643 - ENG NO. 1 BSI
+
+ENGINGE #1 - LEAP BORESCOPE INSPECTION OF THE COMBUSTION SECTION AND FUEL NOZZLES RESULTS: 
+FUEL NOZZLES #1, #2, #5, #6, #7, #8, #9, #10, #11, #12, #13, #16, #17 AND #18 ARE UNSERVICEABLE AND TO BE REPALCED
+
+MAINTROL CONFIRMED TO REPLACE FUEL NOZZLE SET AS PER AMM: 73-11-05-000-802-G00 &amp; AMM: 73-11-05-400-802-G00 
+
+REF. TO PAM FORM 185 FNS REPLACEMENT PROCESS SHEET
+
+REQUIRED PARTS:
+FUEL NOZZLE P/N: 2085M31G03 - Q-TY: 18.00
+GAKET P/N: 2085M48P07 - Q-TY: 18.00
+BOLT P/N: AS3237-12 - Q-TY: 72.00
+SEAL P/N: AS1895-23-100 - Q-TY: 2.00
+SEAL P/N: AS1895-23-150 - Q-TY: 6.00
+SEAL P/N: AS1895-23-175
+SEAL P/N: AS1895-23-200
+SEAL P/N: AS1895-23-250
+SEAL P/N: 2532M16P01
+SEAL P/N: 2525M65P02 - Q-TY: 2.00
+SEAL P/N: AS1895-7-300
+
+
+   ***    POST FUEL NOZZLE SET REPLACEMENT C/O FOLLOWING TESTS: (AS REQUIRED BY AMM TASK 71-00-00-800-804-G00)  ***
+
+1.    ELECTRICAL LRU - REPLACEMENT TEST C/O IAW AMM 36-00-00-710-801
+2.    SUPPLY PRESSURE UPSTREAM OF THE PRSOV WITH ENGINES OFF IAW AMM TASK 36-00-00-860-805
+3.    REMOVE PRESSURE FROM PNEUMATIC SYSTEM IAW AMM TASK 36-00-00-860-806
+4.    ENGINE BLEED AIR SYSTEM - LECK CHECK IAW AMM TASK 36-11-00-700-802
+5.    TEST #1 - PNEUMATIC LEAK TEST IAW AMM 71-00-00-790-801-G00
+6.    TEST #15 - ACTUATOR OPERATIONAL TEST C/O IAW AMM 71-00-00-730-802-G00 
+7.    WET LEAK TEST #3 IAW AMM 71-00-00-790-803-G00
+8.    EEC SYSTEM TEST IAW AMM TASK 71-00-00-710-806-G00
+
+
+- IDLE LEAK CHECK IAW AMM: TASK 71-00-00-790-804-G00 PAY ATTENTION TO FOOTNOTE 7 REGARDING EEC FAULTS DUE TO RESIDUAL AIR IN THE FUEL LINES FOLLOWING FUEL NOZZLE REPLACEMENT.
+- TEST NO. 32 - ENGINE IDLE SYSTEM TEST  IAW AMM: TASK 71-00-00-700-808-G00 
+- PNEUMATIC ENGINE ON - SYSTEM TEST IAW AMM: 36-00-00-730-801
+POST ENGINE IDLE RUN CHECK FUEL NOZZLE SET FOR EVIDENCE OF LEAKS IAW AMM TASK 71-00-00-790-804-G00
+CHECK THE ONBOARD MAINTENANCE FUNCTION (OMF) FOR ANY NEW FUEL SYSTEM FAULTS POST IDLE RUN
+- TEST NO. 6 - POWER ASSURANCE TEST IAW AMM: TASK 71-00-00-720-802-G00 
+
+REQUIRED PART:
+DEVELOPER P/N: ADR0X9D1B400
+
+ * UPON COMPLETION OF THE TESTS FOLLOWING INSPECTIONS TO BE CARRIED OUT:
+   -VISUAL INSPECTION OF THE FUEL LINES AND CONNECTIONS IAW AMM TASK 71-00-00-790-804-G00
+   -VISUAL INSPECTION OF THE AIR DUCTS, TUBES, AND SEALS IAW AMM TASK 71-00-00-790-804-G00
+
+*** PARTICULAR ATTENTION APPLIED TO THE 4TH &amp; 7TH STAGE BLEED AIR DUCTS.   ***
+
+***
+- PERFORM ACCESSORY GEARBOX MANUAL CONTROL COVER LEAK CHECK IAW AMM: 71-00-00-790-804-G00;
+CHECK CONDITION OF THE BORESCOPE PORTS (P), (Q) AND (N) UPON COMPLETION OF THE HIGH POWER CHECK
+REF. WO# 101702643 - FOR ENG NO.1  BSI 
+***
+
+C/O INDEPENDENT INSPECTION IAW PAML PN 2003/10.
+
+USED LATEST REV. OF THE _AMM_
+
+CONDUCT GENERAL VERIFICATION CHECK IAW PAML PN 2005/21.</description>
+        <descriptionSign>IVR</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="0abbaadb-14e6-11f0-bbbc-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>1440</totalHours>
+              <quantity>1.0</quantity>
+              <duration>1440</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="0abcbc4c-14e6-11f0-bbbc-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>MECH</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+            <resourceRequirement uuid="0abd7f9d-14e6-11f0-bbbc-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>1440</totalHours>
+              <quantity>1.0</quantity>
+              <duration>1440</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="0abe69fe-14e6-11f0-bbbc-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+            <resourceRequirement uuid="0abf063f-14e6-11f0-bbbc-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>60</totalHours>
+              <quantity>1.0</quantity>
+              <duration>60</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="0abfc990-14e6-11f0-bbbc-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>SHEETMTL</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <requiredParts>
+          <partRequest uuid="962b0d0b-14e7-11f0-bbbc-005056b18588">
+            <partNumber>2085M31G03</partNumber>
+            <description>FUEL NOZZLE ASSEMBLY</description>
+            <neededQuantity UOM="EA">18.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="962bf76c-14e7-11f0-bbbc-005056b18588">
+            <partNumber>AS3237-12</partNumber>
+            <description>BOLT</description>
+            <neededQuantity UOM="EA">72.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="962c6c9d-14e7-11f0-bbbc-005056b18588">
+            <partNumber>AS1895-23-100</partNumber>
+            <description>SEAL - HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="962d2fee-14e7-11f0-bbbc-005056b18588">
+            <partNumber>AS1895-23-150</partNumber>
+            <description>SEAL- HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">6.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="962df33f-14e7-11f0-bbbc-005056b18588">
+            <partNumber>AS1895-23-175</partNumber>
+            <description>SEAL- HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="962eb690-14e7-11f0-bbbc-005056b18588">
+            <partNumber>AS1895-23-200</partNumber>
+            <description>SEAL, HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="962f79e1-14e7-11f0-bbbc-005056b18588">
+            <partNumber>AS1895-23-250</partNumber>
+            <description>SEAL- HIGH CONFORMANCE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="96303d32-14e7-11f0-bbbc-005056b18588">
+            <partNumber>2532M16P01</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="96319cc3-14e7-11f0-bbbc-005056b18588">
+            <partNumber>2525M65P02</partNumber>
+            <description>GASKET- SEAL - FUEL NOZZLES</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="96323904-14e7-11f0-bbbc-005056b18588">
+            <partNumber>AS1895-7-300</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9632d545-14e7-11f0-bbbc-005056b18588">
+            <partNumber>AS3237-10</partNumber>
+            <description>BOLT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="96339896-14e7-11f0-bbbc-005056b18588">
+            <partNumber>AS3510-0218K</partNumber>
+            <description>CABLE LOCKWIRE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="96345be7-14e7-11f0-bbbc-005056b18588">
+            <partNumber>2085M48P07</partNumber>
+            <description>GASKET, FUEL NOZZLES</description>
+            <neededQuantity UOM="EA">18.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="7d964e45-14f9-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ENGINE#1 P/N CFMLEAP-1B S/N 60A004 FUEL NOZZLE SET REMOVAL WAS C/O IAW AMM 73-11-05-000-802-G00 REV. 23 AND PAML FORM 185 REV. 01 FNS REPLACEMENT PROCESS SHEET
+
+USED CONSUMABLES:
+AEROKROIL P/N AEROKROIL B/N 1337291
+
+SEE WORK STEP 2 FOR THE CONTINUATION OF THE TASK
+
+GENERAL VERIFICATION CHECK WAS C/O IAW PAML PN 2005/21 REV.27</actionText>
+            <closingAction>Y</closingAction>
+            <performedData>
+              <performedDateTime>2025-04-09T04:16:00.000Z</performedDateTime>
+              <performedSign>KWK</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION C/O IAW PAML PN 2003/10   REV. 35
+DATE:   09. APR .2025   TIME:   04:17 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-09T04:17:00.000Z</performedDateTime>
+                <performedSign>IOM</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION C/O IAW PAML PN 2003/10   REV. 35
+DATE:   09. APR .2025   TIME:   04:17 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-09T04:17:00.000Z</performedDateTime>
+                <performedSign>IVR</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+      <workStep uuid="765adffd-14f7-11f0-bbbc-005056b18588">
+        <workstepState>C</workstepState>
+        <workStepSequenceNumber>2</workStepSequenceNumber>
+        <workStepDateTime>2025-04-09T04:02:00.000Z</workStepDateTime>
+        <description>PROCEED WITH ENG#1 FUEL NOZZLE - FULL SET REMOVAL IAW AMM73-11-05-000-802-G00 LATEST REV. AND PAML FORM 185 REV. 01 FNS REPLACEMENT PROCESS SHEET FROM PAGE 5 POINT 3 ONWARD 
+
+
+***ENG#1 RHS THRUST REVERSER CROSS TIE ROD LANYARD IS BROKEN
+LANYARD TO BE REPLACED IAW AMM 54-51-06/401
+LANYARD P/N: 53128-4-190-500 ****
+
+
+REQUIRED PARTS:
+FUEL NOZZLE P/N: 2085M31G03 - Q-TY: 18.00
+GAKET P/N: 2085M48P07 - Q-TY: 18.00
+BOLT P/N: AS3237-12 - Q-TY: 72.00
+SEAL P/N: AS1895-23-100 - Q-TY: 2.00
+SEAL P/N: AS1895-23-150 - Q-TY: 6.00
+SEAL P/N: AS1895-23-175
+SEAL P/N: AS1895-23-200
+SEAL P/N: AS1895-23-250
+SEAL P/N: 2532M16P01
+SEAL P/N: 2525M65P02 - Q-TY: 2.00
+SEAL P/N: AS1895-7-300
+
+
+   ***    POST FUEL NOZZLE SET REPLACEMENT C/O FOLLOWING TESTS: (AS REQUIRED BY AMM TASK 71-00-00-800-804-G00)  ***
+
+1.    ELECTRICAL LRU - REPLACEMENT TEST C/O IAW AMM 36-00-00-710-801
+2.    SUPPLY PRESSURE UPSTREAM OF THE PRSOV WITH ENGINES OFF IAW AMM TASK 36-00-00-860-805
+3.    REMOVE PRESSURE FROM PNEUMATIC SYSTEM IAW AMM TASK 36-00-00-860-806
+4.    ENGINE BLEED AIR SYSTEM - LECK CHECK IAW AMM TASK 36-11-00-700-802
+5.    TEST #1 - PNEUMATIC LEAK TEST IAW AMM 71-00-00-790-801-G00
+6.    TEST #15 - ACTUATOR OPERATIONAL TEST C/O IAW AMM 71-00-00-730-802-G00
+7.    WET LEAK TEST #3 IAW AMM 71-00-00-790-803-G00
+8.    EEC SYSTEM TEST IAW AMM TASK 71-00-00-710-806-G00
+
+
+- IDLE LEAK CHECK IAW AMM: TASK 71-00-00-790-804-G00 PAY ATTENTION TO FOOTNOTE 7 REGARDING EEC FAULTS DUE TO RESIDUAL AIR IN THE FUEL LINES FOLLOWING FUEL NOZZLE REPLACEMENT.
+- TEST NO. 32 - ENGINE IDLE SYSTEM TEST  IAW AMM: TASK 71-00-00-700-808-G00
+- PNEUMATIC ENGINE ON - SYSTEM TEST IAW AMM: 36-00-00-730-801
+POST ENGINE IDLE RUN CHECK FUEL NOZZLE SET FOR EVIDENCE OF LEAKS IAW AMM TASK 71-00-00-790-804-G00
+CHECK THE ONBOARD MAINTENANCE FUNCTION (OMF) FOR ANY NEW FUEL SYSTEM FAULTS POST IDLE RUN
+- TEST NO. 6 - POWER ASSURANCE TEST IAW AMM: TASK 71-00-00-720-802-G00
+
+REQUIRED PART:
+DEVELOPER P/N: ADR0X9D1B400
+
+ * UPON COMPLETION OF THE TESTS FOLLOWING INSPECTIONS TO BE CARRIED OUT:
+   -VISUAL INSPECTION OF THE FUEL LINES AND CONNECTIONS IAW AMM TASK 71-00-00-790-804-G00
+   -VISUAL INSPECTION OF THE AIR DUCTS, TUBES, AND SEALS IAW AMM TASK 71-00-00-790-804-G00
+
+*** PARTICULAR ATTENTION APPLIED TO THE 4TH &amp; 7TH STAGE BLEED AIR DUCTS.   ***
+
+***
+- PERFORM ACCESSORY GEARBOX MANUAL CONTROL COVER LEAK CHECK IAW AMM: 71-00-00-790-804-G00;
+CHECK CONDITION OF THE BORESCOPE PORTS (P), (Q) AND (N) UPON COMPLETION OF THE HIGH POWER CHECK
+REF. WO# 101702643 - FOR ENG NO.1  BSI
+***
+
+C/O INDEPENDENT INSPECTION IAW PAML PN 2003/10.
+
+USED LATEST REV. OF THE _AMM_
+
+CONDUCT GENERAL VERIFICATION CHECK IAW PAML PN 2005/21.</description>
+        <descriptionSign>IOM</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="93fc530f-14f7-11f0-bbbc-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>1440</totalHours>
+              <quantity>1.0</quantity>
+              <duration>1440</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="93fdd9b0-14f7-11f0-bbbc-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>MECH</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+            <resourceRequirement uuid="93feeb21-14f7-11f0-bbbc-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>300</totalHours>
+              <quantity>1.0</quantity>
+              <duration>300</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="940023a2-14f7-11f0-bbbc-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <requiredParts>
+          <partRequest uuid="81e6328d-14f7-11f0-bbbc-005056b18588">
+            <partNumber>53128-4-190-500</partNumber>
+            <description>LANYARD</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="0737fb36-1533-11f0-bbbc-005056b18588">
+            <partNumber>2532M16P01</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="ba2189f3-1537-11f0-bbbc-005056b18588">
+            <partNumber>BACB30ZF4-08</partNumber>
+            <description>BOLT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="fd1f8ab2-1538-11f0-bbbc-005056b18588">
+            <partNumber>BACB30US5-6</partNumber>
+            <description>BOLT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9208e6a5-154c-11f0-bbbc-005056b18588">
+            <partNumber>AS3237-12</partNumber>
+            <description>BOLT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="073a1e17-1533-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ENGINE NO.1 FUEL NOZZLE - FULL SET REPLACEMENT CARRIED OUT IAW AMM: 73-11-05-000-802-G00 AND 73-11-05-400-802-G00 REV. 23 AND PAM FORM 85 REV. 1
+
+ADDITIONALY:
+ENG#1 RHS THRUST REVERSER CROSS TIE ROD LANYARD REPLACED IAW AMM 54-51-06/401 REV. 23
+
+USED TOOLS:
+TRQ WRENCH P/N: 11123, S/N: 79107629542
+TRQ WRENCH P/N: EVT600A, S/N: X050221
+TRQ WRENCH P/N: 7465-100, S/N: 0823114263
+DOG BONE ADAPTER SET P/N: DOGBONEADAPTER, S/N: 831857
+SAFETY CABLE TOOL P/N: SCTR327L, S/N: 1222491WAMS
+
+USED CONSUMABLES:
+ENGINE OIL P/N: MOBILJETII, B/N: 1340826
+LUBRICANT P/N: T8E-H, B/N: 1226931
+COMPOUND P/N: NSBT8N, B/N: 1152588
+DEVELOPER P/N: ADR0X9D1B400, B/N: 1212701 
+
+USED PARTS:
+GAKET P/N: 2085M48P07, B/N: 1378256 QTY. 18
+BOLT P/N: AS3237-12, B/N: 1388248/M249181M QTY. 72
+LANYARD P/N: 53128-4-190-500, B/N: 941538
+SEAL P/N: AS1895-23-100, B/N: 1313271, Q-TY: 2.00
+SEAL P/N: AS1895-23-150, B/N: 1185652, Q-TY: 6.00
+SEAL P/N: AS1895-23-175, B/N: 1362749
+SEAL P/N: AS1895-23-200, B/N: 1101960
+SEAL P/N: AS1895-23-250, B/N: 1073190/0000184666
+SEAL P/N: 2532M16P01, B/N: 1043801/R3028663
+SEAL P/N: 2525M65P02, B/N: 1381589Q-TY: 2.00
+SEAL P/N: AS1895-7-300, B/N: 638427
+BOLT P/N: BACB30ZF4-10, B/N: 1200067
+BOLT P/N: BACB30US5-6, B/N: 1213619
+
+GENERAL VERIFICATION CHECK CARRIED OUT
+
+SEE WORK STEP 3 FOR TASK CONTINUATION</actionText>
+            <performedData>
+              <performedDateTime>2025-04-09T11:08:00.000Z</performedDateTime>
+              <performedSign>TOK</performedSign>
+            </performedData>
+            <inspection>
+              <headline>INITIAL INSPECTION</headline>
+              <inspectionText>INITIAL INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) FOR CORRECT AND SECURE INSTALLATION OF ENG#1 FUEL NOZZLES &amp; FOR CORRECT AND SECURE INSTALLATION OF ENG#1 ALL AFFECTED BLEED AIR TUBES, CLAMPS, LPTACC &amp; HPTACC IN WAY FOR FUEL NOZZLE FULL SET REPLACMENENT ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15
+
+DATE:   09. APR .2025   TIME:   14:14 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-09T14:14:00.000Z</performedDateTime>
+                <performedSign>VHV</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <headline>INDEPENDENT INSPECTION</headline>
+              <inspectionText>INDEPENDENT INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) FOR CORRECT AND SECURE INSTALLATION OF ENG#1 FUEL NOZZLES &amp; FOR CORRECT AND SECURE INSTALLATION OF ENG#1 ALL AFFECTED BLEED AIR TUBES, CLAMPS, LPTACC &amp; HPTACC IN WAY FOR FUEL NOZZLE FULL SET REPLACMENENT ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15
+
+DATE:   09. APR .2025   TIME:   14:14 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-09T14:14:00.000Z</performedDateTime>
+                <performedSign>OZA</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="200bb989-1533-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830502</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ886</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT4A439</serialNumber>
+                </partOn>
+                <certificateNumber>RE74274-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="77e1fe12-1533-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830408</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ892</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT2B724</serialNumber>
+                </partOn>
+                <certificateNumber>RF34533-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="b0609400-1533-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830404</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ891</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT2B442</serialNumber>
+                </partOn>
+                <certificateNumber>RF57478-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="da7855cc-1533-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830428</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ889</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT0C492</serialNumber>
+                </partOn>
+                <certificateNumber>RF31209-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="4a8be519-1534-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830423</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ888</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT5A411</serialNumber>
+                </partOn>
+                <certificateNumber>RE71557-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="7b062c61-1534-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830431</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ887</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMF791</serialNumber>
+                </partOn>
+                <certificateNumber>RF58921-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="15a01d02-1535-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830509</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ885</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT43T33</serialNumber>
+                </partOn>
+                <certificateNumber>RE38173-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="cff2efbc-1535-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830515</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ884</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT77E50</serialNumber>
+                </partOn>
+                <certificateNumber>RF52836-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="95e20412-1536-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830425</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT57E71</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT83C99</serialNumber>
+                </partOn>
+                <certificateNumber>RF57436-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="d7b647e5-1536-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830419</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT22F95</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT7C010</serialNumber>
+                </partOn>
+                <certificateNumber>RF52803-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="16fed7b0-1537-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830506</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT54J39</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT97E10</serialNumber>
+                </partOn>
+                <certificateNumber>RF57437-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="488a67f3-1537-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830511</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT13J93</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMA230</serialNumber>
+                </partOn>
+                <certificateNumber>RF42349-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="7c74cfd7-1537-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830503</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT23F72</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT5A986</serialNumber>
+                </partOn>
+                <certificateNumber>RE74267-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="a6a019a1-1537-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830504</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT58F58</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT5A987</serialNumber>
+                </partOn>
+                <certificateNumber>RE74268-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="df5a31e8-1537-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830512</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT24T37</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT3C571</serialNumber>
+                </partOn>
+                <certificateNumber>RF52807-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="09b6289d-1538-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830514</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT06T02</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMD177</serialNumber>
+                </partOn>
+                <certificateNumber>RF31300-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="f6a645e5-1534-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830410</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ890</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT1C649</serialNumber>
+                </partOn>
+                <certificateNumber>RF60429-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="29d57f3b-1536-11f0-bbbc-005056b18588">
+                <position>#1</position>
+                <labelNumber>3830434</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT22F82</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT3C539</serialNumber>
+                </partOn>
+                <certificateNumber>RF38382-1</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <references>
+              <reference uuid="0bae3a3a-155b-11f0-bbbc-005056b18588">
+                <reference>N:/WAMS Links/SP-RZE/WO 102846300 INSTLLATION OF PRSOV AND HPSOV ENGINE NO.1/SP-RZE, ENGINE NO. 1 CHECK VALVE.jpeg</reference>
+                <typeDescription>File</typeDescription>
+                <description>SP-RZE, ENGINE NO. 1 CHECK VALVE.jpeg</description>
+              </reference>
+              <reference uuid="0baf99cb-155b-11f0-bbbc-005056b18588">
+                <reference>N:/WAMS Links/SP-RZE/WO 102846300 INSTLLATION OF PRSOV AND HPSOV ENGINE NO.1/SP-RZE, ENGINE NO. 1 HPSOV.jpeg</reference>
+                <typeDescription>File</typeDescription>
+                <description>SP-RZE, ENGINE NO. 1 HPSOV.jpeg</description>
+              </reference>
+              <reference uuid="0bb0360c-155b-11f0-bbbc-005056b18588">
+                <reference>N:/WAMS Links/SP-RZE/WO 102846300 INSTLLATION OF PRSOV AND HPSOV ENGINE NO.1/SP-RZE, ENGINE NO. 1 PRSOV.jpeg</reference>
+                <typeDescription>File</typeDescription>
+                <description>SP-RZE, ENGINE NO. 1 PRSOV.jpeg</description>
+              </reference>
+            </references>
+          </action>
+          <action uuid="ebfb7adc-1557-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>POST FNFS REPLACEMENT FOLLOWING TESTS WERE C/O ON ENGINE #1
+
+1.    ELECTRICAL LRU - REPLACEMENT TEST C/O IAW AMM 36-00-00-710-801
+2.    SUPPLY PRESSURE UPSTREAM OF THE PRSOV WITH ENGINES OFF IAW AMM TASK 36-00-00-860-805
+3.    REMOVE PRESSURE FROM PNEUMATIC SYSTEM IAW AMM TASK 36-00-00-860-806
+4.    ENGINE BLEED AIR SYSTEM - LECK CHECK IAW AMM TASK 36-11-00-700-802
+5.    TEST #1 - PNEUMATIC LEAK TEST IAW AMM 71-00-00-790-801-G00
+6.    TEST #15 - ACTUATOR OPERATIONAL TEST C/O IAW AMM 71-00-00-730-802-G00
+7.    WET LEAK TEST #3 IAW AMM 71-00-00-790-803-G00
+8.    EEC SYSTEM TEST IAW AMM TASK 71-00-00-710-806-G00 
+
+ALL TESTS PASSED, NO LEAKS NOTED
+
+AMM REV. 23
+
+GENERAL VERIFICATION CHECK CARRIED OUT</actionText>
+            <closingAction>Y</closingAction>
+            <performedData>
+              <performedDateTime>2025-04-09T15:31:00.000Z</performedDateTime>
+              <performedSign>VHV</performedSign>
+            </performedData>
+            <inspection>
+              <headline>INITIAL INSPECTION</headline>
+              <inspectionText>INITIAL INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15 (FOLLOWED BY LEAK CHECK)
+
+DATE:   09. APR .2025   TIME:   15:31 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-09T15:31:00.000Z</performedDateTime>
+                <performedSign>VHV</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <headline>INDEPENDENT INSPECTION</headline>
+              <inspectionText>INDEPENDENT INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15 (FOLLOWED BY LEAK CHECK)
+
+DATE:   09. APR .2025   TIME:   15:31 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-09T15:31:00.000Z</performedDateTime>
+                <performedSign>OZA</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+      <workStep uuid="59ed8985-1558-11f0-bbbc-005056b18588">
+        <workstepState>C</workstepState>
+        <workStepSequenceNumber>3</workStepSequenceNumber>
+        <workStepDateTime>2025-04-09T15:34:00.000Z</workStepDateTime>
+        <headline>FNFS INSTALLATION</headline>
+        <description> ***    POST FNFS REPLACEMENT C/O FOLLOWING ACTIONS/TESTS   *** 
+- IDLE LEAK CHECK IAW AMM: TASK 71-00-00-790-804-G00 PAY ATTENTION TO FOOTNOTE 7 REGARDING EEC FAULTS DUE TO RESIDUAL AIR IN THE FUEL LINES FOLLOWING FUEL NOZZLE REPLACEMENT.
+- TEST NO. 32 - ENGINE IDLE SYSTEM TEST  IAW AMM: TASK 71-00-00-700-808-G00
+- PNEUMATIC ENGINE ON - SYSTEM TEST IAW AMM: 36-00-00-730-801
+POST ENGINE IDLE RUN CHECK FUEL NOZZLE SET FOR EVIDENCE OF LEAKS IAW AMM TASK 71-00-00-790-804-G00
+
+*CHECK THE ONBOARD MAINTENANCE FUNCTION (OMF) FOR ANY NEW FUEL SYSTEM FAULTS POST IDLE RUN*
+
+- TEST NO. 6 - POWER ASSURANCE TEST IAW AMM: TASK 71-00-00-720-802-G00
+
+* UPON COMPLETION OF THE TESTS FOLLOWING INSPECTIONS TO BE CARRIED OUT:
+   -VISUAL INSPECTION OF THE FUEL LINES AND CONNECTIONS IAW AMM TASK 71-00-00-790-804-G00
+   -VISUAL INSPECTION OF THE AIR DUCTS, TUBES, AND SEALS IAW AMM TASK 71-00-00-790-804-G00
+
+*** PARTICULAR ATTENTION APPLIED TO THE 4TH &amp; 7TH STAGE BLEED AIR DUCTS ***
+
+***
+- PERFORM ACCESSORY GEARBOX MANUAL CONTROL COVER LEAK CHECK IAW AMM: 71-00-00-790-804-G00;
+CHECK CONDITION OF THE BORESCOPE PORTS (P), (Q) AND (N) UPON COMPLETION OF THE HIGH POWER CHECK
+REF. WO# 101702643 - FOR ENG NO.1  BSI
+***
+
+C/O INDEPENDENT INSPECTION IAW PAML PN 2003/10.
+
+LATEST REV. OF THE _AMM_ TO BE USED
+
+CONDUCT GENERAL VERIFICATION CHECK</description>
+        <descriptionSign>OZA</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="59eec206-1558-11f0-bbbc-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>300</totalHours>
+              <quantity>1.0</quantity>
+              <duration>300</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="59effa87-1558-11f0-bbbc-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <actions>
+          <action uuid="7fbad317-1581-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ENG#1
+
+- IDLE LEAK CHECK WAS C/O IAW AMM: TASK 71-00-00-790-804-G00 R.23
+- TEST NO. 32 - ENGINE IDLE SYSTEM TEST WAS C/O IAW AMM: TASK 71-00-00-700-808-G00 R.23
+- PNEUMATIC ENGINE ON - SYSTEM TEST WAS C/O IAW AMM: 36-00-00-730-801 R.23
+
+POST ENGINE IDLE RUN FUEL NOZZLE SET WAS INSPECTED FOR EVIDENCE OF LEAKS IAW AMM TASK 71-00-00-790-804-G00 R.23
+
+*THE ONBOARD MAINTENANCE FUNCTION (OMF) CHECKED FOR ANY NEW FUEL SYSTEM FAULTS POST IDLE RUN*
+
+RESUTLS: -SATIS, ALL TESTS PASS, NO LEAKS NOTED, NO ACTIVE FAULTS
+
+REF. TO PAM FROM 185 (REV. 01) FNS REPLACEMENT PROCESS SHEET
+
+SEE WORK STEP 2 FOR CONTINUATION OF THE TAKS
+
+GENERAL VERIFICATION CHECK WAS C/O IAW PAML PN 2005/21 (REV. 27)</actionText>
+            <closingAction>Y</closingAction>
+            <performedData>
+              <performedDateTime>2025-04-09T19:00:00.000Z</performedDateTime>
+              <performedSign>IVR</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15 (FOLLOWED BY LEAK CHECK) AND TO VERIFY NO LEAKS FROM THE FUEL NOZZLE SET
+
+DATE:   09. APR .2025   TIME:   19:00 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-09T19:00:00.000Z</performedDateTime>
+                <performedSign>IVR</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION WAS C/O ACC TO PAML PN 2003/10 (REV. 35) TABLE 2 ITEM 15 (FOLLOWED BY LEAK CHECK) AND TO VERIFY NO LEAKS FROM THE FUEL NOZZLE SET
+
+DATE:   09. APR .2025   TIME:   19:00 UTC</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-09T19:00:00.000Z</performedDateTime>
+                <performedSign>DSK</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+      <workStep uuid="9fb52a40-1581-11f0-bbbc-005056b18588">
+        <workStepSequenceNumber>4</workStepSequenceNumber>
+        <workStepDateTime>2025-04-09T20:31:00.000Z</workStepDateTime>
+        <headline>ENG#1 FINAL TESTS</headline>
+        <description>DO THE FOLLOWING: 
+
+- TEST NO. 6 - POWER ASSURANCE TEST IAW AMM: TASK 71-00-00-720-802-G00
+
+* UPON COMPLETION OF THE TESTS FOLLOWING INSPECTIONS TO BE CARRIED OUT:
+   -VISUAL INSPECTION OF THE FUEL LINES AND CONNECTIONS IAW AMM TASK 71-00-00-790-804-G00
+   -VISUAL INSPECTION OF THE AIR DUCTS, TUBES, AND SEALS IAW AMM TASK 71-00-00-790-804-G00
+
+*** PARTICULAR ATTENTION APPLIED TO THE 4TH &amp; 7TH STAGE BLEED AIR DUCTS ***
+
+***
+- PERFORM ACCESSORY GEARBOX MANUAL CONTROL COVER LEAK CHECK IAW AMM: 71-00-00-790-804-G00;
+CHECK CONDITION OF THE BORESCOPE PORTS (P), (Q) AND (N) UPON COMPLETION OF THE HIGH POWER CHECK
+REF. WO# 101702643 - FOR ENG NO.1  BSI
+***
+
+C/O INDEPENDENT INSPECTION IAW PAML PN 2003/10.
+
+LATEST REV. OF THE _AMM_ TO BE USED
+
+CONDUCT GENERAL VERIFICATION CHECK.</description>
+        <descriptionSign>IVR</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="001986bb-1582-11f0-bbbc-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>180</totalHours>
+              <quantity>1.0</quantity>
+              <duration>180</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="001a982c-1582-11f0-bbbc-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+            <resourceRequirement uuid="001bf7bd-1582-11f0-bbbc-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>180</totalHours>
+              <quantity>1.0</quantity>
+              <duration>180</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="001d574e-1582-11f0-bbbc-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>MECH</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <actions>
+          <action uuid="ecfb16c9-15d9-11f0-bbbc-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ENGINE #1 TEST NO. 6 - POWER ASSURANCE TEST PERFORMED IAW AMM TASK 71-00-00-720-802-G00 REV. 23 - SATIS.
+
+RECORDED VALUES:
+OAT: 3 DEG C
+ELEVATION: 400FT
+N1 TRIM: 6
+ENGINE RATING: 1B27
+N1: 68.5%
+N2: 98.6%
+EGT: 712 DEG C
+FF: 1860 KGS/HR
+
+N2 MARGIN: 5.86%
+EGT MARGIN: 51.72 DEG C
+
+VISUAL INSPECTION OF THE FUEL LINES AND CONNECTIONS PERFORMED IAW AMM TASK 71-00-00-790-804-G00 REV. 23 - SATIS.
+VISUAL INSPECTION OF THE AIR DUCTS, TUBES, AND SEALS PERFORMED IAW AMM TASK 71-00-00-790-804-G00 REV. 23 - SATIS.
+
+ACCESSORY GEARBOX MANUAL CONTROL COVER LEAK CHECK PERFORMED IAW AMM 71-00-00-790-804-G00 REV. 23 – SATIS.
+CONDITION CHECK OF BORESCOPE PORTS (N), (P) AND (Q) POST HIGH POWER ENGINE RUN PERFORMED – SATIS.
+
+ENGINE RETURNED TO A SERVICEABLE CONDITION.
+
+GENERAL VERIFICATION CHECK PERFORMED.</actionText>
+            <performedData>
+              <performedDateTime>2025-04-10T07:00:00.000Z</performedDateTime>
+              <performedSign>GFD</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSPECTION PERFORMED IAW PAML PN 2003/10 REV. 35. 
+DATE: 10/APR/2025 TIME: 0700</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-10T07:00:00.000Z</performedDateTime>
+                <performedSign>GFD</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION PERFORMED IAW PAML PN 2003/10 REV. 35. 
+DATE: 10/APR/2025 TIME: 0700</inspectionText>
+              <performedData>
+                <performedDateTime>2025-04-10T07:00:00.000Z</performedDateTime>
+                <performedSign>VHV</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="fd23d073-1538-11f0-bbbc-005056b18588">
+        <type>TQ</type>
+        <reference>86329</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 86329</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

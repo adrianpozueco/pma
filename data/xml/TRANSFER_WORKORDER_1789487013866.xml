@@ -1,0 +1,123 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487013865</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:33.865Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="ae55a4d9-3d12-11f1-a458-005056b18588">
+    <workorderNumber>55683304</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00258</aircraftFullRegistration>
+        <aircraftRegistration>REG00258</aircraftRegistration>
+        <aircraftMsn>44686</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55683304</barcode>
+      <ataChapter>23-40</ataChapter>
+      <issueData>
+        <issueDate>2026-04-20Z</issueDate>
+        <issueSign>MAFI2</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-20T22:00:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2269696</closingTahMinutes>
+        <closingTac>17423</closingTac>
+        <closingSign>MAFI2</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-20T22:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-20T22:00:00.000Z</dateTime>
+        <releaseSign>MAFI2</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="ae56dd5a-3d12-11f1-a458-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-20T22:00:00.000Z</workStepDateTime>
+        <description>REF TO HIL 41622642 AFT ATT HANDSET PTT BUTTON INOP</description>
+        <descriptionSign>MAFI2</descriptionSign>
+        <actions>
+          <action uuid="ae59274b-3d12-11f1-a458-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>HANDSET REPLACED AND TESTED IAW AMM 23-42-01 REV 89
+HIL CLOSED
+
+P/N INT600
+B/N 867984</actionText>
+            <performedData>
+              <performedDateTime>2026-04-20T22:00:00.000Z</performedDateTime>
+              <performedSign>MAFI2</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="ae5afc0c-3d12-11f1-a458-005056b18588">
+                <position>AFT CAB</position>
+                <labelNumber>4104732</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>D23172</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F63728</serialNumber>
+                </partOn>
+                <certificateNumber>MEH-E-2026-02674</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

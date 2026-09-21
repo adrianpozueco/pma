@@ -1,0 +1,119 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486950368</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:30.368Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="bb5d58de-051e-11f0-a8b0-005056b18588">
+    <workorderNumber>55431139</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00045</aircraftFullRegistration>
+        <aircraftRegistration>REG00045</aircraftRegistration>
+        <aircraftMsn>62326</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55431139</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-03-19Z</issueDate>
+        <issueSign>JOMO</issueSign>
+        <issueStation>AGP</issueStation>
+        <issueFltTo>AGP</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-03-19T00:57:00.000Z</closingDateTime>
+        <closingStation>AGP</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>721175</closingTahMinutes>
+        <closingTac>6552</closingTac>
+        <closingSign>JOMO</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-03-19T00:57:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-03-19T00:57:00.000Z</dateTime>
+        <releaseSign>JOMO</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="bb5fc9df-051e-11f0-a8b0-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-03-19T00:56:00.000Z</workStepDateTime>
+        <description>RIGHT LANDING LIGHT INOP</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="bb619ea0-051e-11f0-a8b0-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FIXED LANDING LIGHT POWER SUPPLY REPLACED AND TEST SATIS IAW AMM 33-42-21-960-802 REV23.</actionText>
+            <performedData>
+              <performedDateTime>2025-03-19T00:56:00.000Z</performedDateTime>
+              <performedSign>JOMO</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="bb632541-051e-11f0-a8b0-005056b18588">
+                <position>RH</position>
+                <labelNumber>3811932</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>5133</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>1200</serialNumber>
+                </partOn>
+                <certificateNumber>352477226</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

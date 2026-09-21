@@ -1,0 +1,150 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487126871</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:26.871Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="46f49d8e-928f-11f0-9f6e-005056b18588">
+    <workorderNumber>190313779</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00263</aircraftFullRegistration>
+        <aircraftRegistration>REG00263</aircraftRegistration>
+        <aircraftMsn>65085</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190313779</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-09-15Z</issueDate>
+        <issueSign>MKSN</issueSign>
+        <issueStation>BER</issueStation>
+        <issueFltTo>BER</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <position>31ABC</position>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2025-09-15T20:30:00.000Z</closingDateTime>
+        <closingStation>BER</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>826409</closingTahMinutes>
+        <closingTac>6495</closingTac>
+        <closingSign>MKSN</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-15T20:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-15T20:30:00.000Z</dateTime>
+        <releaseSign>MKSN</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="46f5d60f-928f-11f0-9f6e-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-09-15T19:00:00.000Z</workStepDateTime>
+        <description>IN REF TO HIL #190313772
+WINDOW LT AT POS 31ABC IS WORKING PARTIALLY</description>
+        <descriptionSign>MKSN</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="8d54aa02-928f-11f0-9f6e-005056b18588">
+            <partNumber>9651-35-0005</partNumber>
+            <description>LIGHT BSI-35 IN TYPE F HARNESS CONFI</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="46f7d1e0-928f-11f0-9f6e-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT AT POS 31ABC REPLACED IAW AMM 33-21-00-960-801 REV. 25. TEST SATIS.
+
+HIL CLOSED
+
+PARTICIPANT: SRF</actionText>
+            <performedData>
+              <performedDateTime>2025-09-15T20:30:00.000Z</performedDateTime>
+              <performedSign>MKSN</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="46f95881-928f-11f0-9f6e-005056b18588">
+                <position>31ABC</position>
+                <labelNumber>3902227</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>52268</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>58386</serialNumber>
+                </partOn>
+                <certificateNumber>20103117</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="78c51b65-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>92452</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 92452</description>
+      </reference>
+      <reference uuid="46fbc982-928f-11f0-9f6e-005056b18588">
+        <type>WO</type>
+        <reference>190313772</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>190313772</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

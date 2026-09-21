@@ -1,0 +1,105 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486940524</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:20.524Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="65b695e6-65fa-11f1-b670-005056b18588">
+    <workorderNumber>55387934</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00300</aircraftFullRegistration>
+        <aircraftRegistration>REG00300</aircraftRegistration>
+        <aircraftMsn>62339</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55387934</barcode>
+      <ataChapter>38-00</ataChapter>
+      <issueData>
+        <issueDate>2026-06-12Z</issueDate>
+        <issueSign>GLG</issueSign>
+        <issueStation>LIS</issueStation>
+        <issueFltTo>LIS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-12T01:01:00.000Z</closingDateTime>
+        <closingStation>LIS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>921519</closingTahMinutes>
+        <closingTac>8062</closingTac>
+        <closingSign>GLG</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-12T01:01:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-12T01:01:00.000Z</dateTime>
+        <releaseSign>GLG</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="65b7a757-65fa-11f1-b670-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-12T01:00:00.000Z</workStepDateTime>
+        <description>REF W/O 55387931 FWD LAVATORY WITH FAUCET LEAKING</description>
+        <descriptionSign>GLG</descriptionSign>
+        <actions>
+          <action uuid="65b9f148-65fa-11f1-b670-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD LAV FAUCET TAP REPLACED IAW AMM 38-11-05/401 REV 28
+HIL CLOSED. A/C SERVICEABLE. NO LEAK</actionText>
+            <performedData>
+              <performedDateTime>2026-06-12T01:01:00.000Z</performedDateTime>
+              <performedSign>RFP</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

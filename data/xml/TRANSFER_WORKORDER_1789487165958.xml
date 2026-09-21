@@ -1,0 +1,154 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487165957</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:05.957Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="08a72543-4ca2-11f0-bb09-005056b18588">
+    <workorderNumber>190461766</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00369</aircraftFullRegistration>
+        <aircraftRegistration>REG00369</aircraftRegistration>
+        <aircraftMsn>62365</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190461766</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-06-18Z</issueDate>
+        <issueSign>CIG</issueSign>
+        <issueStation>MAN</issueStation>
+        <issueFltTo>MAN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-06-19T00:17:00.000Z</closingDateTime>
+        <closingStation>MAN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>458566</closingTahMinutes>
+        <closingTac>3591</closingTac>
+        <closingSign>CIG</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-19T00:17:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-19T00:17:00.000Z</dateTime>
+        <releaseSign>CIG</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="08a836b4-4ca2-11f0-bb09-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-06-18T22:15:00.000Z</workStepDateTime>
+        <description>REF HIL 190461764 - WINDOW LIGHTS HALF NOT ILLUMINATING 10A, 5F, 9F, 22A</description>
+        <descriptionSign>CIG</descriptionSign>
+        <actions>
+          <action uuid="3e4334ba-4ca2-11f0-bb09-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT LED ASSEMBLIES AT ROWS 5F, 10A AND 22A REPLACED AND TESTED SATIS IAW AMM 33-21-00-960-801 REV.24. 
+
+NIL SPARE AVAILABLE TO REPLACE ASSEMBLY AT ROW 9F, H.I.L ITEM REMAINS OPEN</actionText>
+            <performedData>
+              <performedDateTime>2025-06-19T00:12:00.000Z</performedDateTime>
+              <performedSign>CIG</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="5cb00e15-4ca2-11f0-bb09-005056b18588">
+                <position>10ABC</position>
+                <labelNumber>3843108</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0003</partNumber>
+                  <serialNumber>18575</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0003</partNumber>
+                  <serialNumber>15521</serialNumber>
+                </partOn>
+                <certificateNumber>20093974-1.000</certificateNumber>
+              </componentChange>
+              <componentChange uuid="74fe96e0-4ca2-11f0-bb09-005056b18588">
+                <position>5DEF</position>
+                <labelNumber>3879769</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>67084</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>30060</serialNumber>
+                </partOn>
+                <certificateNumber>20100045</certificateNumber>
+              </componentChange>
+              <componentChange uuid="887c36ac-4ca2-11f0-bb09-005056b18588">
+                <position>22ABC</position>
+                <labelNumber>3880199</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>67074</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>53691</serialNumber>
+                </partOn>
+                <certificateNumber>20099585</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="d5f9dc48-4ca2-11f0-bb09-005056b18588">
+        <type>TQ</type>
+        <reference>89252</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 89252</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

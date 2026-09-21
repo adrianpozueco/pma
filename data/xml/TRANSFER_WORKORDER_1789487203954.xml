@@ -1,0 +1,132 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487203953</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:43.953Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="b8950264-cf28-11f0-9874-005056b18588">
+    <workorderNumber>190572910</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00322</aircraftFullRegistration>
+        <aircraftRegistration>REG00322</aircraftRegistration>
+        <aircraftMsn>44732</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190572910</barcode>
+      <ataChapter>27-00</ataChapter>
+      <issueData>
+        <issueDate>2025-12-02Z</issueDate>
+        <issueSign>GIMA2</issueSign>
+        <issueStation>FCO</issueStation>
+        <issueFltTo>FCO</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-12-02T02:43:00.000Z</closingDateTime>
+        <closingStation>FCO</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1693751</closingTahMinutes>
+        <closingTac>17752</closingTac>
+        <closingSign>GIMA2</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-12-02T02:43:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-12-02T02:43:00.000Z</dateTime>
+        <releaseSign>GIMA2</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="b896fe35-cf28-11f0-9874-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-02T02:30:00.000Z</workStepDateTime>
+        <description>DURING APPROACH FEEL DIFF PRESS LIGHT ON.
+LIGHT EXTINGUISHED AFTER 5 MINUTES.</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="b898d2f6-cf28-11f0-9874-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REF WDM 30-31-11-4 REV 127. LH ELEVATOR PITOT FOUND WITH HEATING ELEMENT RESISTANCE OF 7 OHM.
+LH ELEVATOR PITOT REPLACED IAW AMM 27-31-94-00-801 REV 88 AND TEMPORARY EXCEPTION FOR P/N: 0851HT2 MT-57/2025/02.
+
+CONSUMABLE MATERIAL
+P/N: 232N9003-1   B/N: 1425607
+
+TOOLING
+P/N: M1   S/N: DC003129
+P/N: FLUKE177   S/N: 57750227
+P/N: DPS1000   S/N: 01317
+P/N: 11037   S/N: 2014/184448
+
+WORK PERFORMED ALSO BY LZZ</actionText>
+            <performedData>
+              <performedDateTime>2025-12-02T02:30:00.000Z</performedDateTime>
+              <performedSign>GIMA2</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="b89a5997-cf28-11f0-9874-005056b18588">
+                <position>LH STAB</position>
+                <labelNumber>3983391</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>338483</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>475573</serialNumber>
+                </partOn>
+                <certificateNumber>408442374</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

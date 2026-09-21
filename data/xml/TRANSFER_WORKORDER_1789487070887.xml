@@ -1,0 +1,106 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487070885</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:30.885Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="eb5c74ba-1e83-11f1-a24f-005056b18588">
+    <workorderNumber>190087743</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00138</aircraftFullRegistration>
+        <aircraftRegistration>REG00138</aircraftRegistration>
+        <aircraftMsn>44859</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190087743</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-03-13Z</issueDate>
+        <issueSign>OAL1</issueSign>
+        <issueStation>OPO</issueStation>
+        <issueFltTo>OPO</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-03-13T02:44:00.000Z</closingDateTime>
+        <closingStation>OPO</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1385480</closingTahMinutes>
+        <closingTac>10828</closingTac>
+        <closingSign>OAL1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-13T02:44:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-13T02:44:00.000Z</dateTime>
+        <releaseSign>OAL1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="eb5d862b-1e83-11f1-a24f-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-03-13T02:22:00.000Z</workStepDateTime>
+        <description>IN REF. TO HIL 190087738 "BSI LIGHT AT 19F INOP"</description>
+        <descriptionSign>OAL1</descriptionSign>
+        <actions>
+          <action uuid="eb5f33dc-1e83-11f1-a24f-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>BSI LED LIGHT ASSY REPLACED IAW AMM 33-21-0-960-804 REV.89.
+TEST SATIS
+*HIL CLOSED*</actionText>
+            <performedData>
+              <performedDateTime>2026-03-13T02:23:00.000Z</performedDateTime>
+              <performedSign>OJS</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

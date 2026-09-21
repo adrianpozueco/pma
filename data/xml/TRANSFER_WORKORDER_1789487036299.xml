@@ -1,0 +1,187 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487036297</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:56.297Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="9e51ab35-71ef-11f0-a4a7-005056b18588">
+    <workorderNumber>104018879</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00353</aircraftFullRegistration>
+        <aircraftRegistration>REG00353</aircraftRegistration>
+        <aircraftMsn>33631</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.104018879</barcode>
+      <ataChapter>23-31</ataChapter>
+      <issueData>
+        <issueDate>2025-08-05Z</issueDate>
+        <issueSign>KCY</issueSign>
+        <issueStation>SNN</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-06T23:15:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3253026</closingTahMinutes>
+        <closingTac>31118</closingTac>
+        <closingSign>CISE</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-08-06T23:15:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-08-06T23:15:00.000Z</dateTime>
+        <releaseSign>CISE</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="9e52e3b6-71ef-11f0-a4a7-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-05T11:27:00.000Z</workStepDateTime>
+        <headline>***RIT***</headline>
+        <description>TSRV AVO
+
+BACKGROUND:  FWD HANDSET TRANSMITTING INTERMITTANTLY. PERFORM THE FOLLOWING TASKS:
+
+1. OBSERVING ALL SAFETY PRECAUTIONS, GAIN ACCESS TO THE AIRCRAFT.
+
+2. PERFORM PA PROBLEM FAULT ISOLATION IAW FIM 23-31 TASK 805.
+
+3. IF NFF, REPLACE THE FWD ATTENDANT HANDSET IAW AMM 23-42-01/401.
+
+4. RETURN THE AIRCRAFT TO A SERVICEABLE CONDITION.</description>
+        <descriptionSign>KCY</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="9e546a57-71ef-11f0-a4a7-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>120</totalHours>
+              <quantity>1.0</quantity>
+              <duration>120</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="9e55c9e8-71ef-11f0-a4a7-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1/B2</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <requiredParts>
+          <partRequest uuid="9e599a79-71ef-11f0-a4a7-005056b18588">
+            <partNumber>285W0024-1B</partNumber>
+            <description>HANDSET - DARK GREY</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="e2c37dc4-ae4e-11f0-95d9-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FIM 23-31 T 805 REV 87 C/OUT WITH NO FAULTS FOUND
+FWD ATTENDANT HANDSET REPLACED IAW AMM 23-40-01/401 REV 86
+PA SYSTEM TESTED SATIS</actionText>
+            <performedData>
+              <performedDateTime>2025-08-06T23:15:00.000Z</performedDateTime>
+              <performedSign>CISE</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="e2c4b645-ae4e-11f0-95d9-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>3916266</labelNumber>
+                <partOff>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>D22465</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>285W0024-1B</partNumber>
+                  <serialNumber>F52660</serialNumber>
+                </partOn>
+                <certificateNumber>151549</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS - T37492925 DUB-BGY TUE 05/08 LIMA</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

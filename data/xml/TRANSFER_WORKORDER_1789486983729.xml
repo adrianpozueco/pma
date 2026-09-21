@@ -1,0 +1,107 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486983729</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:03.728Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="b947d787-d6c1-11ef-85cb-005056b18588">
+    <workorderNumber>55563387</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00241</aircraftFullRegistration>
+        <aircraftRegistration>REG00241</aircraftRegistration>
+        <aircraftMsn>44760</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55563387</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-01-19Z</issueDate>
+        <issueSign>MOF</issueSign>
+        <issueStation>BGY</issueStation>
+        <issueFltTo>BGY</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-01-19T02:30:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1407014</closingTahMinutes>
+        <closingTac>14743</closingTac>
+        <closingSign>MOF</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-01-19T02:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-01-19T02:30:00.000Z</dateTime>
+        <releaseSign>MOF</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="b949fa68-d6c1-11ef-85cb-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-01-19T02:30:00.000Z</workStepDateTime>
+        <description>REF HIL 55563379 SET OF SIDEWALL LIGHT NOT ILLUMINATED</description>
+        <descriptionSign>MOF</descriptionSign>
+        <actions>
+          <action uuid="b94bcf29-d6c1-11ef-85cb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LT 18 ABC REPLACED IAW AMM 33-21-00-960-804 R 85 SET OF LIGHT RECOVERED BUT LIGHT AT 18 ABC REMAIN GREEN ALWAYS ON
+SUSPECTED FAIL ON FIT NEW LED ASSY LT REQUIRED 
+OLD CONFIGURATION RESTORED 
+HIL REMAIN OPEN</actionText>
+            <performedData>
+              <performedDateTime>2025-01-19T02:30:00.000Z</performedDateTime>
+              <performedSign>MOF</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

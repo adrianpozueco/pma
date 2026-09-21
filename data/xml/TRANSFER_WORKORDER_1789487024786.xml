@@ -1,0 +1,140 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487024785</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:44.785Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f7aeb8f6-d2d3-11ef-85cb-005056b18588">
+    <workorderNumber>55720387</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00455</aircraftFullRegistration>
+        <aircraftRegistration>REG00455</aircraftRegistration>
+        <aircraftMsn>44807</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55720387</barcode>
+      <ataChapter>33-42</ataChapter>
+      <issueData>
+        <issueDate>2025-01-14Z</issueDate>
+        <issueSign>MIKO1</issueSign>
+        <issueStation>BTS</issueStation>
+        <issueFltTo>BTS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-01-14T01:00:00.000Z</closingDateTime>
+        <closingStation>BTS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1314106</closingTahMinutes>
+        <closingTac>11179</closingTac>
+        <closingSign>MIKO1</closingSign>
+      </closingData>
+      <certification>
+        <number>SK.145.015</number>
+        <dateTime>2025-01-14T01:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>SK.145.015</number>
+        <dateTime>2025-01-14T01:00:00.000Z</dateTime>
+        <releaseSign>MIKO1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f7b066a7-d2d3-11ef-85cb-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-01-14T00:00:00.000Z</workStepDateTime>
+        <description>HIL ITEM: L/H LDG LT INTERMITELY ON/OFF</description>
+        <descriptionSign>MIKO1</descriptionSign>
+        <actions>
+          <action uuid="f7b17818-d2d3-11ef-85cb-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>L/H FIXED LDG LIGHT POWER SUPPLY REPLACED IAW AMM 33-42-01-960-804 REV:84. OPS TEST SATIS.
+HIL ITEM CLOSED.
+
+MAT.USED: P/N: PR1823B1-4	B/N:1256441</actionText>
+            <performedData>
+              <performedDateTime>2025-01-14T01:00:00.000Z</performedDateTime>
+              <performedSign>MIKO1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="f7b28989-d2d3-11ef-85cb-005056b18588">
+                <position>LH</position>
+                <labelNumber>3767489</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>2406</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>0298</serialNumber>
+                </partOn>
+                <certificateNumber>351911695</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="f7b373ea-d2d3-11ef-85cb-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>MIKO1</userSign>
+                <startDateTime>2025-01-13T23:10:00.000Z</startDateTime>
+                <endDateTime>2025-01-14T01:10:00.000Z</endDateTime>
+                <duration>120</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="f7b45e4b-d2d3-11ef-85cb-005056b18588">
+            <type>WO</type>
+            <reference>55720374</reference>
+            <typeDescription>Workorder</typeDescription>
+            <description>55720374</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

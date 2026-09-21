@@ -1,0 +1,125 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486932697</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:12.696Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="9890220b-7f2b-11f1-9888-005056b18588">
+    <workorderNumber>55362325</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00174</aircraftFullRegistration>
+        <aircraftRegistration>REG00174</aircraftRegistration>
+        <aircraftMsn>65878</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55362325</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2026-07-14Z</issueDate>
+        <issueSign>SEKY</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-07-14T02:54:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1114387</closingTahMinutes>
+        <closingTac>9648</closingTac>
+        <closingSign>PBUL</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-07-14T02:54:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-07-14T02:54:00.000Z</dateTime>
+        <releaseSign>PBUL</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="9890e55c-7f2b-11f1-9888-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-07-14T02:24:00.000Z</workStepDateTime>
+        <description>REF HIL 55362312
+
+WINDOW LIGHT 25A BLIBKING/FLASHING GREEN</description>
+        <descriptionSign>SEKY</descriptionSign>
+        <actions>
+          <action uuid="9893083d-7f2b-11f1-9888-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT 25ABC LED LT ASSY REPLACEMENT C/OUT IAW AMM TASK 33-21-00-960-801 REV 28.
+PHASE 2 SOFTWARE LOADING C/OUT IAW AMM TASK 23-42-03-470-801 REV 28. TEST SATISFACTORY.
+
+HIL CLOSED
+
+ASSISTED BY SNDC AND GDZ</actionText>
+            <performedData>
+              <performedDateTime>2026-07-14T02:25:00.000Z</performedDateTime>
+              <performedSign>SEKY</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="f139e37d-7f2b-11f1-9888-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>4184186</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0003</partNumber>
+                  <serialNumber>7536</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0003</partNumber>
+                  <serialNumber>6413</serialNumber>
+                </partOn>
+                <certificateNumber>ARC175246</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

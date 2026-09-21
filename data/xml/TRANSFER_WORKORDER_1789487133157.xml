@@ -1,0 +1,192 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487133156</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:33.156Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="fd777275-5491-11f0-bb09-005056b18588">
+    <workorderNumber>190339325</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00466</aircraftFullRegistration>
+        <aircraftRegistration>REG00466</aircraftRegistration>
+        <aircraftMsn>67111</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190339325</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-06-29Z</issueDate>
+        <issueSign>RNKK</issueSign>
+        <issueStation>VIE</issueStation>
+        <issueFltTo>VIE</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-06-29T02:37:00.000Z</closingDateTime>
+        <closingStation>VIE</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>331197</closingTahMinutes>
+        <closingTac>2647</closingTac>
+        <closingSign>MZO</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-29T02:37:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-29T02:37:00.000Z</dateTime>
+        <releaseSign>MZO</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="fd7883e6-5491-11f0-bb09-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-06-29T02:24:00.000Z</workStepDateTime>
+        <description>- REF TO HIL: 190339319
+WINDOW LT 4ABC / 22ABC / 21DEF / 26DEF / 34ABC HALF OPEN</description>
+        <descriptionSign>RNKK</descriptionSign>
+        <actions>
+          <action uuid="fd7a3197-5491-11f0-bb09-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>- WINDOW LT ASSY OP POSITIONS 4ABC / 22ABC / 26DEF / 34ABC REPLACED AND TESTED IAW AMM: 33-21-00-960-801, 
+REV: 24
+TEST SATIS
+
+- DUE TO WINDOW LT 21DEF NOT REPLACED HIL STAY OPEN</actionText>
+            <performedData>
+              <performedDateTime>2025-06-29T02:26:00.000Z</performedDateTime>
+              <performedSign>RNKK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="fd7b6a18-5491-11f0-bb09-005056b18588">
+                <position>4ABC</position>
+                <labelNumber>3873836</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0001</partNumber>
+                  <serialNumber>12060</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0001</partNumber>
+                  <serialNumber>12726</serialNumber>
+                </partOn>
+                <certificateNumber>20098854</certificateNumber>
+              </componentChange>
+              <componentChange uuid="fd7c2d69-5491-11f0-bb09-005056b18588">
+                <position>34ABC</position>
+                <labelNumber>3889351</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0001</partNumber>
+                  <serialNumber>12053</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0001</partNumber>
+                  <serialNumber>12101</serialNumber>
+                </partOn>
+                <certificateNumber>20101729</certificateNumber>
+              </componentChange>
+              <componentChange uuid="fd7cc9aa-5491-11f0-bb09-005056b18588">
+                <position>22ABC</position>
+                <labelNumber>3886827</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>71886</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>54914</serialNumber>
+                </partOn>
+                <certificateNumber>148784</certificateNumber>
+              </componentChange>
+              <componentChange uuid="fd7e022b-5491-11f0-bb09-005056b18588">
+                <position>26DEF</position>
+                <labelNumber>3867368</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>24588</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>18970</serialNumber>
+                </partOn>
+                <certificateNumber>146603</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="fd7f88cc-5491-11f0-bb09-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>BDRC</userSign>
+                <startDateTime>2025-06-29T01:32:00.000Z</startDateTime>
+                <endDateTime>2025-06-29T02:32:00.000Z</endDateTime>
+                <duration>60</duration>
+                <typeOfWork>LB</typeOfWork>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="fd80732d-5491-11f0-bb09-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>RNKK</userSign>
+                <startDateTime>2025-06-29T01:32:00.000Z</startDateTime>
+                <endDateTime>2025-06-29T02:32:00.000Z</endDateTime>
+                <duration>60</duration>
+                <typeOfWork>LB</typeOfWork>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="fd81abae-5491-11f0-bb09-005056b18588">
+            <category>WO</category>
+            <type>WO</type>
+            <reference>190339319</reference>
+            <typeDescription>Workorder</typeDescription>
+            <description>190339319</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

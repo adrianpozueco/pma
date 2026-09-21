@@ -1,0 +1,153 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486937450</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:17.450Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="07d472ea-b11c-11f1-8509-005056b1ed97">
+    <workorderNumber>55378087</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00045</aircraftFullRegistration>
+        <aircraftRegistration>REG00045</aircraftRegistration>
+        <aircraftMsn>62326</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55378087</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-02-12Z</issueDate>
+        <issueSign>8888</issueSign>
+        <issueStation>BER</issueStation>
+        <issueFltTo>BER</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-13T02:00:00.000Z</closingDateTime>
+        <closingStation>BER</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>701065</closingTahMinutes>
+        <closingTac>6408</closingTac>
+        <closingSign>YILDR</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-13T02:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-02-13T02:00:00.000Z</dateTime>
+        <releaseSign>YILDR</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="07d7320b-b11c-11f1-8509-005056b1ed97">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-12T21:00:00.000Z</workStepDateTime>
+        <description>R/H LANDING LGT AND
+RH RWY TURNOFF LGT
+WORKING NOW AND THEN</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="07d9ca1c-b11c-11f1-8509-005056b1ed97">
+            <actionType>Action</actionType>
+            <actionText>IT WAS COMPLAINT BEFORE, TESTED OK
+BUT DUE PREVIOUS COMPLAIN SUSPECTED LRU RH LANDING LT POWER SUPPLY REPLACED, CONNECTORS CLEANED WIRES CHECKED TESTED ALL OK IAW AMM 33-42-21 R.23
+
+CONSUMABLE USED 1EA
+PN:PR1826B1-2
+BN:1327211
+
+TORQUE W.
+PN:11037
+SN:2016/231698
+
+BONDING M.
+PN: M1
+SN: DC008255
+
+PARTICIPANTS: VIK, NSH, PMB, KIL</actionText>
+            <performedData>
+              <performedDateTime>2025-02-13T02:00:00.000Z</performedDateTime>
+              <performedSign>YILDR</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="07db77cd-b11c-11f1-8509-005056b1ed97">
+                <position>RH</position>
+                <labelNumber>3783636</labelNumber>
+                <partOff>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>6317</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>72605363-1</partNumber>
+                  <serialNumber>6225</serialNumber>
+                </partOn>
+                <certificateNumber>352057208</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <uplifts>
+              <oilUplifts>
+                <uplift>
+                  <code>ENGINE1</code>
+                  <measure>1.0</measure>
+                </uplift>
+                <uplift>
+                  <code>ENGINE2</code>
+                  <measure>1.0</measure>
+                </uplift>
+                <uplift>
+                  <code>IDG2</code>
+                  <measure>1.0</measure>
+                </uplift>
+                <sign>KUN</sign>
+              </oilUplifts>
+            </uplifts>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

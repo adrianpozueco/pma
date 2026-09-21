@@ -1,0 +1,125 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487216524</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:56.524Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0372908b-6392-11f0-a4a7-005056b18588">
+    <workorderNumber>190605893</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00250</aircraftFullRegistration>
+        <aircraftRegistration>REG00250</aircraftRegistration>
+        <aircraftMsn>44731</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190605893</barcode>
+      <ataChapter>36-00</ataChapter>
+      <issueData>
+        <issueDate>2025-07-18Z</issueDate>
+        <issueSign>POM</issueSign>
+        <issueStation>SVQ</issueStation>
+        <issueFltTo>SVQ</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-18T04:45:00.000Z</closingDateTime>
+        <closingStation>SVQ</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1662206</closingTahMinutes>
+        <closingTac>17201</closingTac>
+        <closingSign>POM</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-18T04:45:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-18T04:45:00.000Z</dateTime>
+        <releaseSign>POM</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="0374172c-6392-11f0-a4a7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-18T04:34:00.000Z</workStepDateTime>
+        <description>REF HIL 190605888 ``#1 ENGINE BLEED TRIP OFF NON RESETEABLE``</description>
+        <descriptionSign>POM</descriptionSign>
+        <actions>
+          <action uuid="03774b7d-6392-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>PNEUMATIC HEALTH CHECK OF THE BLEED COMPONENT C/OIAW AMM 36-11-00-700-801 REV 86
+DURING SUB TASK 36-11-00-720-040 (STEP 5) FOUND VALUES GREATER THAN 25 PSI , ACCORDING TO THIS POINT HSR MUST BE REPLACED .
+
+HSR REPLACED IAW AMM 36-11-07 REV 86  TESTED SATIS (NEW VALUES 16 PSI)
+NOW ALL VALUES WITHIN LIMITS ,CONSIDERED SYSTEM SERVICEABLE
+
+***HIL CLOSED***</actionText>
+            <performedData>
+              <performedDateTime>2025-07-18T04:37:00.000Z</performedDateTime>
+              <performedSign>POM</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="0378f92e-6392-11f0-a4a7-005056b18588">
+                <position>#1</position>
+                <labelNumber>3853235</labelNumber>
+                <partOff>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>19585</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>12577</serialNumber>
+                </partOn>
+                <certificateNumber>353059259</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,224 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487031228</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:51.228Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="56063f5b-038c-11f0-a8b0-005056b18588">
+    <workorderNumber>102555211</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <workorderOriginType>AMP</workorderOriginType>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00312</aircraftFullRegistration>
+        <aircraftRegistration>REG00312</aircraftRegistration>
+        <aircraftMsn>62368</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.102555211</barcode>
+      <ataChapter>72-00</ataChapter>
+      <issueData>
+        <issueDateTime>2025-03-17T01:58:00.000Z</issueDateTime>
+        <issueSign>GLO</issueSign>
+        <issueStation>DUB</issueStation>
+        <issueFltTo>DUB</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <position>#2 ENG</position>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2025-03-17T05:23:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>249397</closingTahMinutes>
+        <closingTac>1876</closingTac>
+        <closingSign>EDPI1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-03-17T05:23:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-03-17T05:23:00.000Z</dateTime>
+        <releaseSign>EDPI1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="56079eec-038c-11f0-a8b0-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-03-17T01:58:00.000Z</workStepDateTime>
+        <headline>FINDING (NRC) DOCUMENT LEAP-BORESCOPE</headline>
+        <description>REF WO 101761967
+
+POST LEAP BORESCOPE INSPECTION X 2 FUEL NOZZLES TO BE REPLACED. (#5 &amp; #8)</description>
+        <descriptionSign>GLO</descriptionSign>
+        <actions>
+          <action uuid="560b215d-038c-11f0-a8b0-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FOR ACCESS ON THE RH SIDE  FUEL NOZZLES REPLACEMENT, 
+
+PRSOV &amp; HPSOV REMOVED IAW AMM 36-11-04-00-801 &amp; 36-11-07-000-801 REV 23, 
+
+TBV AND STARTER BLEED VALVE REMOVED, CONECTORS OF WIRE HARNESS HJ5 DISCONECTED PRSOV AND HPSOV REMOVED, BRAIDED FLEX HOSE FROM ECS DUCT REMOVED, ECS MIX MANIFOLD DUCT REMOVED IAW AMM 36-11-01-000-801 REV 23, 
+BAI DUCT REMOVED IAW AMM 36-11-01-000-801 REV 23 , STARTER BLEED DUCT REMOVED 7TH STAGE AIR TUBE REMOVED    
+
+#5 TO #8 FUEL NOZZLES REMOVED IAW AMM 73-11-05-000-802-G00 RV23</actionText>
+            <performedData>
+              <performedDateTime>2025-03-17T02:07:00.000Z</performedDateTime>
+              <performedSign>GLO</performedSign>
+            </performedData>
+          </action>
+          <action uuid="560de07e-038c-11f0-a8b0-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>#5 &amp; #8 FUEL NOZZLES INSTALLED IAW AMM 73-11-05-400-802-G00 RV23 
+PRSOV &amp; HPSOV INSTALLED  IAW AMM 36-11-04-400-801 &amp; 36-11-07-400-801 REV 23, 
+TBV AND STARTER BLEED VALVE INSTALLED, CONECTORS OF WIRE HARNESS HJ5 INSTALLED PRSOV AND HPSOV INSTALLED, BRAIDED FLEX HOSE FROM ECS DUCT INSTALLED, ECS MIX MANIFOLD DUCT INSTALLED IAW AMM 36-11-01-400-801 REV 23, 
+BAI DUCT INSTALLED IAW AMM 36-11-01-400-801 REV 23
+STARTER BLEED DUCT INSTALLED 7TH STAGE AIR TUBE INSTALLED ,LPTACC AND HPTACC VALVES INSTALLED IAW AMM 75-24-01-400-801-G00 &amp; 75-24-04-000-801-G00 REV 23,
+
+NEXT STEP IN W/O: 
+
+PERFORM TEST 4 - AN IDLE-POWER LEAK CHECK TBCO IAW AMM  71-00-00-790-804-G00 REV 23      
+
+FUEL NOZZLE INST TEST TBCO IAW AMM  73-11-05-420-323 REV 23      
+
+POWER ASSURANCE TEST TBCO IAW AMM 71-00-00-720-802 REV 23</actionText>
+            <performedData>
+              <performedDateTime>2025-03-17T05:02:00.000Z</performedDateTime>
+              <performedSign>EDPI1</performedSign>
+            </performedData>
+            <inspection>
+              <headline>INITIAL INSP</headline>
+              <inspectionText>INITIAL INSP C/OUT IAW MOE 2.23 ISS #2 REV 5</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-17T05:03:00.000Z</performedDateTime>
+                <performedSign>EDPI1</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <headline>INDEPENDENT INSP</headline>
+              <inspectionText>INDEPENDENT INSP C/OUT IAW MOE 2.23 ISS #2 REV 5</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-17T05:03:00.000Z</performedDateTime>
+                <performedSign>GLO</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="5611b110-038c-11f0-a8b0-005056b18588">
+                <position>#2</position>
+                <labelNumber>3815981</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT1C969</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNH584</serialNumber>
+                </partOn>
+                <certificateNumber>TCA25A-00216</certificateNumber>
+              </componentChange>
+              <componentChange uuid="560f8e2f-038c-11f0-a8b0-005056b18588">
+                <position>#2</position>
+                <labelNumber>3815971</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT1C966</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNH581</serialNumber>
+                </partOn>
+                <certificateNumber>TCA25A-00213</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+          <action uuid="5612c281-038c-11f0-a8b0-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>TEST 4 - AN IDLE-POWER LEAK CHECK C/O IAW AMM TASK 71-00-00-790-804-G00 REV 23
+
+FUEL NOZZLE INST TEST C/O IAW AMM SUBTASK 73-11-05-420-323 REV 23 
+
+PWR ASSURANCE TEST C/O IAW AMM 71-00-00-720-802 REV 23  
+
+RSI COUT FOR FAN COWL IAW MOE 2.25 ISSUE #2 REV 05</actionText>
+            <performedData>
+              <performedDateTime>2025-03-17T05:12:00.000Z</performedDateTime>
+              <performedSign>ALBO1</performedSign>
+            </performedData>
+            <inspection>
+              <headline>INITIAL INSP</headline>
+              <inspectionText>INITIAL INSP C/OUT IAW MOE 2.23 ISS #2 REV 5</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-17T05:12:00.000Z</performedDateTime>
+                <performedSign>ALBO1</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <headline>INDEPENDENT INSP</headline>
+              <inspectionText>INDEPENDENT INSP C/OUT IAW MOE 2.23 ISS #2 REV 5</inspectionText>
+              <performedData>
+                <performedDateTime>2025-03-17T05:12:00.000Z</performedDateTime>
+                <performedSign>EDPI1</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <originWorkorderOfFinding>
+      <uniqueWorkorderReference uuid="d929c17d-cc8a-11ef-85cb-005056b18588" />
+    </originWorkorderOfFinding>
+    <references>
+      <reference uuid="56150c72-038c-11f0-a8b0-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>101761967</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>101761967</description>
+        <remarks>SOURCE EVENT</remarks>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

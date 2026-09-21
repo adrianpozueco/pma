@@ -1,0 +1,129 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487077406</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:37.406Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="d7141833-831b-11f1-9888-005056b18588">
+    <workorderNumber>190112388</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00271</aircraftFullRegistration>
+        <aircraftRegistration>REG00271</aircraftRegistration>
+        <aircraftMsn>35039</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190112388</barcode>
+      <ataChapter>26-00</ataChapter>
+      <issueData>
+        <issueDate>2026-07-19Z</issueDate>
+        <issueSign>PGP</issueSign>
+        <issueStation>MAD</issueStation>
+        <issueFltTo>MAD</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-07-19T02:43:00.000Z</closingDateTime>
+        <closingStation>MAD</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2804238</closingTahMinutes>
+        <closingTac>23872</closingTac>
+        <closingSign>PGP</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-07-19T02:43:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-07-19T02:43:00.000Z</dateTime>
+        <releaseSign>PGP</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="d71577c4-831b-11f1-9888-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-07-19T02:38:00.000Z</workStepDateTime>
+        <description>REF HIL 190073596
+
+"FWD &amp; AFT CARGO FIRE DET SYSTEM LOOP A INOP"</description>
+        <descriptionSign>PGP</descriptionSign>
+        <actions>
+          <action uuid="d71836e5-831b-11f1-9888-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD &amp; AFT CARGO CEU BITE PROCEDURE C/O IAW AFIM 26-16/801 REV 90. 
+
+ON FWD CARGO, FOUND A1 DETECTOR FAULTY &amp; ON AFT CARGO, A2 DETECTOR FAULTY.
+
+AFT CARGO A2 SMOKE DETECTOR REPLACED IAW AMM 26-16-01 REV 90 &amp; TESTED SATIS, AFT CARGO SMOKE DETECTOR SYSTEM WORKING NORMALLY.
+
+DUE NO SPARES, A1 FWD CARGO SMOKE DETECTOR TO BE REPLACED.
+
+HIL REMAINS OPEN</actionText>
+            <performedData>
+              <performedDateTime>2026-07-19T02:39:00.000Z</performedDateTime>
+              <performedSign>PGP</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="d71aa7e6-831b-11f1-9888-005056b18588">
+                <position>AFT</position>
+                <labelNumber>3947145</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>48166</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJA1807</serialNumber>
+                </partOn>
+                <certificateNumber>63756</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

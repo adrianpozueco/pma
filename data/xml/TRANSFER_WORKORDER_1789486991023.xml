@@ -1,0 +1,126 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486991021</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:11.021Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="aa1f7fa1-e80b-11ef-be60-005056b18588">
+    <workorderNumber>55592447</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00057</aircraftFullRegistration>
+        <aircraftRegistration>REG00057</aircraftRegistration>
+        <aircraftMsn>44829</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55592447</barcode>
+      <ataChapter>27-30</ataChapter>
+      <issueData>
+        <issueDate>2025-02-10Z</issueDate>
+        <issueSign>GIMA2</issueSign>
+        <issueStation>CIA</issueStation>
+        <issueFltTo>CIA</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-10T11:27:00.000Z</closingDateTime>
+        <closingStation>CIA</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1216680</closingTahMinutes>
+        <closingTac>11140</closingTac>
+        <closingSign>GIMA2</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-10T11:27:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-10T11:27:00.000Z</dateTime>
+        <releaseSign>GIMA2</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="aa215462-e80b-11ef-be60-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-10T11:22:00.000Z</workStepDateTime>
+        <headline>IT.145.0368</headline>
+        <description>DURING "BEFORE TAXI" FLOW, "RH ELEV PITOT" LIGHT ILLUMINATED.
+FUEL REMAINING WHILE ON STAND 3570 + 3630 = 7200 KGS</description>
+        <descriptionSign>8888</descriptionSign>
+        <actions>
+          <action uuid="aa2461a3-e80b-11ef-be60-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH ELEVATOR PITOT HEATING SYSTEM C/B FOUND TRIPPED.
+RH ELEVATOR PITOT PROBE REPLACED SATIS IAW AMM 27-31-94/401 REV 85.
+C/B RE-SET IAW AMM 20-60-01 REV 85.
+
+CALIBRATED TOOL USED:
+P/N DPS1000   S/N 01202   EXP. 26NOV25</actionText>
+            <performedData>
+              <performedDateTime>2025-02-10T11:24:00.000Z</performedDateTime>
+              <performedSign>GIMA2</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="aa265d74-e80b-11ef-be60-005056b18588">
+                <position>RH STAB</position>
+                <labelNumber>3606257</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>372749</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>457897</serialNumber>
+                </partOn>
+                <certificateNumber>406709945</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

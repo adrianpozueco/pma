@@ -1,0 +1,136 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487078546</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:38.546Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="83842739-9688-11f0-9f6e-005056b18588">
+    <workorderNumber>190118377</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00426</aircraftFullRegistration>
+        <aircraftRegistration>REG00426</aircraftRegistration>
+        <aircraftMsn>36082</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190118377</barcode>
+      <ataChapter>34-00</ataChapter>
+      <issueData>
+        <issueDate>2025-09-21Z</issueDate>
+        <issueSign>PIPU1</issueSign>
+        <issueStation>SUF</issueStation>
+        <issueFltTo>SUF</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-09-21T13:30:00.000Z</closingDateTime>
+        <closingStation>SUF</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3379258</closingTahMinutes>
+        <closingTac>32176</closingTac>
+        <closingSign>CUD</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-09-21T13:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-09-21T13:30:00.000Z</dateTime>
+        <releaseSign>CUD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="8385d4ea-9688-11f0-9f6e-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-09-21T01:00:00.000Z</workStepDateTime>
+        <description>REF PREVIOUS TLP
+ALTIMETER CAPT SIDE ERRONEOUS INDICATION DURING DESCENT POST BIRD STRIKE NEAR PITOT PROBE</description>
+        <descriptionSign>PIPU1</descriptionSign>
+        <actions>
+          <action uuid="e00fe282-96f0-11f0-9f6e-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>AIRSPEED/ALTITUDE CORRECTIVE ACTIONS GUIDE FOLLOWED I.A.W: LB-03-031, REV.131. 
+-&gt; EEC TEST PERFORMED I.A.W. AMM REF: 73-21-00, REV.87, SATIS- NFF. 
+-&gt;LEFT &amp; RIGHT ADIRU`S BITE TEST C/OUT I.A.W. FIM: 34-21/TASK 801, REV.87, NFF. 
+-&gt; LEFT &amp; RIGHT DEU BITE C/OUT I.A.W. FIM: 31-62/TASK 801, REV.87:
+   - FOUND INFLIGHT FAULTS FOR LEGS 1-2, WITH MAINT MSG: 31-65050. 
+FIM 31-62, TASK 875, REV.87 FOLLOWED.
+IN REF TO PREVIOUS TLP, FOUND TRACES OF FOD INSIDE THE CAPT PITOT PROBE. PITOT CAPT SIDE FLUSH C/OUT I.A.W. AMM REF: 34-11-00-170-802, REV.87. FOUND FOD INSIDE THE PITOT PROBE, SUSPECTED BIRD REMAINS INSIDE. 
+LEFT CAPT PITOT PROBE REPLACED I.A.W. AMM REF: 34-11-01-400-801, REV. 87 
+LEAK CHECK C/OUT I.A.W. AMM REF: 34-11-00-790-810, REV. 87, SATIS. 
+AIR DATA PITOT FROM CAPT SIDE HEATER TEST C/OUT I.A.W. AMM REF: 34-11-01-400-801, REV.87 (G), SATIS. 
+
+AIR DATA SYS TEST C/OUT I.A.W. LB-03-31, REV.131 AND AMM REF: 34-21-00-730-802, REV.87.
+ -&gt; NO AIRSPEED/ALTITUDE DISAGREE BETWEEN CAPT /FO SYSTEMS UP TO 41000 FT.
+
+A/C IS SERVICEABLE AND RETURNED TO SERVICEABLE CONDITION. 
+
+ASSISTED BY STAFF IN OJT: VIAM1. 
+
+PARTS USED: P/N- DPS1000, S/N- 01131.</actionText>
+            <performedData>
+              <performedDateTime>2025-09-21T13:30:00.000Z</performedDateTime>
+              <performedSign>CUD</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>PITOT / STATIC QUICK DISCONNECT COUPLINGS INDEPENDENT INSP C/OUT I.A.W. SEAS P/N: 01/18, REV.9 &amp; CAME DAC: PART 1.6, ISS.5, REV.15</inspectionText>
+              <performedData>
+                <performedDateTime>2025-09-21T13:30:00.000Z</performedDateTime>
+                <performedSign>CUD</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>PITOT / STATIC QUICK DISCONNECT COUPLINGS INDEPENDENT REPETITIVE INSP C/OUT I.A.W. SEAS P/N: 01/18, REV.9 &amp; CAME DAC: PART 1.6, ISS.5, REV.15</inspectionText>
+              <performedData>
+                <performedDateTime>2025-09-21T13:30:00.000Z</performedDateTime>
+                <performedSign>SVE</performedSign>
+              </performedData>
+            </doubleInspection>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

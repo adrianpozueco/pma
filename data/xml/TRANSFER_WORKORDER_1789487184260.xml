@@ -1,0 +1,142 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487184259</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:24.259Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="99f9f5ab-3462-11f0-99b7-005056b18588">
+    <workorderNumber>190519499</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00068</aircraftFullRegistration>
+        <aircraftRegistration>REG00068</aircraftRegistration>
+        <aircraftMsn>44753</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190519499</barcode>
+      <ataChapter>33-20</ataChapter>
+      <issueData>
+        <issueDate>2025-05-18Z</issueDate>
+        <issueSign>MIHA1</issueSign>
+        <issueStation>HHN</issueStation>
+        <issueFltTo>HHN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-05-18T23:10:00.000Z</closingDateTime>
+        <closingStation>HHN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1476494</closingTahMinutes>
+        <closingTac>15327</closingTac>
+        <closingSign>MIHA1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-05-18T23:10:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-05-18T23:10:00.000Z</dateTime>
+        <releaseSign>MIHA1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="9a025a1c-3462-11f0-99b7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-05-18T20:30:00.000Z</workStepDateTime>
+        <description>BSI WINDOW LIGHT ROW #10-11 A REPORTED FAULTY - FLICKERING AND DOES NOT RESPONDING ACP SIGNAL</description>
+        <descriptionSign>MIHA1</descriptionSign>
+        <actions>
+          <action uuid="9a0407cd-3462-11f0-99b7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FAULT HAS A HISTORY. 
+FIM 33-20 TASK 803 &amp; 805 REV.86 FOLLOWED. IN REF. OF TT 33-011 AND TT 33-010 REV.00 FULL T/S CARRIED OUT WITH THE BSI LIGHT CABLE TESTER. WIRING CONFIRMED O.K. 
+WINDOW LIGHT 11A REPLACED AND TESTED SATIS I.A.W. AMM 33-21-00-960-804 REV.86. SYSTEM SERVICEABLE
+USED TOOL: P/N: C33001-58   S/N: 117301-03
+
+ASSISTED BY GDL</actionText>
+            <performedData>
+              <performedDateTime>2025-05-18T23:10:00.000Z</performedDateTime>
+              <performedSign>MIHA1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="9a06039e-3462-11f0-99b7-005056b18588">
+                <position>#11</position>
+                <labelNumber>3752520</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>7717</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>13926</serialNumber>
+                </partOn>
+                <certificateNumber>135631</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="9a07b14f-3462-11f0-99b7-005056b18588">
+            <category>FIM</category>
+            <description>33-20 task 803 rev.86</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="9a095f00-3462-11f0-99b7-005056b18588">
+        <category>F</category>
+        <description>190519496</description>
+      </reference>
+      <reference uuid="9af9d218-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>88188</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 88188</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

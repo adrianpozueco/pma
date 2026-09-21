@@ -1,0 +1,148 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487216959</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:56.959Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="e9c4aead-b608-11f0-a240-005056b18588">
+    <workorderNumber>190606928</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00068</aircraftFullRegistration>
+        <aircraftRegistration>REG00068</aircraftRegistration>
+        <aircraftMsn>44753</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190606928</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-10-31Z</issueDate>
+        <issueSign>STNV</issueSign>
+        <issueStation>ARN</issueStation>
+        <issueFltTo>ARN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-10-31T00:20:00.000Z</closingDateTime>
+        <closingStation>ARN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1579722</closingTahMinutes>
+        <closingTac>16319</closingTac>
+        <closingSign>STNV</closingSign>
+      </closingData>
+      <certification>
+        <number>DK.145.0103</number>
+        <dateTime>2025-10-31T00:20:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DK.145.0103</number>
+        <dateTime>2025-10-31T00:20:00.000Z</dateTime>
+        <releaseSign>STNV</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="e9c6354e-b608-11f0-a240-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-10-31T00:20:00.000Z</workStepDateTime>
+        <headline>WINDOW LIGHT</headline>
+        <description>REF WO 190`606`927
+DURING REPL WINDOW LIGHT AT ROW 12ABC DATA LOAD WINDOW ASSY AT ROW 25ABC IS BLINKING</description>
+        <descriptionSign>STNV</descriptionSign>
+        <actions>
+          <action uuid="e9c8cd5f-b608-11f0-a240-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT ASSY REPL IAW AMM 33-21-00-960-804, R87
+TESTED, SATIS
+WINDOWS WORKING PROPERLY</actionText>
+            <performedData>
+              <performedDateTime>2025-10-31T00:20:00.000Z</performedDateTime>
+              <performedSign>STNV</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="3520d3db-b609-11f0-a240-005056b18588">
+                <position>#25 LH</position>
+                <labelNumber>3907925</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>7753</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0004</partNumber>
+                  <serialNumber>25559</serialNumber>
+                </partOn>
+                <certificateNumber>66558</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="0ef3448f-b609-11f0-a240-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>STNV</userSign>
+                <startDateTime>2025-10-31T02:24:00.000Z</startDateTime>
+                <endDateTime>2025-10-31T03:24:00.000Z</endDateTime>
+                <duration>60</duration>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="166bcdf0-b609-11f0-a240-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>FBK</userSign>
+                <startDateTime>2025-10-31T02:24:00.000Z</startDateTime>
+                <endDateTime>2025-10-31T03:24:00.000Z</endDateTime>
+                <duration>60</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="8ba3211b-b609-11f0-a240-005056b18588">
+        <type>TQ</type>
+        <reference>94300</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 94300</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,129 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487002721</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:22.721Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0b1e4075-6974-11f0-a4a7-005056b18588">
+    <workorderNumber>55629155</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00071</aircraftFullRegistration>
+        <aircraftRegistration>REG00071</aircraftRegistration>
+        <aircraftMsn>44793</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55629155</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-07-25Z</issueDate>
+        <issueSign>TLSE</issueSign>
+        <issueStation>TLS</issueStation>
+        <issueFltTo>TLS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-25T14:10:00.000Z</closingDateTime>
+        <closingStation>TLS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1399691</closingTahMinutes>
+        <closingTac>14743</closingTac>
+        <closingSign>ZLS</closingSign>
+      </closingData>
+      <certification>
+        <number>DE.145.0124</number>
+        <dateTime>2025-07-25T14:10:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>DE.145.0124</number>
+        <dateTime>2025-07-25T14:10:00.000Z</dateTime>
+        <releaseSign>ZLS</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="0b1fc716-6974-11f0-a4a7-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-25T14:10:00.000Z</workStepDateTime>
+        <headline>REF TLP 556291154</headline>
+        <description>REF TLP 556291154
+LIGHTS IN CAB ROWS 18-23 DEF NOT WORKING</description>
+        <descriptionSign>ZLS</descriptionSign>
+        <actions>
+          <action uuid="711660b8-6974-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>HIL 556291154 CLOSED/VOIDED
+REPLACED LAMP AY AT 18DEF
+SOFTWARE LOADED AND OPS TESTED - ALL OK
+
+A/C RETURNED TO SERVICE
+
+IAW AMM 33-21-00-960-804 REV 86</actionText>
+            <performedData>
+              <performedDateTime>2025-07-25T14:10:00.000Z</performedDateTime>
+              <performedSign>ZLS</performedSign>
+            </performedData>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="71199509-6974-11f0-a4a7-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>ZLS</userSign>
+                <startDateTime>2025-07-25T14:27:00.000Z</startDateTime>
+                <endDateTime>2025-07-25T16:27:00.000Z</endDateTime>
+                <duration>120</duration>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="711b90da-6974-11f0-a4a7-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>NLO</userSign>
+                <startDateTime>2025-07-25T14:27:00.000Z</startDateTime>
+                <endDateTime>2025-07-25T16:27:00.000Z</endDateTime>
+                <duration>120</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

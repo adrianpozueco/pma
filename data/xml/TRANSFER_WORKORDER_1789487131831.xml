@@ -1,0 +1,131 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487131830</conversationID>
+    <date timezone="UTC">2026-09-15T15:45:31.830Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0f3f39b3-3998-11f1-a458-005056b18588">
+    <workorderNumber>190330865</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00260</aircraftFullRegistration>
+        <aircraftRegistration>REG00260</aircraftRegistration>
+        <aircraftMsn>62329</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190330865</barcode>
+      <ataChapter>30-00</ataChapter>
+      <issueData>
+        <issueDate>2026-04-16Z</issueDate>
+        <issueSign>GLI</issueSign>
+        <issueStation>PMI</issueStation>
+        <issueFltTo>PMI</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-04-16T13:26:00.000Z</closingDateTime>
+        <closingStation>PMI</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>922068</closingTahMinutes>
+        <closingTac>7009</closingTac>
+        <closingSign>GLI</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-16T13:26:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-04-16T13:26:00.000Z</dateTime>
+        <releaseSign>GLI</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="0f407234-3998-11f1-a458-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-04-16T13:23:00.000Z</workStepDateTime>
+        <description>REF HIL 190330864
+
+" CAPT PITOT LIGHT ILLUMINATED "</description>
+        <descriptionSign>GLI</descriptionSign>
+        <actions>
+          <action uuid="0f430a45-3998-11f1-a458-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FAULT TRACED TO CAPT PITOT PROBE HEATER U/S
+
+CAPT PITOT PROBE REPLACED IAW AMM 34-11-01/401 REV 27
+
+LEAK TEST C/OUT SATIS IAW AMM 34-11-00-790-806 REV 27
+
+SEE TLB 190330866 AND 190330867 FOR SEALANT AND GASKET DEFERRAL
+
+P/N DPI610  S/N 61029641
+
+** HIL CLOSED **</actionText>
+            <performedData>
+              <performedDateTime>2026-04-16T13:23:00.000Z</performedDateTime>
+              <performedSign>GLI</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="0f4490e6-3998-11f1-a458-005056b18588">
+                <position>CAPT</position>
+                <labelNumber>3951362</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>404395</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>473901</serialNumber>
+                </partOn>
+                <certificateNumber>408303098</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

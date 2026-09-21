@@ -1,0 +1,124 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487172144</conversationID>
+    <date timezone="UTC">2026-09-15T15:46:12.144Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="3170470b-ee88-11f0-8331-005056b18588">
+    <workorderNumber>190483939</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00179</aircraftFullRegistration>
+        <aircraftRegistration>REG00179</aircraftRegistration>
+        <aircraftMsn>62317</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190483939</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2026-01-11Z</issueDate>
+        <issueSign>JANI</issueSign>
+        <issueStation>ALC</issueStation>
+        <issueFltTo>ALC</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-01-11T00:55:00.000Z</closingDateTime>
+        <closingStation>ALC</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>765157</closingTahMinutes>
+        <closingTac>6141</closingTac>
+        <closingSign>JANI</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-11T00:55:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-11T00:55:00.000Z</dateTime>
+        <releaseSign>JANI</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="31717f8c-ee88-11f0-8331-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-11T00:53:00.000Z</workStepDateTime>
+        <description>REF HIL 190483936
+
+WINDOW LIGHT 8ABC INOP</description>
+        <descriptionSign>JANI</descriptionSign>
+        <actions>
+          <action uuid="3173c97d-ee88-11f0-8331-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT 8ABC REPLACD IAW AMM 33-21-00-960-801 REV 26
+ALL TEST SATIS
+
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-01-11T00:53:00.000Z</performedDateTime>
+              <performedSign>JANI</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="3176136e-ee88-11f0-8331-005056b18588">
+                <position>8ABC</position>
+                <labelNumber>4019510</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>49495</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>53935</serialNumber>
+                </partOn>
+                <certificateNumber>ARC161921</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,141 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486968352</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:48.352Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="25fdb2d7-7985-11f0-9490-005056b18588">
+    <workorderNumber>55502983</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00436</aircraftFullRegistration>
+        <aircraftRegistration>REG00436</aircraftRegistration>
+        <aircraftMsn>37516</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55502983</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDate>2025-08-15Z</issueDate>
+        <issueSign>MMNH</issueSign>
+        <issueStation>MAN</issueStation>
+        <issueFltTo>MAN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-08-16T03:37:00.000Z</closingDateTime>
+        <closingStation>MAN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>3080391</closingTahMinutes>
+        <closingTac>29011</closingTac>
+        <closingSign>GKCK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-16T03:37:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-08-16T03:37:00.000Z</dateTime>
+        <releaseSign>GKCK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="25feeb58-7985-11f0-9490-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-08-15T03:04:00.000Z</workStepDateTime>
+        <headline>***HIL***MAN***15/08/25***</headline>
+        <description>DURING RAMP 1 INSP RH RETRACRABLE LANDING LIGHT LENS FOUND CRACK</description>
+        <descriptionSign>MMNH</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="53529e59-7985-11f0-9490-005056b18588">
+            <partNumber>45-0351-6</partNumber>
+            <description>RH LANDING LIGHT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="26009909-7985-11f0-9490-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>RH LANDING RETRACTABLE LIGHT TX TO HIL IAW MEL REF 33-08-01A REV 6A ,RH RET. LANDING LIGHT SWITCH INOP PLCARD INSTALLED</actionText>
+            <performedData>
+              <performedDateTime>2025-08-15T03:05:00.000Z</performedDateTime>
+              <performedSign>MMNH</performedSign>
+            </performedData>
+          </action>
+          <action uuid="d63fcb44-7a51-11f0-9490-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REF TLP 55502986
+RH RETRACTABLE LANDING LIGHT ASSY REPLACED AND TESTED IAW AMM 33-42-02-960-802 R86.
+SATIS WITH NO FAULTS.
+HIL ITEM CLOSED.</actionText>
+            <performedData>
+              <performedDateTime>2025-08-16T03:33:00.000Z</performedDateTime>
+              <performedSign>GKCK</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="37018a23-7a52-11f0-9490-005056b18588">
+                <position>RH</position>
+                <labelNumber>3921393</labelNumber>
+                <partOff>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>4851</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>45-0351-4</partNumber>
+                  <serialNumber>5126</serialNumber>
+                </partOn>
+                <certificateNumber>1387784</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS - T37959025 STN-MAN VIA ROAD FRI 15/08 AWW</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

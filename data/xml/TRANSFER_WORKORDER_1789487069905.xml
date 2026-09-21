@@ -1,0 +1,146 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487069904</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:29.904Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="16891bb4-5f4d-11f0-9b94-005056b18588">
+    <workorderNumber>190083776</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00026</aircraftFullRegistration>
+        <aircraftRegistration>REG00026</aircraftRegistration>
+        <aircraftMsn>38492</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190083776</barcode>
+      <ataChapter>34-00</ataChapter>
+      <issueData>
+        <issueDate>2025-07-12Z</issueDate>
+        <issueSign>8888</issueSign>
+        <issueStation>BOH</issueStation>
+        <issueFltTo>BOH</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-12T18:20:00.000Z</closingDateTime>
+        <closingStation>BOH</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2939989</closingTahMinutes>
+        <closingTac>26350</closingTac>
+        <closingSign>SDTP</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-12T18:20:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-12T18:20:00.000Z</dateTime>
+        <releaseSign>SDTP</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="168ac965-5f4d-11f0-9b94-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-12T17:54:00.000Z</workStepDateTime>
+        <description>AIRSPEED UNRELIABLE INDICATION INTERMITTANT</description>
+        <descriptionSign>ASW</descriptionSign>
+        <actions>
+          <action uuid="168daf96-5f4d-11f0-9b94-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>EEC BITE PROCEDURE C/O IAW FIM 73-00 TASK 801 REV 87,FOUND FAULT MSG NO: 73-31641 IN ENG#1 AND 73-31642 IN ENG 2.FIM 73-28 TASK 803 REV 87 C/O.CDS BITE PROCEDURE C/O IAW FIM 31-62 TASK 801 REV 87.OBSERVED FAULT 31-65060.AIRSPEED DISAGREE- FIM 31-62 TASK 876 REV 87 C/O.ADIRU BITE PROCEDURE C/O IAW FIM 34-21 TASK 801 REV 87,OBSERVED NO FAULTS IN CURRENT STATUS AND INFLIGHT FAULTS.CAPTAIN AND F/O`S PITOT PROBE RESISTANCE CHECK C/O,FOUND SATISFACTORY.PITOT SYSTEM FLUSHING C/O IAW AMM 34-11-00-170-802 REV 86,OBSERVED TINY PARTICLE FROM CAPT`S PITOT PROBE.
+DUE TO THE VERBAL REPORT FROM CAPTAIN THAT THE OBSERVED AIRSPEED ON F/O PFD DOES NOT AGREE WITH THE CAPT AND STBY,F/O SIDE PITOT PROBE REPLACED IAW AMM 34-11-01/401 REV 86 .
+LEAK TEST OF CAPT AND F/O`S PITOT SYSTEM C/O IAW AMM 34-11-00/501 REV 86,FOUND SATIS.
+PITOT PROBE ,AOA SENSOR AND TAT PROBE HEATER-SYSTEM TEST C/O IAW AMM 30-31-00-730-801 REV 86 ,FOUND SATIS.
+EEC TEST C/O IAW AMM 73-21-00-700-804-F00 REV 86,TEST PASSED.
+ADIRU SYSTEM OPERATIONAL TEST C/O IAW AMM 34-21-00-710-801 REV 86,NO FAULTS.</actionText>
+            <performedData>
+              <performedDateTime>2025-07-12T17:54:00.000Z</performedDateTime>
+              <performedSign>ASW</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INSPECTION OF CAPTAIN AND F/O`S AIR DATA MODULE QUICK DISCONNECT`S C/O IAW 34-21-04/401 REV 86 AND MOE 2.23.2.1 ISS 2 REV 10,FOUND SATISFACTORY.</inspectionText>
+              <performedData>
+                <performedDateTime>2025-07-12T18:15:00.000Z</performedDateTime>
+                <performedSign>SDTP</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSPECTION OF CAPTAIN AND F/O`S AIR DATA MODULE QUICK DISCONNECT`S C/O IAW 34-21-04/401 REV 86 AND MOE 2.23.2.1 ISS 2 REV 10,FOUND SATISFACTORY.</inspectionText>
+              <performedData>
+                <performedDateTime>2025-07-12T18:15:00.000Z</performedDateTime>
+                <performedSign>CKEM</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="168ff987-5f4d-11f0-9b94-005056b18588">
+                <position>F/O</position>
+                <labelNumber>3894166</labelNumber>
+                <partOff>
+                  <partNumber>0851HT1</partNumber>
+                  <serialNumber>398937</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>0851HT2</partNumber>
+                  <serialNumber>471133</serialNumber>
+                </partOn>
+                <certificateNumber>408042668</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="56d0a154-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>90098</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 90098</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,122 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486954472</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:34.472Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="419bf5d0-2a31-11f1-a6f4-005056b18588">
+    <workorderNumber>55445656</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>9H-REG00227</aircraftFullRegistration>
+        <aircraftRegistration>REG00227</aircraftRegistration>
+        <aircraftMsn>62343</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55445656</barcode>
+      <ataChapter>38-11</ataChapter>
+      <issueData>
+        <issueDate>2026-03-27Z</issueDate>
+        <issueSign>SVO</issueSign>
+        <issueStation>CGN</issueStation>
+        <issueFltTo>CGN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-03-27T22:30:00.000Z</closingDateTime>
+        <closingStation>CGN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>701589</closingTahMinutes>
+        <closingTac>6112</closingTac>
+        <closingSign>SVO</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-27T22:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-03-27T22:30:00.000Z</dateTime>
+        <releaseSign>SVO</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="419d2e51-2a31-11f1-a6f4-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-03-27T22:30:00.000Z</workStepDateTime>
+        <description>REF TO HIL 55445652
+FWD LAV FAUCET INOP</description>
+        <descriptionSign>SVO</descriptionSign>
+        <actions>
+          <action uuid="419f7842-2a31-11f1-a6f4-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FWD LAV FAUCET REPLACED IAW AMM 38-11-05 REV 27
+FUNCTION AND LEAK TEST SATIS
+ HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2026-03-27T22:30:00.000Z</performedDateTime>
+              <performedSign>SVO</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="41a14d03-2a31-11f1-a6f4-005056b18588">
+                <position>LAV A</position>
+                <labelNumber>4088461</labelNumber>
+                <partOff>
+                  <partNumber>SC4L500301-5</partNumber>
+                  <serialNumber>172442901-004</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>SC4L500301-5</partNumber>
+                  <serialNumber>174853095-005</serialNumber>
+                </partOn>
+                <certificateNumber>E-6113259</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

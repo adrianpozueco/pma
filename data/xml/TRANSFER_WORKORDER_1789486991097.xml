@@ -1,0 +1,142 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486991095</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:11.095Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f0e8c6f7-f451-11ef-a037-005056b18588">
+    <workorderNumber>55592458</workorderNumber>
+    <workorderHeader>
+      <workorderType>P</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00188</aircraftFullRegistration>
+        <aircraftRegistration>REG00188</aircraftRegistration>
+        <aircraftMsn>44689</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55592458</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-02-26Z</issueDate>
+        <issueSign>BFC</issueSign>
+        <issueStation>BDS</issueStation>
+        <issueFltTo>BDS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-02-26T23:00:00.000Z</closingDateTime>
+        <closingStation>TRN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1962723</closingTahMinutes>
+        <closingTac>16127</closingTac>
+        <closingSign>FSC</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-26T23:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2025-02-26T23:00:00.000Z</dateTime>
+        <releaseSign>FSC</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f0ec2258-f451-11ef-a037-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-02-26T14:41:00.000Z</workStepDateTime>
+        <description>******PCI BDS 26/02/25******* MILD ELECTRIC FIRE SMELL IN FRONT CABIN</description>
+        <descriptionSign>BFC</descriptionSign>
+        <requiredParts>
+          <partRequest uuid="f0f0b639-f451-11ef-a037-005056b18588">
+            <partNumber>8201-11-0000</partNumber>
+            <description>OVEN - BRITAX SELL 737-800</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="f0f1a09a-f451-11ef-a037-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>SUSPECTED OVEN ON FWD GALLEY , FWD OVEN REMOVED IAW AMM 25-31-00 REV 85
+PCI RAISED IAW PREAMBLE REV 6 CAT D 
+ PART ORDERED</actionText>
+            <performedData>
+              <performedDateTime>2025-02-26T14:42:00.000Z</performedDateTime>
+              <performedSign>BFC</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="f0f3755b-f451-11ef-a037-005056b18588">
+                <position>FWD</position>
+                <labelNumber>9484857</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>08-07-25647</serialNumber>
+                </partOff>
+              </componentChange>
+            </componentChanges>
+          </action>
+          <action uuid="18069859-f49e-11ef-a037-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>HIL CLOSED BY W/O 55`592`460</actionText>
+            <performedData>
+              <performedDateTime>2025-02-26T23:00:00.000Z</performedDateTime>
+              <performedSign>FSC</performedSign>
+            </performedData>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="180bc87a-f49e-11ef-a037-005056b18588">
+        <type>TQ</type>
+        <reference>83945</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 83945</description>
+      </reference>
+    </references>
+    <remarks>IS-MATERIALS - IN TRN STOCK WED 26/02 DCG</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

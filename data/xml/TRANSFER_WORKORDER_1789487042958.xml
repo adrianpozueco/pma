@@ -1,0 +1,379 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487042956</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:02.956Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="46233e9e-ec57-11f0-8331-005056b18588">
+    <workorderNumber>105439408</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <workorderOriginType>EO</workorderOriginType>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00309</aircraftFullRegistration>
+        <aircraftRegistration>REG00309</aircraftRegistration>
+        <aircraftMsn>65875</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.105439408</barcode>
+      <ataChapter>73-11</ataChapter>
+      <issueData>
+        <issueDateTime>2026-01-08T05:58:00.000Z</issueDateTime>
+        <issueSign>MCDT</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-01-08T13:20:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>840388</closingTahMinutes>
+        <closingTac>6536</closingTac>
+        <closingSign>OZK</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-08T13:20:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-01-08T13:20:00.000Z</dateTime>
+        <releaseSign>OZK</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="46253a6f-ec57-11f0-8331-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-01-08T05:58:00.000Z</workStepDateTime>
+        <headline>FINDING (NRC) DOCUMENT EO.23/084 (B)</headline>
+        <description>REF WO:105439289
+REPLACEMENT ENGINE FUEL NOZZLES (X18) .
+INDEPENDANT INSPECTION TO BE C/O ON COMPLETION IAW DAC MOE 2.23 ISS 2 REV 14 AND AMM 73 -11-05-400-802-G00 REV.26</description>
+        <descriptionSign>MCDT</descriptionSign>
+        <actions>
+          <action uuid="ac5ffda5-ec86-11f0-8331-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>ENG#2 (SN:60A045)FUEL NOZZLES (X18) REPLACED IAW AMM 73-11-05-400-802-G00 REV 26
+
+BOLT P/N: AS3237-12 B/N:1553540 (X72)
+GASKET P/N: 2085M48P01 B/N: 1537269 (X18)
+
+TOOLING
+FUEL NOZZLE KIT - S/N: RYR01
+TORQUE WRENCH
+P/N: TECH2FR100 S/N:SNNFR100
+P/N:7910836441 B/N: 11037</actionText>
+            <performedData>
+              <performedDateTime>2026-01-08T11:38:00.000Z</performedDateTime>
+              <performedSign>OZK</performedSign>
+            </performedData>
+            <inspection>
+              <inspectionText>INITIAL INSP C/O IAW DAC MOE 2.23 ISS 2 REV 14 AND AMM 73-11-05-400-802-G00 REV 26</inspectionText>
+              <performedData>
+                <performedDateTime>2026-01-08T13:05:00.000Z</performedDateTime>
+                <performedSign>OZK</performedSign>
+              </performedData>
+            </inspection>
+            <doubleInspection>
+              <inspectionText>INDEPENDENT INSP C/O IAW DAC MOE 2.23 ISS 2 REV 14 AND AMM 73-11-05-400-802-G00 REV 26</inspectionText>
+              <performedData>
+                <performedDateTime>2026-01-08T13:05:00.000Z</performedDateTime>
+                <performedSign>NDI</performedSign>
+              </performedData>
+            </doubleInspection>
+            <componentChanges>
+              <componentChange uuid="bcef3024-ec86-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019634</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT71F05</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT75E76</serialNumber>
+                </partOn>
+                <certificateNumber>RG82434-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="15d44bc9-ec87-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019643</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT62J70</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT03F21</serialNumber>
+                </partOn>
+                <certificateNumber>RG95788-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="65a7051e-ec87-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019594</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT08R93</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT2C946</serialNumber>
+                </partOn>
+                <certificateNumber>RG89961-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="b61f4d4d-ec87-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019599</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT05T88</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT2G354</serialNumber>
+                </partOn>
+                <certificateNumber>RG89547-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="0e1c04cd-ec88-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019638</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT22F91</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT08R05</serialNumber>
+                </partOn>
+                <certificateNumber>RG88162-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="65cbfcb9-ec88-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019636</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT48E07</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT8G015</serialNumber>
+                </partOn>
+                <certificateNumber>RG81175-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="3c6d11a3-ec8d-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019628</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT82F68</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT7G860</serialNumber>
+                </partOn>
+                <certificateNumber>RG84288-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="8eb9a489-ec8d-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019607</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT08R94</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT9A228</serialNumber>
+                </partOn>
+                <certificateNumber>RG97545-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="e293db81-ec8d-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019608</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT21C59</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT46T20</serialNumber>
+                </partOn>
+                <certificateNumber>RG97905-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="3bf26dc7-ec8e-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019609</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT29F17</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT4H540</serialNumber>
+                </partOn>
+                <certificateNumber>RG97500-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="8c48fd1a-ec8e-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019587</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT04F45</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDMJ078</serialNumber>
+                </partOn>
+                <certificateNumber>RG90285-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="3f515a75-ec8f-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019589</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT63J11</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT88T08</serialNumber>
+                </partOn>
+                <certificateNumber>RG84971-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="9662051b-ec8f-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019642</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT08R88</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT7E693</serialNumber>
+                </partOn>
+                <certificateNumber>RG97991-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="e7af9e93-ec8f-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019645</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT22F55</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT08T28</serialNumber>
+                </partOn>
+                <certificateNumber>RG97784-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="818814bf-ec90-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019603</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT31E33</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT24F12</serialNumber>
+                </partOn>
+                <certificateNumber>RG89561-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="d9ded3e5-ec90-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019632</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT17E31</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT1G639</serialNumber>
+                </partOn>
+                <certificateNumber>RG94354-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="39e530f8-ec91-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019602</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT23F12</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PSDNF415</serialNumber>
+                </partOn>
+                <certificateNumber>RG97940-1</certificateNumber>
+              </componentChange>
+              <componentChange uuid="94db2c43-ec91-11f0-8331-005056b18588">
+                <position>#2</position>
+                <labelNumber>4019629</labelNumber>
+                <partOff>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT09E40</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>2085M31G03</partNumber>
+                  <serialNumber>PAT39F06</serialNumber>
+                </partOn>
+                <certificateNumber>RG97748-1</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <originWorkorderOfFinding>
+      <uniqueWorkorderReference uuid="a7dd58c4-252a-11ef-8986-005056b18588" />
+    </originWorkorderOfFinding>
+    <references>
+      <reference uuid="4629ce50-ec57-11f0-8331-005056b18588">
+        <category>WO</category>
+        <type>WO</type>
+        <reference>53749590</reference>
+        <typeDescription>Workorder</typeDescription>
+        <description>53749590</description>
+        <remarks>SOURCE EVENT</remarks>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

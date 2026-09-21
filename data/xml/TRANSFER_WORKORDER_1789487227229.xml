@@ -1,0 +1,127 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487227229</conversationID>
+    <date timezone="UTC">2026-09-15T15:47:07.229Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="999c08af-466b-11f0-a446-005056b18588">
+    <workorderNumber>190635674</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00350</aircraftFullRegistration>
+        <aircraftRegistration>REG00350</aircraftRegistration>
+        <aircraftMsn>44714</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.190635674</barcode>
+      <ataChapter>26-00</ataChapter>
+      <issueData>
+        <issueDate>2025-06-11Z</issueDate>
+        <issueSign>SMV</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-06-11T02:27:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1697464</closingTahMinutes>
+        <closingTac>16174</closingTac>
+        <closingSign>NISK1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-11T02:27:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-06-11T02:27:00.000Z</dateTime>
+        <releaseSign>NISK1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="99a333a0-466b-11f0-a446-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-06-11T02:24:00.000Z</workStepDateTime>
+        <description>REF HIL 55577547
+AFT CARGO LOOP A INOP</description>
+        <descriptionSign>SMV</descriptionSign>
+        <actions>
+          <action uuid="99a5f2c1-466b-11f0-a446-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>FIM 26-16 TASK 805 REV 86 C/O. 
+FAULT TRACED TO AFT CARGO DETECTOR M2243 (A2). AFT CARGO DETECTOR M2243 REPLACED AND OPERATIONAL TESTED SATIS IAW AMM 26-16-01/401 REV 86. 
+
+HIL NOW CLOSED
+
+
+
+ASSISTED BY: SNDC</actionText>
+            <performedData>
+              <performedDateTime>2025-06-11T02:25:00.000Z</performedDateTime>
+              <performedSign>SMV</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="99a75252-466b-11f0-a446-005056b18588">
+                <position>AFT</position>
+                <labelNumber>3868974</labelNumber>
+                <partOff>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJA4598</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>473597-5</partNumber>
+                  <serialNumber>SJA4656</serialNumber>
+                </partOn>
+                <certificateNumber>62735</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

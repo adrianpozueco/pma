@@ -1,0 +1,151 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486998506</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:18.506Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="7324ca33-638b-11f0-a4a7-005056b18588">
+    <workorderNumber>55611600</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00161</aircraftFullRegistration>
+        <aircraftRegistration>REG00161</aircraftRegistration>
+        <aircraftMsn>61576</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55611600</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-07-18Z</issueDate>
+        <issueSign>INVA</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-07-18T03:58:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1870495</closingTahMinutes>
+        <closingTac>18052</closingTac>
+        <closingSign>OFZ</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-18T03:58:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-07-18T03:58:00.000Z</dateTime>
+        <releaseSign>OFZ</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="7325b494-638b-11f0-a4a7-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-07-18T03:45:00.000Z</workStepDateTime>
+        <description>REF HIL W/O 55611592 / 55611597
+
+BOTH AFT OVENS OVERHEAT , CB`S PULLED.</description>
+        <descriptionSign>INVA</descriptionSign>
+        <actions>
+          <action uuid="73278955-638b-11f0-a4a7-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REPLACED LH &amp; RH AFT OVENS, PERFORMED OPS TEST, OPS TEST SATIS
+
+IAW CMM 25-37-26 REV. 00
+
+CB`S RETURNED TO OPERATIONAL POSITION.
+
+LABEL NO.	PN:			SN:
+3905137	8201-11-0000-01	21-06-0267
+
+"HILS NOW CLOSED".</actionText>
+            <performedData>
+              <performedDateTime>2025-07-18T03:47:00.000Z</performedDateTime>
+              <performedSign>INVA</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="7328e8e6-638b-11f0-a4a7-005056b18588">
+                <position>FWDGALLY</position>
+                <labelNumber>3905137</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>15-12-37022</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>21-06-0267</serialNumber>
+                </partOn>
+                <certificateNumber>PAV10853</certificateNumber>
+              </componentChange>
+              <componentChange uuid="73298527-638b-11f0-a4a7-005056b18588">
+                <position>AFTGALLY</position>
+                <labelNumber>3905131</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>04-01-19670</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000-01</partNumber>
+                  <serialNumber>11-02-29754</serialNumber>
+                </partOn>
+                <certificateNumber>PAV10852</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="2c402d1e-b11c-11f1-8509-005056b1ed97">
+        <type>TQ</type>
+        <reference>90278</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 90278</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

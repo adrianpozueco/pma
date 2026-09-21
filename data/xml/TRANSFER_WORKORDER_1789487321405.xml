@@ -1,0 +1,140 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487321404</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:41.404Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0936d5b1-1a8d-4eeb-9113-fbc349c6df70">
+    <workorderNumber>980009254</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>EI-REG00569</aircraftFullRegistration>
+        <aircraftRegistration>REG00569</aircraftRegistration>
+        <aircraftMsn>67063</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.980009254</barcode>
+      <externalWorkorderNumber>ELB9124-76975773-0</externalWorkorderNumber>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDateTime>2026-06-09T00:00:00.000Z</issueDateTime>
+        <issueSign>GMCM</issueSign>
+        <issueStation>LIS</issueStation>
+        <issueLeg>LEG_ANON</issueLeg>
+        <issueTahHours>3284</issueTahHours>
+        <issueTac>1371</issueTac>
+        <issueFltFrom>LIS</issueFltFrom>
+        <issueFltTo>VCE</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <special>DS</special>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2026-06-09T22:10:00.000Z</closingDateTime>
+        <closingStation>LIS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>197091</closingTahMinutes>
+        <closingTac>1371</closingTac>
+        <closingSign>GMCM</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-09T22:10:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2026-06-09T22:10:00.000Z</dateTime>
+        <releaseSign>GMCM</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="e812c50c-8996-4248-98c8-faad832ccb32">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-09T22:07:00.000Z</workStepDateTime>
+        <headline>TLP 55391003</headline>
+        <description>REF HIL 980`009`239
+AFT INBOARD BOILER INOP.</description>
+        <descriptionSign>GMCM</descriptionSign>
+        <actions>
+          <action uuid="7b474cfa-aca6-4a53-9ae3-3fc6c2266da8">
+            <actionType>Action</actionType>
+            <actionText>AFT INBOARD BOILER REPLACED IAW AMM 25-32-21/401 REV 28.</actionText>
+            <performedData>
+              <performedDateTime>2026-06-09T22:09:00.000Z</performedDateTime>
+              <performedSign>GMCM</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="50fa10d0-6451-11f1-b670-005056b18588">
+                <position>GALLEY 4</position>
+                <labelNumber>4134660</labelNumber>
+                <partOff>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>21-02-0118</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>62197-301-001</partNumber>
+                  <serialNumber>16-07-0245</serialNumber>
+                </partOn>
+                <certificateNumber>KAV0526028</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="94839347-c4b3-4e5e-adb8-66a75c6b947d">
+        <category>PDF_L</category>
+        <reference>web://eTechLog/PDFs/WO/wo_ELB9124-76975773-0_6CC11735-3555-4129-B59F-45FEA2C77127_09-06-2026_22.11.02.pdf</reference>
+        <typeDescription>Web-Drive</typeDescription>
+        <description>wo_ELB9124-76975773-0_6CC11735-3555-4129-B59F-45FEA2C77127_09-06-2026_22.11.02.pdf</description>
+      </reference>
+      <reference uuid="a76bd3ee-c4c8-472c-bdd4-d844d7374b1e">
+        <category>ROC_ID_O</category>
+        <description>19115728</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

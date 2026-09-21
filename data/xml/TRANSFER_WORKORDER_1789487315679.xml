@@ -1,0 +1,147 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487315678</conversationID>
+    <date timezone="UTC">2026-09-15T15:48:35.678Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="5f277ae2-a5e6-11f1-ab51-005056b18588">
+    <workorderNumber>191509359</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>SP-REG00105</aircraftFullRegistration>
+        <aircraftRegistration>REG00105</aircraftRegistration>
+        <aircraftMsn>44826</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.191509359</barcode>
+      <ataChapter>33-00</ataChapter>
+      <issueData>
+        <issueDateTime>2026-09-01T08:23:00.000Z</issueDateTime>
+        <issueSign>OKU</issueSign>
+        <issueStation>WAMS</issueStation>
+        <issueFltTo>WAMS</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <zone>MAIN CAB</zone>
+        <area>CABIN</area>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2026-09-01T09:30:00.000Z</closingDateTime>
+        <closingStation>WAMS</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1609392</closingTahMinutes>
+        <closingTac>13854</closingTac>
+        <closingSign>OKU</closingSign>
+      </closingData>
+      <certification>
+        <number>EASA.145.3122</number>
+        <dateTime>2026-09-01T09:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>EASA.145.3122</number>
+        <dateTime>2026-09-01T09:30:00.000Z</dateTime>
+        <releaseSign>OKU</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="5f28b363-a5e6-11f1-ab51-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-09-01T08:23:00.000Z</workStepDateTime>
+        <headline>XREF HIL#191515320</headline>
+        <description>WINDOW LT AT ROW 8FED PARTIALLY INOP</description>
+        <descriptionSign>OKU</descriptionSign>
+        <workPhase>40 MAINTENANCE</workPhase>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="44a4e9d4-a5e8-11f1-ab51-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>60</totalHours>
+              <quantity>1.0</quantity>
+              <duration>60</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="44a70cb5-a5e8-11f1-ab51-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>CATA/B1/B2</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <actions>
+          <action uuid="a559255f-a5e6-11f1-ab51-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LIGHT - LIGHT ASSEMBLY  AT ROW 8FED REPLACED IAW AMM 33-21-00-960-802 REV.#90
+
+TEST SATIS
+
+HIL#191515320 CLOSED
+
+GENERAL VERIFICATION CHECK COMPLETE</actionText>
+            <performedData>
+              <performedDateTime>2026-09-01T09:21:00.000Z</performedDateTime>
+              <performedSign>OKU</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="c763bee1-a5e6-11f1-ab51-005056b18588">
+                <position>7DEF</position>
+                <labelNumber>4222633</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>33462</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0002</partNumber>
+                  <serialNumber>69459</serialNumber>
+                </partOn>
+                <certificateNumber>47001539</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,156 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486956598</conversationID>
+    <date timezone="UTC">2026-09-15T15:42:36.598Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="0416030f-90e4-11f0-9f6e-005056b18588">
+    <workorderNumber>55452394</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>M73-82</aircraftType>
+        <aircraftFullRegistration>SP-REG00368</aircraftFullRegistration>
+        <aircraftRegistration>REG00368</aircraftRegistration>
+        <aircraftMsn>62320</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55452394</barcode>
+      <ataChapter>33-21</ataChapter>
+      <issueData>
+        <issueDate>2025-09-13Z</issueDate>
+        <issueSign>MZM1</issueSign>
+        <issueStation>KRK</issueStation>
+        <issueFltTo>KRK</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-09-13T20:30:00.000Z</closingDateTime>
+        <closingStation>KRK</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>857860</closingTahMinutes>
+        <closingTac>7161</closingTac>
+        <closingSign>MZM1</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-13T20:30:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-09-13T20:30:00.000Z</dateTime>
+        <releaseSign>MZM1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="041789b0-90e4-11f0-9f6e-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-09-13T20:30:00.000Z</workStepDateTime>
+        <description>REF HIL 55452376
+WINDOW LT AT ROW 12-17 DEF INOP</description>
+        <descriptionSign>MZM1</descriptionSign>
+        <actions>
+          <action uuid="0419d3a1-90e4-11f0-9f6e-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>WINDOW LT AT ROW 16 DEF REPLACED IAW AMM 33-21-00-960-801 REV 25
+HIL CLOSED</actionText>
+            <performedData>
+              <performedDateTime>2025-09-13T20:30:00.000Z</performedDateTime>
+              <performedSign>MZM1</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="9172ddce-90e5-11f0-9f6e-005056b18588">
+                <position>CABIN</position>
+                <labelNumber>3935989</labelNumber>
+                <partOff>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>49290</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>9651-35-0005</partNumber>
+                  <serialNumber>45903</serialNumber>
+                </partOn>
+                <certificateNumber>20107164</certificateNumber>
+              </componentChange>
+            </componentChanges>
+            <staffTimeBookings>
+              <staffTimeBooking uuid="041c92c2-90e4-11f0-9f6e-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>MZM1</userSign>
+                <startDateTime>2025-09-13T20:25:00.000Z</startDateTime>
+                <endDateTime>2025-09-13T20:55:00.000Z</endDateTime>
+                <duration>30</duration>
+              </staffTimeBooking>
+              <staffTimeBooking uuid="04223813-90e4-11f0-9f6e-005056b18588">
+                <entityCode>RYA</entityCode>
+                <bookingStatus>Finished</bookingStatus>
+                <userSign>CZR</userSign>
+                <startDateTime>2025-09-13T20:25:00.000Z</startDateTime>
+                <endDateTime>2025-09-13T20:55:00.000Z</endDateTime>
+                <duration>30</duration>
+              </staffTimeBooking>
+            </staffTimeBookings>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="04234984-90e4-11f0-9f6e-005056b18588">
+            <category>W</category>
+            <type>WO</type>
+            <reference>55452376</reference>
+            <typeDescription>Workorder</typeDescription>
+            <description>55452376</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="66bc27a1-90e6-11f0-9f6e-005056b18588">
+        <type>TQ</type>
+        <reference>92412</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 92412</description>
+      </reference>
+    </references>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

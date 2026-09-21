@@ -1,0 +1,126 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789486989901</conversationID>
+    <date timezone="UTC">2026-09-15T15:43:09.901Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="ea54bbd7-1f0e-11f0-8cb2-005056b18588">
+    <workorderNumber>55586573</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00365</aircraftFullRegistration>
+        <aircraftRegistration>REG00365</aircraftRegistration>
+        <aircraftMsn>44823</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.55586573</barcode>
+      <ataChapter>25-00</ataChapter>
+      <issueData>
+        <issueDate>2025-04-22Z</issueDate>
+        <issueSign>INVA</issueSign>
+        <issueStation>STN</issueStation>
+        <issueFltTo>STN</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2025-04-22T03:47:00.000Z</closingDateTime>
+        <closingStation>STN</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1267800</closingTahMinutes>
+        <closingTac>11600</closingTac>
+        <closingSign>CHLD</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-22T03:47:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-04-22T03:47:00.000Z</dateTime>
+        <releaseSign>CHLD</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="ea5c5cf8-1f0e-11f0-8cb2-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-04-22T00:13:00.000Z</workStepDateTime>
+        <description>TX FROM CLB: 
+
+OVEN 3 WAS SMOKING WHEN USED.</description>
+        <descriptionSign>INVA</descriptionSign>
+        <actions>
+          <action uuid="ea5ecdf9-1f0e-11f0-8cb2-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>REPLACED AFT GAL OVEN 3
+
+IAW CMM 25-37-26 REV. 00. 
+
+PERFORMED OPS TEST FOUND SATISFACTORY. 
+
+ASSISTED BY: RNFN</actionText>
+            <performedData>
+              <performedDateTime>2025-04-22T00:14:00.000Z</performedDateTime>
+              <performedSign>INVA</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="0c3fe687-1f0f-11f0-8cb2-005056b18588">
+                <position>AFTGALLY</position>
+                <labelNumber>3240781</labelNumber>
+                <partOff>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>04-08-20259</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>8201-11-0000</partNumber>
+                  <serialNumber>08-02-24844</serialNumber>
+                </partOn>
+                <certificateNumber>L-3240781</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

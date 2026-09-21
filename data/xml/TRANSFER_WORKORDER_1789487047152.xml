@@ -1,0 +1,395 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487047151</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:07.151Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="9a0b13f5-6c65-11f1-8a65-005056b18588">
+    <workorderNumber>106806064</workorderNumber>
+    <workorderHeader>
+      <workorderType>S</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>9H-REG00246</aircraftFullRegistration>
+        <aircraftRegistration>REG00246</aircraftRegistration>
+        <aircraftMsn>44772</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+        <routineChecks>
+          <routineCheck>
+            <checkCode>DC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>WC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>BWC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>PFC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>MPC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>SOC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+          <routineCheck>
+            <checkCode>TC</checkCode>
+            <performed>N</performed>
+          </routineCheck>
+        </routineChecks>
+      </aircraft>
+      <barcode>WO.106806064</barcode>
+      <ataChapter>36-00</ataChapter>
+      <issueData>
+        <issueDate>2026-06-15Z</issueDate>
+        <issueSign>COI</issueSign>
+        <issueStation>CHO</issueStation>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <closingData>
+        <closingDateTime>2026-06-20T04:00:00.000Z</closingDateTime>
+        <closingStation>BGY</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>1642647</closingTahMinutes>
+        <closingTac>16784</closingTac>
+        <closingSign>STBE1</closingSign>
+      </closingData>
+      <certification>
+        <number>IT.145.0368</number>
+        <dateTime>2026-06-20T04:00:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IT.145.0368</number>
+        <dateTime>2026-06-20T04:00:00.000Z</dateTime>
+        <releaseSign>STBE1</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="9a0cc1a6-6c65-11f1-8a65-005056b18588">
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2026-06-15T10:42:00.000Z</workStepDateTime>
+        <headline>SYSTEMS BLEED AND PRESSURISATION REVIEW</headline>
+        <description>BACKGROUND: CREW REPORT OF R DUCT PX ONLY INDICATING 10PSI DURING CLIMB X4 BELOW F300. A REVIEW OF ACMS DATA HAS VERIFIES THIS CONDITION. #2 BLEED ALSO LOW IN TAXI AND DESCENT IN FLIGHT LEGS THAT FOLLOWED. THIS WORK ORDER HAS BEEN RAISED TO PERFORM BLEED HEALTH ON THE RH BLEED SYSTEM.
+
+*NOTE* - SENSE LINE FROM PRECOOLER DOWNSTREAM TO PRSOV AND HSV ALREADY REPLACED. 
+
+ACTION:  
+
+1. GAIN ACCESS TO THE #2 BLEED COMPONENTS.  
+
+2. USING PNEUMATIC TESTING KIT (P/N 1945-04-08) PERFORM A COMPLETE PNEUMATIC HEALTH CHECK OF THE #2 BLEED COMPONENTS IAW AMM 36-11-00.
+
+* RECORD THE RESULTS ON THE ATTACHED RA851 FORM AND SUBMIT TO BLEEDREVIEW@RYANAIR.COM
+
+** RECORD THE SERIAL NUMBER OF THE TEST KIT USED ON THE RA851 FORM ALSO.  
+
+3. INSPECT ALL SYSTEM SENSE LINES AND CONNECTIONS FOR ANY SIGNS OF DAMAGE, BLOCKAGE OR LEAKAGE. MAKE THE NECESSARY RECTIFICATIONS.
+
+4. CLOSELY INSPECT RH PRSOV FOR NOTCHY BEHAVIOUR, INABILITY TO REMAIN OPEN AND ACTUATOR BODY LEAKAGE. REPLACE IF NEEDED IAW AMM TASK 36-11-04/401.
+
+5. CHECK BLEED AIR REGULATOR FOR D/S PORT LEAKAGE OR RUPTURED REVERSE FLOW DIAPHRAGM.
+
+6. LEAK CHECK ALL HSR / HSV / PCCV / BAR SENSE LINES USING SUITABLE LEAK CHECK SPRAY.
+
+7. CHECK  DOWNSTREAM PRESSURE SENSE LINE PN 16135-81 FOR OBSTRUCTION USING COMPRESSED NITROGEN.
+
+8. IF NFF REPLACE #2  PRSOV IAW AMM 36-11-04/401.
+
+9. RETURN THE AIRCRAFT TO SERVICE.   
+
+**AIRCRAFT IS EQUIPPED WITH ACMS - NO BLEED SHEETS WILL BE REQUIRED.  
+
+**PLEASE ENSURE THAT ALL ELECTRICAL (WHERE APPLICABLE) AND PNEUMATIC FITTINGS / COMPONENTS DISTURBED DURING ABOVE WORKS ARE RE-INSTATED TO CORRECT CONFIGURATION AFTER WORKS.</description>
+        <descriptionSign>COI</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="9a0fa7d7-6c65-11f1-8a65-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>120</totalHours>
+              <quantity>1.0</quantity>
+              <duration>120</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="9a115588-6c65-11f1-8a65-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <requiredParts>
+          <partRequest uuid="9a1748f9-6c65-11f1-8a65-005056b18588">
+            <partNumber>1945-04-08</partNumber>
+            <description>PNEUMATIC TESTING KIT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="9a18f6aa-6c65-11f1-8a65-005056b18588">
+            <partNumber>R0C7716128R</partNumber>
+            <description>ROCOL LEAK DETECTOR SPRAY CODE 32030</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a1a2f2b-6c65-11f1-8a65-005056b18588">
+            <partNumber>16135-96</partNumber>
+            <description>SENSE LINE - PNEUMATIC</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a1af27c-6c65-11f1-8a65-005056b18588">
+            <partNumber>332A2350-14</partNumber>
+            <description>TUBE ASSY</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a1bdcdd-6c65-11f1-8a65-005056b18588">
+            <partNumber>332A2350-12</partNumber>
+            <description>TUBE ASSY</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a1d155e-6c65-11f1-8a65-005056b18588">
+            <partNumber>16135-83</partNumber>
+            <description>SENSE LINE - PNEUMATIC</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a1e26cf-6c65-11f1-8a65-005056b18588">
+            <partNumber>16135-80</partNumber>
+            <description>SENSE LINE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a1eea20-6c65-11f1-8a65-005056b18588">
+            <partNumber>3289562-5</partNumber>
+            <description>VALVE - FAN AIR (PCCV)</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a1fad71-6c65-11f1-8a65-005056b18588">
+            <partNumber>129666-2</partNumber>
+            <description>ENGINE PRECOOLER CONT. VALVE SENSOR</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a2049b2-6c65-11f1-8a65-005056b18588">
+            <partNumber>107484-6</partNumber>
+            <description>HIGH STAGE PNEU EBU REGULATOR</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a20e5f3-6c65-11f1-8a65-005056b18588">
+            <partNumber>3214446-4</partNumber>
+            <description>HIGH STAGE VALVE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a21a944-6c65-11f1-8a65-005056b18588">
+            <partNumber>107492-6</partNumber>
+            <description>BLEED AIR REGULATOR</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a22e1c5-6c65-11f1-8a65-005056b18588">
+            <partNumber>3214552-6</partNumber>
+            <description>SHUT OFF PNEU SYS VALVE (PRSOV)</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a23f336-6c65-11f1-8a65-005056b18588">
+            <partNumber>801A50-0005A</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a24b687-6c65-11f1-8a65-005056b18588">
+            <partNumber>801A50-0006A</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a25c7f8-6c65-11f1-8a65-005056b18588">
+            <partNumber>82C10020-1</partNumber>
+            <description>GASKET</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a26d969-6c65-11f1-8a65-005056b18588">
+            <partNumber>S8990-611</partNumber>
+            <description>PACKING</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="9a279cba-6c65-11f1-8a65-005056b18588">
+            <partNumber>16135-84</partNumber>
+            <description>SENSE LINE - PNEUMATIC FLEXIBLE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="9a29988b-6c65-11f1-8a65-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>1. GAINED ACCESSED TO THE #2 BLEED COMPONENTS.    
+
+2. C/O PNEUMATIC HEALTH CHECK OF THE #2 BLEED COMPONENTS IAW AMM 36-11-00-700-801 R.90.
+RESULTS RECORDED ON THE ATTACHED RA851 FORM AND SUBMIT TO BLEEDREVIEW@RYANAIR.COM  RECORDED THE SERIAL NUMBER OF THE TEST KIT USED ON THE RA851 FORM ALSO. 
+TOOL USED: 
+PN: C36001-64	
+SN: M16775-100
+
+3. INSPECTED ALL SYSTEM SENSE LINES AND CONNECTIONS FOR ANY SIGNS OF DAMAGE, BLOCKAGE OR LEAKAGE WITH NIL FINDINGS.
+
+4. DURING TEST FOUND ENG #2 PRSOV FAULTY.  PRSOV REPLACED IAW AMM 36-11-04/401 R.90.
+
+5. CHECKED BLEED AIR REGULATOR FOR D/S PORT LEAKAGE OR RUPTURED REVERSE FLOW DIAPHRAGM WITH NIL FINDINGS.
+
+6. LEAK CHECK C/O IN ALL HSR / HSV / PCCV / BAR SENSE LINES USING SUITABLE LEAK CHECK SPRAY WITH NIL FINDINGS.  
+
+7. CHECKED  DOWNSTREAM PRESSURE SENSE LINE PN 16135-81 FOR OBSTRUCTION USING COMPRESSED NITROGEN WITH NIL FINDINGS.
+
+8. DURING TEST FOUND PCCV FAULTY AND REPLACED IAW AMM 36-12-02/401 R.90.
+    DURING TEST FOUND HSR FAULTY AND REPLACED IAW AMM 36-11-07/401 R.90.
+    DURING TEST FOUND HSV FAULTY AND REPLACED IAW AMM 36-11-06/401 R.90.
+
+PNEUMATIC LEAK CHECK C/O IAW AMM 36-00-00-860-801 R.90, SATIS WITH NO LEAKS FOUND.
+
+9. A/C RETURN TO SERVICE.     
+
+C/O ALSO BY ECS, CHID AND LMI1 FOR OJT 50.
+
+TOOL USED: 
+PN: EVT600A		SN: Y060033
+PN: 11123		SN: 79117512623</actionText>
+            <performedData>
+              <performedDateTime>2026-06-20T04:00:00.000Z</performedDateTime>
+              <performedSign>LRD</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="9a2be27c-6c65-11f1-8a65-005056b18588">
+                <position>#2</position>
+                <labelNumber>4136036</labelNumber>
+                <partOff>
+                  <partNumber>63292146-1</partNumber>
+                  <serialNumber>507</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>63292146-1</partNumber>
+                  <serialNumber>7491</serialNumber>
+                </partOn>
+                <certificateNumber>355811199</certificateNumber>
+              </componentChange>
+              <componentChange uuid="9a2cf3ed-6c65-11f1-8a65-005056b18588">
+                <position>#2</position>
+                <labelNumber>4143977</labelNumber>
+                <partOff>
+                  <partNumber>3214552-5</partNumber>
+                  <serialNumber>8416</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>3214552-6</partNumber>
+                  <serialNumber>19475</serialNumber>
+                </partOn>
+                <certificateNumber>356176475</certificateNumber>
+              </componentChange>
+              <componentChange uuid="9a2db73e-6c65-11f1-8a65-005056b18588">
+                <position>#2</position>
+                <labelNumber>4154041</labelNumber>
+                <partOff>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>10321</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>17813</serialNumber>
+                </partOn>
+                <certificateNumber>356290374</certificateNumber>
+              </componentChange>
+              <componentChange uuid="9a2e537f-6c65-11f1-8a65-005056b18588">
+                <position>#2</position>
+                <labelNumber>4142713</labelNumber>
+                <partOff>
+                  <partNumber>3214446-4</partNumber>
+                  <serialNumber>18566</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>3214446-4</partNumber>
+                  <serialNumber>12934</serialNumber>
+                </partOn>
+                <certificateNumber>5914543</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+      </workStep>
+    </workSteps>
+    <remarks>TO-MATERIALS-T56188726 BCN-BGY THUR 18/06 ISAD
+
+TO-MATERIALS - T56061426 BGY-SUF &amp; T56061926 MXP-SUF TUE 16/06 EGT</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>

@@ -1,0 +1,263 @@
+<amosTransportEnvelope version="1.3">
+  <header>
+    <senderID>RYA</senderID>
+    <receiverID>UNKNOWN</receiverID>
+    <conversationID>AMOS_1789487041651</conversationID>
+    <date timezone="UTC">2026-09-15T15:44:01.651Z</date>
+    <amosVersion>24.12.100</amosVersion>
+    <instanceType>TEST</instanceType>
+  </header>
+  <payload type="transferWorkorder" version="3.1">
+
+<transferWorkorder version="3.1">
+  <workorder uuid="f47e7dda-d1c8-11f0-b7ce-005056b18588">
+    <workorderNumber>105170856</workorderNumber>
+    <workorderHeader>
+      <workorderType>M</workorderType>
+      <workorderState>C</workorderState>
+      <aircraft>
+        <aircraftType>B737-8</aircraftType>
+        <aircraftFullRegistration>EI-REG00278</aircraftFullRegistration>
+        <aircraftRegistration>REG00278</aircraftRegistration>
+        <aircraftMsn>34982</aircraftMsn>
+        <operator>OPERATOR_ANON</operator>
+      </aircraft>
+      <barcode>WO.105170856</barcode>
+      <ataChapter>36-11</ataChapter>
+      <issueData>
+        <issueDateTime>2025-12-05T10:55:00.000Z</issueDateTime>
+        <issueSign>JMON</issueSign>
+        <issueStation>CHO</issueStation>
+        <issueFltTo>CHO</issueFltTo>
+      </issueData>
+      <classifications>
+        <administrativeServiceCheck>N</administrativeServiceCheck>
+        <aogRisk>N</aogRisk>
+        <cdccl>N</cdccl>
+        <cdcp>N</cdcp>
+        <defectClassification />
+        <occurenceReport>N</occurenceReport>
+        <opsConsequence>N</opsConsequence>
+        <structuralDamage>N</structuralDamage>
+        <tal>N</tal>
+        <maintenanceType />
+        <watchItem>N</watchItem>
+      </classifications>
+      <statistics>
+        <accident>N</accident>
+        <incident>N</incident>
+        <notContracted>N</notContracted>
+      </statistics>
+      <requests>
+        <engineChange>N</engineChange>
+        <hangarCosts>00:00</hangarCosts>
+        <towingCosts>00:00</towingCosts>
+        <other />
+        <rampActivity>N</rampActivity>
+        <specialEquipement />
+        <specialEquipement2 />
+        <srmRepair>N</srmRepair>
+        <taxi>N</taxi>
+        <weightAndBalance>N</weightAndBalance>
+      </requests>
+      <positionInfo>
+        <position>RH</position>
+      </positionInfo>
+      <closingData>
+        <closingDateTime>2025-12-09T03:04:00.000Z</closingDateTime>
+        <closingStation>DUB</closingStation>
+        <closingLeg>LEG_ANON</closingLeg>
+        <closingTahMinutes>2585025</closingTahMinutes>
+        <closingTac>21878</closingTac>
+        <closingSign>ONU</closingSign>
+      </closingData>
+      <certification>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-09T03:04:00.000Z</dateTime>
+      </certification>
+      <releaseToService>
+        <number>IE.145.004</number>
+        <dateTime>2025-12-09T03:04:00.000Z</dateTime>
+        <releaseSign>ONU</releaseSign>
+      </releaseToService>
+    </workorderHeader>
+    <workSteps>
+      <workStep uuid="f480529b-d1c8-11f0-b7ce-005056b18588">
+        <workstepState>O</workstepState>
+        <workStepSequenceNumber>1</workStepSequenceNumber>
+        <workStepDateTime>2025-12-05T10:55:00.000Z</workStepDateTime>
+        <headline>SYSTEMS BLEED AND PRESSURISATION DAILY REVIEW</headline>
+        <description>BACKGROUND: ACMS REVIEW SHOWS RH BLEED PX TO BE LOW DURING TAXI  (3 PSI TAXI).
+
+HEALTH CHECK REQUIRED.
+
+ACTION:  
+1. GAIN ACCESS TO THE #2 BLEED COMPONENTS.  
+
+2. USING PNEUMATIC TESTING KIT (P/N 1945-04-08 ) PERFORM A COMPLETE PNEUMATIC HEALTH CHECK OF THE #2 BLEED COMPONENTS IAW AMM 36-11-00.
+    
+* RECORD THE RESULTS ON THE ATTACHED RA851 FORM AND SUBMIT TO BLEEDREVIEW@RYANAIR.COM  
+    
+** RECORD THE SERIAL NUMBER OF THE TEST KIT USED ON THE RA851 FORM ALSO.
+    
+3. INSPECT #2 HSR FOR RUPTURED REVERSE FLOW DIAPHRAGM.
+
+4. CLOSELY INSPECT RH PRSOV FOR NOTCHY BEHAVIOUR, INABILITY TO REMAIN OPEN AND ACTUATOR BODY LEAKAGE.
+
+5. LEAK CHECK ALL RH HSR / HSV / PCCV / BAR SENSE LINES USING SUITABLE LEAK CHECK SPRAY. SPECIAL FOCUS ON  THE FOLLOWING SENSE LINES OR FITTINGS:     
+- HSR SUPPLY PRESSURE SENSE LINE (BETWEEN 9TH STAGE AND HSR) 
+- HSV CONTROL PRESSURE SENSE LINE (BETWEEN HSR AND HSV)
+ 
+6. IF NFF, REPLACE THE #2 HSR IAW 36-11-07/401.
+
+7. RETURN THE AIRCRAFT TO SERVICE.
+
+**AIRCRAFT IS EQUIPPED WITH ACMS - NO BLEED SHEETS WILL BE REQUIRED.  
+
+**PLEASE ENSURE THAT ALL ELECTRICAL (WHERE APPLICABLE) AND PNEUMATIC FITTINGS / COMPONENTS DISTURBED DURING ABOVE WORKS ARE RE-INSTATED TO CORRECT CONFIGURATION AFTER WORKS.</description>
+        <descriptionSign>JMON</descriptionSign>
+        <resourceRequest>
+          <resourceRequirements>
+            <resourceRequirement uuid="f482757c-d1c8-11f0-b7ce-005056b18588">
+              <resourceType>STAFF</resourceType>
+              <totalHours>120</totalHours>
+              <quantity>1.0</quantity>
+              <duration>120</duration>
+              <classification>Planning</classification>
+              <constraints>
+                <constraint uuid="f483adfd-d1c8-11f0-b7ce-005056b18588">
+                  <propertyType>SCOPE</propertyType>
+                  <valueString>B1</valueString>
+                </constraint>
+              </constraints>
+            </resourceRequirement>
+          </resourceRequirements>
+        </resourceRequest>
+        <requiredParts>
+          <partRequest uuid="f4877e8e-d1c8-11f0-b7ce-005056b18588">
+            <partNumber>1945-04-08</partNumber>
+            <description>PNEUMATIC TESTING KIT</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>Y</tool>
+          </partRequest>
+          <partRequest uuid="f488de1f-d1c8-11f0-b7ce-005056b18588">
+            <partNumber>3214552-6</partNumber>
+            <description>SHUT OFF PNEU SYS VALVE (PRSOV)</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="f489ef90-d1c8-11f0-b7ce-005056b18588">
+            <partNumber>107484-6</partNumber>
+            <description>HIGH STAGE PNEU EBU REGULATOR</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="f48a64c1-d1c8-11f0-b7ce-005056b18588">
+            <partNumber>3214446-4</partNumber>
+            <description>HIGH STAGE VALVE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="f48b2812-d1c8-11f0-b7ce-005056b18588">
+            <partNumber>801A50-0005A</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">2.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="f48b9d43-d1c8-11f0-b7ce-005056b18588">
+            <partNumber>801A50-0006A</partNumber>
+            <description>SEAL</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="f48caeb4-d1c8-11f0-b7ce-005056b18588">
+            <partNumber>107492-6</partNumber>
+            <description>BLEED AIR REGULATOR</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="be50bfd7-d1c9-11f0-b7ce-005056b18588">
+            <partNumber>332A2350-11</partNumber>
+            <description>TUBE ASSY</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+          <partRequest uuid="be51aa38-d1c9-11f0-b7ce-005056b18588">
+            <partNumber>16135-84</partNumber>
+            <description>SENSE LINE - PNEUMATIC FLEXIBLE</description>
+            <neededQuantity UOM="EA">1.0</neededQuantity>
+            <propabilityOfUsage>100</propabilityOfUsage>
+            <tool>N</tool>
+          </partRequest>
+        </requiredParts>
+        <actions>
+          <action uuid="8e182b6a-d4ab-11f0-b7ce-005056b18588">
+            <actionType>Action</actionType>
+            <actionText>DUE FROM RH SIDE LOW BLEED PRESS (DURING TAXI)
+FIM 36-10 TASK 807 REV.88 FOLLOWED
+
+#2 ENG LEACK CHECK C/OUT IAW AMM 36-11-00 REV.88
+
+-FOUND HSR FULL OF WATER AND HSR SENSE LINE (P/N: 332A2350-9) (FROM HSV TO HSR) FOUND WITH WATER
+
+#2 ENG HSR REPLACED IAW AMM 36-11-07 REV.88
+HSR SENSE LINE CLEANED
+TESTED SATIS
+
+#2 ENG HSV TESTED SATIS IAW AMM 36-11-06 REV.88
+
+#2 ENG IDLE RUN C/OUT IAW AMM 71-00-00 REV.88
+NIL FINDINGS</actionText>
+            <performedData>
+              <performedDateTime>2025-12-09T02:39:00.000Z</performedDateTime>
+              <performedSign>ONU</performedSign>
+            </performedData>
+            <componentChanges>
+              <componentChange uuid="a3d24db1-d4ab-11f0-b7ce-005056b18588">
+                <position>#2</position>
+                <labelNumber>3878471</labelNumber>
+                <partOff>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>5200</serialNumber>
+                </partOff>
+                <partOn>
+                  <partNumber>107484-7</partNumber>
+                  <serialNumber>17602</serialNumber>
+                </partOn>
+                <certificateNumber>353300998</certificateNumber>
+              </componentChange>
+            </componentChanges>
+          </action>
+        </actions>
+        <references>
+          <reference uuid="f48dc025-d1c8-11f0-b7ce-005056b18588">
+            <reference>N:/RA851 - Pneumatic Health Check.pdf</reference>
+            <typeDescription>File</typeDescription>
+            <description>RA851 - Pneumatic Health Check.pdf</description>
+          </reference>
+        </references>
+      </workStep>
+    </workSteps>
+    <references>
+      <reference uuid="f48f94e6-d1c8-11f0-b7ce-005056b18588">
+        <type>TQ</type>
+        <reference>93718</reference>
+        <typeDescription>Technical Query</typeDescription>
+        <description>Technical Query 93718</description>
+      </reference>
+    </references>
+    <remarks>TO-MATERIALS - T44674025 STN-DUB FRI 05/12 DCG (TEST KIT - PLS CALL
+UP FOR T/S)</remarks>
+  </workorder>
+</transferWorkorder>
+
+  </payload>
+</amosTransportEnvelope>
