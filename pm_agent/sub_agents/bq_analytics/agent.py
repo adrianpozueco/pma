@@ -86,7 +86,27 @@ _tool_config = BigQueryToolConfig(
 _credentials, _ = google.auth.default(
     scopes=["https://www.googleapis.com/auth/bigquery"],
 )
+# search_catalog is excluded on purpose. It is Dataplex-backed semantic
+# discovery for finding tables you cannot name, and it takes project_id as a
+# model-supplied argument - in testing the model guessed "pma-agent" from the
+# dataset name and the call failed with a Dataplex 403. This agent already
+# knows its two tables, so dropping the tool removes both the wrong-project
+# failure and a dependency on an API the project has not enabled.
+_TOOL_FILTER = [
+    "get_dataset_info",
+    "get_table_info",
+    "list_dataset_ids",
+    "list_table_ids",
+    "get_job_info",
+    "execute_sql",
+    "forecast",
+    "analyze_contribution",
+    "detect_anomalies",
+    "ask_data_insights",
+]
+
 bigquery_toolset = BigQueryToolset(
+    tool_filter=_TOOL_FILTER,
     credentials_config=BigQueryCredentialsConfig(credentials=_credentials),
     bigquery_tool_config=_tool_config,
 )
