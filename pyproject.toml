@@ -95,4 +95,8 @@ asyncio_default_fixture_loop_scope = "session"
 
 [tool.hatch.build.targets.wheel]
 packages = ["pm_agent", "frontend", "amos_data"]
+# Force-include the predefined BigQuery SQL templates: they are plain .sql
+# resources (not .py), so they must be listed explicitly to guarantee they
+# reach the wheel/image rather than relying on default package copying.
+artifacts = ["pm_agent/sub_agents/bq_analytics/sql/*.sql"]
 
