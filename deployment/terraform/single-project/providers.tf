@@ -13,7 +13,8 @@
 # limitations under the License.
 
 terraform {
-  required_version = ">= 1.0.0"
+  # Conditional for_each import blocks require Terraform 1.7 or newer.
+  required_version = ">= 1.7.0"
   required_providers {
     google = {
       source  = "hashicorp/google"

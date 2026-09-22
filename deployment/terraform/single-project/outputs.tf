@@ -49,3 +49,13 @@ output "knowledge_base_data_store_name" {
   description = "Full Discovery Engine resource name of the IPC datastore"
   value       = local.knowledge_base_data_store_name
 }
+
+output "knowledge_base_document_count" {
+  description = "Number of local IPC PDFs staged for import; not a live datastore document count"
+  value       = length(local.ipc_document_records)
+}
+
+output "knowledge_base_import_metadata_uri" {
+  description = "GCS manifest consumed by the IPC document import"
+  value       = "gs://${google_storage_bucket.knowledge_base_bucket.name}/${local.ipc_metadata_object_name}"
+}

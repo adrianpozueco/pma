@@ -98,7 +98,8 @@ a route key in both `agent.py` and `router.py`.
 - **uv** - [install](https://docs.astral.sh/uv/getting-started/installation/)
 - **agents-cli** - `uv tool install google-agents-cli`
 - **Google Cloud SDK** - [install](https://cloud.google.com/sdk/docs/install)
-- **Terraform** - only for the infrastructure work below (see the install note)
+- **Terraform >= 1.7** - only for the infrastructure work below (see the install note)
+- **Bash, curl and jq** - used by Terraform's IPC document import script
 
 ---
 
@@ -164,9 +165,9 @@ every entrypoint picks it up - the server, `adk web`, `pytest` and a bare
 `import pm_agent`. `load_dotenv` never overrides a variable already set in the
 environment, so a real deployment's values still win.
 
-**`GOOGLE_CLOUD_LOCATION=global`** matters. The IPC datastore lives in `global`,
-and a wrong location surfaces as a confusing model 404 rather than a location
-error.
+**`GOOGLE_CLOUD_LOCATION=global`** selects the model endpoint used by this app.
+The IPC specialist separately builds a `locations/global` datastore path, so
+keep Terraform's `knowledge_base_location = "global"` too.
 
 **`IPC_DATASTORE_ID`** is the Vertex AI Search datastore behind the IPC
 specialist. It is not hardcoded in the agent because it is environment
@@ -178,14 +179,16 @@ field on `google_discovery_engine_data_store`, so Terraform creates the
 datastore under exactly the id you give it. That means there is no
 chicken-and-egg: you can write the value into `.env` before the first apply.
 
-- **Creating a new datastore** (`adopt_existing_data_store = false`): choose any
-  valid id, for example `ipc-part-numbers`, put it in both `vars/env.tfvars`
-  and `.env`, and apply. They will match because you picked both.
-- **Adopting the existing one** (`adopt_existing_data_store = true`, the default
-  here): the id is whatever the console assigned, including its numeric suffix,
+- **Creating a new datastore** (the module defaults): choose a valid id, for
+  example `ipc-part-numbers`, in your own `vars/my_env.tfvars` and `.env`.
+  Follow [the fresh-project Terraform steps](#recreating-the-knowledge-base-and-infrastructure-with-terraform)
+  to create it and import the manuals.
+- **Adopting an existing datastore** (`adopt_existing_data_store = true`):
+  the id is whatever the console assigned, including its numeric suffix,
   such as `ipc-part-numbers_1789998929768`. Look it up once and use it in both
-  places. Getting this wrong does not error - Terraform quietly creates a
-  second, empty datastore beside the working one.
+  places. The checked-in `vars/env.tfvars` is the existing lab project's
+  adoption configuration; it is not a template for a new project. With
+  adoption enabled, an incorrect id causes an import failure.
 
 To look up an existing id:
 
@@ -347,90 +350,226 @@ hand-written schema does not cover. Check that output before applying.
 
 ---
 
-## Recreating the BigQuery deployment with Terraform
+## Recreating the knowledge base and infrastructure with Terraform
 
-`deployment/terraform/single-project/analytics.tf` owns the BigQuery side:
-one dataset, one GCS data bucket, two staged objects, two native tables and two
-load jobs. The same root module also creates the service account, the
-telemetry dataset and the Reasoning Engine, so an apply touches more than
-BigQuery.
+Use this path to give a colleague their own IPC knowledge base in a new Google
+Cloud project. Terraform enables Discovery Engine, creates a PDF staging
+bucket and datastore, grants the importer and runtime permissions, and imports
+the manuals with aircraft/ATA metadata. The defaults create a new datastore
+and enable ingestion.
 
-### 0. Install Terraform
+This is the **whole infrastructure module**: the same apply uploads the AMOS
+and FAA datasets, creates BigQuery analytics and telemetry resources, and
+provisions an Agent Runtime resource with placeholder code. It does not deploy
+the current application. The project itself and its billing account must
+already exist.
 
-`brew install terraform` does not work because of the BUSL relicense. Use the
-HashiCorp tap:
+### 1. Prepare a separate checkout and credentials
+
+Clone this repository into a new directory for the colleague's project. Keep
+that checkout's `deployment/terraform/single-project/terraform.tfstate` with
+that project: there is no remote backend configured. Do not copy the lab
+project's state or change `project_id` in a checkout that manages it.
+`TF_DATA_DIR` isolates provider files, **not Terraform state**. For shared
+maintenance, arrange one shared state backend before multiple people apply.
+
+Install Google Cloud SDK, Terraform >= 1.7, Bash, curl and jq. Python 3.11–3.13
+and uv are needed for data regeneration and local agent runs. On macOS:
+
 
 ```bash
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
-terraform version   # 1.16.3 here
+brew install jq
+terraform version
 ```
 
-### 1. Configure
+The provisioning identity needs permission to enable services, manage project
+IAM and service accounts, create buckets and their IAM grants, manage BigQuery
+datasets/connections/jobs, manage Discovery Engine datastores/schemas/documents,
+configure log sinks, and create Agent Runtime resources. Typical predefined
+roles covering these operations are `roles/serviceusage.serviceUsageAdmin`,
+`roles/serviceusage.serviceUsageConsumer`, `roles/resourcemanager.projectIamAdmin`,
+`roles/iam.serviceAccountAdmin`, `roles/iam.serviceAccountUser`,
+`roles/compute.viewer`, `roles/storage.admin`, `roles/bigquery.admin`, `roles/bigquery.connectionAdmin`,
+`roles/discoveryengine.admin`, `roles/logging.configWriter` and
+`roles/aiplatform.admin`; have your project administrator assign the equivalent
+permissions under your organization's policy. Billing/project creation
+permissions are separate and are not granted by this module.
+Compute Engine is enabled so the module can resolve the default Compute
+service account used by the existing build-permission grant.
 
-Edit `deployment/terraform/single-project/vars/env.tfvars`:
-
-```hcl
-project_name = "pma-agent"                        # DO NOT CHANGE - see the warning above
-project_id   = "your-gcp-project-id"
-region       = "us-central1"
-```
-
-> **Region must be `us-central1`.** An earlier attempt at `us-east1` was
-> rejected by the org policy `constraints/gcp.resourceLocations`.
-> `terraform plan` cannot see that policy, so the failure only appears at apply
-> time, after resources have started being created.
-
-State is local: there is no `backend` block, so `terraform.tfstate` lives in
-`deployment/terraform/single-project/` and is gitignored. Whoever applies needs
-that file.
-
-### 2. Regenerate the data files
-
-Terraform uploads whatever is on disk, so do this before planning:
+Terraform uses ADC; the document importer uses the active gcloud CLI identity.
+Authenticate both with the intended provisioning identity:
 
 ```bash
+export PMA_PROJECT_ID=your-gcp-project-id
+gcloud auth login
+gcloud config set project "$PMA_PROJECT_ID"
+gcloud auth application-default login
+gcloud auth application-default set-quota-project "$PMA_PROJECT_ID"
+gcloud auth list --filter=status:ACTIVE --format='value(account)'
+```
+
+### 2. Set the project variables and inspect the input files
+
+From the repository root:
+
+```bash
+cp deployment/terraform/single-project/vars/new-project.tfvars.example \
+  deployment/terraform/single-project/vars/my_env.tfvars
+git ls-files data/ipc_part_numbers
+git ls-files data/processed/wo_workorders.ndjson.gz \
+  data/processed/faa_sdr_matching_wo_parts.csv
+```
+
+Edit `vars/my_env.tfvars` to set `project_id` to the same project as
+`PMA_PROJECT_ID`. This filename is gitignored. Leave `project_name = "pma-agent"`
+because the current BigQuery specialist expects `pma_agent_analytics`.
+`us-central1` is the tested infrastructure region for the lab; another
+organization may allow different regions. Check its resource-location policy
+before applying. Keep the knowledge-base location `global` for the current app.
+
+The fresh-project settings are:
+
+```hcl
+knowledge_base_data_store_id     = "ipc-part-numbers"
+knowledge_base_location          = "global"
+create_knowledge_base_data_store = true
+adopt_existing_data_store        = false
+ingest_ipc_documents             = true
+```
+
+The repository tracks these three source PDFs, so a normal clone includes them:
+
+| Source file under `data/ipc_part_numbers/` | Indexed aircraft type |
+|---|---|
+| `B737-8/25-31___124.pdf` | `737-800` |
+| `M73-82/25-32___042.pdf` | `737-8200` |
+| `M73-82/73-11___042.pdf` | `737-8200` |
+
+The AMOS XML, FAA CSVs and two prepared BigQuery load files are also tracked.
+Terraform uploads those local inputs to the selected project. To supply
+different manuals, set `ipc_source_dir` to their absolute directory and retain
+the `<AMOS type>/<ATA chapter>___<revision>.pdf` layout. The import requires a
+nonempty PDF inventory. Document titles include the filename revision; a full
+manual document number is not available from these filenames.
+
+Use the prepared BigQuery files as supplied, or regenerate them after changing
+their raw inputs. Regeneration also rewrites the shared table schemas:
+
+```bash
+uv sync
 uv run python scripts/xml_to_ndjson.py
 uv run python scripts/build_faa_sdr_wo_parts.py
 ```
 
 ### 3. Plan and apply
 
-`terraform apply -auto-approve` is blocked by tooling in this environment. Use
-the two-step form:
-
 ```bash
 cd deployment/terraform/single-project
 terraform init
-terraform plan -out=tfplan -var-file=vars/env.tfvars
-terraform apply tfplan
+terraform validate
+terraform plan -var-file=vars/my_env.tfvars -out=.terraform/new-project.tfplan
+terraform show .terraform/new-project.tfplan
+terraform apply .terraform/new-project.tfplan
 ```
 
-`terraform apply <planfile>` does not take `-var-file`; the variables are baked
-into the saved plan.
+Review the saved plan before applying: it should create the datastore in your
+project and enable document import, with no attempt to import the lab datastore
+or destroy another project's resources. Applying the saved plan uses its
+captured variable values; `terraform apply <planfile>` does not take `-var-file`.
 
-> **The first apply can fail** with a BigQuery connection service account that
-> "does not exist". This is a propagation race (`telemetry.tf` has a 10s
-> `time_sleep` that is sometimes not enough). Re-plan and re-apply; that is what
-> worked.
+The import script patches filterable metadata fields, imports PDFs with stable
+document IDs using `INCREMENTAL` reconciliation, and waits for the operation.
+It checks reported import failures and the expected document count. Search
+indexing can still take additional time after import completes. Incremental
+imports update matching IDs and add new ones; removing a PDF locally does not
+remove its previously indexed document.
 
-### 4. Verify
+### 4. Verify the knowledge base and connect the local app
 
 ```bash
-terraform output   # analytics_dataset_id, analytics_data_bucket_name, ...
+terraform output knowledge_base_data_store_name
+terraform output knowledge_base_document_count
+terraform output knowledge_base_import_metadata_uri
+gcloud storage cat "$(terraform output -raw knowledge_base_import_metadata_uri)" \
+  | jq -s 'map({id, aircraft_type: .structData.aircraft_type, uri: .content.uri})'
 
-bq show --format=prettyjson <project_id>:pma_agent_analytics.wo_workorders    | grep numRows
-bq show --format=prettyjson <project_id>:pma_agent_analytics.faa_sdr_wo_parts | grep numRows
+export PMA_DATASTORE_NAME="$(terraform output -raw knowledge_base_data_store_name)"
+export PMA_IPC_DATASTORE_ID="$(terraform output -raw knowledge_base_data_store_id)"
+curl --silent --show-error --fail-with-body \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "X-Goog-User-Project: ${PMA_PROJECT_ID}" \
+  "https://discoveryengine.googleapis.com/v1/${PMA_DATASTORE_NAME}/branches/default_branch/documents?pageSize=100" \
+  | jq '{documents: [.documents[]? | {id, aircraft_type: .structData.aircraft_type}], nextPageToken}'
 ```
 
-Expect 8259 and 299 rows respectively, matching the local files. Both tables
-are in location `us-central1`.
+With the supplied inventory, expect three source records and three documents
+with the two aircraft types shown above. `knowledge_base_document_count` is the
+local manifest count, not a live API assertion. Follow `nextPageToken` for a
+larger inventory. An imported document alone does not prove that a search query
+will retrieve the right passage.
 
 ```bash
-gsutil ls gs://<project_id>-pma-agent-data/**
-# workorders/wo_workorders.ndjson.gz
-# faa-sdr/faa_sdr_matching_wo_parts.csv
+cd ../../..
+cp .env.example .env
 ```
+
+In `.env`, set `GOOGLE_CLOUD_PROJECT` to `PMA_PROJECT_ID`,
+`GOOGLE_CLOUD_LOCATION=global`, and `IPC_DATASTORE_ID` to the
+`PMA_IPC_DATASTORE_ID` output, which is `ipc-part-numbers` for the example.
+Keep `GOOGLE_GENAI_USE_VERTEXAI=true`. Install dependencies with `agents-cli install`
+and use [the IPC end-to-end check](#6-verify-end-to-end) after indexing is ready.
+The local ADC identity needs `roles/aiplatform.user` and
+`roles/discoveryengine.viewer` for this check. Terraform grants the Discovery
+Engine viewer role to the application service account and Vertex AI service
+agent; it does not grant roles to your personal ADC identity.
+
+The accompanying BigQuery tables can be checked independently:
+
+```bash
+bq show --format=prettyjson "${PMA_PROJECT_ID}:pma_agent_analytics.wo_workorders" | jq .numRows
+bq show --format=prettyjson "${PMA_PROJECT_ID}:pma_agent_analytics.faa_sdr_wo_parts" | jq .numRows
+```
+
+Expect 8,259 and 299 rows for the supplied files. Application deployment remains
+the separate [Deployment](#deployment) step; Terraform's placeholder Agent
+Runtime resource is not evidence that the current agent has been deployed.
+
+### Adopting an existing datastore
+
+For the existing lab, retain `vars/env.tfvars` and its original state. It sets
+the exact console-created datastore ID, `adopt_existing_data_store = true` and
+`ingest_ipc_documents = false`. For a different existing datastore, create your
+own variable file with its exact ID and those same adoption flags. Use that
+file in the plan command and review the import and any changes before applying.
+If other resources already exist but are absent from your state, import them
+at their Terraform addresses as well; a fresh state does not adopt them
+automatically.
+
+Keep ingestion disabled while adopting console-imported documents: their IDs
+may differ from this module's stable IDs and an incremental import could create
+duplicates. Adoption and changing document ownership are separate operations.
+The datastore has `prevent_destroy`; investigate any replacement plan instead
+of removing that guard to make the plan pass.
+
+### Validate changes without provisioning cloud resources
+
+From the repository root, with dependencies installed:
+
+```bash
+terraform -chdir=deployment/terraform/single-project validate
+terraform -chdir=deployment/terraform/single-project test -filter=tests/knowledge_base.tftest.hcl
+uv run pytest tests/unit/test_ipc_ingestion.py -q
+```
+
+The Terraform tests use mocked providers and plan-only runs for fresh creation,
+existing-datastore adoption, unmanaged datastores and empty inventories. The
+importer tests run the real Bash script with mocked gcloud/curl responses to
+check schema/import ordering, retries, refreshed PDF content and partial
+failures. They make no cloud calls; they do not replace verification after a
+real apply in the target project.
 
 ### Re-running after a data change
 
@@ -444,8 +583,8 @@ job_id = "load-wo-workorders-${substr(filemd5(local.wo_workorders_local_path), 0
 
 Consequences for a re-run:
 
-- **Identical data** produces the same job id, so Terraform reports no changes
-  and re-running the scripts and applying is a no-op.
+- **Identical file bytes** produce the same job id. Regenerating gzip files
+  can change their metadata and hash even when the workorder rows are unchanged.
 - **Changed data** produces a new md5, a new job id and therefore a genuinely
   new load job. Both loads use `write_disposition = "WRITE_TRUNCATE"`, so the
   table is replaced, not appended to.
@@ -461,14 +600,15 @@ Consequences for a re-run:
 |---------|-----|
 | `Error 409: already exists` | Do not retry creation. `terraform import <address> <id>` the existing resource into state (per `CLAUDE.md`). |
 | Apply fails on the BigQuery connection service account | Propagation race. Re-plan and re-apply. |
-| Resource rejected by `constraints/gcp.resourceLocations` | Region is not `us-central1`. `plan` cannot catch this. |
+| Resource rejected by `constraints/gcp.resourceLocations` | Use a region allowed by the target project's organization policy. The lab uses `us-central1`; the policy can differ in a colleague's project. |
 | `apply -auto-approve` blocked | Use `plan -out=tfplan` then `apply tfplan`. |
 | Model 404 at runtime | Wrong `GOOGLE_CLOUD_LOCATION` (use `global`), not a wrong model name. |
 
-### What is deployed
+### Resource names
 
-From `terraform.tfstate` in `deployment/terraform/single-project/`, against
-project `qwiklabs-asl-04-1726946cb8ab`:
+The module uses these names with `project_name = "pma-agent"`. Verify their
+presence in your own state and project; this table is not a live deployment
+check.
 
 | Resource | Name |
 |----------|------|
@@ -476,7 +616,8 @@ project `qwiklabs-asl-04-1726946cb8ab`:
 | BigQuery tables | `wo_workorders`, `faa_sdr_wo_parts` |
 | BigQuery dataset (telemetry) | `pma_agent_telemetry` |
 | Telemetry tables / view | `completions`, `aiplatform_googleapis_com_reasoning_engine_stdout`, `completions_view` |
-| GCS buckets | `<project_id>-pma-agent-data`, `<project_id>-pma-agent-logs` |
+| GCS buckets | `<project_id>-pma-agent-data`, `<project_id>-pma-agent-logs`, `<project_id>-pma-agent-kb` |
+| IPC datastore | Your `knowledge_base_data_store_id` input |
 | Service account | `pma-agent-app@<project_id>.iam.gserviceaccount.com` |
 | BigQuery connection | `pma-agent-genai-telemetry` |
 | Log sink | `pma-agent-genai-logs` |
@@ -724,9 +865,9 @@ curl -X POST \
 > the safe choice by hand. `FULL` makes the datastore exactly match the JSONL
 > and **deletes anything not listed** - including documents a console import
 > added under different ids. The checked-in
-> `deployment/terraform/single-project/ingest_ipc_documents.sh` uses `FULL`
-> deliberately, because there the JSONL is generated from the repo and is meant
-> to be the source of truth. Know which one you want.
+> `deployment/terraform/single-project/ingest_ipc_documents.sh` defaults to
+> `INCREMENTAL` too. Its optional `RECONCILIATION_MODE=FULL` override is only
+> for an intentional replacement of a datastore's complete document inventory.
 
 Import is a long-running operation. Poll it:
 
@@ -789,18 +930,10 @@ less clicking and fewer surprises.
 
 ## Known gaps
 
-These are real and currently unfixed.
+Discovery Engine API enablement and `roles/discoveryengine.viewer` grants are
+managed in Terraform. The remaining implementation/deployment gaps are:
 
-- **`discoveryengine.googleapis.com` is not managed in Terraform.** It is
-  enabled in the project, but it is absent from `local.services` in `apis.tf`.
-  A fresh project built from this module would not have it, and the IPC
-  specialist would fail.
-- **The app service account cannot read the Vertex AI Search datastore.**
-  `pma-agent-app@` holds exactly the five roles in `var.app_sa_roles`
-  (`aiplatform.user`, `logging.logWriter`, `cloudtrace.agent`, `storage.admin`,
-  `serviceusage.serviceUsageConsumer`). It has no
-  `roles/discoveryengine.viewer`.
-- **The app service account has no BigQuery role.** Same five roles, so no
+- **The app service account has no BigQuery role.** The default role list has no
   `roles/bigquery.jobUser` or `roles/bigquery.dataViewer`. The `bq_analytics`
   specialist uses Application Default Credentials, which is the developer's
   gcloud login locally but this service account on Agent Runtime, where it
@@ -810,10 +943,10 @@ These are real and currently unfixed.
   variables, but not the project; the `service.tf` comment says Agent Runtime
   reserves it and rejects it in `deployment_spec.env`. `pm_agent/config.py`
   works around this by falling back to Application Default Credentials.
-- **The deployed Reasoning Engine predates the restructure.** Its Terraform
-  state `update_time` is earlier than the `pm_agent` restructure commit, and
-  `deployment_metadata.json` still records `"remote_agent_runtime_id": "None"`.
-  The running agent is not the code in this repo until someone redeploys.
+- **Current application deployment is unverified.** `deployment_metadata.json`
+  records `"remote_agent_runtime_id": "None"`. Terraform's placeholder code
+  does not establish that the current `pm_agent` has been deployed; verify the
+  target runtime and deploy the application separately.
 - **`bq_analytics` is a placeholder.** See the docstring in
   `pm_agent/sub_agents/bq_analytics/agent.py` for what is deliberately not
   built: curated SQL tools or views over the nested schema, and any evaluation

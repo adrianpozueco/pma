@@ -1,0 +1,19 @@
+# Copy to vars/my_env.tfvars in a separate clone for your Google Cloud project.
+# my_env.tfvars is gitignored. Do not reuse another project's Terraform state.
+# The project must already exist with billing enabled.
+project_id   = "your-gcp-project-id"
+project_name = "pma-agent"   # Matches the application's pma_agent_analytics dataset.
+region       = "us-central1" # Check your organization's allowed regions.
+
+# Fresh project: create the datastore and import the local PDF inventory.
+# Keep global: the current IPC specialist builds a global datastore path.
+knowledge_base_data_store_id     = "ipc-part-numbers"
+knowledge_base_display_name      = "IPC part numbers"
+knowledge_base_location          = "global"
+create_knowledge_base_data_store = true
+adopt_existing_data_store        = false
+ingest_ipc_documents             = true
+
+# Optional: use another authorized manual directory. Absolute path recommended.
+# Keep the layout <AMOS type>/<ATA chapter>___<revision>.pdf.
+# ipc_source_dir = "/absolute/path/to/ipc_part_numbers"

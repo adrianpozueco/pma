@@ -1,0 +1,281 @@
+{
+  "scope": "Local repository snapshot only; aggregate data, no cloud verification",
+  "rows": 8259,
+  "unique_wo_uuid": 8259,
+  "unique_wo_number": 8259,
+  "dates": {
+    "issue": {
+      "min": "2006-02-07",
+      "max": "2026-09-13",
+      "present": 8259
+    },
+    "closing": {
+      "min": "2010-06-19",
+      "max": "2026-09-13",
+      "present": 8259
+    }
+  },
+  "closing_year_counts": {
+    "2010": 1,
+    "2012": 1,
+    "2015": 2,
+    "2017": 1,
+    "2018": 2,
+    "2019": 2,
+    "2020": 1,
+    "2021": 1,
+    "2022": 2,
+    "2023": 1,
+    "2024": 41,
+    "2025": 4575,
+    "2026": 3629
+  },
+  "aircraft_types": {
+    "B737-8": 5632,
+    "M73-82": 2579,
+    "32S": 19,
+    "MISSING": 28,
+    "B737-7": 1
+  },
+  "states": {
+    "C": 8259
+  },
+  "aircraft": {
+    "registration": {
+      "distinct_nonnull": 629,
+      "missing_rows": 28,
+      "singletons": 8,
+      "max_wo": 39
+    },
+    "full_registration": {
+      "distinct_nonnull": 629,
+      "missing_rows": 28,
+      "singletons": 8,
+      "max_wo": 39
+    },
+    "msn": {
+      "distinct_nonnull": 629,
+      "missing_rows": 28,
+      "singletons": 8,
+      "max_wo": 39
+    }
+  },
+  "counters": {
+    "issue_present": 45,
+    "closing_present": 8259,
+    "closing_nonpositive": 0,
+    "issue_closing_differ_when_issue_present": 1,
+    "close_date_before_issue_date": 0,
+    "closing_counter_regressions_across_adjacent_distinct_dates": 2,
+    "adjacent_distinct_date_comparisons": 7201,
+    "aircraft_with_regression": 2
+  },
+  "component_changes": {
+    "count": 9085,
+    "unique_uuid": 9085,
+    "wo_with_changes": 7631,
+    "wo_with_multiple_changes": 432,
+    "eligible_swaps": 8956,
+    "eligible_swap_wos": 7552,
+    "eligible_missing_position": 0,
+    "eligible_different_pn": 1555,
+    "missing_off_serial": 71,
+    "missing_on_serial": 55,
+    "wo_multiple_eligible_swaps": 392,
+    "max_eligible_swaps_per_wo": 24
+  },
+  "identity_collisions": {
+    "short_to_multiple_full": 0,
+    "short_to_multiple_msn": 0
+  },
+  "top_components": {
+    "all_aircraft": [
+      {
+        "rank": 1,
+        "component_key": "2085M31G03|#1",
+        "replacement_count": 406,
+        "distinct_replacement_wos": 43,
+        "reference_aircraft": 41,
+        "multiple_same_component_event_wos": 35,
+        "max_same_component_per_wo": 18,
+        "candidate_stats": {
+          "events": 406,
+          "events_any_earlier": 391,
+          "events_ata4_candidate": 21,
+          "ata4_pairs": 21,
+          "ata2_pairs": 21,
+          "precursor_has_change": 21,
+          "precursor_close_not_before_replacement_close": 0
+        },
+        "unique_replacement_wo_precursor_wo_pairs": 2,
+        "lead_cycles_range": [
+          66,
+          1543
+        ]
+      },
+      {
+        "rank": 2,
+        "component_key": "473597-5|AFT",
+        "replacement_count": 335,
+        "distinct_replacement_wos": 321,
+        "reference_aircraft": 156,
+        "multiple_same_component_event_wos": 11,
+        "max_same_component_per_wo": 3,
+        "candidate_stats": {
+          "events": 335,
+          "events_any_earlier": 315,
+          "events_ata4_candidate": 109,
+          "ata4_pairs": 147,
+          "ata2_pairs": 315,
+          "precursor_has_change": 144,
+          "precursor_close_not_before_replacement_close": 0
+        },
+        "unique_replacement_wo_precursor_wo_pairs": 135,
+        "lead_cycles_range": [
+          4,
+          3158
+        ]
+      },
+      {
+        "rank": 3,
+        "component_key": "2085M31G03|#2",
+        "replacement_count": 294,
+        "distinct_replacement_wos": 38,
+        "reference_aircraft": 37,
+        "multiple_same_component_event_wos": 30,
+        "max_same_component_per_wo": 18,
+        "candidate_stats": {
+          "events": 294,
+          "events_any_earlier": 275,
+          "events_ata4_candidate": 37,
+          "ata4_pairs": 37,
+          "ata2_pairs": 55,
+          "precursor_has_change": 37,
+          "precursor_close_not_before_replacement_close": 0
+        },
+        "unique_replacement_wo_precursor_wo_pairs": 3,
+        "lead_cycles_range": [
+          4,
+          1579
+        ]
+      }
+    ],
+    "ng_max_only": [
+      {
+        "rank": 1,
+        "component_key": "2085M31G03|#1",
+        "replacement_count": 398,
+        "distinct_replacement_wos": 42,
+        "reference_aircraft": 40,
+        "multiple_same_component_event_wos": 34,
+        "max_same_component_per_wo": 18,
+        "candidate_stats": {
+          "events": 398,
+          "events_any_earlier": 391,
+          "events_ata4_candidate": 21,
+          "ata4_pairs": 21,
+          "ata2_pairs": 21,
+          "precursor_has_change": 21,
+          "precursor_close_not_before_replacement_close": 0
+        },
+        "unique_replacement_wo_precursor_wo_pairs": 2,
+        "lead_cycles_range": [
+          66,
+          1543
+        ]
+      },
+      {
+        "rank": 2,
+        "component_key": "473597-5|AFT",
+        "replacement_count": 335,
+        "distinct_replacement_wos": 321,
+        "reference_aircraft": 156,
+        "multiple_same_component_event_wos": 11,
+        "max_same_component_per_wo": 3,
+        "candidate_stats": {
+          "events": 335,
+          "events_any_earlier": 315,
+          "events_ata4_candidate": 109,
+          "ata4_pairs": 147,
+          "ata2_pairs": 315,
+          "precursor_has_change": 144,
+          "precursor_close_not_before_replacement_close": 0
+        },
+        "unique_replacement_wo_precursor_wo_pairs": 135,
+        "lead_cycles_range": [
+          4,
+          3158
+        ]
+      },
+      {
+        "rank": 3,
+        "component_key": "2085M31G03|#2",
+        "replacement_count": 276,
+        "distinct_replacement_wos": 37,
+        "reference_aircraft": 36,
+        "multiple_same_component_event_wos": 29,
+        "max_same_component_per_wo": 18,
+        "candidate_stats": {
+          "events": 276,
+          "events_any_earlier": 275,
+          "events_ata4_candidate": 37,
+          "ata4_pairs": 37,
+          "ata2_pairs": 55,
+          "precursor_has_change": 37,
+          "precursor_close_not_before_replacement_close": 0
+        },
+        "unique_replacement_wo_precursor_wo_pairs": 3,
+        "lead_cycles_range": [
+          4,
+          1579
+        ]
+      }
+    ]
+  },
+  "serial_quality": {
+    "present_instances": 18044,
+    "distinct": 11328,
+    "generic_token_instances": 0,
+    "containing_anon_redact_mask": 0,
+    "top_repeated_counts": [
+      10,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      8,
+      8
+    ]
+  },
+  "xml": {
+    "files": 8259,
+    "workorders": 8259,
+    "multi_wo_files": 0,
+    "namespace_workorders": 0
+  },
+  "xml_date_counter_fields": {
+    "issueDate": 8038,
+    "closingDateTime": 8256,
+    "closingTac": 8259,
+    "issueDateTime": 221,
+    "issueTac": 45,
+    "closingDate": 3
+  },
+  "actions_with_performed_ts": 8742,
+  "classification_coverage": {
+    "administrative_service_check": 8259,
+    "aog_risk": 8259,
+    "cdccl": 8259,
+    "cdcp": 8259,
+    "defect_classification": 2,
+    "maintenance_type": 12,
+    "occurence_report": 8259,
+    "ops_consequence": 8259,
+    "structural_damage": 8259,
+    "tal": 8259,
+    "watch_item": 8259
+  }
+}

@@ -35,7 +35,7 @@
 # because `constraints/gcp.resourceLocations` rejects anything else.
 
 locals {
-  ipc_source_dir = "${local.repo_root}/data/ipc_part_numbers"
+  ipc_source_dir = var.ipc_source_dir != null ? var.ipc_source_dir : "${local.repo_root}/data/ipc_part_numbers"
 
   # AMOS type codes are not ICAO codes. Mirrors VARIANT_BY_TYPE in
   # scripts/wo_xml.py so a filter value in the knowledge base is the same
@@ -113,10 +113,11 @@ resource "google_storage_bucket" "knowledge_base_bucket" {
 resource "google_storage_bucket_object" "ipc_manual_pdfs" {
   for_each = local.ipc_document_records
 
-  name         = each.value.object_name
-  bucket       = google_storage_bucket.knowledge_base_bucket.name
-  source       = each.value.local_path
-  content_type = "application/pdf"
+  name           = each.value.object_name
+  bucket         = google_storage_bucket.knowledge_base_bucket.name
+  source         = each.value.local_path
+  detect_md5hash = filemd5(each.value.local_path)
+  content_type   = "application/pdf"
 }
 
 # The metadata JSONL is what makes the aircraft-type separation survive into
@@ -151,9 +152,9 @@ resource "google_storage_bucket_object" "ipc_import_metadata" {
 # Datastore
 # ====================================================================
 #
-# In this project the datastore already exists and is serving the IPC agent, so
-# it is adopted through the import block below rather than created. The count
-# guard is for a clean project, where this same config creates it instead.
+# New projects create a datastore. vars/env.tfvars explicitly adopts the
+# existing project's datastore instead. The count guard allows an externally
+# managed datastore to be referenced without creating or importing it.
 #
 # content_config, industry_vertical, location and data_store_id are all
 # ForceNew in hashicorp/google 7.28.0. If any of them disagrees with the live
@@ -188,8 +189,8 @@ resource "google_discovery_engine_data_store" "ipc" {
 # Adopts the existing console-created datastore into state. The id carries a
 # console-generated numeric suffix (ipc-part-numbers_1789998929768); a
 # data_store_id invented here would not match it and would create a second,
-# empty datastore alongside the working one, which is why
-# var.knowledge_base_data_store_id defaults to the exact existing value.
+# empty datastore alongside the working one. vars/env.tfvars therefore keeps
+# the exact existing id and explicitly enables adoption.
 #
 # for_each, rather than a plain import block, so a clean project can set
 # adopt_existing_data_store = false and have Terraform create the datastore.
@@ -210,34 +211,53 @@ import {
 # document resource). Ingestion is the documents.import REST method, so it is
 # driven by a script here rather than faked as a resource.
 #
-# Disabled by default, and that default matters for this project: the live
-# datastore already holds the three PDFs under console-assigned document ids.
-# Running this import would add our ids alongside them, duplicating every
-# chapter. Enable it only on a datastore whose documents this config owns, or
-# after purging the console-imported ones. reconciliationMode is FULL, so once
-# enabled the datastore's documents become exactly what the JSONL lists.
+# New projects import their PDFs after creating the datastore. The existing
+# project's vars/env.tfvars disables import because its PDFs already have
+# console-assigned ids; importing different ids would duplicate those chapters.
+# INCREMENTAL reconciliation preserves documents outside this import manifest.
+# Disabling datastore management also disables this module's document import.
 resource "terraform_data" "ipc_document_import" {
-  count = var.ingest_ipc_documents ? 1 : 0
+  count = var.create_knowledge_base_data_store && var.ingest_ipc_documents ? 1 : 0
 
-  # Same idea as the md5 in the BigQuery load job ids: re-run when the staged
-  # metadata actually changes, not on every apply.
+  # Metadata alone does not change when a PDF is replaced at the same path.
+  # Track the document bytes and import implementation as well, so unchanged
+  # applies do nothing and content changes are staged before re-importing.
   triggers_replace = {
     data_store      = local.knowledge_base_data_store_name
     metadata_digest = google_storage_bucket_object.ipc_import_metadata.md5hash
+    document_digests = {
+      for rel, doc in local.ipc_document_records : rel => filesha256(doc.local_path)
+    }
+    script_digest = filesha256("${path.module}/ingest_ipc_documents.sh")
+  }
+
+  lifecycle {
+    precondition {
+      condition     = length(local.ipc_document_records) > 0
+      error_message = "IPC ingestion requires at least one PDF under ipc_source_dir using <AMOS type>/<ATA chapter>___<revision>.pdf. Supply the corpus or set ingest_ipc_documents=false to provision an empty datastore."
+    }
+
+    precondition {
+      condition     = length(distinct([for doc in values(local.ipc_document_records) : doc.document_id])) == length(local.ipc_document_records)
+      error_message = "IPC PDFs must produce unique document ids; check aircraft type, ATA chapter, and revision filenames."
+    }
   }
 
   provisioner "local-exec" {
-    command = "bash ${path.module}/ingest_ipc_documents.sh"
+    command = "bash \"${path.module}/ingest_ipc_documents.sh\""
 
     environment = {
-      PROJECT_ID    = var.project_id
-      LOCATION      = var.knowledge_base_location
-      DATA_STORE_ID = var.knowledge_base_data_store_id
-      METADATA_URI  = "gs://${google_storage_bucket.knowledge_base_bucket.name}/${local.ipc_metadata_object_name}"
+      PROJECT_ID              = var.project_id
+      LOCATION                = var.knowledge_base_location
+      DATA_STORE_ID           = var.knowledge_base_data_store_id
+      METADATA_URI            = "gs://${google_storage_bucket.knowledge_base_bucket.name}/${local.ipc_metadata_object_name}"
+      EXPECTED_DOCUMENT_COUNT = tostring(length(local.ipc_document_records))
+      RECONCILIATION_MODE     = "INCREMENTAL"
     }
   }
 
   depends_on = [
+    google_discovery_engine_data_store.ipc,
     google_storage_bucket_object.ipc_manual_pdfs,
     google_storage_bucket_object.ipc_import_metadata,
     google_storage_bucket_iam_member.discovery_engine_kb_reader,
