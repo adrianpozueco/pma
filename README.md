@@ -102,9 +102,51 @@ a route key in both `agent.py` and `router.py`.
 
 ---
 
-## Local development
+## Setup and run
 
-Copy `.env.example` to `.env` and fill it in:
+From a fresh clone to a working agent. Every step has a check, so a failure
+shows up where it happened instead of three steps later.
+
+### 1. Install the tooling
+
+```bash
+uv tool install google-agents-cli
+```
+
+Check: `uv --version` and `agents-cli --version` both print something.
+
+### 2. Authenticate to Google Cloud
+
+The agent talks to Vertex AI, Vertex AI Search and BigQuery through Application
+Default Credentials.
+
+```bash
+gcloud auth login                        # the gcloud CLI itself
+gcloud auth application-default login    # ADC, which the agent uses
+gcloud config set project <your-project-id>
+```
+
+On the consent screen tick **every** permission box. If the
+`cloud-platform` scope is not granted the command fails with:
+
+```
+ERROR: ... https://www.googleapis.com/auth/cloud-platform scope is required
+but not consented. Please run the login command again and consent in the
+login page.
+```
+
+If the browser handoff fails, use `gcloud auth application-default login --no-browser`.
+
+Check:
+
+```bash
+gcloud auth application-default print-access-token | head -c 12
+```
+
+A token prefix means ADC is healthy. These credentials expire; see
+Troubleshooting.
+
+### 3. Configure `.env`
 
 ```bash
 cp .env.example .env
@@ -117,24 +159,108 @@ GOOGLE_CLOUD_LOCATION=global
 IPC_DATASTORE_ID=your-datastore-id
 ```
 
-`IPC_DATASTORE_ID` is the Vertex AI Search datastore behind the IPC specialist.
-It is environment specific - the id carries a console-generated numeric suffix -
-so it is not hardcoded in the agent. Terraform owns it as
-`var.knowledge_base_data_store_id` and reports it as the
-`knowledge_base_data_store_id` output; `service.tf` passes it to the deployed
-agent. If it is unset, importing the agent fails with a message saying so.
+`.env` is gitignored. It is read automatically by `pm_agent/config.py`, so
+every entrypoint picks it up - the server, `adk web`, `pytest` and a bare
+`import pm_agent`. `load_dotenv` never overrides a variable already set in the
+environment, so a real deployment's values still win.
 
-`GOOGLE_CLOUD_LOCATION=global` matters: the IPC datastore lives in `global`, and
-a wrong location surfaces as a model 404. `pm_agent/config.py` falls back to
-Application Default Credentials when `GOOGLE_CLOUD_PROJECT` is unset, so make
-sure `gcloud auth application-default login` has been run.
+**`GOOGLE_CLOUD_LOCATION=global`** matters. The IPC datastore lives in `global`,
+and a wrong location surfaces as a confusing model 404 rather than a location
+error.
 
-Install and run:
+**`IPC_DATASTORE_ID`** is the Vertex AI Search datastore behind the IPC
+specialist. It is environment specific - the id carries a console-generated
+numeric suffix - so it is not hardcoded in the agent. Terraform owns it as
+`var.knowledge_base_data_store_id`. To find it:
+
+```bash
+# from Terraform, if the module has been applied
+cd deployment/terraform/single-project && terraform output knowledge_base_data_store_id
+
+# or straight from the API
+gcloud auth print-access-token | xargs -I{} curl -s -H "Authorization: Bearer {}" \
+  "https://discoveryengine.googleapis.com/v1/projects/<project-id>/locations/global/collections/default_collection/dataStores" \
+  | jq -r '.dataStores[].name'
+```
+
+If it is unset the agent refuses to import, with a message naming the variable.
+
+### 4. Install dependencies
 
 ```bash
 agents-cli install
+```
+
+Check:
+
+```bash
+uv run python -c "from pm_agent.agent import root_agent, app; print(root_agent.name, '/', app.name)"
+# pm_agent / pm_agent
+```
+
+That single command exercises the whole wiring: it resolves the project id,
+reads `IPC_DATASTORE_ID`, builds both specialists and validates the graph.
+
+### 5. Run it
+
+```bash
 agents-cli playground
 ```
+
+Opens a local dev UI that reloads on save. `adk web` from the repo root works
+too - it scans for directories containing an `agent.py` and will list
+`pm_agent`.
+
+To run the HTTP server directly instead:
+
+```bash
+uv run uvicorn pm_agent.fast_api_app:app --host 127.0.0.1 --port 8000
+```
+
+### 6. Verify end to end
+
+Ask one question per branch and confirm each reaches the right specialist.
+
+- **IPC branch:** `what is the part number for the convection oven`
+  should return a part number with a `Citations` block.
+- **BigQuery branch:** `how many work orders are there`
+  should run BigQuery tools and cite the table it read.
+
+Headless equivalent:
+
+```bash
+uv run python - <<'EOF'
+import asyncio
+from google.adk.runners import InMemoryRunner
+from google.genai import types
+from pm_agent.agent import app as adk_app
+
+async def ask(q):
+    r = InMemoryRunner(app=adk_app)
+    s = await r.session_service.create_session(app_name=adk_app.name, user_id="u")
+    async for ev in r.run_async(user_id="u", session_id=s.id,
+        new_message=types.Content(role="user", parts=[types.Part(text=q)])):
+        if ev.actions and getattr(ev.actions, "route", None):
+            print("route:", ev.actions.route)
+        if ev.content and ev.content.parts:
+            for p in ev.content.parts:
+                if p.text:
+                    print(f"[{ev.author}] {p.text[:200]}")
+
+asyncio.run(ask("what is the part number for the convection oven"))
+EOF
+```
+
+A healthy IPC turn is about 4 events and under 30 seconds: the classifier, two
+bookkeeping events from the graph, then the specialist's answer.
+
+Then run the tests:
+
+```bash
+uv run pytest tests/unit tests/integration    # 7 passed
+```
+
+---
 
 ### Commands
 
@@ -161,6 +287,21 @@ dependency group but not synced. Use `uvx`:
 ```bash
 uvx ruff check pm_agent tests
 ```
+
+### Troubleshooting
+
+| Symptom | Cause and fix |
+|---------|---------------|
+| `RefreshError: Reauthentication is needed` | ADC expired. Re-run `gcloud auth application-default login`. Over HTTP this surfaces indirectly, as an SSE stream that ends early and a `ChunkedEncodingError` client-side, so check credentials before suspecting the code. |
+| `cloud-platform scope is required but not consented` | The consent screen was accepted without ticking the permission boxes. Run the login again and tick all of them. |
+| `RuntimeError: IPC_DATASTORE_ID is not set` | `.env` is missing or lacks the variable. See step 3. |
+| `RuntimeError: No project id` | Neither `GOOGLE_CLOUD_PROJECT` nor ADC carries a project. Set it in `.env` or run `gcloud config set project`. |
+| Model 404 | Usually `GOOGLE_CLOUD_LOCATION`, not the model name. The datastore is in `global`. |
+| The dev UI shows stale behaviour, or an old agent name | An `agents-cli playground` server from an earlier session is still running. Check `.google-agents-cli/run_server.json` for its pid and port, kill it, and start a fresh one. |
+| `vertex_ai_search` never turns green in the graph view | Expected. It is a model built-in grounding tool, so it produces no function call or response for the graph to highlight; retrieval happens server-side and comes back as `grounding_metadata`. Confirm grounding through the `Citations` block or `event.grounding_metadata.grounding_chunks`. |
+| "System instructions were modified between consecutive turns" performance warning | Expected for a multi-agent graph. The router classifier and the specialist are different agents with different system instructions, and the dev UI compares consecutive model calls assuming one agent per session. |
+| `test_adk_run_sse` fails intermittently in a full run but passes alone | A transient stream drop, not a defect. Re-run before investigating; the same test passes in isolation and via direct SSE. |
+| Everything routes to one specialist | The router classifies with the model and falls back to a keyword list only when that call fails. A `Route classification failed` warning in the logs means the fallback is doing the routing; the log line names the underlying exception. |
 
 ---
 
