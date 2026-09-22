@@ -42,8 +42,9 @@ output "knowledge_base_data_store_id" {
   value       = var.knowledge_base_data_store_id
 }
 
-# The full resource path is what VertexAiSearchTool wants; pm_agent currently
-# rebuilds it from a hardcoded id in ipc_manual_retrieval/agent.py.
+# The full resource path is what VertexAiSearchTool wants. pm_agent rebuilds it
+# from IPC_DATASTORE_ID, which service.tf sets on the deployed agent and .env
+# supplies locally, so this output is for humans rather than for the agent.
 output "knowledge_base_data_store_name" {
   description = "Full Discovery Engine resource name of the IPC datastore"
   value       = local.knowledge_base_data_store_name

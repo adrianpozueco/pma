@@ -58,7 +58,7 @@ variable "app_sa_roles" {
 
 variable "knowledge_base_data_store_id" {
   type        = string
-  description = "Vertex AI Search datastore id holding the IPC manual PDFs. The numeric suffix is console-generated and must match the existing datastore exactly, otherwise Terraform creates a second, empty one."
+  description = "Vertex AI Search datastore id holding the IPC manual PDFs. This is an input, never generated: Terraform creates the datastore under exactly this id. When adopting a console-created datastore it must match that one byte for byte, suffix included, or Terraform creates a second, empty datastore beside it. For a new datastore, pick any valid id."
   default     = "ipc-part-numbers_1789998929768"
 }
 

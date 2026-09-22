@@ -169,17 +169,35 @@ and a wrong location surfaces as a confusing model 404 rather than a location
 error.
 
 **`IPC_DATASTORE_ID`** is the Vertex AI Search datastore behind the IPC
-specialist. It is environment specific - the id carries a console-generated
-numeric suffix - so it is not hardcoded in the agent. Terraform owns it as
-`var.knowledge_base_data_store_id`. To find it:
+specialist. It is not hardcoded in the agent because it is environment
+specific. Terraform owns it as `var.knowledge_base_data_store_id`, and
+`service.tf` passes it to the deployed agent, so `.env` is only for local runs.
+
+The id is always an **input**, never generated. `data_store_id` is a required
+field on `google_discovery_engine_data_store`, so Terraform creates the
+datastore under exactly the id you give it. That means there is no
+chicken-and-egg: you can write the value into `.env` before the first apply.
+
+- **Creating a new datastore** (`adopt_existing_data_store = false`): choose any
+  valid id, for example `ipc-part-numbers`, put it in both `vars/env.tfvars`
+  and `.env`, and apply. They will match because you picked both.
+- **Adopting the existing one** (`adopt_existing_data_store = true`, the default
+  here): the id is whatever the console assigned, including its numeric suffix,
+  such as `ipc-part-numbers_1789998929768`. Look it up once and use it in both
+  places. Getting this wrong does not error - Terraform quietly creates a
+  second, empty datastore beside the working one.
+
+To look up an existing id:
 
 ```bash
-# from Terraform, if the module has been applied
+# from Terraform, if the module has been applied - this echoes the input,
+# so it confirms the value rather than discovering it
 cd deployment/terraform/single-project && terraform output knowledge_base_data_store_id
 
-# or straight from the API
-gcloud auth print-access-token | xargs -I{} curl -s -H "Authorization: Bearer {}" \
-  "https://discoveryengine.googleapis.com/v1/projects/<project-id>/locations/global/collections/default_collection/dataStores" \
+# from the API, which is the real source of truth for a console-created one
+PROJECT=$(gcloud config get-value project)
+curl -s -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  "https://discoveryengine.googleapis.com/v1/projects/${PROJECT}/locations/global/collections/default_collection/dataStores" \
   | jq -r '.dataStores[].name'
 ```
 
