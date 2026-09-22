@@ -1,0 +1,9 @@
+[
+  {"name": "component_key",      "type": "STRING",  "mode": "REQUIRED"},
+  {"name": "aircraft_reg",       "type": "STRING",  "mode": "REQUIRED"},
+  {"name": "replacement_wo_id",  "type": "STRING",  "mode": "REQUIRED"},
+  {"name": "replacement_wo_uuid","type": "STRING",  "mode": "REQUIRED"},
+  {"name": "replacement_tac",    "type": "INTEGER", "mode": "REQUIRED"},
+  {"name": "replacement_date",   "type": "DATE",    "mode": "NULLABLE"},
+  {"name": "anchor_text",        "type": "STRING",  "mode": "NULLABLE"}
+]
