@@ -27,6 +27,13 @@ Upload-slice validation on 2026-09-22: 130 unit/integration tests passed, includ
 were 1.0/1.0 for uploaded facts and 1.0/1.0 for earlier replay exclusions.
 This validates the upload slice, not the planned parallel evidence milestone.
 
+Deployment on 2026-09-22: revision `853c947` updated the existing `pma-agent`
+runtime (`9071133107117096960`, project `qwiklabs-asl-04-1726946cb8ab`,
+`us-central1`). The full predeployment suite passed 136 tests, and the two
+upload eval cases again scored 1.0/1.0. Live ADK requests verified the synthetic
+uploaded facts, artifact version 0, and earlier replay from the saved artifact.
+The runtime kept its existing app service account and 4 CPU / 8 GiB limits.
+
 ## Proposed flow
 
 ```mermaid

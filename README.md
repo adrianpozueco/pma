@@ -957,10 +957,6 @@ managed in Terraform. The remaining implementation/deployment gaps are:
   variables, but not the project; the `service.tf` comment says Agent Runtime
   reserves it and rejects it in `deployment_spec.env`. `pm_agent/config.py`
   works around this by falling back to Application Default Credentials.
-- **Current application deployment is unverified.** `deployment_metadata.json`
-  records `"remote_agent_runtime_id": "None"`. Terraform's placeholder code
-  does not establish that the current `pm_agent` has been deployed; verify the
-  target runtime and deploy the application separately.
 - **Ordinary BigQuery chat is unchanged.** The dedicated work-order route uses
   the new bounded history provider and canonical artifact tables. Production
   corpus loading, reviewed retrieval relevance, model training, and replacement
@@ -1097,12 +1093,25 @@ checks keyword/vector/hybrid SQL using synthetic session temporary tables and a
 Agent code is deployed separately from infrastructure:
 
 ```bash
-gcloud config set project <your-project-id>
-agents-cli deploy
+PMA_PROJECT_ID=your-project-id
+agents-cli deploy --project "$PMA_PROJECT_ID" --region us-central1 \
+  --service-name pma-agent --update-only \
+  --service-account "pma-agent-app@${PMA_PROJECT_ID}.iam.gserviceaccount.com"
 ```
 
+The explicit service name updates the Terraform-created `pma-agent` runtime;
+`--update-only` prevents accidentally creating a separate `pm-agent` runtime.
 **Requires explicit human approval** per `CLAUDE.md`. The `Dockerfile` serves
-`pm_agent.fast_api_app:app` on port 8080 for container targets.
+`pm_agent.fast_api_app:app` on port 8080 and includes the shared `amos_data`
+parser. Raw source data and local evaluation artifacts are excluded from the
+deployment archive.
+
+The upload slice was deployed on 2026-09-22 from revision `853c947` to runtime
+`projects/98892663275/locations/us-central1/reasoningEngines/9071133107117096960`.
+Live checks verified uploaded XML facts, artifact version 0 and a replay
+follow-up using the saved artifact. `deployment_metadata.json` records the
+runtime and deployment timestamp. This does not establish BigQuery history
+permissions or complete the planned parallel evidence workflow.
 
 ## Observability
 
