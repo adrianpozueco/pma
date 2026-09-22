@@ -19,6 +19,12 @@ terraform {
       source  = "hashicorp/google"
       version = "~> 7.28.0"
     }
+    # Already used implicitly by google_project_service_identity in apis.tf and
+    # knowledge_base.tf; declared so the version is pinned rather than resolved.
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "~> 8.3.0"
+    }
     random = {
       source  = "hashicorp/random"
       version = "~> 3.7.0"

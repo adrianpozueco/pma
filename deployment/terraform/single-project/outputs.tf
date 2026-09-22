@@ -31,3 +31,20 @@ output "analytics_data_bucket_name" {
   description = "Bucket staging the analytics source files"
   value       = google_storage_bucket.analytics_data_bucket.name
 }
+
+output "knowledge_base_bucket_name" {
+  description = "Bucket staging the IPC manual PDFs and their import metadata"
+  value       = google_storage_bucket.knowledge_base_bucket.name
+}
+
+output "knowledge_base_data_store_id" {
+  description = "Vertex AI Search datastore id holding the IPC manuals"
+  value       = var.knowledge_base_data_store_id
+}
+
+# The full resource path is what VertexAiSearchTool wants; pm_agent currently
+# rebuilds it from a hardcoded id in ipc_manual_retrieval/agent.py.
+output "knowledge_base_data_store_name" {
+  description = "Full Discovery Engine resource name of the IPC datastore"
+  value       = local.knowledge_base_data_store_name
+}

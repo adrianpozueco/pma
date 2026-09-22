@@ -29,6 +29,10 @@ locals {
     "logging.googleapis.com",
     "cloudtrace.googleapis.com",
     "telemetry.googleapis.com",
+    # Vertex AI Search, which serves the IPC manual datastore. Enabled by hand
+    # in the live project; without it here a fresh project builds cleanly and
+    # then fails the first retrieval call.
+    "discoveryengine.googleapis.com",
   ]
 }
 
