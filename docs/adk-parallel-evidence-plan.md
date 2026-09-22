@@ -2,6 +2,9 @@
 
 Date: 2026-09-22. Follow-on to `BIGQUERY-AGENT-plan.md`.
 
+For the merged/deployed baseline, code map, atomic next tasks and verification
+commands, start with the [next-agent handover](next-agent-handover.md).
+
 ## Outcome
 
 Use the existing ADK attachment button to analyse an XML work order in chat.
