@@ -490,6 +490,197 @@ Terraform reverting it.
 
 ---
 
+## Creating it manually, without Terraform
+
+Both paths below produce the same result as the Terraform module. Use them for
+a quick throwaway project, or to understand what the module does. Terraform
+remains the source of truth; if you build by hand and later want the module to
+manage it, `terraform import` the resources rather than applying over them.
+
+Set these once:
+
+```bash
+export PROJECT_ID=$(gcloud config get-value project)
+export REGION=us-central1
+export PREFIX=pma-agent          # matches Terraform's var.project_name
+```
+
+### BigQuery by hand
+
+Enable the APIs and create the dataset. The dataset must be in the same region
+as the buckets; `us-east1` is rejected by the org policy.
+
+```bash
+gcloud services enable bigquery.googleapis.com storage.googleapis.com
+
+bq --location=${REGION} mk --dataset \
+  --description "AMOS workorders and matched FAA Service Difficulty Reports" \
+  ${PROJECT_ID}:${PREFIX//-/_}_analytics
+```
+
+Generate the data and the schemas. Both scripts write a schema JSON next to the
+data, and those schema files are what you load with:
+
+```bash
+uv run python scripts/xml_to_ndjson.py
+uv run python scripts/build_faa_sdr_wo_parts.py
+```
+
+Stage the files in GCS. Loading straight from a local path also works, but the
+bucket is what Terraform does and it keeps the two paths comparable:
+
+```bash
+gcloud storage buckets create gs://${PROJECT_ID}-${PREFIX}-data \
+  --location=${REGION} --uniform-bucket-level-access
+
+gcloud storage cp data/processed/wo_workorders.ndjson.gz \
+  gs://${PROJECT_ID}-${PREFIX}-data/workorders/wo_workorders.ndjson.gz
+gcloud storage cp data/processed/faa_sdr_matching_wo_parts.csv \
+  gs://${PROJECT_ID}-${PREFIX}-data/faa-sdr/faa_sdr_matching_wo_parts.csv
+```
+
+Load both tables. `bq load` creates the table from the schema file, so there is
+no separate create step. These flags mirror the `google_bigquery_job` resources
+exactly - explicit schema, no autodetect, truncate on reload:
+
+```bash
+DATASET=${PROJECT_ID}:${PREFIX//-/_}_analytics
+
+bq --location=${REGION} load \
+  --source_format=NEWLINE_DELIMITED_JSON \
+  --replace \
+  ${DATASET}.wo_workorders \
+  gs://${PROJECT_ID}-${PREFIX}-data/workorders/wo_workorders.ndjson.gz \
+  deployment/terraform/shared/wo_workorders_schema.json
+
+bq --location=${REGION} load \
+  --source_format=CSV \
+  --skip_leading_rows=1 \
+  --allow_quoted_newlines \
+  --replace \
+  ${DATASET}.faa_sdr_wo_parts \
+  gs://${PROJECT_ID}-${PREFIX}-data/faa-sdr/faa_sdr_matching_wo_parts.csv \
+  deployment/terraform/shared/faa_sdr_wo_parts_schema.json
+```
+
+`--replace` is `WRITE_TRUNCATE`: rerunning replaces the table contents rather
+than appending. Do not drop it, or a second run doubles every row.
+
+Verify:
+
+```bash
+bq show --format=prettyjson ${DATASET}.wo_workorders    | grep numRows   # 8259
+bq show --format=prettyjson ${DATASET}.faa_sdr_wo_parts | grep numRows   # 299
+```
+
+`wo_workorders.ndjson.gz` is gzipped. `bq load` decompresses it, but a gzipped
+JSON load is single-threaded and slower than an uncompressed one - expect it to
+take a while rather than assuming it has hung.
+
+### Knowledge base by hand
+
+The datastore holds the three IPC PDFs and must keep the two aircraft types
+separable, so the interesting part is the metadata, not the upload.
+
+**Console route.** Vertex AI Search (Agent Builder) → Data Stores → Create.
+Choose Cloud Storage as the source, **Unstructured documents**, and location
+`global`. The console assigns an id with a numeric suffix, which is why the
+existing datastore is called `ipc-part-numbers_1789998929768`. Note the id down;
+it goes in `.env` and in `vars/env.tfvars`.
+
+The console route with "folder of PDFs" gives you no aircraft-type metadata, so
+retrieval cannot filter NG from MAX. Prefer the API route below, or import the
+metadata JSONL afterwards.
+
+**API route**, which is what the Terraform path does. First stage the PDFs,
+mirroring the on-disk aircraft-type folders:
+
+```bash
+gcloud services enable discoveryengine.googleapis.com
+
+gcloud storage buckets create gs://${PROJECT_ID}-${PREFIX}-kb \
+  --location=${REGION} --uniform-bucket-level-access
+
+gcloud storage cp -r data/ipc_part_numbers/* \
+  gs://${PROJECT_ID}-${PREFIX}-kb/ipc-manuals/
+```
+
+Create the datastore. `dataStoreId` is yours to choose - nothing generates it:
+
+```bash
+export DATA_STORE_ID=ipc-part-numbers
+export TOKEN=$(gcloud auth print-access-token)
+
+curl -X POST \
+  -H "Authorization: Bearer ${TOKEN}" \
+  -H "Content-Type: application/json" \
+  -H "X-Goog-User-Project: ${PROJECT_ID}" \
+  "https://discoveryengine.googleapis.com/v1/projects/${PROJECT_ID}/locations/global/collections/default_collection/dataStores?dataStoreId=${DATA_STORE_ID}" \
+  -d '{
+        "displayName": "IPC part numbers",
+        "industryVertical": "GENERIC",
+        "solutionTypes": ["SOLUTION_TYPE_SEARCH"],
+        "contentConfig": "CONTENT_REQUIRED"
+      }'
+```
+
+Those four fields match the `google_discovery_engine_data_store` resource.
+`industryVertical`, `contentConfig` and the location are all ForceNew in
+Terraform, so if you later adopt this datastore they must agree or the plan
+becomes a destroy and create.
+
+Write a metadata JSONL, one line per PDF. This is what carries the aircraft
+type into the index, so retrieval can filter on it:
+
+```jsonl
+{"id":"ipc-737-800-25-31-124","structData":{"aircraft_type":"737-800","amos_aircraft_type":"B737-8","ata_chapter":"25-31","manual_type":"AIPC","revision":"124","title":"Chapter 25-31, 737-800, AIPC, 124"},"content":{"mimeType":"application/pdf","uri":"gs://PROJECT-pma-agent-kb/ipc-manuals/B737-8/25-31___124.pdf"}}
+```
+
+The aircraft strings must match `VARIANT_BY_TYPE` in `scripts/wo_xml.py`
+(`B737-8` -> `737-800`, `M73-82` -> `737-8200`) so the knowledge base and the
+BigQuery tables describe aircraft the same way.
+
+Upload it and import:
+
+```bash
+gcloud storage cp ipc_documents.jsonl \
+  gs://${PROJECT_ID}-${PREFIX}-kb/ipc-manuals/metadata/ipc_documents.jsonl
+
+curl -X POST \
+  -H "Authorization: Bearer ${TOKEN}" \
+  -H "Content-Type: application/json" \
+  -H "X-Goog-User-Project: ${PROJECT_ID}" \
+  "https://discoveryengine.googleapis.com/v1/projects/${PROJECT_ID}/locations/global/collections/default_collection/dataStores/${DATA_STORE_ID}/branches/default_branch/documents:import" \
+  -d "{
+        \"gcsSource\": {
+          \"inputUris\": [\"gs://${PROJECT_ID}-${PREFIX}-kb/ipc-manuals/metadata/ipc_documents.jsonl\"],
+          \"dataSchema\": \"document\"
+        },
+        \"reconciliationMode\": \"INCREMENTAL\"
+      }"
+```
+
+> **`reconciliationMode`.** `INCREMENTAL` adds and updates documents, which is
+> the safe choice by hand. `FULL` makes the datastore exactly match the JSONL
+> and **deletes anything not listed** - including documents a console import
+> added under different ids. The checked-in
+> `deployment/terraform/single-project/ingest_ipc_documents.sh` uses `FULL`
+> deliberately, because there the JSONL is generated from the repo and is meant
+> to be the source of truth. Know which one you want.
+
+Import is a long-running operation. Poll it:
+
+```bash
+curl -s -H "Authorization: Bearer ${TOKEN}" \
+  "https://discoveryengine.googleapis.com/v1/<operation-name-from-the-response>"
+```
+
+Finally put the id in `.env` as `IPC_DATASTORE_ID`, and grant the app service
+account `roles/discoveryengine.viewer` if the agent will run as a service
+account rather than your own login.
+
+---
+
 ## Known gaps
 
 These are real and currently unfixed.
