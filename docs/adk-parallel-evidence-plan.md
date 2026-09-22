@@ -9,9 +9,23 @@ Resolve the request once, retrieve BigQuery history and knowledge-base evidence
 concurrently, and return one answer with traceable sources. Common analytics
 operations use checked-in parameterized SQL exposed as typed Python tools.
 
-This is the next implementation plan, not an implemented graph change. The
-current graph still routes to one specialist. The artifact adapter and bounded
-historical search provider exist but are not connected to the chat graph.
+The first upload slice is implemented on `feat/adk-workorder-upload`: current
+ADK XML attachments reach the shared parser and analysis service, with scoped
+artifacts, version pinning, explicit selection and replay cutoffs. Ordinary chat
+still routes to one specialist. Parallel evidence retrieval and predefined
+query tools below remain planned. Attachment responses currently use uploaded
+evidence only and explicitly report that BigQuery/IPC were not queried.
+
+The actual ADK browser file input was exercised with the synthetic
+`tests/fixtures/workorders/demo_nozzle_upload.xml`. The response retained its
+unique WO, marker and serial pair without a database lookup. Deterministic ADK
+integration tests cover all three configured target parts and session/version
+boundaries; two CLI eval cases check the response and earlier replay exclusions.
+
+Upload-slice validation on 2026-09-22: 130 unit/integration tests passed, including
+22 ADK upload/ordinary-routing checks; Ruff passed. CLI response-contract scores
+were 1.0/1.0 for uploaded facts and 1.0/1.0 for earlier replay exclusions.
+This validates the upload slice, not the planned parallel evidence milestone.
 
 ## Proposed flow
 

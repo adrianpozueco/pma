@@ -14,18 +14,21 @@
 
 """Root graph for pm_agent.
 
-    START -> router -+-> "ipc" -> ipc_manual_retrieval
-                     +-> "bq"  -> bq_analytics
+    START -> prepare_workorder_upload -+-> XML -> display_workorder_upload
+                                      +-> chat -> router -> ipc / bq
 
-The router is the only entry point; it classifies the question and hands the
-whole turn to exactly one specialist, which terminates the run. Specialists do
-not call each other, so adding a domain means adding a leaf and a route key.
+XML attachments run through deterministic work-order analysis. Ordinary chat
+continues through the existing router and its two specialists.
 """
 
 from google.adk.apps import App
 from google.adk.workflow import START, Workflow
 
 from pm_agent.nodes.router import router
+from pm_agent.nodes.workorder_upload import (
+    display_workorder_upload,
+    prepare_workorder_upload,
+)
 from pm_agent.sub_agents.bq_analytics.agent import bq_analytics_node
 from pm_agent.sub_agents.ipc_manual_retrieval.agent import (
     ipc_manual_retrieval_node,
@@ -44,9 +47,10 @@ root_agent = Workflow(
     edges=[
         (
             START,
-            router,
-            {"ipc": ipc_manual_retrieval_node, "bq": bq_analytics_node},
+            prepare_workorder_upload,
+            {"workorder": display_workorder_upload, "chat": router},
         ),
+        (router, {"ipc": ipc_manual_retrieval_node, "bq": bq_analytics_node}),
     ],
 )
 

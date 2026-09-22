@@ -1,0 +1,6 @@
+metrics_to_run:
+  - adk_upload_renderer_contract
+
+custom_metrics:
+  - name: adk_upload_renderer_contract
+    custom_function_file: upload_workorder_metric.py

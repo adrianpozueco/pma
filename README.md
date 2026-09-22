@@ -1,7 +1,8 @@
 # pm-agent
 
 A predictive-maintenance agent for Boeing 737-800 / 737-8200 fleet questions.
-A router classifies each question and hands the turn to one specialist: an IPC
+XML attachments in ADK chat go directly to the shared work-order parser and
+analysis service. A router classifies ordinary questions and hands the turn to one specialist: an IPC
 manual retriever backed by Vertex AI Search, or a BigQuery analytics agent over
 AMOS work orders and FAA Service Difficulty Reports.
 
@@ -52,7 +53,8 @@ pm-agent/
 │   ├── config.py                      # MODEL, project_id()
 │   ├── fast_api_app.py                # FastAPI / A2A server entrypoint
 │   ├── nodes/
-│   │   └── router.py                  # Entry node: LLM classifier sets ctx.route
+│   │   ├── workorder_upload.py        # XML attachment preparation and response
+│   │   └── router.py                  # Ordinary chat classifier sets ctx.route
 │   ├── sub_agents/
 │   │   ├── ipc_manual_retrieval/      # Vertex AI Search over the IPC datastore
 │   │   └── bq_analytics/              # BigQuery specialist (placeholder)
@@ -78,14 +80,18 @@ pm-agent/
 
 ### The graph
 
-`pm_agent/agent.py` builds a single-hop graph:
+`pm_agent/agent.py` checks for uploaded XML before classifying ordinary chat:
 
 ```
-START -> router -+-> "ipc" -> ipc_manual_retrieval
-                 +-> "bq"  -> bq_analytics
+START -> prepare_workorder_upload -+-> "workorder" -> display_workorder_upload
+                                  +-> "chat" -> router -+-> "ipc" -> ipc_manual_retrieval
+                                                        +-> "bq"  -> bq_analytics
 ```
 
-- **`router`** (`pm_agent/nodes/router.py`) is the only entry point. It runs a
+- **`prepare_workorder_upload`** parses current XML attachments or explicit
+  follow-ups from a saved session artifact. It produces a deterministic answer
+  from uploaded evidence; parallel BigQuery/IPC retrieval is a later step.
+- **`router`** (`pm_agent/nodes/router.py`) handles ordinary chat. It runs a
   structured-output classifier sub-agent that returns `"ipc"` or `"bq"`, sets
   `ctx.route`, and returns the user's question as the chosen node's input. If
   the classifier call fails it falls back to a keyword list.
@@ -969,7 +975,50 @@ uv sync
 uv run uvicorn pm_agent.fast_api_app:app --host 127.0.0.1 --port 8080
 ```
 
-This synthetic fixture exercises the real upload route. Metadata belongs in query
+### Upload in ADK chat
+
+Open <http://127.0.0.1:8080/dev-ui/?app=pm_agent>, select `pm_agent`, use the
+**+ / Upload local file** control and attach
+[`demo_nozzle_upload.xml`](tests/fixtures/workorders/demo_nozzle_upload.xml).
+Send **“Analyse the attached work order.”**
+
+This synthetic completed work order is `DEMO-XML-ONLY-2085`, with part
+`2085M31G03`, marker `COPPER-FINCH-41`, serial off `DEMO-OFF-41` and serial on
+`DEMO-ON-42`. The answer must show those uploaded facts. No BigQuery row or
+database import is needed. The ADK event details also expose the source filename,
+saved artifact version and SHA-256 upload hash.
+
+The real completed example is
+[`TRANSFER_WORKORDER_1789487041751.xml`](data/xml/TRANSFER_WORKORDER_1789487041751.xml)
+(WO `105177647`). Structured component positions are reported as recorded;
+serial pairs are not assigned to narrative nozzle numbers without supporting data.
+
+Closed uploads default to `historical_replay`; open uploads default to
+`new_work_order`. The cutoff defaults to the current UTC time. Supply explicit
+options in the message or in a follow-up:
+
+```text
+Analyse the attached work order. analysis_as_of=2026-09-01T09:15:00Z
+```
+
+For the synthetic closed export, that earlier cutoff excludes the later snapshot
+findings and completed actions. Multiple files prompt for `filename="FILE.xml"`;
+multiple work orders prompt for `selected_wo_id=NUMBER`. Follow-ups reuse the
+exact saved version, including version 0. Other supported options are `mode`,
+`target_part_number`, `current_aircraft_tac`, `current_tac_source` and
+`current_tac_observed_at`. Current TAC requires its own source and observation
+time; closing TAC is not substituted for it.
+
+Chat accepts up to 10 XML files totalling 25 MiB. Artifacts stay within the
+current ADK app/user/session. Storage uses the existing artifact service: GCS
+when `LOGS_BUCKET_NAME` is set, otherwise memory until the server restarts.
+Attachment analysis currently reports uploaded evidence only. It explicitly
+states that BigQuery and the knowledge base were not queried and that failure
+probability, remaining life and replacement deadlines are unavailable.
+
+### Dedicated HTTP API
+
+This synthetic fixture exercises the dedicated API route. Metadata belongs in query
 parameters for both raw XML and multipart uploads:
 
 ```sh
@@ -1024,7 +1073,19 @@ to ten eligible local documents and embedding defaults to dry-run. See
 [reviewed retrieval evaluator](docs/bigquery-retrieval-evaluation.md).
 
 Run deterministic checks with
-`uv run pytest tests/unit tests/integration/test_workorder_upload.py`.
+`uv run pytest tests/unit tests/integration/test_workorder_upload.py tests/integration/test_adk_workorder_upload.py`.
+The ADK tests exercise real Workflow, Runner, session and artifact services;
+model calls are disabled for uploads. Reproduce the two attachment evaluations
+against the running local server with:
+
+```sh
+agents-cli eval generate --dataset tests/eval/datasets/adk-workorder-upload.json \
+  --url http://127.0.0.1:8080 --app-name pm_agent --output /tmp/adk-upload-traces
+agents-cli eval grade --traces /tmp/adk-upload-traces \
+  --config tests/eval/upload_eval_config.yaml --output /tmp/adk-upload-scores
+```
+
+These use deterministic checks of the parsed response and replay exclusions.
 With Google credentials, `uv run python scripts/verify_history_bigquery.py`
 checks keyword/vector/hybrid SQL using synthetic session temporary tables and a
 100 MB per-script billing cap. It creates no permanent table or deployment.

@@ -22,6 +22,7 @@ WORKDIR /code
 COPY ./pyproject.toml ./README.md ./uv.lock* ./
 
 COPY ./pm_agent ./pm_agent
+COPY ./amos_data ./amos_data
 
 RUN uv sync --frozen
 
