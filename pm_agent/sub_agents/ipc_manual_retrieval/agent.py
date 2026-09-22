@@ -70,6 +70,13 @@ ask_vertex_retrieval = VertexAiSearchTool(
 
 ipc_manual_retrieval_agent = Agent(
     name="ipc_manual_retrieval",
+    # A workflow node that follows another node must be single_turn: ADK
+    # rejects mode="chat" there because a chat agent cannot consume a node
+    # input. So the router hands the user's question down as this node's
+    # input. include_contents is set explicitly because single_turn otherwise
+    # forces it to "none", which would drop the conversation history.
+    mode="single_turn",
+    include_contents="default",
     model=Gemini(
         model=MODEL,
         retry_options=types.HttpRetryOptions(attempts=3),

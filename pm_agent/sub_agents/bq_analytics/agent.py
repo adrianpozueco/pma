@@ -113,6 +113,11 @@ bigquery_toolset = BigQueryToolset(
 
 bq_analytics_agent = Agent(
     name="bq_analytics",
+    # See the note in the IPC specialist: single_turn is required for a node
+    # that follows the router, and include_contents must be explicit to keep
+    # the conversation history.
+    mode="single_turn",
+    include_contents="default",
     model=Gemini(
         model=MODEL,
         retry_options=types.HttpRetryOptions(attempts=3),
