@@ -1,0 +1,5364 @@
+{
+  "scope": "All local raw FAA SDR CSV rows for 2023, 2024, 2025; not limited to prefiltered AMOS matches.",
+  "sources": [
+    {
+      "path": "data/faa-sdr/SDR-2023.csv",
+      "size_bytes": 32896224,
+      "sha256": "68c1819582debe86ff0ba358d9a9ffdd4da33748d24d77baa9eeabf348ddfc20"
+    },
+    {
+      "path": "data/faa-sdr/SDR-2024.csv",
+      "size_bytes": 33746911,
+      "sha256": "80a2d209092d8aab8a3fd96cddf226418105c62f13a5457ce261b8c780df808e"
+    },
+    {
+      "path": "data/faa-sdr/SDR-2025.csv",
+      "size_bytes": 33178003,
+      "sha256": "dc0122c84efd2ca1c419e5ff2bee07a42d9f382a609928d737e8a2e2b21d8827"
+    }
+  ],
+  "deduplication": "Exact distinct rows use SHA-256 of parsed field/value JSON, excluding source filename/year. OperatorControlNumber and operator-scoped identifiers are separately counted; none proves a unique failure or version resolution.",
+  "numeric_validity": "Finite Decimal after trim; conventional thousands commas accepted. Positive/zero/negative and fractional counted separately. Populated counters do not establish installation age, removal, healthy exposure, or follow-up.",
+  "age_attribution": "For PartNumber matches, target-age evidence must come from PartTotalCycles/PartSerialNumber; for ComponentPartNumber matches, use ComponentTotalCycles/ComponentSerialNumber. AircraftTotalCycles is airframe age at report, never interchangeable with target-part age. Since-code values are preserved as uninterpreted categorical counts.",
+  "keyword_method": "Case-insensitive whole-word regex on PartName and ComponentName only, never narratives. Nozzle includes unrelated nozzle types; boiler_or_water_heater includes WATER HEATER; oven includes OVENS. Heuristic classes, not interchangeable PN labels.",
+  "malformed_rows": {
+    "rows_with_extra_columns": 0,
+    "rows_with_missing_columns": 0
+  },
+  "overall": {
+    "rows": 196404,
+    "rows_by_source_year": {
+      "2023": 62688,
+      "2024": 66079,
+      "2025": 67637
+    },
+    "exact_distinct_rows": 196404,
+    "exact_duplicate_rows": 0,
+    "distinct_nonblank_operator_control_numbers": 196404,
+    "operator_control_numbers_repeated": 0,
+    "distinct_nonblank_operator_scoped_control_numbers": 196404,
+    "models_top_30": [
+      {
+        "make": "BOEING",
+        "model": "7377H4",
+        "rows": 16730
+      },
+      {
+        "make": "BOEING",
+        "model": "737823",
+        "rows": 10834
+      },
+      {
+        "make": "BOEING",
+        "model": "7378H4",
+        "rows": 10494
+      },
+      {
+        "make": "CNDAIR",
+        "model": "CL6002D24",
+        "rows": 5811
+      },
+      {
+        "make": "AIRBUS",
+        "model": "A320232",
+        "rows": 5558
+      },
+      {
+        "make": "EMB",
+        "model": "ERJ170200LR",
+        "rows": 5549
+      },
+      {
+        "make": "CNDAIR",
+        "model": "CL6002C10",
+        "rows": 5510
+      },
+      {
+        "make": "AIRBUS",
+        "model": "A321231",
+        "rows": 4473
+      },
+      {
+        "make": "BOEING",
+        "model": "7378",
+        "rows": 4060
+      },
+      {
+        "make": "AIRBUS",
+        "model": "A319114",
+        "rows": 3928
+      },
+      {
+        "make": "AIRBUS",
+        "model": "A319112",
+        "rows": 3320
+      },
+      {
+        "make": "BOEING",
+        "model": "737832",
+        "rows": 3270
+      },
+      {
+        "make": "EMB",
+        "model": "EMB145LR",
+        "rows": 3096
+      },
+      {
+        "make": "BOEING",
+        "model": "757232",
+        "rows": 3062
+      },
+      {
+        "make": "DOUG",
+        "model": "MD11F",
+        "rows": 3055
+      },
+      {
+        "make": "AIRBUS",
+        "model": "A321211",
+        "rows": 3029
+      },
+      {
+        "make": "BOEING",
+        "model": "717200",
+        "rows": 2988
+      },
+      {
+        "make": "BOEING",
+        "model": "737824",
+        "rows": 2987
+      },
+      {
+        "make": "CNDAIR",
+        "model": "CL6002B19",
+        "rows": 2945
+      },
+      {
+        "make": "BOEING",
+        "model": "737890",
+        "rows": 2763
+      },
+      {
+        "make": "AIRBUS",
+        "model": "A320214",
+        "rows": 2623
+      },
+      {
+        "make": "BOEING",
+        "model": "7379",
+        "rows": 2371
+      },
+      {
+        "make": "BOEING",
+        "model": "7377BD",
+        "rows": 2349
+      },
+      {
+        "make": "BOEING",
+        "model": "737990ER",
+        "rows": 2201
+      },
+      {
+        "make": "AIRBUS",
+        "model": "A300F4622R",
+        "rows": 2146
+      },
+      {
+        "make": "AIRBUS",
+        "model": "A319132",
+        "rows": 2086
+      },
+      {
+        "make": "BOEING",
+        "model": "767332",
+        "rows": 1780
+      },
+      {
+        "make": "EMB",
+        "model": "EMB145XR",
+        "rows": 1729
+      },
+      {
+        "make": "BOEING",
+        "model": "737924ER",
+        "rows": 1707
+      },
+      {
+        "make": "BOEING",
+        "model": "75724APF",
+        "rows": 1662
+      }
+    ],
+    "distinct_make_model_values": 810,
+    "numbers": {
+      "PartTotalCycles": {
+        "blank": 182836,
+        "populated": 13568,
+        "invalid_numeric": 0,
+        "numeric": 13568,
+        "positive": 13568,
+        "zero": 0,
+        "negative": 0,
+        "fractional": 0,
+        "positive_range": [
+          "1",
+          "7002695"
+        ]
+      },
+      "ComponentTotalCycles": {
+        "blank": 195528,
+        "populated": 876,
+        "invalid_numeric": 0,
+        "numeric": 876,
+        "positive": 876,
+        "zero": 0,
+        "negative": 0,
+        "fractional": 0,
+        "positive_range": [
+          "1",
+          "9999999"
+        ]
+      },
+      "AircraftTotalCycles": {
+        "blank": 3315,
+        "populated": 193089,
+        "invalid_numeric": 0,
+        "numeric": 193089,
+        "positive": 193089,
+        "zero": 0,
+        "negative": 0,
+        "fractional": 0,
+        "positive_range": [
+          "1",
+          "2493032"
+        ]
+      },
+      "PartTotalTime": {
+        "blank": 181749,
+        "populated": 14655,
+        "invalid_numeric": 0,
+        "numeric": 14655,
+        "positive": 14655,
+        "zero": 0,
+        "negative": 0,
+        "fractional": 0,
+        "positive_range": [
+          "1",
+          "8031424"
+        ]
+      },
+      "ComponentTotalTime": {
+        "blank": 195165,
+        "populated": 1239,
+        "invalid_numeric": 0,
+        "numeric": 1239,
+        "positive": 1239,
+        "zero": 0,
+        "negative": 0,
+        "fractional": 0,
+        "positive_range": [
+          "1",
+          "9999999"
+        ]
+      },
+      "AircraftTotalTime": {
+        "blank": 1570,
+        "populated": 194834,
+        "invalid_numeric": 0,
+        "numeric": 194834,
+        "positive": 194834,
+        "zero": 0,
+        "negative": 0,
+        "fractional": 0,
+        "positive_range": [
+          "1",
+          "9272311"
+        ]
+      },
+      "PartTimeSince": {
+        "blank": 184776,
+        "populated": 11628,
+        "invalid_numeric": 0,
+        "numeric": 11628,
+        "positive": 11628,
+        "zero": 0,
+        "negative": 0,
+        "fractional": 0,
+        "positive_range": [
+          "1",
+          "1486694"
+        ]
+      },
+      "ComponentTimeSince": {
+        "blank": 195494,
+        "populated": 910,
+        "invalid_numeric": 0,
+        "numeric": 910,
+        "positive": 910,
+        "zero": 0,
+        "negative": 0,
+        "fractional": 0,
+        "positive_range": [
+          "1",
+          "781385"
+        ]
+      }
+    },
+    "serial_coverage": {
+      "PartSerialNumber": {
+        "blank": 176152,
+        "populated": 20252,
+        "generic_token": 2311
+      },
+      "ComponentSerialNumber": {
+        "blank": 194772,
+        "populated": 1632,
+        "generic_token": 57
+      },
+      "AircraftSerialNumber": {
+        "blank": 490,
+        "populated": 195914,
+        "generic_token": 3
+      }
+    },
+    "dates": {
+      "DifficultyDate": {
+        "blank": 0,
+        "populated": 196404,
+        "valid": 196404,
+        "invalid": 0,
+        "valid_range": [
+          "2023-01-01",
+          "2025-12-31"
+        ]
+      },
+      "SubmissionDate": {
+        "blank": 0,
+        "populated": 196404,
+        "valid": 196404,
+        "invalid": 0,
+        "valid_range": [
+          "2022-12-06",
+          "2026-09-09"
+        ]
+      }
+    },
+    "joint_cycle_date_serial_coverage": {
+      "Part_positive_integer_cycles_and_valid_event_date": 13568,
+      "Part_positive_integer_cycles_serial_and_valid_event_date": 9058,
+      "Component_positive_integer_cycles_and_valid_event_date": 876,
+      "Component_positive_integer_cycles_serial_and_valid_event_date": 756,
+      "Aircraft_positive_integer_cycles_and_valid_event_date": 193089,
+      "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 193041,
+      "Part_positive_cycles_equal_aircraft_cycles": 5534,
+      "Part_positive_cycles_exceed_aircraft_cycles": 2164,
+      "Component_positive_cycles_equal_aircraft_cycles": 370,
+      "Component_positive_cycles_exceed_aircraft_cycles": 133
+    },
+    "time_since_codes": {
+      "PartSinceCode": {
+        "BLANK": 184058,
+        "O": 3271,
+        "R": 6555,
+        "I": 2517,
+        "0": 3
+      },
+      "ComponentSinceCode": {
+        "BLANK": 195367,
+        "I": 301,
+        "O": 420,
+        "R": 315,
+        "0": 1
+      }
+    },
+    "missing_operator_control_number": 0,
+    "both_dates_valid": 196404,
+    "submission_before_difficulty": 65
+  },
+  "by_source_year": {
+    "2023": {
+      "rows": 62688,
+      "rows_by_source_year": {
+        "2023": 62688
+      },
+      "exact_distinct_rows": 62688,
+      "exact_duplicate_rows": 0,
+      "distinct_nonblank_operator_control_numbers": 62688,
+      "operator_control_numbers_repeated": 0,
+      "distinct_nonblank_operator_scoped_control_numbers": 62688,
+      "models_top_30": [
+        {
+          "make": "BOEING",
+          "model": "7377H4",
+          "rows": 6497
+        },
+        {
+          "make": "BOEING",
+          "model": "7378H4",
+          "rows": 3437
+        },
+        {
+          "make": "BOEING",
+          "model": "737823",
+          "rows": 3106
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320232",
+          "rows": 1933
+        },
+        {
+          "make": "BOEING",
+          "model": "7379",
+          "rows": 1751
+        },
+        {
+          "make": "EMB",
+          "model": "ERJ170200LR",
+          "rows": 1696
+        },
+        {
+          "make": "BOEING",
+          "model": "737890",
+          "rows": 1592
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320*",
+          "rows": 1564
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002D24",
+          "rows": 1556
+        },
+        {
+          "make": "BOEING",
+          "model": "757232",
+          "rows": 1467
+        },
+        {
+          "make": "DOUG",
+          "model": "MD11F",
+          "rows": 1207
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002C10",
+          "rows": 1207
+        },
+        {
+          "make": "BOEING",
+          "model": "717200",
+          "rows": 1199
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320214",
+          "rows": 1183
+        },
+        {
+          "make": "BOEING",
+          "model": "7378",
+          "rows": 1145
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319112",
+          "rows": 1142
+        },
+        {
+          "make": "BOEING",
+          "model": "737990ER",
+          "rows": 1099
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002B19",
+          "rows": 1070
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319114",
+          "rows": 955
+        },
+        {
+          "make": "BOEING",
+          "model": "767332",
+          "rows": 897
+        },
+        {
+          "make": "EMB",
+          "model": "EMB145LR",
+          "rows": 788
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319132",
+          "rows": 661
+        },
+        {
+          "make": "BOEING",
+          "model": "7377BD",
+          "rows": 631
+        },
+        {
+          "make": "BOEING",
+          "model": "737832",
+          "rows": 624
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A300F4622R",
+          "rows": 559
+        },
+        {
+          "make": "BOEING",
+          "model": "737900ER",
+          "rows": 537
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A330223",
+          "rows": 526
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A330323",
+          "rows": 507
+        },
+        {
+          "make": "BOEING",
+          "model": "73779P",
+          "rows": 506
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321231",
+          "rows": 499
+        }
+      ],
+      "distinct_make_model_values": 594,
+      "numbers": {
+        "PartTotalCycles": {
+          "blank": 58119,
+          "populated": 4569,
+          "invalid_numeric": 0,
+          "numeric": 4569,
+          "positive": 4569,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "1433902"
+          ]
+        },
+        "ComponentTotalCycles": {
+          "blank": 62382,
+          "populated": 306,
+          "invalid_numeric": 0,
+          "numeric": 306,
+          "positive": 306,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "9999999"
+          ]
+        },
+        "AircraftTotalCycles": {
+          "blank": 1048,
+          "populated": 61640,
+          "invalid_numeric": 0,
+          "numeric": 61640,
+          "positive": 61640,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "644381"
+          ]
+        },
+        "PartTotalTime": {
+          "blank": 57730,
+          "populated": 4958,
+          "invalid_numeric": 0,
+          "numeric": 4958,
+          "positive": 4958,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "1851494"
+          ]
+        },
+        "ComponentTotalTime": {
+          "blank": 62190,
+          "populated": 498,
+          "invalid_numeric": 0,
+          "numeric": 498,
+          "positive": 498,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "9999999"
+          ]
+        },
+        "AircraftTotalTime": {
+          "blank": 440,
+          "populated": 62248,
+          "invalid_numeric": 0,
+          "numeric": 62248,
+          "positive": 62248,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "9272311"
+          ]
+        },
+        "PartTimeSince": {
+          "blank": 58774,
+          "populated": 3914,
+          "invalid_numeric": 0,
+          "numeric": 3914,
+          "positive": 3914,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "1486694"
+          ]
+        },
+        "ComponentTimeSince": {
+          "blank": 62390,
+          "populated": 298,
+          "invalid_numeric": 0,
+          "numeric": 298,
+          "positive": 298,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "126606"
+          ]
+        }
+      },
+      "serial_coverage": {
+        "PartSerialNumber": {
+          "blank": 53304,
+          "populated": 9384,
+          "generic_token": 1846
+        },
+        "ComponentSerialNumber": {
+          "blank": 62167,
+          "populated": 521,
+          "generic_token": 50
+        },
+        "AircraftSerialNumber": {
+          "blank": 210,
+          "populated": 62478,
+          "generic_token": 0
+        }
+      },
+      "dates": {
+        "DifficultyDate": {
+          "blank": 0,
+          "populated": 62688,
+          "valid": 62688,
+          "invalid": 0,
+          "valid_range": [
+            "2023-01-01",
+            "2023-12-31"
+          ]
+        },
+        "SubmissionDate": {
+          "blank": 0,
+          "populated": 62688,
+          "valid": 62688,
+          "invalid": 0,
+          "valid_range": [
+            "2022-12-06",
+            "2026-08-05"
+          ]
+        }
+      },
+      "joint_cycle_date_serial_coverage": {
+        "Part_positive_integer_cycles_and_valid_event_date": 4569,
+        "Part_positive_integer_cycles_serial_and_valid_event_date": 3337,
+        "Component_positive_integer_cycles_and_valid_event_date": 306,
+        "Component_positive_integer_cycles_serial_and_valid_event_date": 243,
+        "Aircraft_positive_integer_cycles_and_valid_event_date": 61640,
+        "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 61601,
+        "Part_positive_cycles_equal_aircraft_cycles": 1825,
+        "Part_positive_cycles_exceed_aircraft_cycles": 870,
+        "Component_positive_cycles_equal_aircraft_cycles": 133,
+        "Component_positive_cycles_exceed_aircraft_cycles": 31
+      },
+      "time_since_codes": {
+        "PartSinceCode": {
+          "BLANK": 58568,
+          "O": 1042,
+          "R": 2391,
+          "I": 684,
+          "0": 3
+        },
+        "ComponentSinceCode": {
+          "BLANK": 62362,
+          "I": 94,
+          "O": 160,
+          "R": 72
+        }
+      },
+      "missing_operator_control_number": 0,
+      "both_dates_valid": 62688,
+      "submission_before_difficulty": 22
+    },
+    "2024": {
+      "rows": 66079,
+      "rows_by_source_year": {
+        "2024": 66079
+      },
+      "exact_distinct_rows": 66079,
+      "exact_duplicate_rows": 0,
+      "distinct_nonblank_operator_control_numbers": 66079,
+      "operator_control_numbers_repeated": 0,
+      "distinct_nonblank_operator_scoped_control_numbers": 66079,
+      "models_top_30": [
+        {
+          "make": "BOEING",
+          "model": "7377H4",
+          "rows": 5312
+        },
+        {
+          "make": "BOEING",
+          "model": "7378H4",
+          "rows": 4244
+        },
+        {
+          "make": "BOEING",
+          "model": "737823",
+          "rows": 3777
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002C10",
+          "rows": 2100
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321231",
+          "rows": 1925
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002D24",
+          "rows": 1867
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320232",
+          "rows": 1794
+        },
+        {
+          "make": "EMB",
+          "model": "ERJ170200LR",
+          "rows": 1718
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319114",
+          "rows": 1583
+        },
+        {
+          "make": "BOEING",
+          "model": "737832",
+          "rows": 1510
+        },
+        {
+          "make": "EMB",
+          "model": "EMB145LR",
+          "rows": 1364
+        },
+        {
+          "make": "BOEING",
+          "model": "7378",
+          "rows": 1205
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319112",
+          "rows": 1204
+        },
+        {
+          "make": "BOEING",
+          "model": "717200",
+          "rows": 1073
+        },
+        {
+          "make": "BOEING",
+          "model": "7377BD",
+          "rows": 1068
+        },
+        {
+          "make": "AIRBUS",
+          "model": "BD5001A10",
+          "rows": 962
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321211",
+          "rows": 902
+        },
+        {
+          "make": "BOEING",
+          "model": "757232",
+          "rows": 886
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320214",
+          "rows": 880
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002B19",
+          "rows": 846
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319132",
+          "rows": 807
+        },
+        {
+          "make": "BOEING",
+          "model": "737932ER",
+          "rows": 782
+        },
+        {
+          "make": "DOUG",
+          "model": "MD11F",
+          "rows": 780
+        },
+        {
+          "make": "BOEING",
+          "model": "737824",
+          "rows": 729
+        },
+        {
+          "make": "BOEING",
+          "model": "737890",
+          "rows": 636
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A300F4622R",
+          "rows": 588
+        },
+        {
+          "make": "BOEING",
+          "model": "767332",
+          "rows": 580
+        },
+        {
+          "make": "BOEING",
+          "model": "767323",
+          "rows": 571
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320212",
+          "rows": 560
+        },
+        {
+          "make": "BOEING",
+          "model": "737924ER",
+          "rows": 555
+        }
+      ],
+      "distinct_make_model_values": 566,
+      "numbers": {
+        "PartTotalCycles": {
+          "blank": 61716,
+          "populated": 4363,
+          "invalid_numeric": 0,
+          "numeric": 4363,
+          "positive": 4363,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "1429666"
+          ]
+        },
+        "ComponentTotalCycles": {
+          "blank": 65772,
+          "populated": 307,
+          "invalid_numeric": 0,
+          "numeric": 307,
+          "positive": 307,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "719181"
+          ]
+        },
+        "AircraftTotalCycles": {
+          "blank": 1192,
+          "populated": 64887,
+          "invalid_numeric": 0,
+          "numeric": 64887,
+          "positive": 64887,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "2493032"
+          ]
+        },
+        "PartTotalTime": {
+          "blank": 61353,
+          "populated": 4726,
+          "invalid_numeric": 0,
+          "numeric": 4726,
+          "positive": 4726,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "8031424"
+          ]
+        },
+        "ComponentTotalTime": {
+          "blank": 65666,
+          "populated": 413,
+          "invalid_numeric": 0,
+          "numeric": 413,
+          "positive": 413,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "825947"
+          ]
+        },
+        "AircraftTotalTime": {
+          "blank": 533,
+          "populated": 65546,
+          "invalid_numeric": 0,
+          "numeric": 65546,
+          "positive": 65546,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "1686230"
+          ]
+        },
+        "PartTimeSince": {
+          "blank": 62200,
+          "populated": 3879,
+          "invalid_numeric": 0,
+          "numeric": 3879,
+          "positive": 3879,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "806685"
+          ]
+        },
+        "ComponentTimeSince": {
+          "blank": 65731,
+          "populated": 348,
+          "invalid_numeric": 0,
+          "numeric": 348,
+          "positive": 348,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "781385"
+          ]
+        }
+      },
+      "serial_coverage": {
+        "PartSerialNumber": {
+          "blank": 60382,
+          "populated": 5697,
+          "generic_token": 327
+        },
+        "ComponentSerialNumber": {
+          "blank": 65494,
+          "populated": 585,
+          "generic_token": 3
+        },
+        "AircraftSerialNumber": {
+          "blank": 147,
+          "populated": 65932,
+          "generic_token": 0
+        }
+      },
+      "dates": {
+        "DifficultyDate": {
+          "blank": 0,
+          "populated": 66079,
+          "valid": 66079,
+          "invalid": 0,
+          "valid_range": [
+            "2024-01-01",
+            "2024-12-31"
+          ]
+        },
+        "SubmissionDate": {
+          "blank": 0,
+          "populated": 66079,
+          "valid": 66079,
+          "invalid": 0,
+          "valid_range": [
+            "2024-01-01",
+            "2026-09-03"
+          ]
+        }
+      },
+      "joint_cycle_date_serial_coverage": {
+        "Part_positive_integer_cycles_and_valid_event_date": 4363,
+        "Part_positive_integer_cycles_serial_and_valid_event_date": 2777,
+        "Component_positive_integer_cycles_and_valid_event_date": 307,
+        "Component_positive_integer_cycles_serial_and_valid_event_date": 283,
+        "Aircraft_positive_integer_cycles_and_valid_event_date": 64887,
+        "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 64879,
+        "Part_positive_cycles_equal_aircraft_cycles": 1781,
+        "Part_positive_cycles_exceed_aircraft_cycles": 624,
+        "Component_positive_cycles_equal_aircraft_cycles": 116,
+        "Component_positive_cycles_exceed_aircraft_cycles": 66
+      },
+      "time_since_codes": {
+        "PartSinceCode": {
+          "BLANK": 61990,
+          "O": 1142,
+          "I": 1078,
+          "R": 1869
+        },
+        "ComponentSinceCode": {
+          "BLANK": 65680,
+          "I": 145,
+          "O": 139,
+          "R": 114,
+          "0": 1
+        }
+      },
+      "missing_operator_control_number": 0,
+      "both_dates_valid": 66079,
+      "submission_before_difficulty": 19
+    },
+    "2025": {
+      "rows": 67637,
+      "rows_by_source_year": {
+        "2025": 67637
+      },
+      "exact_distinct_rows": 67637,
+      "exact_duplicate_rows": 0,
+      "distinct_nonblank_operator_control_numbers": 67637,
+      "operator_control_numbers_repeated": 0,
+      "distinct_nonblank_operator_scoped_control_numbers": 67637,
+      "models_top_30": [
+        {
+          "make": "BOEING",
+          "model": "7377H4",
+          "rows": 4921
+        },
+        {
+          "make": "BOEING",
+          "model": "737823",
+          "rows": 3951
+        },
+        {
+          "make": "BOEING",
+          "model": "7378H4",
+          "rows": 2813
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002D24",
+          "rows": 2388
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002C10",
+          "rows": 2203
+        },
+        {
+          "make": "EMB",
+          "model": "ERJ170200LR",
+          "rows": 2135
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321231",
+          "rows": 2049
+        },
+        {
+          "make": "BOEING",
+          "model": "737824",
+          "rows": 1891
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320232",
+          "rows": 1831
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321211",
+          "rows": 1750
+        },
+        {
+          "make": "BOEING",
+          "model": "7378",
+          "rows": 1710
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319114",
+          "rows": 1390
+        },
+        {
+          "make": "BOEING",
+          "model": "737832",
+          "rows": 1136
+        },
+        {
+          "make": "DOUG",
+          "model": "MD11F",
+          "rows": 1068
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002B19",
+          "rows": 1029
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A300F4622R",
+          "rows": 999
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319112",
+          "rows": 974
+        },
+        {
+          "make": "EMB",
+          "model": "EMB145LR",
+          "rows": 944
+        },
+        {
+          "make": "BOEING",
+          "model": "737924ER",
+          "rows": 932
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A330941",
+          "rows": 806
+        },
+        {
+          "make": "EMB",
+          "model": "EMB145XR",
+          "rows": 778
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321271NX",
+          "rows": 738
+        },
+        {
+          "make": "BOEING",
+          "model": "717200",
+          "rows": 716
+        },
+        {
+          "make": "BOEING",
+          "model": "757232",
+          "rows": 709
+        },
+        {
+          "make": "BOEING",
+          "model": "7673S2F",
+          "rows": 682
+        },
+        {
+          "make": "BOEING",
+          "model": "75724APF",
+          "rows": 673
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002C11",
+          "rows": 663
+        },
+        {
+          "make": "BOEING",
+          "model": "7377BD",
+          "rows": 650
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A330323",
+          "rows": 620
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319132",
+          "rows": 618
+        }
+      ],
+      "distinct_make_model_values": 523,
+      "numbers": {
+        "PartTotalCycles": {
+          "blank": 63001,
+          "populated": 4636,
+          "invalid_numeric": 0,
+          "numeric": 4636,
+          "positive": 4636,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "7002695"
+          ]
+        },
+        "ComponentTotalCycles": {
+          "blank": 67374,
+          "populated": 263,
+          "invalid_numeric": 0,
+          "numeric": 263,
+          "positive": 263,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "82674"
+          ]
+        },
+        "AircraftTotalCycles": {
+          "blank": 1075,
+          "populated": 66562,
+          "invalid_numeric": 0,
+          "numeric": 66562,
+          "positive": 66562,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "410992"
+          ]
+        },
+        "PartTotalTime": {
+          "blank": 62666,
+          "populated": 4971,
+          "invalid_numeric": 0,
+          "numeric": 4971,
+          "positive": 4971,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "7018927"
+          ]
+        },
+        "ComponentTotalTime": {
+          "blank": 67309,
+          "populated": 328,
+          "invalid_numeric": 0,
+          "numeric": 328,
+          "positive": 328,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "8",
+            "3295185"
+          ]
+        },
+        "AircraftTotalTime": {
+          "blank": 597,
+          "populated": 67040,
+          "invalid_numeric": 0,
+          "numeric": 67040,
+          "positive": 67040,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "7025644"
+          ]
+        },
+        "PartTimeSince": {
+          "blank": 63802,
+          "populated": 3835,
+          "invalid_numeric": 0,
+          "numeric": 3835,
+          "positive": 3835,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1",
+            "829837"
+          ]
+        },
+        "ComponentTimeSince": {
+          "blank": 67373,
+          "populated": 264,
+          "invalid_numeric": 0,
+          "numeric": 264,
+          "positive": 264,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "16",
+            "104185"
+          ]
+        }
+      },
+      "serial_coverage": {
+        "PartSerialNumber": {
+          "blank": 62466,
+          "populated": 5171,
+          "generic_token": 138
+        },
+        "ComponentSerialNumber": {
+          "blank": 67111,
+          "populated": 526,
+          "generic_token": 4
+        },
+        "AircraftSerialNumber": {
+          "blank": 133,
+          "populated": 67504,
+          "generic_token": 3
+        }
+      },
+      "dates": {
+        "DifficultyDate": {
+          "blank": 0,
+          "populated": 67637,
+          "valid": 67637,
+          "invalid": 0,
+          "valid_range": [
+            "2025-01-01",
+            "2025-12-31"
+          ]
+        },
+        "SubmissionDate": {
+          "blank": 0,
+          "populated": 67637,
+          "valid": 67637,
+          "invalid": 0,
+          "valid_range": [
+            "2025-01-02",
+            "2026-09-09"
+          ]
+        }
+      },
+      "joint_cycle_date_serial_coverage": {
+        "Part_positive_integer_cycles_and_valid_event_date": 4636,
+        "Part_positive_integer_cycles_serial_and_valid_event_date": 2944,
+        "Component_positive_integer_cycles_and_valid_event_date": 263,
+        "Component_positive_integer_cycles_serial_and_valid_event_date": 230,
+        "Aircraft_positive_integer_cycles_and_valid_event_date": 66562,
+        "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 66561,
+        "Part_positive_cycles_equal_aircraft_cycles": 1928,
+        "Part_positive_cycles_exceed_aircraft_cycles": 670,
+        "Component_positive_cycles_equal_aircraft_cycles": 121,
+        "Component_positive_cycles_exceed_aircraft_cycles": 36
+      },
+      "time_since_codes": {
+        "PartSinceCode": {
+          "BLANK": 63500,
+          "O": 1087,
+          "R": 2295,
+          "I": 755
+        },
+        "ComponentSinceCode": {
+          "BLANK": 67325,
+          "I": 62,
+          "R": 129,
+          "O": 121
+        }
+      },
+      "missing_operator_control_number": 0,
+      "both_dates_valid": 67637,
+      "submission_before_difficulty": 24
+    }
+  },
+  "targets": {
+    "2085M31G03": {
+      "match_counts": {
+        "PartNumber_normalized_rows": 7,
+        "PartNumber_exact_rows": 7,
+        "ComponentPartNumber_normalized_rows": 0,
+        "ComponentPartNumber_exact_rows": 0,
+        "either_field_rows": 7,
+        "both_fields_rows": 0
+      },
+      "either_field": {
+        "rows": 7,
+        "rows_by_source_year": {
+          "2023": 7
+        },
+        "exact_distinct_rows": 7,
+        "exact_duplicate_rows": 0,
+        "distinct_nonblank_operator_control_numbers": 7,
+        "operator_control_numbers_repeated": 0,
+        "distinct_nonblank_operator_scoped_control_numbers": 7,
+        "models_top_30": [
+          {
+            "make": "BOEING",
+            "model": "7379",
+            "rows": 7
+          }
+        ],
+        "distinct_make_model_values": 1,
+        "numbers": {
+          "PartTotalCycles": {
+            "blank": 5,
+            "populated": 2,
+            "invalid_numeric": 0,
+            "numeric": 2,
+            "positive": 2,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": [
+              "1391",
+              "1840"
+            ]
+          },
+          "ComponentTotalCycles": {
+            "blank": 7,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "AircraftTotalCycles": {
+            "blank": 0,
+            "populated": 7,
+            "invalid_numeric": 0,
+            "numeric": 7,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": [
+              "1106",
+              "2037"
+            ]
+          },
+          "PartTotalTime": {
+            "blank": 5,
+            "populated": 2,
+            "invalid_numeric": 0,
+            "numeric": 2,
+            "positive": 2,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": [
+              "4748",
+              "6313"
+            ]
+          },
+          "ComponentTotalTime": {
+            "blank": 7,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "AircraftTotalTime": {
+            "blank": 0,
+            "populated": 7,
+            "invalid_numeric": 0,
+            "numeric": 7,
+            "positive": 7,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": [
+              "3807",
+              "7048"
+            ]
+          },
+          "PartTimeSince": {
+            "blank": 5,
+            "populated": 2,
+            "invalid_numeric": 0,
+            "numeric": 2,
+            "positive": 2,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": [
+              "4748",
+              "6313"
+            ]
+          },
+          "ComponentTimeSince": {
+            "blank": 7,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          }
+        },
+        "serial_coverage": {
+          "PartSerialNumber": {
+            "blank": 5,
+            "populated": 2,
+            "generic_token": 0
+          },
+          "ComponentSerialNumber": {
+            "blank": 7,
+            "populated": 0,
+            "generic_token": 0
+          },
+          "AircraftSerialNumber": {
+            "blank": 0,
+            "populated": 7,
+            "generic_token": 0
+          }
+        },
+        "dates": {
+          "DifficultyDate": {
+            "blank": 0,
+            "populated": 7,
+            "valid": 7,
+            "invalid": 0,
+            "valid_range": [
+              "2023-04-23",
+              "2023-11-02"
+            ]
+          },
+          "SubmissionDate": {
+            "blank": 0,
+            "populated": 7,
+            "valid": 7,
+            "invalid": 0,
+            "valid_range": [
+              "2023-04-24",
+              "2023-11-13"
+            ]
+          }
+        },
+        "joint_cycle_date_serial_coverage": {
+          "Part_positive_integer_cycles_and_valid_event_date": 2,
+          "Part_positive_integer_cycles_serial_and_valid_event_date": 2,
+          "Component_positive_integer_cycles_and_valid_event_date": 0,
+          "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+          "Aircraft_positive_integer_cycles_and_valid_event_date": 7,
+          "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 7,
+          "Part_positive_cycles_equal_aircraft_cycles": 1,
+          "Part_positive_cycles_exceed_aircraft_cycles": 0
+        },
+        "time_since_codes": {
+          "PartSinceCode": {
+            "BLANK": 5,
+            "R": 2
+          },
+          "ComponentSinceCode": {
+            "BLANK": 7
+          }
+        },
+        "missing_operator_control_number": 0,
+        "both_dates_valid": 7,
+        "submission_before_difficulty": 0,
+        "component_names_top_15": {
+          "PartName": {
+            "FUEL NOZZLE": 6,
+            "NOZZLE": 1
+          },
+          "ComponentName": {}
+        }
+      },
+      "by_match_field": {
+        "PartNumber": {
+          "rows": 7,
+          "rows_by_source_year": {
+            "2023": 7
+          },
+          "exact_distinct_rows": 7,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 7,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 7,
+          "models_top_30": [
+            {
+              "make": "BOEING",
+              "model": "7379",
+              "rows": 7
+            }
+          ],
+          "distinct_make_model_values": 1,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 5,
+              "populated": 2,
+              "invalid_numeric": 0,
+              "numeric": 2,
+              "positive": 2,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "1391",
+                "1840"
+              ]
+            },
+            "ComponentTotalCycles": {
+              "blank": 7,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 7,
+              "invalid_numeric": 0,
+              "numeric": 7,
+              "positive": 7,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "1106",
+                "2037"
+              ]
+            },
+            "PartTotalTime": {
+              "blank": 5,
+              "populated": 2,
+              "invalid_numeric": 0,
+              "numeric": 2,
+              "positive": 2,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "4748",
+                "6313"
+              ]
+            },
+            "ComponentTotalTime": {
+              "blank": 7,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 7,
+              "invalid_numeric": 0,
+              "numeric": 7,
+              "positive": 7,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "3807",
+                "7048"
+              ]
+            },
+            "PartTimeSince": {
+              "blank": 5,
+              "populated": 2,
+              "invalid_numeric": 0,
+              "numeric": 2,
+              "positive": 2,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "4748",
+                "6313"
+              ]
+            },
+            "ComponentTimeSince": {
+              "blank": 7,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 5,
+              "populated": 2,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 7,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 7,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 7,
+              "valid": 7,
+              "invalid": 0,
+              "valid_range": [
+                "2023-04-23",
+                "2023-11-02"
+              ]
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 7,
+              "valid": 7,
+              "invalid": 0,
+              "valid_range": [
+                "2023-04-24",
+                "2023-11-13"
+              ]
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 2,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 2,
+            "Component_positive_integer_cycles_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 7,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 7,
+            "Part_positive_cycles_equal_aircraft_cycles": 1,
+            "Part_positive_cycles_exceed_aircraft_cycles": 0
+          },
+          "time_since_codes": {
+            "PartSinceCode": {
+              "BLANK": 5,
+              "R": 2
+            },
+            "ComponentSinceCode": {
+              "BLANK": 7
+            }
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 7,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {
+              "FUEL NOZZLE": 6,
+              "NOZZLE": 1
+            },
+            "ComponentName": {}
+          }
+        },
+        "ComponentPartNumber": {
+          "rows": 0,
+          "rows_by_source_year": {},
+          "exact_distinct_rows": 0,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 0,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 0,
+          "models_top_30": [],
+          "distinct_make_model_values": 0,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 0,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 0
+          },
+          "time_since_codes": {
+            "PartSinceCode": {},
+            "ComponentSinceCode": {}
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 0,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {},
+            "ComponentName": {}
+          }
+        }
+      }
+    },
+    "62197-301-001": {
+      "match_counts": {
+        "PartNumber_normalized_rows": 0,
+        "PartNumber_exact_rows": 0,
+        "ComponentPartNumber_normalized_rows": 0,
+        "ComponentPartNumber_exact_rows": 0,
+        "either_field_rows": 0,
+        "both_fields_rows": 0
+      },
+      "either_field": {
+        "rows": 0,
+        "rows_by_source_year": {},
+        "exact_distinct_rows": 0,
+        "exact_duplicate_rows": 0,
+        "distinct_nonblank_operator_control_numbers": 0,
+        "operator_control_numbers_repeated": 0,
+        "distinct_nonblank_operator_scoped_control_numbers": 0,
+        "models_top_30": [],
+        "distinct_make_model_values": 0,
+        "numbers": {
+          "PartTotalCycles": {
+            "blank": 0,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "ComponentTotalCycles": {
+            "blank": 0,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "AircraftTotalCycles": {
+            "blank": 0,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "PartTotalTime": {
+            "blank": 0,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "ComponentTotalTime": {
+            "blank": 0,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "AircraftTotalTime": {
+            "blank": 0,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "PartTimeSince": {
+            "blank": 0,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "ComponentTimeSince": {
+            "blank": 0,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          }
+        },
+        "serial_coverage": {
+          "PartSerialNumber": {
+            "blank": 0,
+            "populated": 0,
+            "generic_token": 0
+          },
+          "ComponentSerialNumber": {
+            "blank": 0,
+            "populated": 0,
+            "generic_token": 0
+          },
+          "AircraftSerialNumber": {
+            "blank": 0,
+            "populated": 0,
+            "generic_token": 0
+          }
+        },
+        "dates": {
+          "DifficultyDate": {
+            "blank": 0,
+            "populated": 0,
+            "valid": 0,
+            "invalid": 0,
+            "valid_range": []
+          },
+          "SubmissionDate": {
+            "blank": 0,
+            "populated": 0,
+            "valid": 0,
+            "invalid": 0,
+            "valid_range": []
+          }
+        },
+        "joint_cycle_date_serial_coverage": {
+          "Part_positive_integer_cycles_and_valid_event_date": 0,
+          "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+          "Component_positive_integer_cycles_and_valid_event_date": 0,
+          "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+          "Aircraft_positive_integer_cycles_and_valid_event_date": 0,
+          "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 0
+        },
+        "time_since_codes": {
+          "PartSinceCode": {},
+          "ComponentSinceCode": {}
+        },
+        "missing_operator_control_number": 0,
+        "both_dates_valid": 0,
+        "submission_before_difficulty": 0,
+        "component_names_top_15": {
+          "PartName": {},
+          "ComponentName": {}
+        }
+      },
+      "by_match_field": {
+        "PartNumber": {
+          "rows": 0,
+          "rows_by_source_year": {},
+          "exact_distinct_rows": 0,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 0,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 0,
+          "models_top_30": [],
+          "distinct_make_model_values": 0,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 0,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 0
+          },
+          "time_since_codes": {
+            "PartSinceCode": {},
+            "ComponentSinceCode": {}
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 0,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {},
+            "ComponentName": {}
+          }
+        },
+        "ComponentPartNumber": {
+          "rows": 0,
+          "rows_by_source_year": {},
+          "exact_distinct_rows": 0,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 0,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 0,
+          "models_top_30": [],
+          "distinct_make_model_values": 0,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 0,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 0
+          },
+          "time_since_codes": {
+            "PartSinceCode": {},
+            "ComponentSinceCode": {}
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 0,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {},
+            "ComponentName": {}
+          }
+        }
+      }
+    },
+    "8201-11-0000-01": {
+      "match_counts": {
+        "PartNumber_normalized_rows": 47,
+        "PartNumber_exact_rows": 0,
+        "ComponentPartNumber_normalized_rows": 0,
+        "ComponentPartNumber_exact_rows": 0,
+        "either_field_rows": 47,
+        "both_fields_rows": 0
+      },
+      "either_field": {
+        "rows": 47,
+        "rows_by_source_year": {
+          "2023": 18,
+          "2024": 19,
+          "2025": 10
+        },
+        "exact_distinct_rows": 47,
+        "exact_duplicate_rows": 0,
+        "distinct_nonblank_operator_control_numbers": 47,
+        "operator_control_numbers_repeated": 0,
+        "distinct_nonblank_operator_scoped_control_numbers": 47,
+        "models_top_30": [
+          {
+            "make": "BOEING",
+            "model": "737823",
+            "rows": 23
+          },
+          {
+            "make": "AIRBUS",
+            "model": "A321231",
+            "rows": 11
+          },
+          {
+            "make": "AIRBUS",
+            "model": "A321253NX",
+            "rows": 4
+          },
+          {
+            "make": "AIRBUS",
+            "model": "A319132",
+            "rows": 3
+          },
+          {
+            "make": "AIRBUS",
+            "model": "A320*",
+            "rows": 2
+          },
+          {
+            "make": "AIRBUS",
+            "model": "A300*",
+            "rows": 1
+          },
+          {
+            "make": "AIRBUS",
+            "model": "A319112",
+            "rows": 1
+          },
+          {
+            "make": "AIRBUS",
+            "model": "A319115",
+            "rows": 1
+          },
+          {
+            "make": "BOEING",
+            "model": "7378",
+            "rows": 1
+          }
+        ],
+        "distinct_make_model_values": 9,
+        "numbers": {
+          "PartTotalCycles": {
+            "blank": 47,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "ComponentTotalCycles": {
+            "blank": 47,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "AircraftTotalCycles": {
+            "blank": 0,
+            "populated": 47,
+            "invalid_numeric": 0,
+            "numeric": 47,
+            "positive": 47,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": [
+              "450",
+              "32217"
+            ]
+          },
+          "PartTotalTime": {
+            "blank": 47,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "ComponentTotalTime": {
+            "blank": 47,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "AircraftTotalTime": {
+            "blank": 0,
+            "populated": 47,
+            "invalid_numeric": 0,
+            "numeric": 47,
+            "positive": 47,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": [
+              "1219",
+              "69779"
+            ]
+          },
+          "PartTimeSince": {
+            "blank": 47,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          },
+          "ComponentTimeSince": {
+            "blank": 47,
+            "populated": 0,
+            "invalid_numeric": 0,
+            "numeric": 0,
+            "positive": 0,
+            "zero": 0,
+            "negative": 0,
+            "fractional": 0,
+            "positive_range": []
+          }
+        },
+        "serial_coverage": {
+          "PartSerialNumber": {
+            "blank": 47,
+            "populated": 0,
+            "generic_token": 0
+          },
+          "ComponentSerialNumber": {
+            "blank": 47,
+            "populated": 0,
+            "generic_token": 0
+          },
+          "AircraftSerialNumber": {
+            "blank": 0,
+            "populated": 47,
+            "generic_token": 0
+          }
+        },
+        "dates": {
+          "DifficultyDate": {
+            "blank": 0,
+            "populated": 47,
+            "valid": 47,
+            "invalid": 0,
+            "valid_range": [
+              "2023-01-05",
+              "2025-09-20"
+            ]
+          },
+          "SubmissionDate": {
+            "blank": 0,
+            "populated": 47,
+            "valid": 47,
+            "invalid": 0,
+            "valid_range": [
+              "2023-01-06",
+              "2025-10-24"
+            ]
+          }
+        },
+        "joint_cycle_date_serial_coverage": {
+          "Part_positive_integer_cycles_and_valid_event_date": 0,
+          "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+          "Component_positive_integer_cycles_and_valid_event_date": 0,
+          "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+          "Aircraft_positive_integer_cycles_and_valid_event_date": 47,
+          "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 47
+        },
+        "time_since_codes": {
+          "PartSinceCode": {
+            "BLANK": 47
+          },
+          "ComponentSinceCode": {
+            "BLANK": 47
+          }
+        },
+        "missing_operator_control_number": 0,
+        "both_dates_valid": 47,
+        "submission_before_difficulty": 0,
+        "component_names_top_15": {
+          "PartName": {
+            "OVEN": 47
+          },
+          "ComponentName": {}
+        }
+      },
+      "by_match_field": {
+        "PartNumber": {
+          "rows": 47,
+          "rows_by_source_year": {
+            "2023": 18,
+            "2024": 19,
+            "2025": 10
+          },
+          "exact_distinct_rows": 47,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 47,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 47,
+          "models_top_30": [
+            {
+              "make": "BOEING",
+              "model": "737823",
+              "rows": 23
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A321231",
+              "rows": 11
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A321253NX",
+              "rows": 4
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A319132",
+              "rows": 3
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A320*",
+              "rows": 2
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A300*",
+              "rows": 1
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A319112",
+              "rows": 1
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A319115",
+              "rows": 1
+            },
+            {
+              "make": "BOEING",
+              "model": "7378",
+              "rows": 1
+            }
+          ],
+          "distinct_make_model_values": 9,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 47,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalCycles": {
+              "blank": 47,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 47,
+              "invalid_numeric": 0,
+              "numeric": 47,
+              "positive": 47,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "450",
+                "32217"
+              ]
+            },
+            "PartTotalTime": {
+              "blank": 47,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalTime": {
+              "blank": 47,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 47,
+              "invalid_numeric": 0,
+              "numeric": 47,
+              "positive": 47,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "1219",
+                "69779"
+              ]
+            },
+            "PartTimeSince": {
+              "blank": 47,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTimeSince": {
+              "blank": 47,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 47,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 47,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 47,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 47,
+              "valid": 47,
+              "invalid": 0,
+              "valid_range": [
+                "2023-01-05",
+                "2025-09-20"
+              ]
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 47,
+              "valid": 47,
+              "invalid": 0,
+              "valid_range": [
+                "2023-01-06",
+                "2025-10-24"
+              ]
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 0,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 47,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 47
+          },
+          "time_since_codes": {
+            "PartSinceCode": {
+              "BLANK": 47
+            },
+            "ComponentSinceCode": {
+              "BLANK": 47
+            }
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 47,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {
+              "OVEN": 47
+            },
+            "ComponentName": {}
+          }
+        },
+        "ComponentPartNumber": {
+          "rows": 0,
+          "rows_by_source_year": {},
+          "exact_distinct_rows": 0,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 0,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 0,
+          "models_top_30": [],
+          "distinct_make_model_values": 0,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 0,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 0
+          },
+          "time_since_codes": {
+            "PartSinceCode": {},
+            "ComponentSinceCode": {}
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 0,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {},
+            "ComponentName": {}
+          }
+        }
+      }
+    }
+  },
+  "heuristic_classes": {
+    "nozzle": {
+      "name_field_match_counts": {
+        "PartName": 33,
+        "both_name_fields": 0,
+        "ComponentName": 1
+      },
+      "by_name_field": {
+        "PartName": {
+          "rows": 33,
+          "rows_by_source_year": {
+            "2023": 20,
+            "2024": 8,
+            "2025": 5
+          },
+          "exact_distinct_rows": 33,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 33,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 33,
+          "models_top_30": [
+            {
+              "make": "BOEING",
+              "model": "7379",
+              "rows": 8
+            },
+            {
+              "make": "LKHEED",
+              "model": "C130H",
+              "rows": 6
+            },
+            {
+              "make": "BOEING",
+              "model": "777323ER",
+              "rows": 2
+            },
+            {
+              "make": "BOEING",
+              "model": "73779P",
+              "rows": 2
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A330243",
+              "rows": 2
+            },
+            {
+              "make": "CNDAIR",
+              "model": "CL6002D24",
+              "rows": 2
+            },
+            {
+              "make": "BOEING",
+              "model": "7879",
+              "rows": 1
+            },
+            {
+              "make": "BOEING",
+              "model": "737890",
+              "rows": 1
+            },
+            {
+              "make": "BOEING",
+              "model": "767300",
+              "rows": 1
+            },
+            {
+              "make": "BOEING",
+              "model": "737990ER",
+              "rows": 1
+            },
+            {
+              "make": "BOEING",
+              "model": "7377H4",
+              "rows": 1
+            },
+            {
+              "make": "BELL",
+              "model": "407",
+              "rows": 1
+            },
+            {
+              "make": "BOEING",
+              "model": "767322",
+              "rows": 1
+            },
+            {
+              "make": "AEROSP",
+              "model": "ATR42300",
+              "rows": 1
+            },
+            {
+              "make": "CESSNA",
+              "model": "560XL",
+              "rows": 1
+            },
+            {
+              "make": "EMB",
+              "model": "EMB145LR",
+              "rows": 1
+            },
+            {
+              "make": "",
+              "model": "",
+              "rows": 1
+            }
+          ],
+          "distinct_make_model_values": 17,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 29,
+              "populated": 4,
+              "invalid_numeric": 0,
+              "numeric": 4,
+              "positive": 4,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "1391",
+                "3347"
+              ]
+            },
+            "ComponentTotalCycles": {
+              "blank": 32,
+              "populated": 1,
+              "invalid_numeric": 0,
+              "numeric": 1,
+              "positive": 1,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "600",
+                "600"
+              ]
+            },
+            "AircraftTotalCycles": {
+              "blank": 1,
+              "populated": 32,
+              "invalid_numeric": 0,
+              "numeric": 32,
+              "positive": 32,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "1106",
+                "49568"
+              ]
+            },
+            "PartTotalTime": {
+              "blank": 28,
+              "populated": 5,
+              "invalid_numeric": 0,
+              "numeric": 5,
+              "positive": 5,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "4748",
+                "6650"
+              ]
+            },
+            "ComponentTotalTime": {
+              "blank": 32,
+              "populated": 1,
+              "invalid_numeric": 0,
+              "numeric": 1,
+              "positive": 1,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "15595",
+                "15595"
+              ]
+            },
+            "AircraftTotalTime": {
+              "blank": 1,
+              "populated": 32,
+              "invalid_numeric": 0,
+              "numeric": 32,
+              "positive": 32,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "3807",
+                "118902"
+              ]
+            },
+            "PartTimeSince": {
+              "blank": 22,
+              "populated": 11,
+              "invalid_numeric": 0,
+              "numeric": 11,
+              "positive": 11,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "9",
+                "53330"
+              ]
+            },
+            "ComponentTimeSince": {
+              "blank": 33,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 20,
+              "populated": 13,
+              "generic_token": 2
+            },
+            "ComponentSerialNumber": {
+              "blank": 33,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 1,
+              "populated": 32,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 33,
+              "valid": 33,
+              "invalid": 0,
+              "valid_range": [
+                "2023-01-04",
+                "2025-12-17"
+              ]
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 33,
+              "valid": 33,
+              "invalid": 0,
+              "valid_range": [
+                "2023-01-04",
+                "2026-07-14"
+              ]
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 4,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 3,
+            "Component_positive_integer_cycles_and_valid_event_date": 1,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 32,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 32,
+            "Part_positive_cycles_equal_aircraft_cycles": 2,
+            "Part_positive_cycles_exceed_aircraft_cycles": 0,
+            "Component_positive_cycles_equal_aircraft_cycles": 0,
+            "Component_positive_cycles_exceed_aircraft_cycles": 0
+          },
+          "time_since_codes": {
+            "PartSinceCode": {
+              "BLANK": 21,
+              "R": 4,
+              "O": 7,
+              "I": 1
+            },
+            "ComponentSinceCode": {
+              "BLANK": 33
+            }
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 33,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {
+              "FUEL NOZZLE": 18,
+              "NOZZLE": 15
+            },
+            "ComponentName": {
+              "ENGINE": 2
+            }
+          }
+        },
+        "ComponentName": {
+          "rows": 1,
+          "rows_by_source_year": {
+            "2024": 1
+          },
+          "exact_distinct_rows": 1,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 1,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 1,
+          "models_top_30": [
+            {
+              "make": "",
+              "model": "",
+              "rows": 1
+            }
+          ],
+          "distinct_make_model_values": 1,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalCycles": {
+              "blank": 0,
+              "populated": 1,
+              "invalid_numeric": 0,
+              "numeric": 1,
+              "positive": 1,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "3676",
+                "3676"
+              ]
+            },
+            "AircraftTotalCycles": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTotalTime": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalTime": {
+              "blank": 0,
+              "populated": 1,
+              "invalid_numeric": 0,
+              "numeric": 1,
+              "positive": 1,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "13531",
+                "13531"
+              ]
+            },
+            "AircraftTotalTime": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTimeSince": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTimeSince": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 1,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 0,
+              "populated": 1,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 1,
+              "populated": 0,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 1,
+              "valid": 1,
+              "invalid": 0,
+              "valid_range": [
+                "2024-07-23",
+                "2024-07-23"
+              ]
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 1,
+              "valid": 1,
+              "invalid": 0,
+              "valid_range": [
+                "2024-07-29",
+                "2024-07-29"
+              ]
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 0,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_and_valid_event_date": 1,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 1,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 0
+          },
+          "time_since_codes": {
+            "PartSinceCode": {
+              "BLANK": 1
+            },
+            "ComponentSinceCode": {
+              "BLANK": 1
+            }
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 1,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {
+              "BOLT": 1
+            },
+            "ComponentName": {
+              "DIFFUSER NOZZLE": 1
+            }
+          }
+        }
+      },
+      "rows": 34,
+      "rows_by_source_year": {
+        "2023": 20,
+        "2024": 9,
+        "2025": 5
+      },
+      "exact_distinct_rows": 34,
+      "exact_duplicate_rows": 0,
+      "distinct_nonblank_operator_control_numbers": 34,
+      "operator_control_numbers_repeated": 0,
+      "distinct_nonblank_operator_scoped_control_numbers": 34,
+      "models_top_30": [
+        {
+          "make": "BOEING",
+          "model": "7379",
+          "rows": 8
+        },
+        {
+          "make": "LKHEED",
+          "model": "C130H",
+          "rows": 6
+        },
+        {
+          "make": "BOEING",
+          "model": "777323ER",
+          "rows": 2
+        },
+        {
+          "make": "BOEING",
+          "model": "73779P",
+          "rows": 2
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A330243",
+          "rows": 2
+        },
+        {
+          "make": "",
+          "model": "",
+          "rows": 2
+        },
+        {
+          "make": "CNDAIR",
+          "model": "CL6002D24",
+          "rows": 2
+        },
+        {
+          "make": "BOEING",
+          "model": "7879",
+          "rows": 1
+        },
+        {
+          "make": "BOEING",
+          "model": "737890",
+          "rows": 1
+        },
+        {
+          "make": "BOEING",
+          "model": "767300",
+          "rows": 1
+        },
+        {
+          "make": "BOEING",
+          "model": "737990ER",
+          "rows": 1
+        },
+        {
+          "make": "BOEING",
+          "model": "7377H4",
+          "rows": 1
+        },
+        {
+          "make": "BELL",
+          "model": "407",
+          "rows": 1
+        },
+        {
+          "make": "BOEING",
+          "model": "767322",
+          "rows": 1
+        },
+        {
+          "make": "AEROSP",
+          "model": "ATR42300",
+          "rows": 1
+        },
+        {
+          "make": "CESSNA",
+          "model": "560XL",
+          "rows": 1
+        },
+        {
+          "make": "EMB",
+          "model": "EMB145LR",
+          "rows": 1
+        }
+      ],
+      "distinct_make_model_values": 17,
+      "numbers": {
+        "PartTotalCycles": {
+          "blank": 30,
+          "populated": 4,
+          "invalid_numeric": 0,
+          "numeric": 4,
+          "positive": 4,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1391",
+            "3347"
+          ]
+        },
+        "ComponentTotalCycles": {
+          "blank": 32,
+          "populated": 2,
+          "invalid_numeric": 0,
+          "numeric": 2,
+          "positive": 2,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "600",
+            "3676"
+          ]
+        },
+        "AircraftTotalCycles": {
+          "blank": 2,
+          "populated": 32,
+          "invalid_numeric": 0,
+          "numeric": 32,
+          "positive": 32,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1106",
+            "49568"
+          ]
+        },
+        "PartTotalTime": {
+          "blank": 29,
+          "populated": 5,
+          "invalid_numeric": 0,
+          "numeric": 5,
+          "positive": 5,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "4748",
+            "6650"
+          ]
+        },
+        "ComponentTotalTime": {
+          "blank": 32,
+          "populated": 2,
+          "invalid_numeric": 0,
+          "numeric": 2,
+          "positive": 2,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "13531",
+            "15595"
+          ]
+        },
+        "AircraftTotalTime": {
+          "blank": 2,
+          "populated": 32,
+          "invalid_numeric": 0,
+          "numeric": 32,
+          "positive": 32,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "3807",
+            "118902"
+          ]
+        },
+        "PartTimeSince": {
+          "blank": 23,
+          "populated": 11,
+          "invalid_numeric": 0,
+          "numeric": 11,
+          "positive": 11,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "9",
+            "53330"
+          ]
+        },
+        "ComponentTimeSince": {
+          "blank": 34,
+          "populated": 0,
+          "invalid_numeric": 0,
+          "numeric": 0,
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": []
+        }
+      },
+      "serial_coverage": {
+        "PartSerialNumber": {
+          "blank": 21,
+          "populated": 13,
+          "generic_token": 2
+        },
+        "ComponentSerialNumber": {
+          "blank": 33,
+          "populated": 1,
+          "generic_token": 0
+        },
+        "AircraftSerialNumber": {
+          "blank": 2,
+          "populated": 32,
+          "generic_token": 0
+        }
+      },
+      "dates": {
+        "DifficultyDate": {
+          "blank": 0,
+          "populated": 34,
+          "valid": 34,
+          "invalid": 0,
+          "valid_range": [
+            "2023-01-04",
+            "2025-12-17"
+          ]
+        },
+        "SubmissionDate": {
+          "blank": 0,
+          "populated": 34,
+          "valid": 34,
+          "invalid": 0,
+          "valid_range": [
+            "2023-01-04",
+            "2026-07-14"
+          ]
+        }
+      },
+      "joint_cycle_date_serial_coverage": {
+        "Part_positive_integer_cycles_and_valid_event_date": 4,
+        "Part_positive_integer_cycles_serial_and_valid_event_date": 3,
+        "Component_positive_integer_cycles_and_valid_event_date": 2,
+        "Component_positive_integer_cycles_serial_and_valid_event_date": 1,
+        "Aircraft_positive_integer_cycles_and_valid_event_date": 32,
+        "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 32,
+        "Part_positive_cycles_equal_aircraft_cycles": 2,
+        "Part_positive_cycles_exceed_aircraft_cycles": 0,
+        "Component_positive_cycles_equal_aircraft_cycles": 0,
+        "Component_positive_cycles_exceed_aircraft_cycles": 0
+      },
+      "time_since_codes": {
+        "PartSinceCode": {
+          "BLANK": 22,
+          "R": 4,
+          "O": 7,
+          "I": 1
+        },
+        "ComponentSinceCode": {
+          "BLANK": 34
+        }
+      },
+      "missing_operator_control_number": 0,
+      "both_dates_valid": 34,
+      "submission_before_difficulty": 0,
+      "component_names_top_15": {
+        "PartName": {
+          "FUEL NOZZLE": 18,
+          "NOZZLE": 15,
+          "BOLT": 1
+        },
+        "ComponentName": {
+          "ENGINE": 2,
+          "DIFFUSER NOZZLE": 1
+        }
+      }
+    },
+    "boiler_or_water_heater": {
+      "name_field_match_counts": {
+        "PartName": 16,
+        "both_name_fields": 0,
+        "ComponentName": 1
+      },
+      "by_name_field": {
+        "PartName": {
+          "rows": 16,
+          "rows_by_source_year": {
+            "2023": 3,
+            "2024": 5,
+            "2025": 8
+          },
+          "exact_distinct_rows": 16,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 16,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 16,
+          "models_top_30": [
+            {
+              "make": "AIRBUS",
+              "model": "A321211",
+              "rows": 2
+            },
+            {
+              "make": "BOEING",
+              "model": "737823",
+              "rows": 2
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A321231",
+              "rows": 2
+            },
+            {
+              "make": "BOEING",
+              "model": "737924ER",
+              "rows": 2
+            },
+            {
+              "make": "BOEING",
+              "model": "737724",
+              "rows": 1
+            },
+            {
+              "make": "BOEING",
+              "model": "737824",
+              "rows": 1
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A320*",
+              "rows": 1
+            },
+            {
+              "make": "EMB",
+              "model": "EMB145LR",
+              "rows": 1
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A319112",
+              "rows": 1
+            },
+            {
+              "make": "BOEING",
+              "model": "7379GPER",
+              "rows": 1
+            },
+            {
+              "make": "BOEING",
+              "model": "7378",
+              "rows": 1
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A330223",
+              "rows": 1
+            }
+          ],
+          "distinct_make_model_values": 12,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 11,
+              "populated": 5,
+              "invalid_numeric": 0,
+              "numeric": 5,
+              "positive": 5,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "4552",
+                "26072"
+              ]
+            },
+            "ComponentTotalCycles": {
+              "blank": 16,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 16,
+              "invalid_numeric": 0,
+              "numeric": 16,
+              "positive": 16,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "2567",
+                "39792"
+              ]
+            },
+            "PartTotalTime": {
+              "blank": 11,
+              "populated": 5,
+              "invalid_numeric": 0,
+              "numeric": 5,
+              "positive": 5,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "9685",
+                "67379"
+              ]
+            },
+            "ComponentTotalTime": {
+              "blank": 16,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 16,
+              "invalid_numeric": 0,
+              "numeric": 16,
+              "positive": 16,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "4810",
+                "80298"
+              ]
+            },
+            "PartTimeSince": {
+              "blank": 11,
+              "populated": 5,
+              "invalid_numeric": 0,
+              "numeric": 5,
+              "positive": 5,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "1959",
+                "53840"
+              ]
+            },
+            "ComponentTimeSince": {
+              "blank": 16,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 9,
+              "populated": 7,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 16,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 16,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 16,
+              "valid": 16,
+              "invalid": 0,
+              "valid_range": [
+                "2023-05-17",
+                "2025-11-28"
+              ]
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 16,
+              "valid": 16,
+              "invalid": 0,
+              "valid_range": [
+                "2023-05-18",
+                "2025-12-02"
+              ]
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 5,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 5,
+            "Component_positive_integer_cycles_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 16,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 16,
+            "Part_positive_cycles_equal_aircraft_cycles": 0,
+            "Part_positive_cycles_exceed_aircraft_cycles": 1
+          },
+          "time_since_codes": {
+            "PartSinceCode": {
+              "BLANK": 11,
+              "O": 2,
+              "R": 3
+            },
+            "ComponentSinceCode": {
+              "BLANK": 16
+            }
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 16,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {
+              "WATER HEATER": 16
+            },
+            "ComponentName": {}
+          }
+        },
+        "ComponentName": {
+          "rows": 1,
+          "rows_by_source_year": {
+            "2025": 1
+          },
+          "exact_distinct_rows": 1,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 1,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 1,
+          "models_top_30": [
+            {
+              "make": "EMB",
+              "model": "ERJ170200LR",
+              "rows": 1
+            }
+          ],
+          "distinct_make_model_values": 1,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalCycles": {
+              "blank": 0,
+              "populated": 1,
+              "invalid_numeric": 0,
+              "numeric": 1,
+              "positive": 1,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "5097",
+                "5097"
+              ]
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 1,
+              "invalid_numeric": 0,
+              "numeric": 1,
+              "positive": 1,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "5096",
+                "5096"
+              ]
+            },
+            "PartTotalTime": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalTime": {
+              "blank": 0,
+              "populated": 1,
+              "invalid_numeric": 0,
+              "numeric": 1,
+              "positive": 1,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "6316",
+                "6316"
+              ]
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 1,
+              "invalid_numeric": 0,
+              "numeric": 1,
+              "positive": 1,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "6315",
+                "6315"
+              ]
+            },
+            "PartTimeSince": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTimeSince": {
+              "blank": 1,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 1,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 0,
+              "populated": 1,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 1,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 1,
+              "valid": 1,
+              "invalid": 0,
+              "valid_range": [
+                "2025-10-29",
+                "2025-10-29"
+              ]
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 1,
+              "valid": 1,
+              "invalid": 0,
+              "valid_range": [
+                "2025-10-31",
+                "2025-10-31"
+              ]
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 0,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_and_valid_event_date": 1,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 1,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 1,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 1,
+            "Component_positive_cycles_equal_aircraft_cycles": 0,
+            "Component_positive_cycles_exceed_aircraft_cycles": 1
+          },
+          "time_since_codes": {
+            "PartSinceCode": {
+              "BLANK": 1
+            },
+            "ComponentSinceCode": {
+              "BLANK": 1
+            }
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 1,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {
+              "VALVE": 1
+            },
+            "ComponentName": {
+              "WATER HEATER": 1
+            }
+          }
+        }
+      },
+      "rows": 17,
+      "rows_by_source_year": {
+        "2023": 3,
+        "2024": 5,
+        "2025": 9
+      },
+      "exact_distinct_rows": 17,
+      "exact_duplicate_rows": 0,
+      "distinct_nonblank_operator_control_numbers": 17,
+      "operator_control_numbers_repeated": 0,
+      "distinct_nonblank_operator_scoped_control_numbers": 17,
+      "models_top_30": [
+        {
+          "make": "AIRBUS",
+          "model": "A321211",
+          "rows": 2
+        },
+        {
+          "make": "BOEING",
+          "model": "737823",
+          "rows": 2
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321231",
+          "rows": 2
+        },
+        {
+          "make": "BOEING",
+          "model": "737924ER",
+          "rows": 2
+        },
+        {
+          "make": "BOEING",
+          "model": "737724",
+          "rows": 1
+        },
+        {
+          "make": "BOEING",
+          "model": "737824",
+          "rows": 1
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320*",
+          "rows": 1
+        },
+        {
+          "make": "EMB",
+          "model": "EMB145LR",
+          "rows": 1
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319112",
+          "rows": 1
+        },
+        {
+          "make": "BOEING",
+          "model": "7379GPER",
+          "rows": 1
+        },
+        {
+          "make": "BOEING",
+          "model": "7378",
+          "rows": 1
+        },
+        {
+          "make": "EMB",
+          "model": "ERJ170200LR",
+          "rows": 1
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A330223",
+          "rows": 1
+        }
+      ],
+      "distinct_make_model_values": 13,
+      "numbers": {
+        "PartTotalCycles": {
+          "blank": 12,
+          "populated": 5,
+          "invalid_numeric": 0,
+          "numeric": 5,
+          "positive": 5,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "4552",
+            "26072"
+          ]
+        },
+        "ComponentTotalCycles": {
+          "blank": 16,
+          "populated": 1,
+          "invalid_numeric": 0,
+          "numeric": 1,
+          "positive": 1,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "5097",
+            "5097"
+          ]
+        },
+        "AircraftTotalCycles": {
+          "blank": 0,
+          "populated": 17,
+          "invalid_numeric": 0,
+          "numeric": 17,
+          "positive": 17,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "2567",
+            "39792"
+          ]
+        },
+        "PartTotalTime": {
+          "blank": 12,
+          "populated": 5,
+          "invalid_numeric": 0,
+          "numeric": 5,
+          "positive": 5,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "9685",
+            "67379"
+          ]
+        },
+        "ComponentTotalTime": {
+          "blank": 16,
+          "populated": 1,
+          "invalid_numeric": 0,
+          "numeric": 1,
+          "positive": 1,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "6316",
+            "6316"
+          ]
+        },
+        "AircraftTotalTime": {
+          "blank": 0,
+          "populated": 17,
+          "invalid_numeric": 0,
+          "numeric": 17,
+          "positive": 17,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "4810",
+            "80298"
+          ]
+        },
+        "PartTimeSince": {
+          "blank": 12,
+          "populated": 5,
+          "invalid_numeric": 0,
+          "numeric": 5,
+          "positive": 5,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "1959",
+            "53840"
+          ]
+        },
+        "ComponentTimeSince": {
+          "blank": 17,
+          "populated": 0,
+          "invalid_numeric": 0,
+          "numeric": 0,
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": []
+        }
+      },
+      "serial_coverage": {
+        "PartSerialNumber": {
+          "blank": 10,
+          "populated": 7,
+          "generic_token": 0
+        },
+        "ComponentSerialNumber": {
+          "blank": 16,
+          "populated": 1,
+          "generic_token": 0
+        },
+        "AircraftSerialNumber": {
+          "blank": 0,
+          "populated": 17,
+          "generic_token": 0
+        }
+      },
+      "dates": {
+        "DifficultyDate": {
+          "blank": 0,
+          "populated": 17,
+          "valid": 17,
+          "invalid": 0,
+          "valid_range": [
+            "2023-05-17",
+            "2025-11-28"
+          ]
+        },
+        "SubmissionDate": {
+          "blank": 0,
+          "populated": 17,
+          "valid": 17,
+          "invalid": 0,
+          "valid_range": [
+            "2023-05-18",
+            "2025-12-02"
+          ]
+        }
+      },
+      "joint_cycle_date_serial_coverage": {
+        "Part_positive_integer_cycles_and_valid_event_date": 5,
+        "Part_positive_integer_cycles_serial_and_valid_event_date": 5,
+        "Component_positive_integer_cycles_and_valid_event_date": 1,
+        "Component_positive_integer_cycles_serial_and_valid_event_date": 1,
+        "Aircraft_positive_integer_cycles_and_valid_event_date": 17,
+        "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 17,
+        "Part_positive_cycles_equal_aircraft_cycles": 0,
+        "Part_positive_cycles_exceed_aircraft_cycles": 1,
+        "Component_positive_cycles_equal_aircraft_cycles": 0,
+        "Component_positive_cycles_exceed_aircraft_cycles": 1
+      },
+      "time_since_codes": {
+        "PartSinceCode": {
+          "BLANK": 12,
+          "O": 2,
+          "R": 3
+        },
+        "ComponentSinceCode": {
+          "BLANK": 17
+        }
+      },
+      "missing_operator_control_number": 0,
+      "both_dates_valid": 17,
+      "submission_before_difficulty": 0,
+      "component_names_top_15": {
+        "PartName": {
+          "WATER HEATER": 16,
+          "VALVE": 1
+        },
+        "ComponentName": {
+          "WATER HEATER": 1
+        }
+      }
+    },
+    "oven": {
+      "name_field_match_counts": {
+        "PartName": 361,
+        "both_name_fields": 0
+      },
+      "by_name_field": {
+        "PartName": {
+          "rows": 361,
+          "rows_by_source_year": {
+            "2023": 76,
+            "2024": 140,
+            "2025": 145
+          },
+          "exact_distinct_rows": 361,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 361,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 361,
+          "models_top_30": [
+            {
+              "make": "BOEING",
+              "model": "737823",
+              "rows": 69
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A321231",
+              "rows": 28
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A319112",
+              "rows": 15
+            },
+            {
+              "make": "BOEING",
+              "model": "737932ER",
+              "rows": 15
+            },
+            {
+              "make": "BOEING",
+              "model": "777222",
+              "rows": 14
+            },
+            {
+              "make": "EMB",
+              "model": "ERJ170200LR",
+              "rows": 13
+            },
+            {
+              "make": "BOEING",
+              "model": "737824",
+              "rows": 13
+            },
+            {
+              "make": "BOEING",
+              "model": "7378",
+              "rows": 12
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A320*",
+              "rows": 11
+            },
+            {
+              "make": "BOEING",
+              "model": "7878",
+              "rows": 11
+            },
+            {
+              "make": "BOEING",
+              "model": "7879",
+              "rows": 11
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A319132",
+              "rows": 10
+            },
+            {
+              "make": "BOEING",
+              "model": "757224",
+              "rows": 10
+            },
+            {
+              "make": "BOEING",
+              "model": "777223",
+              "rows": 9
+            },
+            {
+              "make": "BOEING",
+              "model": "767322",
+              "rows": 9
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A321211",
+              "rows": 7
+            },
+            {
+              "make": "BOEING",
+              "model": "737924ER",
+              "rows": 7
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A320232",
+              "rows": 6
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A321253NX",
+              "rows": 6
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A330323",
+              "rows": 5
+            },
+            {
+              "make": "BOEING",
+              "model": "777224",
+              "rows": 5
+            },
+            {
+              "make": "BOEING",
+              "model": "777323ER",
+              "rows": 4
+            },
+            {
+              "make": "BOEING",
+              "model": "78710",
+              "rows": 4
+            },
+            {
+              "make": "BOEING",
+              "model": "7379",
+              "rows": 4
+            },
+            {
+              "make": "BOEING",
+              "model": "737900ER",
+              "rows": 3
+            },
+            {
+              "make": "AIRBUS",
+              "model": "A320214",
+              "rows": 3
+            },
+            {
+              "make": "BOEING",
+              "model": "777300ER",
+              "rows": 3
+            },
+            {
+              "make": "BOEING",
+              "model": "7378KN",
+              "rows": 3
+            },
+            {
+              "make": "BOEING",
+              "model": "737724",
+              "rows": 3
+            },
+            {
+              "make": "BOEING",
+              "model": "75733N",
+              "rows": 3
+            }
+          ],
+          "distinct_make_model_values": 65,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 311,
+              "populated": 50,
+              "invalid_numeric": 0,
+              "numeric": 50,
+              "positive": 50,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "60",
+                "44300"
+              ]
+            },
+            "ComponentTotalCycles": {
+              "blank": 361,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 361,
+              "invalid_numeric": 0,
+              "numeric": 361,
+              "positive": 361,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "60",
+                "42943"
+              ]
+            },
+            "PartTotalTime": {
+              "blank": 311,
+              "populated": 50,
+              "invalid_numeric": 0,
+              "numeric": 50,
+              "positive": 50,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "125",
+                "96875"
+              ]
+            },
+            "ComponentTotalTime": {
+              "blank": 361,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 361,
+              "invalid_numeric": 0,
+              "numeric": 361,
+              "positive": 361,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "125",
+                "131221"
+              ]
+            },
+            "PartTimeSince": {
+              "blank": 314,
+              "populated": 47,
+              "invalid_numeric": 0,
+              "numeric": 47,
+              "positive": 47,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": [
+                "76",
+                "87483"
+              ]
+            },
+            "ComponentTimeSince": {
+              "blank": 361,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 297,
+              "populated": 64,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 361,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 361,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 361,
+              "valid": 361,
+              "invalid": 0,
+              "valid_range": [
+                "2023-01-05",
+                "2025-12-23"
+              ]
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 361,
+              "valid": 361,
+              "invalid": 0,
+              "valid_range": [
+                "2023-01-06",
+                "2025-12-24"
+              ]
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 50,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 50,
+            "Component_positive_integer_cycles_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 361,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 361,
+            "Part_positive_cycles_equal_aircraft_cycles": 3,
+            "Part_positive_cycles_exceed_aircraft_cycles": 13
+          },
+          "time_since_codes": {
+            "PartSinceCode": {
+              "BLANK": 313,
+              "R": 43,
+              "I": 4,
+              "O": 1
+            },
+            "ComponentSinceCode": {
+              "BLANK": 361
+            }
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 361,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {
+              "OVEN": 352,
+              "MICROWAVE OVEN": 9
+            },
+            "ComponentName": {}
+          }
+        },
+        "ComponentName": {
+          "rows": 0,
+          "rows_by_source_year": {},
+          "exact_distinct_rows": 0,
+          "exact_duplicate_rows": 0,
+          "distinct_nonblank_operator_control_numbers": 0,
+          "operator_control_numbers_repeated": 0,
+          "distinct_nonblank_operator_scoped_control_numbers": 0,
+          "models_top_30": [],
+          "distinct_make_model_values": 0,
+          "numbers": {
+            "PartTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalCycles": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "AircraftTotalTime": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "PartTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            },
+            "ComponentTimeSince": {
+              "blank": 0,
+              "populated": 0,
+              "invalid_numeric": 0,
+              "numeric": 0,
+              "positive": 0,
+              "zero": 0,
+              "negative": 0,
+              "fractional": 0,
+              "positive_range": []
+            }
+          },
+          "serial_coverage": {
+            "PartSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "ComponentSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            },
+            "AircraftSerialNumber": {
+              "blank": 0,
+              "populated": 0,
+              "generic_token": 0
+            }
+          },
+          "dates": {
+            "DifficultyDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            },
+            "SubmissionDate": {
+              "blank": 0,
+              "populated": 0,
+              "valid": 0,
+              "invalid": 0,
+              "valid_range": []
+            }
+          },
+          "joint_cycle_date_serial_coverage": {
+            "Part_positive_integer_cycles_and_valid_event_date": 0,
+            "Part_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_and_valid_event_date": 0,
+            "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_and_valid_event_date": 0,
+            "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 0
+          },
+          "time_since_codes": {
+            "PartSinceCode": {},
+            "ComponentSinceCode": {}
+          },
+          "missing_operator_control_number": 0,
+          "both_dates_valid": 0,
+          "submission_before_difficulty": 0,
+          "component_names_top_15": {
+            "PartName": {},
+            "ComponentName": {}
+          }
+        }
+      },
+      "rows": 361,
+      "rows_by_source_year": {
+        "2023": 76,
+        "2024": 140,
+        "2025": 145
+      },
+      "exact_distinct_rows": 361,
+      "exact_duplicate_rows": 0,
+      "distinct_nonblank_operator_control_numbers": 361,
+      "operator_control_numbers_repeated": 0,
+      "distinct_nonblank_operator_scoped_control_numbers": 361,
+      "models_top_30": [
+        {
+          "make": "BOEING",
+          "model": "737823",
+          "rows": 69
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321231",
+          "rows": 28
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319112",
+          "rows": 15
+        },
+        {
+          "make": "BOEING",
+          "model": "737932ER",
+          "rows": 15
+        },
+        {
+          "make": "BOEING",
+          "model": "777222",
+          "rows": 14
+        },
+        {
+          "make": "EMB",
+          "model": "ERJ170200LR",
+          "rows": 13
+        },
+        {
+          "make": "BOEING",
+          "model": "737824",
+          "rows": 13
+        },
+        {
+          "make": "BOEING",
+          "model": "7378",
+          "rows": 12
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320*",
+          "rows": 11
+        },
+        {
+          "make": "BOEING",
+          "model": "7878",
+          "rows": 11
+        },
+        {
+          "make": "BOEING",
+          "model": "7879",
+          "rows": 11
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A319132",
+          "rows": 10
+        },
+        {
+          "make": "BOEING",
+          "model": "757224",
+          "rows": 10
+        },
+        {
+          "make": "BOEING",
+          "model": "777223",
+          "rows": 9
+        },
+        {
+          "make": "BOEING",
+          "model": "767322",
+          "rows": 9
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321211",
+          "rows": 7
+        },
+        {
+          "make": "BOEING",
+          "model": "737924ER",
+          "rows": 7
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320232",
+          "rows": 6
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A321253NX",
+          "rows": 6
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A330323",
+          "rows": 5
+        },
+        {
+          "make": "BOEING",
+          "model": "777224",
+          "rows": 5
+        },
+        {
+          "make": "BOEING",
+          "model": "777323ER",
+          "rows": 4
+        },
+        {
+          "make": "BOEING",
+          "model": "78710",
+          "rows": 4
+        },
+        {
+          "make": "BOEING",
+          "model": "7379",
+          "rows": 4
+        },
+        {
+          "make": "BOEING",
+          "model": "737900ER",
+          "rows": 3
+        },
+        {
+          "make": "AIRBUS",
+          "model": "A320214",
+          "rows": 3
+        },
+        {
+          "make": "BOEING",
+          "model": "777300ER",
+          "rows": 3
+        },
+        {
+          "make": "BOEING",
+          "model": "7378KN",
+          "rows": 3
+        },
+        {
+          "make": "BOEING",
+          "model": "737724",
+          "rows": 3
+        },
+        {
+          "make": "BOEING",
+          "model": "75733N",
+          "rows": 3
+        }
+      ],
+      "distinct_make_model_values": 65,
+      "numbers": {
+        "PartTotalCycles": {
+          "blank": 311,
+          "populated": 50,
+          "invalid_numeric": 0,
+          "numeric": 50,
+          "positive": 50,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "60",
+            "44300"
+          ]
+        },
+        "ComponentTotalCycles": {
+          "blank": 361,
+          "populated": 0,
+          "invalid_numeric": 0,
+          "numeric": 0,
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": []
+        },
+        "AircraftTotalCycles": {
+          "blank": 0,
+          "populated": 361,
+          "invalid_numeric": 0,
+          "numeric": 361,
+          "positive": 361,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "60",
+            "42943"
+          ]
+        },
+        "PartTotalTime": {
+          "blank": 311,
+          "populated": 50,
+          "invalid_numeric": 0,
+          "numeric": 50,
+          "positive": 50,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "125",
+            "96875"
+          ]
+        },
+        "ComponentTotalTime": {
+          "blank": 361,
+          "populated": 0,
+          "invalid_numeric": 0,
+          "numeric": 0,
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": []
+        },
+        "AircraftTotalTime": {
+          "blank": 0,
+          "populated": 361,
+          "invalid_numeric": 0,
+          "numeric": 361,
+          "positive": 361,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "125",
+            "131221"
+          ]
+        },
+        "PartTimeSince": {
+          "blank": 314,
+          "populated": 47,
+          "invalid_numeric": 0,
+          "numeric": 47,
+          "positive": 47,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": [
+            "76",
+            "87483"
+          ]
+        },
+        "ComponentTimeSince": {
+          "blank": 361,
+          "populated": 0,
+          "invalid_numeric": 0,
+          "numeric": 0,
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "fractional": 0,
+          "positive_range": []
+        }
+      },
+      "serial_coverage": {
+        "PartSerialNumber": {
+          "blank": 297,
+          "populated": 64,
+          "generic_token": 0
+        },
+        "ComponentSerialNumber": {
+          "blank": 361,
+          "populated": 0,
+          "generic_token": 0
+        },
+        "AircraftSerialNumber": {
+          "blank": 0,
+          "populated": 361,
+          "generic_token": 0
+        }
+      },
+      "dates": {
+        "DifficultyDate": {
+          "blank": 0,
+          "populated": 361,
+          "valid": 361,
+          "invalid": 0,
+          "valid_range": [
+            "2023-01-05",
+            "2025-12-23"
+          ]
+        },
+        "SubmissionDate": {
+          "blank": 0,
+          "populated": 361,
+          "valid": 361,
+          "invalid": 0,
+          "valid_range": [
+            "2023-01-06",
+            "2025-12-24"
+          ]
+        }
+      },
+      "joint_cycle_date_serial_coverage": {
+        "Part_positive_integer_cycles_and_valid_event_date": 50,
+        "Part_positive_integer_cycles_serial_and_valid_event_date": 50,
+        "Component_positive_integer_cycles_and_valid_event_date": 0,
+        "Component_positive_integer_cycles_serial_and_valid_event_date": 0,
+        "Aircraft_positive_integer_cycles_and_valid_event_date": 361,
+        "Aircraft_positive_integer_cycles_serial_and_valid_event_date": 361,
+        "Part_positive_cycles_equal_aircraft_cycles": 3,
+        "Part_positive_cycles_exceed_aircraft_cycles": 13
+      },
+      "time_since_codes": {
+        "PartSinceCode": {
+          "BLANK": 313,
+          "R": 43,
+          "I": 4,
+          "O": 1
+        },
+        "ComponentSinceCode": {
+          "BLANK": 361
+        }
+      },
+      "missing_operator_control_number": 0,
+      "both_dates_valid": 361,
+      "submission_before_difficulty": 0,
+      "component_names_top_15": {
+        "PartName": {
+          "OVEN": 352,
+          "MICROWAVE OVEN": 9
+        },
+        "ComponentName": {}
+      }
+    }
+  }
+}

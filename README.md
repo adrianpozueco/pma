@@ -8,6 +8,13 @@ AMOS work orders and FAA Service Difficulty Reports.
 Scaffolded with `agents-cli` version `1.6.1` (`agents-cli-manifest.yaml`), built
 on the ADK 2.0 workflow graph API.
 
+The dedicated XML work-order API now parses uploads, resolves the three target
+parts, and can retrieve dated AMOS/FAA evidence through bounded BigQuery queries.
+Failure probabilities and replacement deadlines remain unavailable: the fixed
+corpus did not establish valid failure labels and component follow-up. See the
+[implementation validation report](docs/bigquery-implementation-validation.md)
+and [atomic task board](docs/bigquery-implementation-tasks.md).
+
 ---
 
 ## Do not "tidy up" these names
@@ -49,7 +56,9 @@ pm-agent/
 │   ├── sub_agents/
 │   │   ├── ipc_manual_retrieval/      # Vertex AI Search over the IPC datastore
 │   │   └── bq_analytics/              # BigQuery specialist (placeholder)
+│   ├── workorders/                    # XML analysis context and artifact adapter
 │   └── app_utils/                     # a2a, services, reasoning_engine_adapter
+├── amos_data/                         # Pure parser, cohorts, retrieval and embeddings
 ├── scripts/                           # Data preparation for BigQuery
 │   ├── wo_xml.py                      # Shared XML parsing helpers
 │   ├── xml_to_ndjson.py               # AMOS workorder XML -> NDJSON + BQ schema
@@ -933,11 +942,10 @@ less clicking and fewer surprises.
 Discovery Engine API enablement and `roles/discoveryengine.viewer` grants are
 managed in Terraform. The remaining implementation/deployment gaps are:
 
-- **The app service account has no BigQuery role.** The default role list has no
-  `roles/bigquery.jobUser` or `roles/bigquery.dataViewer`. The `bq_analytics`
-  specialist uses Application Default Credentials, which is the developer's
-  gcloud login locally but this service account on Agent Runtime, where it
-  would not be able to run a query.
+- **Runtime BigQuery permissions are not yet verified.** Terraform now declares
+  project-scoped `roles/bigquery.jobUser` and analytics-dataset-scoped
+  `roles/bigquery.dataViewer` for the app service account. This implementation
+  has not applied them or tested the deployed principal.
 - **`GOOGLE_CLOUD_PROJECT` is not set on the Reasoning Engine.** `service.tf`
   sets `GOOGLE_CLOUD_LOCATION`, `GOOGLE_GENAI_USE_VERTEXAI` and the telemetry
   variables, but not the project; the `service.tf` comment says Agent Runtime
@@ -947,10 +955,79 @@ managed in Terraform. The remaining implementation/deployment gaps are:
   records `"remote_agent_runtime_id": "None"`. Terraform's placeholder code
   does not establish that the current `pm_agent` has been deployed; verify the
   target runtime and deploy the application separately.
-- **`bq_analytics` is a placeholder.** See the docstring in
-  `pm_agent/sub_agents/bq_analytics/agent.py` for what is deliberately not
-  built: curated SQL tools or views over the nested schema, and any evaluation
-  of answer quality.
+- **Ordinary BigQuery chat is unchanged.** The dedicated work-order route uses
+  the new bounded history provider and canonical artifact tables. Production
+  corpus loading, reviewed retrieval relevance, model training, and replacement
+  policy validation remain separate outstanding work.
+
+## XML work-order analysis
+
+Start the existing application after installing dependencies:
+
+```sh
+uv sync
+uv run uvicorn pm_agent.fast_api_app:app --host 127.0.0.1 --port 8080
+```
+
+This synthetic fixture exercises the real upload route. Metadata belongs in query
+parameters for both raw XML and multipart uploads:
+
+```sh
+curl --fail-with-body \
+  'http://127.0.0.1:8080/workorders/analyze?mode=new_work_order&analysis_as_of=2026-09-01T10:00:00Z&current_aircraft_tac=120&current_tac_source=operator_feed&current_tac_observed_at=2026-09-01T09:55:00Z' \
+  -H 'Content-Type: application/xml' \
+  --data-binary @tests/fixtures/workorders/open_nozzle.xml
+```
+
+For multipart, replace the last two arguments with
+`-F 'file=@tests/fixtures/workorders/open_nozzle.xml;type=application/xml'`.
+The request body limit is 25 MiB including multipart framing. An envelope with
+multiple WOs requires `selected_wo_id`; a closed export requires
+`mode=historical_replay`. Replay excludes text unavailable at the analysis time.
+If needed, supply `target_part_number` to resolve an alias-only candidate.
+
+The response includes parsed context, input-counter provenance, targets,
+historical cases, retrieval status and local IPC catalogue references. With no
+history configuration, parsing still works and retrieval reports `not_configured`.
+Prediction, timing and replacement recommendation fields remain explicitly null
+with their reasons. Current aircraft TAC is not component age.
+
+Enable history only after the matching physical tables and corpus are loaded:
+
+| Environment variable | Value |
+|---|---|
+| `PM_HISTORY_PROJECT` | Existing Google Cloud project; falls back to application config/ADC |
+| `PM_HISTORY_DATASET` | `pma_agent_analytics` |
+| `PM_HISTORY_CORPUS` | Exact `reference_corpus_version` from preparation report |
+| `PM_HISTORY_METHOD` | `keyword` (default), `vector`, or `hybrid` |
+| `PM_EMBEDDING_MODEL` / `PM_EMBEDDING_VERSION` | `gemini-embedding-001` / `001` |
+| `PM_EMBEDDING_DIMENSION` / `PM_EMBEDDING_LOCATION` | `3072` / `global` |
+
+Semantic methods require embeddings in the identical model/preparation/corpus
+configuration. Query values are parameterized; history queries stay within the
+analytics dataset and use byte, time and result limits. The upload is never
+inserted into the historical index.
+
+Reproduce local preparation and the failed training gate:
+
+```sh
+uv run python scripts/audit_prediction_cohort.py
+uv run python scripts/prepare_retrieval_documents.py \
+  --output /tmp/retrieval_documents.jsonl --report /tmp/retrieval_coverage.json
+uv run python scripts/embed_retrieval_documents.py --documents /tmp/retrieval_documents.jsonl
+uv run python scripts/run_conditional_failure_model.py
+```
+
+The last command exits `3` while the fixed-corpus gate fails. Preparation defaults
+to ten eligible local documents and embedding defaults to dry-run. See
+[embedding and table-loading commands](docs/bigquery-embeddings.md) and the
+[reviewed retrieval evaluator](docs/bigquery-retrieval-evaluation.md).
+
+Run deterministic checks with
+`uv run pytest tests/unit tests/integration/test_workorder_upload.py`.
+With Google credentials, `uv run python scripts/verify_history_bigquery.py`
+checks keyword/vector/hybrid SQL using synthetic session temporary tables and a
+100 MB per-script billing cap. It creates no permanent table or deployment.
 
 ---
 

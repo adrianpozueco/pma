@@ -18,15 +18,24 @@ from collections.abc import AsyncIterator
 
 from a2a.server.tasks import InMemoryTaskStore
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.responses import JSONResponse
 from google.adk.cli.fast_api import get_fast_api_app
 from google.adk.runners import Runner
+from starlette.concurrency import run_in_threadpool
 
+from amos_data.parser import MAX_XML_BYTES
 from pm_agent.app_utils import services
 from pm_agent.app_utils.a2a import attach_a2a_routes
 from pm_agent.app_utils.reasoning_engine_adapter import (
     attach_reasoning_engine_routes,
 )
+from pm_agent.workorders import (
+    AnalysisInput,
+    WorkOrderAnalysisError,
+    WorkOrderAnalysisService,
+)
+from pm_agent.workorders.service import default_history_provider
 
 load_dotenv()
 allow_origins = (
@@ -77,6 +86,154 @@ app.description = "API for interacting with the Agent pm-agent"
 # Proxy routes so the Vertex AI Console Playground (reasoning_engine SDK) can
 # talk to this agent alongside the native adk_api routes.
 attach_reasoning_engine_routes(app)
+
+
+class _UploadTooLarge(Exception):
+    pass
+
+
+def _contains_upload_too_large(error: BaseException) -> bool:
+    if isinstance(error, _UploadTooLarge):
+        return True
+    if isinstance(error, BaseExceptionGroup):
+        return any(_contains_upload_too_large(item) for item in error.exceptions)
+    return False
+
+
+@app.middleware("http")
+async def limit_workorder_upload_body(request: Request, call_next):
+    """Apply the XML byte bound before multipart parsing buffers file bytes."""
+    if request.url.path != "/workorders/analyze":
+        return await call_next(request)
+    declared = request.headers.get("content-length")
+    if declared and declared.isdigit() and int(declared) > MAX_XML_BYTES:
+        return JSONResponse(
+            status_code=413,
+            content={"detail": {"code": "oversized_input", "max_bytes": MAX_XML_BYTES}},
+        )
+    receive = request._receive
+    total = 0
+
+    async def limited_receive():
+        nonlocal total
+        message = await receive()
+        if message.get("type") == "http.request":
+            total += len(message.get("body", b""))
+            if total > MAX_XML_BYTES:
+                raise _UploadTooLarge()
+        return message
+
+    request._receive = limited_receive
+    try:
+        return await call_next(request)
+    except BaseException as exc:
+        if not _contains_upload_too_large(exc):
+            raise
+        return JSONResponse(
+            status_code=413,
+            content={"detail": {"code": "oversized_input", "max_bytes": MAX_XML_BYTES}},
+        )
+
+
+async def _bounded_request_bytes(request: Request) -> bytes:
+    """Read raw XML incrementally; request bodies are never logged or retained."""
+    declared = request.headers.get("content-length")
+    if declared and declared.isdigit() and int(declared) > MAX_XML_BYTES:
+        raise WorkOrderAnalysisError(
+            "XML input exceeds the upload limit",
+            code="oversized_input",
+            details={"max_bytes": MAX_XML_BYTES},
+        )
+    chunks: list[bytes] = []
+    total = 0
+    async for chunk in request.stream():
+        total += len(chunk)
+        if total > MAX_XML_BYTES:
+            raise WorkOrderAnalysisError(
+                "XML input exceeds the upload limit",
+                code="oversized_input",
+                details={"max_bytes": MAX_XML_BYTES},
+            )
+        chunks.append(chunk)
+    return b"".join(chunks)
+
+
+async def _bounded_upload_bytes(request: Request) -> tuple[bytes, str | None]:
+    """Accept the single XML file in a multipart form with the same byte limit."""
+    form = await request.form(max_files=1, max_fields=20, max_part_size=MAX_XML_BYTES)
+    upload = form.get("file") or form.get("xml_file")
+    if upload is None or not hasattr(upload, "read"):
+        raise WorkOrderAnalysisError(
+            "multipart request needs a file or xml_file field",
+            code="missing_xml_upload",
+        )
+    chunks: list[bytes] = []
+    total = 0
+    try:
+        while chunk := await upload.read(64 * 1024):
+            total += len(chunk)
+            if total > MAX_XML_BYTES:
+                raise WorkOrderAnalysisError(
+                    "XML input exceeds the upload limit",
+                    code="oversized_input",
+                    details={"max_bytes": MAX_XML_BYTES},
+                )
+            chunks.append(chunk)
+        return b"".join(chunks), getattr(upload, "filename", None)
+    finally:
+        await upload.close()
+
+
+@app.post("/workorders/analyze")
+async def analyze_workorder_upload(
+    request: Request,
+    mode: str = Query(...),
+    analysis_as_of: str = Query(...),
+    selected_wo_id: str | None = Query(None),
+    current_aircraft_tac: int | None = Query(None),
+    current_tac_source: str | None = Query(None),
+    current_tac_observed_at: str | None = Query(None),
+    target_part_number: str | None = Query(None),
+):
+    """Analyze raw XML or one multipart XML upload without invoking the chat model."""
+    try:
+        if request.headers.get("content-type", "").lower().startswith("multipart/"):
+            xml_bytes, source_name = await _bounded_upload_bytes(request)
+        else:
+            xml_bytes, source_name = await _bounded_request_bytes(request), None
+        analysis_input = AnalysisInput(
+            mode=mode,
+            analysis_as_of=analysis_as_of,
+            selected_wo_id=selected_wo_id,
+            current_aircraft_tac=current_aircraft_tac,
+            current_tac_source=current_tac_source,
+            current_tac_observed_at=current_tac_observed_at,
+            target_part_number=target_part_number,
+        )
+        # Construction is intentionally here: credential-free imports and tests
+        # do not resolve BigQuery configuration unless the endpoint is used.
+        try:
+            history_provider = default_history_provider()
+        except Exception as exc:
+            # Runtime configuration/credentials must not turn an XML upload
+            # into an unstructured server error or expose provider details.
+            raise HTTPException(
+                status_code=503,
+                detail={
+                    "code": "history_provider_unavailable",
+                    "message": "Configured history retrieval is unavailable.",
+                },
+            ) from exc
+        service = WorkOrderAnalysisService(history_provider)
+        result = await run_in_threadpool(
+            service.analyze_xml, xml_bytes, analysis_input, source_name=source_name
+        )
+        return result
+    except WorkOrderAnalysisError as exc:
+        raise HTTPException(
+            status_code=422,
+            detail={"code": exc.code, "message": str(exc), "details": exc.details},
+        ) from exc
 
 
 # Main execution

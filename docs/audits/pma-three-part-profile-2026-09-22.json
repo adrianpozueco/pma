@@ -1,0 +1,3964 @@
+{
+  "scope": "Local prepared snapshot only. Candidates are lower-closing-TAC same-aircraft WOs, optionally matching ATA. These are NOT validated symptoms, precursors, independent failure episodes, or predictive samples.",
+  "source": "data/processed/wo_workorders.ndjson.gz",
+  "total_workorders": 8259,
+  "total_component_changes": 9085,
+  "total_part_requests": 2348,
+  "definitions": {
+    "exact": "Raw parsed part number exactly equals requested PN; no case or punctuation normalization.",
+    "normalized": "Uppercase alphanumeric only, matching existing repo part_key logic.",
+    "eligible_serial_swap": "Both stripped uppercased serials present and different; closing TAC present. Does not establish failure or unscheduled removal.",
+    "primary_target_event": "Eligible swap with requested PN on the removed/off side.",
+    "candidate_pair": "Distinct (replacement WO UUID, earlier WO UUID). One pair may represent many physical changes and pairs may share a replacement or earlier WO; these are not necessarily independent episodes.",
+    "ata4": "First two hyphen-separated two-digit ATA groups."
+  },
+  "parts": {
+    "2085M31G03": {
+      "normalized_key": "2085M31G03",
+      "coverage": {
+        "off": {
+          "exact_change_rows": 700,
+          "normalized_change_rows": 700,
+          "normalized_scope": {
+            "workorders": 81,
+            "known_aircraft": 68,
+            "workorders_missing_aircraft": 2,
+            "workorders_by_amos_family": {
+              "M73-82": 79,
+              "MISSING": 2
+            }
+          }
+        },
+        "on": {
+          "exact_change_rows": 700,
+          "normalized_change_rows": 700,
+          "normalized_scope": {
+            "workorders": 81,
+            "known_aircraft": 68,
+            "workorders_missing_aircraft": 2,
+            "workorders_by_amos_family": {
+              "M73-82": 79,
+              "MISSING": 2
+            }
+          }
+        },
+        "requests": {
+          "exact_request_rows": 5,
+          "normalized_request_rows": 5,
+          "normalized_scope": {
+            "workorders": 5,
+            "known_aircraft": 2,
+            "workorders_missing_aircraft": 2,
+            "workorders_by_amos_family": {
+              "M73-82": 3,
+              "MISSING": 2
+            }
+          }
+        }
+      },
+      "combined_reference_scope": {
+        "workorders": 81,
+        "known_aircraft": 68,
+        "workorders_missing_aircraft": 2,
+        "workorders_by_amos_family": {
+          "M73-82": 79,
+          "MISSING": 2
+        }
+      },
+      "changes": {
+        "either_side_change_rows": 700,
+        "either_side_scope": {
+          "workorders": 81,
+          "known_aircraft": 68,
+          "workorders_missing_aircraft": 2,
+          "workorders_by_amos_family": {
+            "M73-82": 79,
+            "MISSING": 2
+          }
+        },
+        "eligible_either_side_swaps": 700,
+        "eligible_off_target_swaps": 700,
+        "eligible_incoming_only_swaps": 0,
+        "eligible_outgoing_only_swaps": 0,
+        "eligible_off_target_scope": {
+          "workorders": 81,
+          "known_aircraft": 68,
+          "workorders_missing_aircraft": 2,
+          "workorders_by_amos_family": {
+            "M73-82": 79,
+            "MISSING": 2
+          }
+        },
+        "off_target_swaps_by_amos_family": {
+          "M73-82": 674,
+          "MISSING": 26
+        },
+        "off_target_wos_multiple_target_swaps": 65,
+        "off_target_max_swaps_in_one_wo": 18,
+        "off_target_missing_position": 0,
+        "off_target_positions": {
+          "#1": 406,
+          "#2": 294
+        },
+        "off_target_distinct_positions": 2,
+        "off_target_issue_tac_present": 0
+      },
+      "candidates_off_target_swaps": {
+        "replacement_events": 700,
+        "event_weighted_counts": {
+          "l0_event_rows": 4591,
+          "replacement_events_with_ata4_candidate": 58,
+          "ata4_event_rows": 58,
+          "ata2_event_rows": 76,
+          "ata4_event_rows_earlier_any_component_change": 58,
+          "ata4_event_rows_earlier_eligible_serial_swap": 58,
+          "ata4_event_rows_calendar_not_earlier": 0
+        },
+        "l0_unique_wo_pairs": 455,
+        "ata2_unique_wo_pairs": 6,
+        "ata4_unique_wo_pairs": 5,
+        "ata4_distinct_replacement_wos": 5,
+        "ata4_distinct_earlier_wos": 5,
+        "ata4_distinct_aircraft": 5,
+        "ata4_unique_wo_pairs_earlier_any_component_change": 5,
+        "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 5,
+        "ata4_unique_wo_pairs_earlier_target_component_change": 5,
+        "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 5,
+        "ata4_distinct_earlier_wos_any_component_change": 5,
+        "ata4_distinct_earlier_wos_eligible_serial_swap": 5,
+        "ata4_distinct_earlier_wos_target_component_change": 5,
+        "ata4_distinct_earlier_wos_target_eligible_serial_swap": 5,
+        "ata4_lead_cycles_range": [
+          4,
+          1579
+        ],
+        "ata4_earlier_wo_scope": {
+          "workorders": 5,
+          "known_aircraft": 5,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "M73-82": 5
+          }
+        }
+      },
+      "candidates_either_side_swaps": {
+        "replacement_events": 700,
+        "event_weighted_counts": {
+          "l0_event_rows": 4591,
+          "replacement_events_with_ata4_candidate": 58,
+          "ata4_event_rows": 58,
+          "ata2_event_rows": 76,
+          "ata4_event_rows_earlier_any_component_change": 58,
+          "ata4_event_rows_earlier_eligible_serial_swap": 58,
+          "ata4_event_rows_calendar_not_earlier": 0
+        },
+        "l0_unique_wo_pairs": 455,
+        "ata2_unique_wo_pairs": 6,
+        "ata4_unique_wo_pairs": 5,
+        "ata4_distinct_replacement_wos": 5,
+        "ata4_distinct_earlier_wos": 5,
+        "ata4_distinct_aircraft": 5,
+        "ata4_unique_wo_pairs_earlier_any_component_change": 5,
+        "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 5,
+        "ata4_unique_wo_pairs_earlier_target_component_change": 5,
+        "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 5,
+        "ata4_distinct_earlier_wos_any_component_change": 5,
+        "ata4_distinct_earlier_wos_eligible_serial_swap": 5,
+        "ata4_distinct_earlier_wos_target_component_change": 5,
+        "ata4_distinct_earlier_wos_target_eligible_serial_swap": 5,
+        "ata4_lead_cycles_range": [
+          4,
+          1579
+        ],
+        "ata4_earlier_wo_scope": {
+          "workorders": 5,
+          "known_aircraft": 5,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "M73-82": 5
+          }
+        }
+      },
+      "candidates_off_target_ng_max_only": {
+        "replacement_events": 674,
+        "event_weighted_counts": {
+          "l0_event_rows": 4591,
+          "replacement_events_with_ata4_candidate": 58,
+          "ata4_event_rows": 58,
+          "ata2_event_rows": 76,
+          "ata4_event_rows_earlier_any_component_change": 58,
+          "ata4_event_rows_earlier_eligible_serial_swap": 58,
+          "ata4_event_rows_calendar_not_earlier": 0
+        },
+        "l0_unique_wo_pairs": 455,
+        "ata2_unique_wo_pairs": 6,
+        "ata4_unique_wo_pairs": 5,
+        "ata4_distinct_replacement_wos": 5,
+        "ata4_distinct_earlier_wos": 5,
+        "ata4_distinct_aircraft": 5,
+        "ata4_unique_wo_pairs_earlier_any_component_change": 5,
+        "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 5,
+        "ata4_unique_wo_pairs_earlier_target_component_change": 5,
+        "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 5,
+        "ata4_distinct_earlier_wos_any_component_change": 5,
+        "ata4_distinct_earlier_wos_eligible_serial_swap": 5,
+        "ata4_distinct_earlier_wos_target_component_change": 5,
+        "ata4_distinct_earlier_wos_target_eligible_serial_swap": 5,
+        "ata4_lead_cycles_range": [
+          4,
+          1579
+        ],
+        "ata4_earlier_wo_scope": {
+          "workorders": 5,
+          "known_aircraft": 5,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "M73-82": 5
+          }
+        }
+      },
+      "candidates_off_target_by_family": {
+        "M73-82": {
+          "replacement_events": 674,
+          "event_weighted_counts": {
+            "l0_event_rows": 4591,
+            "replacement_events_with_ata4_candidate": 58,
+            "ata4_event_rows": 58,
+            "ata2_event_rows": 76,
+            "ata4_event_rows_earlier_any_component_change": 58,
+            "ata4_event_rows_earlier_eligible_serial_swap": 58,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 455,
+          "ata2_unique_wo_pairs": 6,
+          "ata4_unique_wo_pairs": 5,
+          "ata4_distinct_replacement_wos": 5,
+          "ata4_distinct_earlier_wos": 5,
+          "ata4_distinct_aircraft": 5,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 5,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 5,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 5,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 5,
+          "ata4_distinct_earlier_wos_any_component_change": 5,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 5,
+          "ata4_distinct_earlier_wos_target_component_change": 5,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 5,
+          "ata4_lead_cycles_range": [
+            4,
+            1579
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 5,
+            "known_aircraft": 5,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 5
+            }
+          }
+        },
+        "MISSING": {
+          "replacement_events": 26,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 0,
+          "ata2_unique_wo_pairs": 0,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        }
+      },
+      "candidates_off_target_by_position": {
+        "#1": {
+          "replacement_events": 406,
+          "event_weighted_counts": {
+            "l0_event_rows": 2660,
+            "replacement_events_with_ata4_candidate": 21,
+            "ata4_event_rows": 21,
+            "ata2_event_rows": 21,
+            "ata4_event_rows_earlier_any_component_change": 21,
+            "ata4_event_rows_earlier_eligible_serial_swap": 21,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 244,
+          "ata2_unique_wo_pairs": 2,
+          "ata4_unique_wo_pairs": 2,
+          "ata4_distinct_replacement_wos": 2,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 2,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 2,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 2,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 2,
+          "ata4_lead_cycles_range": [
+            66,
+            1543
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 2,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 2
+            }
+          }
+        },
+        "#2": {
+          "replacement_events": 294,
+          "event_weighted_counts": {
+            "l0_event_rows": 1931,
+            "ata2_event_rows": 55,
+            "ata4_event_rows_earlier_any_component_change": 37,
+            "ata4_event_rows_earlier_eligible_serial_swap": 37,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 37,
+            "ata4_event_rows": 37
+          },
+          "l0_unique_wo_pairs": 211,
+          "ata2_unique_wo_pairs": 4,
+          "ata4_unique_wo_pairs": 3,
+          "ata4_distinct_replacement_wos": 3,
+          "ata4_distinct_earlier_wos": 3,
+          "ata4_distinct_aircraft": 3,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 3,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_any_component_change": 3,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_target_component_change": 3,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 3,
+          "ata4_lead_cycles_range": [
+            4,
+            1579
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 3,
+            "known_aircraft": 3,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 3
+            }
+          }
+        }
+      }
+    },
+    "62197-301-001": {
+      "normalized_key": "62197301001",
+      "coverage": {
+        "off": {
+          "exact_change_rows": 1084,
+          "normalized_change_rows": 1084,
+          "normalized_scope": {
+            "workorders": 1076,
+            "known_aircraft": 404,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 492,
+              "M73-82": 584
+            }
+          }
+        },
+        "on": {
+          "exact_change_rows": 1032,
+          "normalized_change_rows": 1032,
+          "normalized_scope": {
+            "workorders": 1025,
+            "known_aircraft": 399,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 442,
+              "M73-82": 583
+            }
+          }
+        },
+        "requests": {
+          "exact_request_rows": 49,
+          "normalized_request_rows": 49,
+          "normalized_scope": {
+            "workorders": 49,
+            "known_aircraft": 46,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 18,
+              "M73-82": 31
+            }
+          }
+        }
+      },
+      "combined_reference_scope": {
+        "workorders": 1145,
+        "known_aircraft": 429,
+        "workorders_missing_aircraft": 0,
+        "workorders_by_amos_family": {
+          "B737-8": 560,
+          "M73-82": 585
+        }
+      },
+      "changes": {
+        "either_side_change_rows": 1150,
+        "either_side_scope": {
+          "workorders": 1142,
+          "known_aircraft": 428,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "B737-8": 557,
+            "M73-82": 585
+          }
+        },
+        "eligible_either_side_swaps": 1147,
+        "eligible_off_target_swaps": 1082,
+        "eligible_incoming_only_swaps": 65,
+        "eligible_outgoing_only_swaps": 116,
+        "eligible_off_target_scope": {
+          "workorders": 1074,
+          "known_aircraft": 404,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "B737-8": 491,
+            "M73-82": 583
+          }
+        },
+        "off_target_swaps_by_amos_family": {
+          "B737-8": 495,
+          "M73-82": 587
+        },
+        "off_target_wos_multiple_target_swaps": 8,
+        "off_target_max_swaps_in_one_wo": 2,
+        "off_target_missing_position": 0,
+        "off_target_positions": {
+          "#1": 1,
+          "#2": 1,
+          "#3": 3,
+          "#4": 1,
+          "001 FWD GALLEY": 11,
+          "002 AFT GALLEY": 8,
+          "102": 4,
+          "405AFT": 1,
+          "6475MM": 2,
+          "7050MM": 4,
+          "7050MM3": 2,
+          "7050MM4": 1,
+          "AFT": 58,
+          "AFT 1": 1,
+          "AFT CAB": 4,
+          "AFT GALLEY": 64,
+          "AFT LH": 13,
+          "AFT RH": 23,
+          "AFTGALLEYAFT": 2,
+          "AFTGALLEYFWD": 2,
+          "AFTGALLY": 204,
+          "CAB": 1,
+          "CABIN": 2,
+          "F/A AFT R/H": 1,
+          "FWD": 81,
+          "FWD G1": 3,
+          "FWD GALLEY": 56,
+          "FWDGALLY": 125,
+          "G1": 73,
+          "G1-105": 1,
+          "G42": 1,
+          "GALLEY": 3,
+          "GALLEY 1": 8,
+          "GALLEY 1 FWD": 14,
+          "GALLEY 4": 90,
+          "GALLEY 4B": 5,
+          "GALLEY G1": 44,
+          "GALLEY G2": 1,
+          "GALLEY G4": 162,
+          "RH AFT": 1
+        },
+        "off_target_distinct_positions": 40,
+        "off_target_issue_tac_present": 7
+      },
+      "candidates_off_target_swaps": {
+        "replacement_events": 1082,
+        "event_weighted_counts": {
+          "l0_event_rows": 7408,
+          "ata2_event_rows": 2328,
+          "ata4_event_rows_earlier_any_component_change": 1051,
+          "ata4_event_rows_earlier_eligible_serial_swap": 1047,
+          "ata4_event_rows_calendar_not_earlier": 0,
+          "replacement_events_with_ata4_candidate": 532,
+          "ata4_event_rows": 1110
+        },
+        "l0_unique_wo_pairs": 7359,
+        "ata2_unique_wo_pairs": 2314,
+        "ata4_unique_wo_pairs": 1103,
+        "ata4_distinct_replacement_wos": 529,
+        "ata4_distinct_earlier_wos": 725,
+        "ata4_distinct_aircraft": 286,
+        "ata4_unique_wo_pairs_earlier_any_component_change": 1044,
+        "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1040,
+        "ata4_unique_wo_pairs_earlier_target_component_change": 632,
+        "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 630,
+        "ata4_distinct_earlier_wos_any_component_change": 692,
+        "ata4_distinct_earlier_wos_eligible_serial_swap": 689,
+        "ata4_distinct_earlier_wos_target_component_change": 391,
+        "ata4_distinct_earlier_wos_target_eligible_serial_swap": 389,
+        "ata4_lead_cycles_range": [
+          2,
+          9070
+        ],
+        "ata4_earlier_wo_scope": {
+          "workorders": 725,
+          "known_aircraft": 286,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "B737-8": 356,
+            "M73-82": 369
+          }
+        }
+      },
+      "candidates_either_side_swaps": {
+        "replacement_events": 1147,
+        "event_weighted_counts": {
+          "l0_event_rows": 7843,
+          "ata2_event_rows": 2466,
+          "replacement_events_with_ata4_candidate": 564,
+          "ata4_event_rows": 1184,
+          "ata4_event_rows_earlier_any_component_change": 1120,
+          "ata4_event_rows_earlier_eligible_serial_swap": 1116,
+          "ata4_event_rows_calendar_not_earlier": 1
+        },
+        "l0_unique_wo_pairs": 7794,
+        "ata2_unique_wo_pairs": 2452,
+        "ata4_unique_wo_pairs": 1177,
+        "ata4_distinct_replacement_wos": 561,
+        "ata4_distinct_earlier_wos": 768,
+        "ata4_distinct_aircraft": 301,
+        "ata4_unique_wo_pairs_earlier_any_component_change": 1113,
+        "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1109,
+        "ata4_unique_wo_pairs_earlier_target_component_change": 654,
+        "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 652,
+        "ata4_distinct_earlier_wos_any_component_change": 731,
+        "ata4_distinct_earlier_wos_eligible_serial_swap": 728,
+        "ata4_distinct_earlier_wos_target_component_change": 400,
+        "ata4_distinct_earlier_wos_target_eligible_serial_swap": 398,
+        "ata4_lead_cycles_range": [
+          2,
+          9070
+        ],
+        "ata4_earlier_wo_scope": {
+          "workorders": 768,
+          "known_aircraft": 301,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "B737-8": 398,
+            "M73-82": 370
+          }
+        }
+      },
+      "candidates_off_target_ng_max_only": {
+        "replacement_events": 1082,
+        "event_weighted_counts": {
+          "l0_event_rows": 7408,
+          "ata2_event_rows": 2328,
+          "ata4_event_rows_earlier_any_component_change": 1051,
+          "ata4_event_rows_earlier_eligible_serial_swap": 1047,
+          "ata4_event_rows_calendar_not_earlier": 0,
+          "replacement_events_with_ata4_candidate": 532,
+          "ata4_event_rows": 1110
+        },
+        "l0_unique_wo_pairs": 7359,
+        "ata2_unique_wo_pairs": 2314,
+        "ata4_unique_wo_pairs": 1103,
+        "ata4_distinct_replacement_wos": 529,
+        "ata4_distinct_earlier_wos": 725,
+        "ata4_distinct_aircraft": 286,
+        "ata4_unique_wo_pairs_earlier_any_component_change": 1044,
+        "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1040,
+        "ata4_unique_wo_pairs_earlier_target_component_change": 632,
+        "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 630,
+        "ata4_distinct_earlier_wos_any_component_change": 692,
+        "ata4_distinct_earlier_wos_eligible_serial_swap": 689,
+        "ata4_distinct_earlier_wos_target_component_change": 391,
+        "ata4_distinct_earlier_wos_target_eligible_serial_swap": 389,
+        "ata4_lead_cycles_range": [
+          2,
+          9070
+        ],
+        "ata4_earlier_wo_scope": {
+          "workorders": 725,
+          "known_aircraft": 286,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "B737-8": 356,
+            "M73-82": 369
+          }
+        }
+      },
+      "candidates_off_target_by_family": {
+        "B737-8": {
+          "replacement_events": 495,
+          "event_weighted_counts": {
+            "l0_event_rows": 3772,
+            "ata2_event_rows": 1099,
+            "ata4_event_rows_earlier_any_component_change": 496,
+            "ata4_event_rows_earlier_eligible_serial_swap": 493,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 240,
+            "ata4_event_rows": 528
+          },
+          "l0_unique_wo_pairs": 3761,
+          "ata2_unique_wo_pairs": 1096,
+          "ata4_unique_wo_pairs": 527,
+          "ata4_distinct_replacement_wos": 239,
+          "ata4_distinct_earlier_wos": 356,
+          "ata4_distinct_aircraft": 141,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 495,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 492,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 285,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 284,
+          "ata4_distinct_earlier_wos_any_component_change": 338,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 336,
+          "ata4_distinct_earlier_wos_target_component_change": 176,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 175,
+          "ata4_lead_cycles_range": [
+            2,
+            9070
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 356,
+            "known_aircraft": 141,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 356
+            }
+          }
+        },
+        "M73-82": {
+          "replacement_events": 587,
+          "event_weighted_counts": {
+            "l0_event_rows": 3636,
+            "replacement_events_with_ata4_candidate": 292,
+            "ata4_event_rows": 582,
+            "ata2_event_rows": 1229,
+            "ata4_event_rows_earlier_any_component_change": 555,
+            "ata4_event_rows_earlier_eligible_serial_swap": 554,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 3598,
+          "ata2_unique_wo_pairs": 1218,
+          "ata4_unique_wo_pairs": 576,
+          "ata4_distinct_replacement_wos": 290,
+          "ata4_distinct_earlier_wos": 369,
+          "ata4_distinct_aircraft": 145,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 549,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 548,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 347,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 346,
+          "ata4_distinct_earlier_wos_any_component_change": 354,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 353,
+          "ata4_distinct_earlier_wos_target_component_change": 215,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 214,
+          "ata4_lead_cycles_range": [
+            4,
+            3177
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 369,
+            "known_aircraft": 145,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 369
+            }
+          }
+        }
+      },
+      "candidates_off_target_by_position": {
+        "#1": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 10,
+            "ata2_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 10,
+          "ata2_unique_wo_pairs": 2,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            284,
+            284
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 1
+            }
+          }
+        },
+        "#2": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 4,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 4,
+          "ata2_unique_wo_pairs": 0,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "#3": {
+          "replacement_events": 3,
+          "event_weighted_counts": {
+            "l0_event_rows": 9,
+            "ata2_event_rows": 3,
+            "ata4_event_rows_earlier_any_component_change": 3,
+            "ata4_event_rows_earlier_eligible_serial_swap": 3,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 2,
+            "ata4_event_rows": 3
+          },
+          "l0_unique_wo_pairs": 9,
+          "ata2_unique_wo_pairs": 3,
+          "ata4_unique_wo_pairs": 3,
+          "ata4_distinct_replacement_wos": 2,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 3,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 2,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 2,
+          "ata4_lead_cycles_range": [
+            172,
+            1165
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 2
+            }
+          }
+        },
+        "#4": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 12,
+            "ata2_event_rows": 6,
+            "ata4_event_rows_earlier_any_component_change": 5,
+            "ata4_event_rows_earlier_eligible_serial_swap": 5,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 6
+          },
+          "l0_unique_wo_pairs": 12,
+          "ata2_unique_wo_pairs": 6,
+          "ata4_unique_wo_pairs": 6,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 6,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 5,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 5,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_any_component_change": 5,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 5,
+          "ata4_distinct_earlier_wos_target_component_change": 3,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 3,
+          "ata4_lead_cycles_range": [
+            16,
+            2586
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 6,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 6
+            }
+          }
+        },
+        "001 FWD GALLEY": {
+          "replacement_events": 11,
+          "event_weighted_counts": {
+            "l0_event_rows": 48,
+            "ata2_event_rows": 25,
+            "replacement_events_with_ata4_candidate": 3,
+            "ata4_event_rows": 12,
+            "ata4_event_rows_earlier_any_component_change": 12,
+            "ata4_event_rows_earlier_eligible_serial_swap": 12,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 48,
+          "ata2_unique_wo_pairs": 25,
+          "ata4_unique_wo_pairs": 12,
+          "ata4_distinct_replacement_wos": 3,
+          "ata4_distinct_earlier_wos": 5,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 12,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 12,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 12,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 12,
+          "ata4_distinct_earlier_wos_any_component_change": 5,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 5,
+          "ata4_distinct_earlier_wos_target_component_change": 5,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 5,
+          "ata4_lead_cycles_range": [
+            133,
+            1842
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 5,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 5
+            }
+          }
+        },
+        "002 AFT GALLEY": {
+          "replacement_events": 8,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1,
+            "l0_event_rows": 29,
+            "ata2_event_rows": 6,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 29,
+          "ata2_unique_wo_pairs": 6,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            342,
+            342
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 1
+            }
+          }
+        },
+        "102": {
+          "replacement_events": 4,
+          "event_weighted_counts": {
+            "l0_event_rows": 31,
+            "ata2_event_rows": 12,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 31,
+          "ata2_unique_wo_pairs": 12,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "405AFT": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 2,
+            "ata2_event_rows": 1,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 2,
+          "ata2_unique_wo_pairs": 1,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "6475MM": {
+          "replacement_events": 2,
+          "event_weighted_counts": {
+            "l0_event_rows": 19,
+            "ata2_event_rows": 10,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 2,
+            "ata4_event_rows_earlier_eligible_serial_swap": 2,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 19,
+          "ata2_unique_wo_pairs": 10,
+          "ata4_unique_wo_pairs": 2,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 2,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            777,
+            1481
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 2
+            }
+          }
+        },
+        "7050MM": {
+          "replacement_events": 4,
+          "event_weighted_counts": {
+            "l0_event_rows": 22,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0,
+            "ata2_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 22,
+          "ata2_unique_wo_pairs": 1,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "7050MM3": {
+          "replacement_events": 2,
+          "event_weighted_counts": {
+            "l0_event_rows": 14,
+            "ata2_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 14,
+          "ata2_unique_wo_pairs": 2,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            24,
+            24
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 1
+            }
+          }
+        },
+        "7050MM4": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 3,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 3,
+          "ata2_unique_wo_pairs": 0,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "AFT": {
+          "replacement_events": 58,
+          "event_weighted_counts": {
+            "l0_event_rows": 449,
+            "ata2_event_rows": 122,
+            "ata4_event_rows_earlier_any_component_change": 64,
+            "ata4_event_rows_earlier_eligible_serial_swap": 62,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 26,
+            "ata4_event_rows": 66
+          },
+          "l0_unique_wo_pairs": 449,
+          "ata2_unique_wo_pairs": 122,
+          "ata4_unique_wo_pairs": 66,
+          "ata4_distinct_replacement_wos": 26,
+          "ata4_distinct_earlier_wos": 50,
+          "ata4_distinct_aircraft": 19,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 64,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 62,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 34,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 34,
+          "ata4_distinct_earlier_wos_any_component_change": 49,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 48,
+          "ata4_distinct_earlier_wos_target_component_change": 27,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 27,
+          "ata4_lead_cycles_range": [
+            16,
+            2570
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 50,
+            "known_aircraft": 19,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 37,
+              "M73-82": 13
+            }
+          }
+        },
+        "AFT 1": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 0,
+          "ata2_unique_wo_pairs": 0,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "AFT CAB": {
+          "replacement_events": 4,
+          "event_weighted_counts": {
+            "l0_event_rows": 46,
+            "ata2_event_rows": 10,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 2,
+            "ata4_event_rows_earlier_eligible_serial_swap": 2,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 46,
+          "ata2_unique_wo_pairs": 10,
+          "ata4_unique_wo_pairs": 2,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 2,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            125,
+            793
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 2
+            }
+          }
+        },
+        "AFT GALLEY": {
+          "replacement_events": 64,
+          "event_weighted_counts": {
+            "l0_event_rows": 487,
+            "ata2_event_rows": 163,
+            "replacement_events_with_ata4_candidate": 42,
+            "ata4_event_rows": 89,
+            "ata4_event_rows_earlier_any_component_change": 81,
+            "ata4_event_rows_earlier_eligible_serial_swap": 81,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 471,
+          "ata2_unique_wo_pairs": 158,
+          "ata4_unique_wo_pairs": 85,
+          "ata4_distinct_replacement_wos": 41,
+          "ata4_distinct_earlier_wos": 60,
+          "ata4_distinct_aircraft": 22,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 77,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 77,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 43,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 43,
+          "ata4_distinct_earlier_wos_any_component_change": 55,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 55,
+          "ata4_distinct_earlier_wos_target_component_change": 29,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 29,
+          "ata4_lead_cycles_range": [
+            6,
+            2754
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 60,
+            "known_aircraft": 22,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 11,
+              "M73-82": 49
+            }
+          }
+        },
+        "AFT LH": {
+          "replacement_events": 13,
+          "event_weighted_counts": {
+            "l0_event_rows": 109,
+            "ata2_event_rows": 33,
+            "ata4_event_rows_earlier_any_component_change": 12,
+            "ata4_event_rows_earlier_eligible_serial_swap": 12,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 9,
+            "ata4_event_rows": 14
+          },
+          "l0_unique_wo_pairs": 109,
+          "ata2_unique_wo_pairs": 33,
+          "ata4_unique_wo_pairs": 14,
+          "ata4_distinct_replacement_wos": 9,
+          "ata4_distinct_earlier_wos": 13,
+          "ata4_distinct_aircraft": 7,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 12,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 12,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 7,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 7,
+          "ata4_distinct_earlier_wos_any_component_change": 11,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 11,
+          "ata4_distinct_earlier_wos_target_component_change": 6,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 6,
+          "ata4_lead_cycles_range": [
+            98,
+            1708
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 13,
+            "known_aircraft": 7,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 5,
+              "M73-82": 8
+            }
+          }
+        },
+        "AFT RH": {
+          "replacement_events": 23,
+          "event_weighted_counts": {
+            "l0_event_rows": 198,
+            "ata2_event_rows": 55,
+            "ata4_event_rows_earlier_any_component_change": 23,
+            "ata4_event_rows_earlier_eligible_serial_swap": 23,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 13,
+            "ata4_event_rows": 23
+          },
+          "l0_unique_wo_pairs": 198,
+          "ata2_unique_wo_pairs": 55,
+          "ata4_unique_wo_pairs": 23,
+          "ata4_distinct_replacement_wos": 13,
+          "ata4_distinct_earlier_wos": 22,
+          "ata4_distinct_aircraft": 11,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 23,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 23,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 15,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 15,
+          "ata4_distinct_earlier_wos_any_component_change": 22,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 22,
+          "ata4_distinct_earlier_wos_target_component_change": 14,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 14,
+          "ata4_lead_cycles_range": [
+            23,
+            3069
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 22,
+            "known_aircraft": 11,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 15,
+              "M73-82": 7
+            }
+          }
+        },
+        "AFTGALLEYAFT": {
+          "replacement_events": 2,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1,
+            "l0_event_rows": 10,
+            "ata2_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 10,
+          "ata2_unique_wo_pairs": 2,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            1643,
+            1643
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 1
+            }
+          }
+        },
+        "AFTGALLEYFWD": {
+          "replacement_events": 2,
+          "event_weighted_counts": {
+            "l0_event_rows": 25,
+            "ata2_event_rows": 5,
+            "ata4_event_rows_earlier_any_component_change": 5,
+            "ata4_event_rows_earlier_eligible_serial_swap": 5,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 2,
+            "ata4_event_rows": 5
+          },
+          "l0_unique_wo_pairs": 25,
+          "ata2_unique_wo_pairs": 5,
+          "ata4_unique_wo_pairs": 5,
+          "ata4_distinct_replacement_wos": 2,
+          "ata4_distinct_earlier_wos": 3,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 5,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 5,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_any_component_change": 3,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_target_component_change": 2,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 2,
+          "ata4_lead_cycles_range": [
+            873,
+            1935
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 3,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 3
+            }
+          }
+        },
+        "AFTGALLY": {
+          "replacement_events": 204,
+          "event_weighted_counts": {
+            "l0_event_rows": 1504,
+            "ata2_event_rows": 427,
+            "replacement_events_with_ata4_candidate": 101,
+            "ata4_event_rows": 203,
+            "ata4_event_rows_earlier_any_component_change": 195,
+            "ata4_event_rows_earlier_eligible_serial_swap": 195,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 1496,
+          "ata2_unique_wo_pairs": 425,
+          "ata4_unique_wo_pairs": 203,
+          "ata4_distinct_replacement_wos": 101,
+          "ata4_distinct_earlier_wos": 149,
+          "ata4_distinct_aircraft": 67,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 195,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 195,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 131,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 131,
+          "ata4_distinct_earlier_wos_any_component_change": 142,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 142,
+          "ata4_distinct_earlier_wos_target_component_change": 89,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 89,
+          "ata4_lead_cycles_range": [
+            7,
+            3132
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 149,
+            "known_aircraft": 67,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 125,
+              "M73-82": 24
+            }
+          }
+        },
+        "CAB": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 6,
+            "ata2_event_rows": 1,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 6,
+          "ata2_unique_wo_pairs": 1,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            1312,
+            1312
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 1
+            }
+          }
+        },
+        "CABIN": {
+          "replacement_events": 2,
+          "event_weighted_counts": {
+            "l0_event_rows": 16,
+            "ata2_event_rows": 6,
+            "ata4_event_rows_earlier_any_component_change": 3,
+            "ata4_event_rows_earlier_eligible_serial_swap": 3,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 2,
+            "ata4_event_rows": 3
+          },
+          "l0_unique_wo_pairs": 16,
+          "ata2_unique_wo_pairs": 6,
+          "ata4_unique_wo_pairs": 3,
+          "ata4_distinct_replacement_wos": 2,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 3,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 2,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 2,
+          "ata4_lead_cycles_range": [
+            319,
+            1218
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 2
+            }
+          }
+        },
+        "F/A AFT R/H": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 16,
+            "ata2_event_rows": 5,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 16,
+          "ata2_unique_wo_pairs": 5,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "FWD": {
+          "replacement_events": 81,
+          "event_weighted_counts": {
+            "l0_event_rows": 472,
+            "replacement_events_with_ata4_candidate": 43,
+            "ata4_event_rows": 97,
+            "ata2_event_rows": 181,
+            "ata4_event_rows_earlier_any_component_change": 91,
+            "ata4_event_rows_earlier_eligible_serial_swap": 90,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 472,
+          "ata2_unique_wo_pairs": 181,
+          "ata4_unique_wo_pairs": 97,
+          "ata4_distinct_replacement_wos": 43,
+          "ata4_distinct_earlier_wos": 83,
+          "ata4_distinct_aircraft": 34,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 91,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 90,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 46,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 45,
+          "ata4_distinct_earlier_wos_any_component_change": 77,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 76,
+          "ata4_distinct_earlier_wos_target_component_change": 39,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 38,
+          "ata4_lead_cycles_range": [
+            2,
+            2631
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 83,
+            "known_aircraft": 34,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 66,
+              "M73-82": 17
+            }
+          }
+        },
+        "FWD G1": {
+          "replacement_events": 3,
+          "event_weighted_counts": {
+            "l0_event_rows": 14,
+            "replacement_events_with_ata4_candidate": 2,
+            "ata4_event_rows": 2,
+            "ata2_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 2,
+            "ata4_event_rows_earlier_eligible_serial_swap": 2,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 14,
+          "ata2_unique_wo_pairs": 2,
+          "ata4_unique_wo_pairs": 2,
+          "ata4_distinct_replacement_wos": 2,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 2,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 2,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            1203,
+            1383
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 2,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 2
+            }
+          }
+        },
+        "FWD GALLEY": {
+          "replacement_events": 56,
+          "event_weighted_counts": {
+            "l0_event_rows": 391,
+            "ata2_event_rows": 132,
+            "ata4_event_rows_earlier_any_component_change": 57,
+            "ata4_event_rows_earlier_eligible_serial_swap": 57,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 26,
+            "ata4_event_rows": 59
+          },
+          "l0_unique_wo_pairs": 391,
+          "ata2_unique_wo_pairs": 132,
+          "ata4_unique_wo_pairs": 59,
+          "ata4_distinct_replacement_wos": 26,
+          "ata4_distinct_earlier_wos": 54,
+          "ata4_distinct_aircraft": 21,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 57,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 57,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 29,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 29,
+          "ata4_distinct_earlier_wos_any_component_change": 52,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 52,
+          "ata4_distinct_earlier_wos_target_component_change": 26,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 26,
+          "ata4_lead_cycles_range": [
+            5,
+            2579
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 54,
+            "known_aircraft": 21,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 28,
+              "M73-82": 26
+            }
+          }
+        },
+        "FWDGALLY": {
+          "replacement_events": 125,
+          "event_weighted_counts": {
+            "l0_event_rows": 1015,
+            "ata2_event_rows": 283,
+            "ata4_event_rows_earlier_any_component_change": 123,
+            "ata4_event_rows_earlier_eligible_serial_swap": 122,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 57,
+            "ata4_event_rows": 133
+          },
+          "l0_unique_wo_pairs": 1015,
+          "ata2_unique_wo_pairs": 283,
+          "ata4_unique_wo_pairs": 133,
+          "ata4_distinct_replacement_wos": 57,
+          "ata4_distinct_earlier_wos": 92,
+          "ata4_distinct_aircraft": 42,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 123,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 122,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 68,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 67,
+          "ata4_distinct_earlier_wos_any_component_change": 89,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 88,
+          "ata4_distinct_earlier_wos_target_component_change": 47,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 46,
+          "ata4_lead_cycles_range": [
+            18,
+            9070
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 92,
+            "known_aircraft": 42,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 88,
+              "M73-82": 4
+            }
+          }
+        },
+        "G1": {
+          "replacement_events": 73,
+          "event_weighted_counts": {
+            "l0_event_rows": 408,
+            "replacement_events_with_ata4_candidate": 35,
+            "ata4_event_rows": 55,
+            "ata2_event_rows": 109,
+            "ata4_event_rows_earlier_any_component_change": 53,
+            "ata4_event_rows_earlier_eligible_serial_swap": 53,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 408,
+          "ata2_unique_wo_pairs": 109,
+          "ata4_unique_wo_pairs": 55,
+          "ata4_distinct_replacement_wos": 35,
+          "ata4_distinct_earlier_wos": 49,
+          "ata4_distinct_aircraft": 27,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 53,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 53,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 37,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 37,
+          "ata4_distinct_earlier_wos_any_component_change": 47,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 47,
+          "ata4_distinct_earlier_wos_target_component_change": 32,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 32,
+          "ata4_lead_cycles_range": [
+            5,
+            3177
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 49,
+            "known_aircraft": 27,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 49
+            }
+          }
+        },
+        "G1-105": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 5,
+            "ata2_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 5,
+          "ata2_unique_wo_pairs": 2,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            2109,
+            2109
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 1
+            }
+          }
+        },
+        "G42": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 2,
+            "ata2_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 2,
+          "ata2_unique_wo_pairs": 2,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            8,
+            8
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 1
+            }
+          }
+        },
+        "GALLEY": {
+          "replacement_events": 3,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0,
+            "l0_event_rows": 1,
+            "ata2_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 1,
+          "ata2_unique_wo_pairs": 1,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "GALLEY 1": {
+          "replacement_events": 8,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 4,
+            "ata4_event_rows": 13,
+            "l0_event_rows": 45,
+            "ata2_event_rows": 25,
+            "ata4_event_rows_earlier_any_component_change": 11,
+            "ata4_event_rows_earlier_eligible_serial_swap": 11,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 45,
+          "ata2_unique_wo_pairs": 25,
+          "ata4_unique_wo_pairs": 13,
+          "ata4_distinct_replacement_wos": 4,
+          "ata4_distinct_earlier_wos": 9,
+          "ata4_distinct_aircraft": 3,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 11,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 11,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 4,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 4,
+          "ata4_distinct_earlier_wos_any_component_change": 8,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 8,
+          "ata4_distinct_earlier_wos_target_component_change": 3,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 3,
+          "ata4_lead_cycles_range": [
+            24,
+            2312
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 9,
+            "known_aircraft": 3,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 1,
+              "M73-82": 8
+            }
+          }
+        },
+        "GALLEY 1 FWD": {
+          "replacement_events": 14,
+          "event_weighted_counts": {
+            "l0_event_rows": 71,
+            "replacement_events_with_ata4_candidate": 5,
+            "ata4_event_rows": 10,
+            "ata2_event_rows": 27,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "ata4_event_rows_earlier_any_component_change": 8,
+            "ata4_event_rows_earlier_eligible_serial_swap": 8
+          },
+          "l0_unique_wo_pairs": 71,
+          "ata2_unique_wo_pairs": 27,
+          "ata4_unique_wo_pairs": 10,
+          "ata4_distinct_replacement_wos": 5,
+          "ata4_distinct_earlier_wos": 10,
+          "ata4_distinct_aircraft": 5,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 8,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 8,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 4,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 4,
+          "ata4_distinct_earlier_wos_any_component_change": 8,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 8,
+          "ata4_distinct_earlier_wos_target_component_change": 4,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 4,
+          "ata4_lead_cycles_range": [
+            55,
+            1512
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 10,
+            "known_aircraft": 5,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 10
+            }
+          }
+        },
+        "GALLEY 4": {
+          "replacement_events": 90,
+          "event_weighted_counts": {
+            "l0_event_rows": 540,
+            "ata2_event_rows": 173,
+            "ata4_event_rows_earlier_any_component_change": 75,
+            "ata4_event_rows_earlier_eligible_serial_swap": 75,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 37,
+            "ata4_event_rows": 78
+          },
+          "l0_unique_wo_pairs": 532,
+          "ata2_unique_wo_pairs": 172,
+          "ata4_unique_wo_pairs": 78,
+          "ata4_distinct_replacement_wos": 37,
+          "ata4_distinct_earlier_wos": 64,
+          "ata4_distinct_aircraft": 25,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 75,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 75,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 55,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 55,
+          "ata4_distinct_earlier_wos_any_component_change": 62,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 62,
+          "ata4_distinct_earlier_wos_target_component_change": 44,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 44,
+          "ata4_lead_cycles_range": [
+            8,
+            2869
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 64,
+            "known_aircraft": 25,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 7,
+              "M73-82": 57
+            }
+          }
+        },
+        "GALLEY 4B": {
+          "replacement_events": 5,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 4,
+            "l0_event_rows": 20,
+            "ata2_event_rows": 10,
+            "ata4_event_rows_earlier_any_component_change": 3,
+            "ata4_event_rows_earlier_eligible_serial_swap": 3,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 20,
+          "ata2_unique_wo_pairs": 10,
+          "ata4_unique_wo_pairs": 4,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 4,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 3,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 3,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            264,
+            1711
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 4,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 4
+            }
+          }
+        },
+        "GALLEY G1": {
+          "replacement_events": 44,
+          "event_weighted_counts": {
+            "l0_event_rows": 257,
+            "ata2_event_rows": 79,
+            "ata4_event_rows_earlier_any_component_change": 34,
+            "ata4_event_rows_earlier_eligible_serial_swap": 34,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 20,
+            "ata4_event_rows": 36
+          },
+          "l0_unique_wo_pairs": 257,
+          "ata2_unique_wo_pairs": 79,
+          "ata4_unique_wo_pairs": 36,
+          "ata4_distinct_replacement_wos": 20,
+          "ata4_distinct_earlier_wos": 34,
+          "ata4_distinct_aircraft": 14,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 34,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 34,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 21,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 21,
+          "ata4_distinct_earlier_wos_any_component_change": 32,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 32,
+          "ata4_distinct_earlier_wos_target_component_change": 19,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 19,
+          "ata4_lead_cycles_range": [
+            10,
+            1980
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 34,
+            "known_aircraft": 14,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 2,
+              "M73-82": 32
+            }
+          }
+        },
+        "GALLEY G2": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 13,
+            "ata2_event_rows": 1,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 13,
+          "ata2_unique_wo_pairs": 1,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            694,
+            694
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 1
+            }
+          }
+        },
+        "GALLEY G4": {
+          "replacement_events": 162,
+          "event_weighted_counts": {
+            "l0_event_rows": 1067,
+            "replacement_events_with_ata4_candidate": 90,
+            "ata4_event_rows": 186,
+            "ata2_event_rows": 398,
+            "ata4_event_rows_earlier_any_component_change": 178,
+            "ata4_event_rows_earlier_eligible_serial_swap": 178,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 1067,
+          "ata2_unique_wo_pairs": 398,
+          "ata4_unique_wo_pairs": 186,
+          "ata4_distinct_replacement_wos": 90,
+          "ata4_distinct_earlier_wos": 138,
+          "ata4_distinct_aircraft": 54,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 178,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 178,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 109,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 109,
+          "ata4_distinct_earlier_wos_any_component_change": 133,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 133,
+          "ata4_distinct_earlier_wos_target_component_change": 79,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 79,
+          "ata4_lead_cycles_range": [
+            4,
+            2931
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 138,
+            "known_aircraft": 54,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 10,
+              "M73-82": 128
+            }
+          }
+        },
+        "RH AFT": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 18,
+            "ata2_event_rows": 6,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 18,
+          "ata2_unique_wo_pairs": 6,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            2540,
+            2540
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 1
+            }
+          }
+        }
+      }
+    },
+    "8201-11-0000-01": {
+      "normalized_key": "820111000001",
+      "coverage": {
+        "off": {
+          "exact_change_rows": 574,
+          "normalized_change_rows": 574,
+          "normalized_scope": {
+            "workorders": 573,
+            "known_aircraft": 347,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "32S": 8,
+              "B737-8": 332,
+              "M73-82": 233
+            }
+          }
+        },
+        "on": {
+          "exact_change_rows": 570,
+          "normalized_change_rows": 570,
+          "normalized_scope": {
+            "workorders": 567,
+            "known_aircraft": 354,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "32S": 7,
+              "B737-8": 359,
+              "M73-82": 201
+            }
+          }
+        },
+        "requests": {
+          "exact_request_rows": 13,
+          "normalized_request_rows": 13,
+          "normalized_scope": {
+            "workorders": 13,
+            "known_aircraft": 13,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 5,
+              "M73-82": 8
+            }
+          }
+        }
+      },
+      "combined_reference_scope": {
+        "workorders": 803,
+        "known_aircraft": 414,
+        "workorders_missing_aircraft": 0,
+        "workorders_by_amos_family": {
+          "32S": 9,
+          "B737-8": 501,
+          "M73-82": 293
+        }
+      },
+      "changes": {
+        "either_side_change_rows": 805,
+        "either_side_scope": {
+          "workorders": 801,
+          "known_aircraft": 413,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "32S": 9,
+            "B737-8": 500,
+            "M73-82": 292
+          }
+        },
+        "eligible_either_side_swaps": 803,
+        "eligible_off_target_swaps": 573,
+        "eligible_incoming_only_swaps": 230,
+        "eligible_outgoing_only_swaps": 234,
+        "eligible_off_target_scope": {
+          "workorders": 572,
+          "known_aircraft": 347,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "32S": 8,
+            "B737-8": 331,
+            "M73-82": 233
+          }
+        },
+        "off_target_swaps_by_amos_family": {
+          "32S": 8,
+          "B737-8": 332,
+          "M73-82": 233
+        },
+        "off_target_wos_multiple_target_swaps": 1,
+        "off_target_max_swaps_in_one_wo": 2,
+        "off_target_missing_position": 0,
+        "off_target_positions": {
+          "#1": 4,
+          "#3": 18,
+          "#4": 6,
+          "-403": 1,
+          "001 FWD GALLEY": 3,
+          "002 AFT GALLEY": 4,
+          "101": 1,
+          "102": 1,
+          "105": 2,
+          "110": 2,
+          "7050MM1": 1,
+          "7050MM3": 1,
+          "7050MM4": 1,
+          "AFT": 55,
+          "AFT CAB": 5,
+          "AFT G5 #3": 1,
+          "AFT GALLEY": 23,
+          "AFT LH": 8,
+          "AFT RH": 5,
+          "AFTGALLY": 112,
+          "AIRPLANE": 1,
+          "CAB": 1,
+          "CABIN": 9,
+          "FWD": 66,
+          "FWD CAB": 4,
+          "FWD GALLEY": 34,
+          "FWDGALLY": 67,
+          "G1": 19,
+          "GALLEY": 5,
+          "GALLEY 1": 2,
+          "GALLEY 1 FWD": 4,
+          "GALLEY 3": 4,
+          "GALLEY 4": 26,
+          "GALLEY 4B": 2,
+          "GALLEY G1": 14,
+          "GALLEY G4": 58,
+          "LH": 1,
+          "RH": 1,
+          "RH AFT": 1
+        },
+        "off_target_distinct_positions": 39,
+        "off_target_issue_tac_present": 5
+      },
+      "candidates_off_target_swaps": {
+        "replacement_events": 573,
+        "event_weighted_counts": {
+          "l0_event_rows": 3898,
+          "ata2_event_rows": 1339,
+          "replacement_events_with_ata4_candidate": 304,
+          "ata4_event_rows": 659,
+          "ata4_event_rows_earlier_any_component_change": 629,
+          "ata4_event_rows_earlier_eligible_serial_swap": 627,
+          "ata4_event_rows_calendar_not_earlier": 1
+        },
+        "l0_unique_wo_pairs": 3885,
+        "ata2_unique_wo_pairs": 1335,
+        "ata4_unique_wo_pairs": 655,
+        "ata4_distinct_replacement_wos": 303,
+        "ata4_distinct_earlier_wos": 498,
+        "ata4_distinct_aircraft": 216,
+        "ata4_unique_wo_pairs_earlier_any_component_change": 625,
+        "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 623,
+        "ata4_unique_wo_pairs_earlier_target_component_change": 241,
+        "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 239,
+        "ata4_distinct_earlier_wos_any_component_change": 478,
+        "ata4_distinct_earlier_wos_eligible_serial_swap": 476,
+        "ata4_distinct_earlier_wos_target_component_change": 183,
+        "ata4_distinct_earlier_wos_target_eligible_serial_swap": 181,
+        "ata4_lead_cycles_range": [
+          4,
+          3013
+        ],
+        "ata4_earlier_wo_scope": {
+          "workorders": 498,
+          "known_aircraft": 216,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "32S": 3,
+            "B737-8": 302,
+            "M73-82": 193
+          }
+        }
+      },
+      "candidates_either_side_swaps": {
+        "replacement_events": 803,
+        "event_weighted_counts": {
+          "l0_event_rows": 5497,
+          "ata2_event_rows": 1894,
+          "replacement_events_with_ata4_candidate": 432,
+          "ata4_event_rows": 922,
+          "ata4_event_rows_earlier_any_component_change": 880,
+          "ata4_event_rows_earlier_eligible_serial_swap": 876,
+          "ata4_event_rows_calendar_not_earlier": 1
+        },
+        "l0_unique_wo_pairs": 5461,
+        "ata2_unique_wo_pairs": 1882,
+        "ata4_unique_wo_pairs": 915,
+        "ata4_distinct_replacement_wos": 429,
+        "ata4_distinct_earlier_wos": 657,
+        "ata4_distinct_aircraft": 280,
+        "ata4_unique_wo_pairs_earlier_any_component_change": 873,
+        "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 869,
+        "ata4_unique_wo_pairs_earlier_target_component_change": 335,
+        "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 332,
+        "ata4_distinct_earlier_wos_any_component_change": 627,
+        "ata4_distinct_earlier_wos_eligible_serial_swap": 624,
+        "ata4_distinct_earlier_wos_target_component_change": 233,
+        "ata4_distinct_earlier_wos_target_eligible_serial_swap": 231,
+        "ata4_lead_cycles_range": [
+          4,
+          3122
+        ],
+        "ata4_earlier_wo_scope": {
+          "workorders": 657,
+          "known_aircraft": 280,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "32S": 4,
+            "B737-8": 410,
+            "M73-82": 243
+          }
+        }
+      },
+      "candidates_off_target_ng_max_only": {
+        "replacement_events": 565,
+        "event_weighted_counts": {
+          "l0_event_rows": 3888,
+          "ata2_event_rows": 1332,
+          "replacement_events_with_ata4_candidate": 301,
+          "ata4_event_rows": 656,
+          "ata4_event_rows_earlier_any_component_change": 626,
+          "ata4_event_rows_earlier_eligible_serial_swap": 624,
+          "ata4_event_rows_calendar_not_earlier": 1
+        },
+        "l0_unique_wo_pairs": 3875,
+        "ata2_unique_wo_pairs": 1328,
+        "ata4_unique_wo_pairs": 652,
+        "ata4_distinct_replacement_wos": 300,
+        "ata4_distinct_earlier_wos": 495,
+        "ata4_distinct_aircraft": 213,
+        "ata4_unique_wo_pairs_earlier_any_component_change": 622,
+        "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 620,
+        "ata4_unique_wo_pairs_earlier_target_component_change": 239,
+        "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 237,
+        "ata4_distinct_earlier_wos_any_component_change": 475,
+        "ata4_distinct_earlier_wos_eligible_serial_swap": 473,
+        "ata4_distinct_earlier_wos_target_component_change": 181,
+        "ata4_distinct_earlier_wos_target_eligible_serial_swap": 179,
+        "ata4_lead_cycles_range": [
+          4,
+          3013
+        ],
+        "ata4_earlier_wo_scope": {
+          "workorders": 495,
+          "known_aircraft": 213,
+          "workorders_missing_aircraft": 0,
+          "workorders_by_amos_family": {
+            "B737-8": 302,
+            "M73-82": 193
+          }
+        }
+      },
+      "candidates_off_target_by_family": {
+        "32S": {
+          "replacement_events": 8,
+          "event_weighted_counts": {
+            "l0_event_rows": 10,
+            "replacement_events_with_ata4_candidate": 3,
+            "ata4_event_rows": 3,
+            "ata2_event_rows": 7,
+            "ata4_event_rows_earlier_any_component_change": 3,
+            "ata4_event_rows_earlier_eligible_serial_swap": 3,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 10,
+          "ata2_unique_wo_pairs": 7,
+          "ata4_unique_wo_pairs": 3,
+          "ata4_distinct_replacement_wos": 3,
+          "ata4_distinct_earlier_wos": 3,
+          "ata4_distinct_aircraft": 3,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 3,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_any_component_change": 3,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_target_component_change": 2,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 2,
+          "ata4_lead_cycles_range": [
+            655,
+            1023
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 3,
+            "known_aircraft": 3,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "32S": 3
+            }
+          }
+        },
+        "B737-8": {
+          "replacement_events": 332,
+          "event_weighted_counts": {
+            "l0_event_rows": 2298,
+            "ata2_event_rows": 720,
+            "replacement_events_with_ata4_candidate": 178,
+            "ata4_event_rows": 393,
+            "ata4_event_rows_earlier_any_component_change": 371,
+            "ata4_event_rows_earlier_eligible_serial_swap": 369,
+            "ata4_event_rows_calendar_not_earlier": 1
+          },
+          "l0_unique_wo_pairs": 2285,
+          "ata2_unique_wo_pairs": 716,
+          "ata4_unique_wo_pairs": 389,
+          "ata4_distinct_replacement_wos": 177,
+          "ata4_distinct_earlier_wos": 302,
+          "ata4_distinct_aircraft": 132,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 367,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 365,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 153,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 151,
+          "ata4_distinct_earlier_wos_any_component_change": 288,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 286,
+          "ata4_distinct_earlier_wos_target_component_change": 116,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 114,
+          "ata4_lead_cycles_range": [
+            4,
+            3013
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 302,
+            "known_aircraft": 132,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 302
+            }
+          }
+        },
+        "M73-82": {
+          "replacement_events": 233,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 123,
+            "ata4_event_rows": 263,
+            "l0_event_rows": 1590,
+            "ata2_event_rows": 612,
+            "ata4_event_rows_earlier_any_component_change": 255,
+            "ata4_event_rows_earlier_eligible_serial_swap": 255,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 1590,
+          "ata2_unique_wo_pairs": 612,
+          "ata4_unique_wo_pairs": 263,
+          "ata4_distinct_replacement_wos": 123,
+          "ata4_distinct_earlier_wos": 193,
+          "ata4_distinct_aircraft": 81,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 255,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 255,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 86,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 86,
+          "ata4_distinct_earlier_wos_any_component_change": 187,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 187,
+          "ata4_distinct_earlier_wos_target_component_change": 65,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 65,
+          "ata4_lead_cycles_range": [
+            5,
+            2968
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 193,
+            "known_aircraft": 81,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 193
+            }
+          }
+        }
+      },
+      "candidates_off_target_by_position": {
+        "#1": {
+          "replacement_events": 4,
+          "event_weighted_counts": {
+            "l0_event_rows": 24,
+            "replacement_events_with_ata4_candidate": 2,
+            "ata4_event_rows": 9,
+            "ata2_event_rows": 9,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "ata4_event_rows_earlier_any_component_change": 7,
+            "ata4_event_rows_earlier_eligible_serial_swap": 7
+          },
+          "l0_unique_wo_pairs": 24,
+          "ata2_unique_wo_pairs": 9,
+          "ata4_unique_wo_pairs": 9,
+          "ata4_distinct_replacement_wos": 2,
+          "ata4_distinct_earlier_wos": 5,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 7,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 7,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_any_component_change": 4,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 4,
+          "ata4_distinct_earlier_wos_target_component_change": 2,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 2,
+          "ata4_lead_cycles_range": [
+            12,
+            1103
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 5,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 5
+            }
+          }
+        },
+        "#3": {
+          "replacement_events": 18,
+          "event_weighted_counts": {
+            "l0_event_rows": 95,
+            "ata2_event_rows": 33,
+            "ata4_event_rows_earlier_any_component_change": 20,
+            "ata4_event_rows_earlier_eligible_serial_swap": 20,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 10,
+            "ata4_event_rows": 20
+          },
+          "l0_unique_wo_pairs": 95,
+          "ata2_unique_wo_pairs": 33,
+          "ata4_unique_wo_pairs": 20,
+          "ata4_distinct_replacement_wos": 10,
+          "ata4_distinct_earlier_wos": 18,
+          "ata4_distinct_aircraft": 9,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 20,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 20,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 11,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 11,
+          "ata4_distinct_earlier_wos_any_component_change": 18,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 18,
+          "ata4_distinct_earlier_wos_target_component_change": 9,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 9,
+          "ata4_lead_cycles_range": [
+            16,
+            2244
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 18,
+            "known_aircraft": 9,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 18
+            }
+          }
+        },
+        "#4": {
+          "replacement_events": 6,
+          "event_weighted_counts": {
+            "l0_event_rows": 53,
+            "ata2_event_rows": 21,
+            "ata4_event_rows_earlier_any_component_change": 15,
+            "ata4_event_rows_earlier_eligible_serial_swap": 15,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 6,
+            "ata4_event_rows": 15
+          },
+          "l0_unique_wo_pairs": 53,
+          "ata2_unique_wo_pairs": 21,
+          "ata4_unique_wo_pairs": 15,
+          "ata4_distinct_replacement_wos": 6,
+          "ata4_distinct_earlier_wos": 15,
+          "ata4_distinct_aircraft": 6,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 15,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 15,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 5,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 5,
+          "ata4_distinct_earlier_wos_any_component_change": 15,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 15,
+          "ata4_distinct_earlier_wos_target_component_change": 5,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 5,
+          "ata4_lead_cycles_range": [
+            34,
+            2365
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 15,
+            "known_aircraft": 6,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 15
+            }
+          }
+        },
+        "-403": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 0,
+          "ata2_unique_wo_pairs": 0,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "001 FWD GALLEY": {
+          "replacement_events": 3,
+          "event_weighted_counts": {
+            "l0_event_rows": 30,
+            "ata2_event_rows": 12,
+            "ata4_event_rows_earlier_any_component_change": 4,
+            "ata4_event_rows_earlier_eligible_serial_swap": 4,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 3,
+            "ata4_event_rows": 4
+          },
+          "l0_unique_wo_pairs": 30,
+          "ata2_unique_wo_pairs": 12,
+          "ata4_unique_wo_pairs": 4,
+          "ata4_distinct_replacement_wos": 3,
+          "ata4_distinct_earlier_wos": 4,
+          "ata4_distinct_aircraft": 2,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 4,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 4,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 4,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 4,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            6,
+            1096
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 4,
+            "known_aircraft": 2,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 4
+            }
+          }
+        },
+        "002 AFT GALLEY": {
+          "replacement_events": 4,
+          "event_weighted_counts": {
+            "l0_event_rows": 32,
+            "ata2_event_rows": 10,
+            "replacement_events_with_ata4_candidate": 3,
+            "ata4_event_rows": 3,
+            "ata4_event_rows_earlier_any_component_change": 3,
+            "ata4_event_rows_earlier_eligible_serial_swap": 3,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 32,
+          "ata2_unique_wo_pairs": 10,
+          "ata4_unique_wo_pairs": 3,
+          "ata4_distinct_replacement_wos": 3,
+          "ata4_distinct_earlier_wos": 3,
+          "ata4_distinct_aircraft": 3,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 3,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 3,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            870,
+            1128
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 3,
+            "known_aircraft": 3,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 3
+            }
+          }
+        },
+        "101": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 7,
+            "ata2_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 7,
+          "ata2_unique_wo_pairs": 2,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            2099,
+            2099
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 1
+            }
+          }
+        },
+        "102": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 6,
+            "ata2_event_rows": 3,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 6,
+          "ata2_unique_wo_pairs": 3,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "105": {
+          "replacement_events": 2,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1,
+            "l0_event_rows": 1,
+            "ata2_event_rows": 1,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 1,
+          "ata2_unique_wo_pairs": 1,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            1023,
+            1023
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "32S": 1
+            }
+          }
+        },
+        "110": {
+          "replacement_events": 2,
+          "event_weighted_counts": {
+            "l0_event_rows": 5,
+            "ata2_event_rows": 3,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 5,
+          "ata2_unique_wo_pairs": 3,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            945,
+            945
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "32S": 1
+            }
+          }
+        },
+        "7050MM1": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 12,
+            "ata2_event_rows": 3,
+            "ata4_event_rows_earlier_any_component_change": 2,
+            "ata4_event_rows_earlier_eligible_serial_swap": 2,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 2
+          },
+          "l0_unique_wo_pairs": 12,
+          "ata2_unique_wo_pairs": 3,
+          "ata4_unique_wo_pairs": 2,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 2,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            297,
+            321
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 2
+            }
+          }
+        },
+        "7050MM3": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 12,
+            "ata2_event_rows": 3,
+            "ata4_event_rows_earlier_any_component_change": 2,
+            "ata4_event_rows_earlier_eligible_serial_swap": 2,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 2
+          },
+          "l0_unique_wo_pairs": 12,
+          "ata2_unique_wo_pairs": 3,
+          "ata4_unique_wo_pairs": 2,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 2,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            1387,
+            1395
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 2
+            }
+          }
+        },
+        "7050MM4": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 7,
+            "ata2_event_rows": 1,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 7,
+          "ata2_unique_wo_pairs": 1,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "AFT": {
+          "replacement_events": 55,
+          "event_weighted_counts": {
+            "l0_event_rows": 294,
+            "ata2_event_rows": 124,
+            "replacement_events_with_ata4_candidate": 29,
+            "ata4_event_rows": 65,
+            "ata4_event_rows_earlier_any_component_change": 57,
+            "ata4_event_rows_earlier_eligible_serial_swap": 57,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 294,
+          "ata2_unique_wo_pairs": 124,
+          "ata4_unique_wo_pairs": 65,
+          "ata4_distinct_replacement_wos": 29,
+          "ata4_distinct_earlier_wos": 59,
+          "ata4_distinct_aircraft": 26,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 57,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 57,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 20,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 20,
+          "ata4_distinct_earlier_wos_any_component_change": 53,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 53,
+          "ata4_distinct_earlier_wos_target_component_change": 19,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 19,
+          "ata4_lead_cycles_range": [
+            10,
+            2560
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 59,
+            "known_aircraft": 26,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 44,
+              "M73-82": 15
+            }
+          }
+        },
+        "AFT CAB": {
+          "replacement_events": 5,
+          "event_weighted_counts": {
+            "l0_event_rows": 21,
+            "ata2_event_rows": 3,
+            "ata4_event_rows_earlier_any_component_change": 2,
+            "ata4_event_rows_earlier_eligible_serial_swap": 2,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 2,
+            "ata4_event_rows": 2
+          },
+          "l0_unique_wo_pairs": 21,
+          "ata2_unique_wo_pairs": 3,
+          "ata4_unique_wo_pairs": 2,
+          "ata4_distinct_replacement_wos": 2,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 2,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 2,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            1055,
+            1151
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 2,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 2
+            }
+          }
+        },
+        "AFT G5 #3": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 1,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 1,
+          "ata2_unique_wo_pairs": 0,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "AFT GALLEY": {
+          "replacement_events": 23,
+          "event_weighted_counts": {
+            "l0_event_rows": 148,
+            "ata2_event_rows": 57,
+            "ata4_event_rows_earlier_any_component_change": 28,
+            "ata4_event_rows_earlier_eligible_serial_swap": 28,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 12,
+            "ata4_event_rows": 32
+          },
+          "l0_unique_wo_pairs": 148,
+          "ata2_unique_wo_pairs": 57,
+          "ata4_unique_wo_pairs": 32,
+          "ata4_distinct_replacement_wos": 12,
+          "ata4_distinct_earlier_wos": 29,
+          "ata4_distinct_aircraft": 11,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 28,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 28,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 12,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 12,
+          "ata4_distinct_earlier_wos_any_component_change": 26,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 26,
+          "ata4_distinct_earlier_wos_target_component_change": 10,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 10,
+          "ata4_lead_cycles_range": [
+            27,
+            2968
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 29,
+            "known_aircraft": 11,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 15,
+              "M73-82": 14
+            }
+          }
+        },
+        "AFT LH": {
+          "replacement_events": 8,
+          "event_weighted_counts": {
+            "l0_event_rows": 87,
+            "ata2_event_rows": 38,
+            "ata4_event_rows_earlier_any_component_change": 19,
+            "ata4_event_rows_earlier_eligible_serial_swap": 19,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 7,
+            "ata4_event_rows": 19
+          },
+          "l0_unique_wo_pairs": 87,
+          "ata2_unique_wo_pairs": 38,
+          "ata4_unique_wo_pairs": 19,
+          "ata4_distinct_replacement_wos": 7,
+          "ata4_distinct_earlier_wos": 17,
+          "ata4_distinct_aircraft": 5,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 19,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 19,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 13,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 13,
+          "ata4_distinct_earlier_wos_any_component_change": 17,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 17,
+          "ata4_distinct_earlier_wos_target_component_change": 11,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 11,
+          "ata4_lead_cycles_range": [
+            12,
+            2589
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 17,
+            "known_aircraft": 5,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 17
+            }
+          }
+        },
+        "AFT RH": {
+          "replacement_events": 5,
+          "event_weighted_counts": {
+            "l0_event_rows": 42,
+            "ata2_event_rows": 23,
+            "replacement_events_with_ata4_candidate": 4,
+            "ata4_event_rows": 11,
+            "ata4_event_rows_earlier_any_component_change": 11,
+            "ata4_event_rows_earlier_eligible_serial_swap": 11,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 42,
+          "ata2_unique_wo_pairs": 23,
+          "ata4_unique_wo_pairs": 11,
+          "ata4_distinct_replacement_wos": 4,
+          "ata4_distinct_earlier_wos": 10,
+          "ata4_distinct_aircraft": 2,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 11,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 11,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 7,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 7,
+          "ata4_distinct_earlier_wos_any_component_change": 10,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 10,
+          "ata4_distinct_earlier_wos_target_component_change": 6,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 6,
+          "ata4_lead_cycles_range": [
+            28,
+            2261
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 10,
+            "known_aircraft": 2,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 10
+            }
+          }
+        },
+        "AFTGALLY": {
+          "replacement_events": 112,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 59,
+            "ata4_event_rows": 128,
+            "l0_event_rows": 950,
+            "ata2_event_rows": 238,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "ata4_event_rows_earlier_any_component_change": 124,
+            "ata4_event_rows_earlier_eligible_serial_swap": 122
+          },
+          "l0_unique_wo_pairs": 950,
+          "ata2_unique_wo_pairs": 238,
+          "ata4_unique_wo_pairs": 128,
+          "ata4_distinct_replacement_wos": 59,
+          "ata4_distinct_earlier_wos": 118,
+          "ata4_distinct_aircraft": 52,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 124,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 122,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 42,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 40,
+          "ata4_distinct_earlier_wos_any_component_change": 114,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 112,
+          "ata4_distinct_earlier_wos_target_component_change": 38,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 36,
+          "ata4_lead_cycles_range": [
+            4,
+            2934
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 118,
+            "known_aircraft": 52,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 101,
+              "M73-82": 17
+            }
+          }
+        },
+        "AIRPLANE": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 8,
+            "ata2_event_rows": 5,
+            "ata4_event_rows_earlier_any_component_change": 2,
+            "ata4_event_rows_earlier_eligible_serial_swap": 2,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 2
+          },
+          "l0_unique_wo_pairs": 8,
+          "ata2_unique_wo_pairs": 5,
+          "ata4_unique_wo_pairs": 2,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 2,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            1034,
+            1047
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 2
+            }
+          }
+        },
+        "CAB": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 5,
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 5,
+          "ata2_unique_wo_pairs": 0,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "CABIN": {
+          "replacement_events": 9,
+          "event_weighted_counts": {
+            "l0_event_rows": 40,
+            "ata2_event_rows": 10,
+            "replacement_events_with_ata4_candidate": 4,
+            "ata4_event_rows": 5,
+            "ata4_event_rows_earlier_any_component_change": 5,
+            "ata4_event_rows_earlier_eligible_serial_swap": 5,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 40,
+          "ata2_unique_wo_pairs": 10,
+          "ata4_unique_wo_pairs": 5,
+          "ata4_distinct_replacement_wos": 4,
+          "ata4_distinct_earlier_wos": 5,
+          "ata4_distinct_aircraft": 4,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 5,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 5,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 3,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_any_component_change": 5,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 5,
+          "ata4_distinct_earlier_wos_target_component_change": 3,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 3,
+          "ata4_lead_cycles_range": [
+            54,
+            2609
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 5,
+            "known_aircraft": 4,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 5
+            }
+          }
+        },
+        "FWD": {
+          "replacement_events": 66,
+          "event_weighted_counts": {
+            "l0_event_rows": 371,
+            "ata2_event_rows": 149,
+            "ata4_event_rows_earlier_any_component_change": 75,
+            "ata4_event_rows_earlier_eligible_serial_swap": 75,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 37,
+            "ata4_event_rows": 82
+          },
+          "l0_unique_wo_pairs": 371,
+          "ata2_unique_wo_pairs": 149,
+          "ata4_unique_wo_pairs": 82,
+          "ata4_distinct_replacement_wos": 37,
+          "ata4_distinct_earlier_wos": 75,
+          "ata4_distinct_aircraft": 33,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 75,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 75,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 28,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 28,
+          "ata4_distinct_earlier_wos_any_component_change": 69,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 69,
+          "ata4_distinct_earlier_wos_target_component_change": 25,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 25,
+          "ata4_lead_cycles_range": [
+            6,
+            3013
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 75,
+            "known_aircraft": 33,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "32S": 1,
+              "B737-8": 58,
+              "M73-82": 16
+            }
+          }
+        },
+        "FWD CAB": {
+          "replacement_events": 4,
+          "event_weighted_counts": {
+            "l0_event_rows": 30,
+            "ata2_event_rows": 9,
+            "ata4_event_rows_earlier_any_component_change": 5,
+            "ata4_event_rows_earlier_eligible_serial_swap": 5,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 3,
+            "ata4_event_rows": 5
+          },
+          "l0_unique_wo_pairs": 30,
+          "ata2_unique_wo_pairs": 9,
+          "ata4_unique_wo_pairs": 5,
+          "ata4_distinct_replacement_wos": 3,
+          "ata4_distinct_earlier_wos": 5,
+          "ata4_distinct_aircraft": 3,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 5,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 5,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 5,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 5,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            1058,
+            2494
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 5,
+            "known_aircraft": 3,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 4,
+              "M73-82": 1
+            }
+          }
+        },
+        "FWD GALLEY": {
+          "replacement_events": 34,
+          "event_weighted_counts": {
+            "l0_event_rows": 225,
+            "ata2_event_rows": 99,
+            "replacement_events_with_ata4_candidate": 14,
+            "ata4_event_rows": 32,
+            "ata4_event_rows_earlier_any_component_change": 32,
+            "ata4_event_rows_earlier_eligible_serial_swap": 32,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 225,
+          "ata2_unique_wo_pairs": 99,
+          "ata4_unique_wo_pairs": 32,
+          "ata4_distinct_replacement_wos": 14,
+          "ata4_distinct_earlier_wos": 28,
+          "ata4_distinct_aircraft": 10,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 32,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 32,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 13,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 13,
+          "ata4_distinct_earlier_wos_any_component_change": 28,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 28,
+          "ata4_distinct_earlier_wos_target_component_change": 11,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 11,
+          "ata4_lead_cycles_range": [
+            73,
+            2763
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 28,
+            "known_aircraft": 10,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 28
+            }
+          }
+        },
+        "FWDGALLY": {
+          "replacement_events": 67,
+          "event_weighted_counts": {
+            "l0_event_rows": 493,
+            "ata2_event_rows": 140,
+            "ata4_event_rows_earlier_any_component_change": 68,
+            "ata4_event_rows_earlier_eligible_serial_swap": 68,
+            "ata4_event_rows_calendar_not_earlier": 1,
+            "replacement_events_with_ata4_candidate": 31,
+            "ata4_event_rows": 72
+          },
+          "l0_unique_wo_pairs": 493,
+          "ata2_unique_wo_pairs": 140,
+          "ata4_unique_wo_pairs": 72,
+          "ata4_distinct_replacement_wos": 31,
+          "ata4_distinct_earlier_wos": 61,
+          "ata4_distinct_aircraft": 28,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 68,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 68,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 26,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 26,
+          "ata4_distinct_earlier_wos_any_component_change": 58,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 58,
+          "ata4_distinct_earlier_wos_target_component_change": 25,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 25,
+          "ata4_lead_cycles_range": [
+            4,
+            2936
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 61,
+            "known_aircraft": 28,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 58,
+              "M73-82": 3
+            }
+          }
+        },
+        "G1": {
+          "replacement_events": 19,
+          "event_weighted_counts": {
+            "l0_event_rows": 96,
+            "ata2_event_rows": 42,
+            "ata4_event_rows_earlier_any_component_change": 25,
+            "ata4_event_rows_earlier_eligible_serial_swap": 25,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 10,
+            "ata4_event_rows": 25
+          },
+          "l0_unique_wo_pairs": 96,
+          "ata2_unique_wo_pairs": 42,
+          "ata4_unique_wo_pairs": 25,
+          "ata4_distinct_replacement_wos": 10,
+          "ata4_distinct_earlier_wos": 23,
+          "ata4_distinct_aircraft": 9,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 25,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 25,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 6,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 6,
+          "ata4_distinct_earlier_wos_any_component_change": 23,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 23,
+          "ata4_distinct_earlier_wos_target_component_change": 5,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 5,
+          "ata4_lead_cycles_range": [
+            5,
+            1974
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 23,
+            "known_aircraft": 9,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 23
+            }
+          }
+        },
+        "GALLEY": {
+          "replacement_events": 5,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1,
+            "l0_event_rows": 23,
+            "ata2_event_rows": 9,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 23,
+          "ata2_unique_wo_pairs": 9,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            1178,
+            1178
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 1
+            }
+          }
+        },
+        "GALLEY 1": {
+          "replacement_events": 2,
+          "event_weighted_counts": {
+            "l0_event_rows": 10,
+            "ata2_event_rows": 4,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 10,
+          "ata2_unique_wo_pairs": 4,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [
+            1354,
+            1354
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 1
+            }
+          }
+        },
+        "GALLEY 1 FWD": {
+          "replacement_events": 4,
+          "event_weighted_counts": {
+            "l0_event_rows": 27,
+            "replacement_events_with_ata4_candidate": 3,
+            "ata4_event_rows": 8,
+            "ata2_event_rows": 13,
+            "ata4_event_rows_earlier_any_component_change": 8,
+            "ata4_event_rows_earlier_eligible_serial_swap": 8,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 27,
+          "ata2_unique_wo_pairs": 13,
+          "ata4_unique_wo_pairs": 8,
+          "ata4_distinct_replacement_wos": 3,
+          "ata4_distinct_earlier_wos": 7,
+          "ata4_distinct_aircraft": 2,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 8,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 8,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 4,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 4,
+          "ata4_distinct_earlier_wos_any_component_change": 7,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 7,
+          "ata4_distinct_earlier_wos_target_component_change": 3,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 3,
+          "ata4_lead_cycles_range": [
+            99,
+            2344
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 7,
+            "known_aircraft": 2,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 7
+            }
+          }
+        },
+        "GALLEY 3": {
+          "replacement_events": 4,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 3,
+            "ata4_event_rows": 8,
+            "l0_event_rows": 22,
+            "ata2_event_rows": 9,
+            "ata4_event_rows_earlier_any_component_change": 8,
+            "ata4_event_rows_earlier_eligible_serial_swap": 8,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 22,
+          "ata2_unique_wo_pairs": 9,
+          "ata4_unique_wo_pairs": 8,
+          "ata4_distinct_replacement_wos": 3,
+          "ata4_distinct_earlier_wos": 6,
+          "ata4_distinct_aircraft": 2,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 8,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 8,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_any_component_change": 6,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 6,
+          "ata4_distinct_earlier_wos_target_component_change": 2,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 2,
+          "ata4_lead_cycles_range": [
+            18,
+            2127
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 6,
+            "known_aircraft": 2,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 6
+            }
+          }
+        },
+        "GALLEY 4": {
+          "replacement_events": 26,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 13,
+            "ata4_event_rows": 21,
+            "l0_event_rows": 178,
+            "ata2_event_rows": 62,
+            "ata4_event_rows_earlier_any_component_change": 20,
+            "ata4_event_rows_earlier_eligible_serial_swap": 20,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 178,
+          "ata2_unique_wo_pairs": 62,
+          "ata4_unique_wo_pairs": 21,
+          "ata4_distinct_replacement_wos": 13,
+          "ata4_distinct_earlier_wos": 18,
+          "ata4_distinct_aircraft": 11,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 20,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 20,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 5,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 5,
+          "ata4_distinct_earlier_wos_any_component_change": 17,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 17,
+          "ata4_distinct_earlier_wos_target_component_change": 4,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 4,
+          "ata4_lead_cycles_range": [
+            22,
+            2680
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 18,
+            "known_aircraft": 11,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 18
+            }
+          }
+        },
+        "GALLEY 4B": {
+          "replacement_events": 2,
+          "event_weighted_counts": {
+            "l0_event_rows": 11,
+            "ata2_event_rows": 11,
+            "ata4_event_rows_earlier_any_component_change": 4,
+            "ata4_event_rows_earlier_eligible_serial_swap": 4,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 2,
+            "ata4_event_rows": 4
+          },
+          "l0_unique_wo_pairs": 11,
+          "ata2_unique_wo_pairs": 11,
+          "ata4_unique_wo_pairs": 4,
+          "ata4_distinct_replacement_wos": 2,
+          "ata4_distinct_earlier_wos": 3,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 4,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 4,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 3,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 3,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            5,
+            1974
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 3,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 3
+            }
+          }
+        },
+        "GALLEY G1": {
+          "replacement_events": 14,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 6,
+            "ata4_event_rows": 8,
+            "l0_event_rows": 104,
+            "ata2_event_rows": 32,
+            "ata4_event_rows_earlier_any_component_change": 8,
+            "ata4_event_rows_earlier_eligible_serial_swap": 8,
+            "ata4_event_rows_calendar_not_earlier": 0
+          },
+          "l0_unique_wo_pairs": 104,
+          "ata2_unique_wo_pairs": 32,
+          "ata4_unique_wo_pairs": 8,
+          "ata4_distinct_replacement_wos": 6,
+          "ata4_distinct_earlier_wos": 7,
+          "ata4_distinct_aircraft": 5,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 8,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 8,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_any_component_change": 7,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 7,
+          "ata4_distinct_earlier_wos_target_component_change": 2,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 2,
+          "ata4_lead_cycles_range": [
+            70,
+            2200
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 7,
+            "known_aircraft": 5,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 7
+            }
+          }
+        },
+        "GALLEY G4": {
+          "replacement_events": 58,
+          "event_weighted_counts": {
+            "l0_event_rows": 417,
+            "ata2_event_rows": 156,
+            "ata4_event_rows_earlier_any_component_change": 67,
+            "ata4_event_rows_earlier_eligible_serial_swap": 67,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 31,
+            "ata4_event_rows": 67
+          },
+          "l0_unique_wo_pairs": 417,
+          "ata2_unique_wo_pairs": 156,
+          "ata4_unique_wo_pairs": 67,
+          "ata4_distinct_replacement_wos": 31,
+          "ata4_distinct_earlier_wos": 52,
+          "ata4_distinct_aircraft": 21,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 67,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 67,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 30,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 30,
+          "ata4_distinct_earlier_wos_any_component_change": 52,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 52,
+          "ata4_distinct_earlier_wos_target_component_change": 25,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 25,
+          "ata4_lead_cycles_range": [
+            8,
+            2720
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 52,
+            "known_aircraft": 21,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "M73-82": 52
+            }
+          }
+        },
+        "LH": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 6,
+            "ata2_event_rows": 2,
+            "ata4_event_rows_earlier_any_component_change": 2,
+            "ata4_event_rows_earlier_eligible_serial_swap": 2,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 2
+          },
+          "l0_unique_wo_pairs": 6,
+          "ata2_unique_wo_pairs": 2,
+          "ata4_unique_wo_pairs": 2,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 2,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 2,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 2,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 2,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 2,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            179,
+            1557
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 2,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 2
+            }
+          }
+        },
+        "RH": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "replacement_events_with_ata4_candidate": 0,
+            "ata4_event_rows": 0
+          },
+          "l0_unique_wo_pairs": 0,
+          "ata2_unique_wo_pairs": 0,
+          "ata4_unique_wo_pairs": 0,
+          "ata4_distinct_replacement_wos": 0,
+          "ata4_distinct_earlier_wos": 0,
+          "ata4_distinct_aircraft": 0,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 0,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 0,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_any_component_change": 0,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 0,
+          "ata4_distinct_earlier_wos_target_component_change": 0,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 0,
+          "ata4_lead_cycles_range": [],
+          "ata4_earlier_wo_scope": {
+            "workorders": 0,
+            "known_aircraft": 0,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {}
+          }
+        },
+        "RH AFT": {
+          "replacement_events": 1,
+          "event_weighted_counts": {
+            "l0_event_rows": 5,
+            "ata2_event_rows": 3,
+            "ata4_event_rows_earlier_any_component_change": 1,
+            "ata4_event_rows_earlier_eligible_serial_swap": 1,
+            "ata4_event_rows_calendar_not_earlier": 0,
+            "replacement_events_with_ata4_candidate": 1,
+            "ata4_event_rows": 1
+          },
+          "l0_unique_wo_pairs": 5,
+          "ata2_unique_wo_pairs": 3,
+          "ata4_unique_wo_pairs": 1,
+          "ata4_distinct_replacement_wos": 1,
+          "ata4_distinct_earlier_wos": 1,
+          "ata4_distinct_aircraft": 1,
+          "ata4_unique_wo_pairs_earlier_any_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_eligible_serial_swap": 1,
+          "ata4_unique_wo_pairs_earlier_target_component_change": 1,
+          "ata4_unique_wo_pairs_earlier_target_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_any_component_change": 1,
+          "ata4_distinct_earlier_wos_eligible_serial_swap": 1,
+          "ata4_distinct_earlier_wos_target_component_change": 1,
+          "ata4_distinct_earlier_wos_target_eligible_serial_swap": 1,
+          "ata4_lead_cycles_range": [
+            30,
+            30
+          ],
+          "ata4_earlier_wo_scope": {
+            "workorders": 1,
+            "known_aircraft": 1,
+            "workorders_missing_aircraft": 0,
+            "workorders_by_amos_family": {
+              "B737-8": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

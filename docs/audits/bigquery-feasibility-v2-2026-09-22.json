@@ -1,0 +1,587 @@
+{
+  "all_pn_support": {
+    "candidate_installation_to_removal_pairs": 1535,
+    "continuity_unflagged_candidates": 1371,
+    "independent_episode_groups": 1017,
+    "observed_on_event_origins": 1371,
+    "reliable_event_free_horizons": 0,
+    "reviewed_failure_labels": 0,
+    "risk_labels_negative": 0,
+    "risk_labels_positive": 0,
+    "risk_labels_unknown": 1371,
+    "training_eligible": 0,
+    "validated_complete_component_origins": 0
+  },
+  "definitions": {
+    "candidate": "Adjacent observed on-to-off serial occurrence. It is an audit candidate, not proof of uninterrupted installation, failure, or a prediction example.",
+    "linkage": "Uppercase alphanumeric PN plus exact trimmed-uppercase serial, exact same aircraft identity, strictly ordered closing timestamp where same-day ordering is needed, and strictly increasing aircraft TAC.",
+    "negative": "Only a reviewed non-failure with independently reliable component-level event-free observation through the approved horizon.",
+    "unknown": "Missing review, horizon, component-level follow-up, or origin is unknown; it is never converted to a negative."
+  },
+  "diagnostics": {
+    "candidate_ambiguous_repeated_endpoint": 1,
+    "candidate_intervening_same_position_movement": 66,
+    "candidate_intervening_tac_outside_endpoint_range": 71,
+    "candidate_intervening_workorder_tac_outside_endpoint_range": 75,
+    "candidate_non_increasing_tac": 7,
+    "candidate_position_conflict": 37,
+    "candidate_same_workorder_endpoint": 3,
+    "missing_aircraft": 364,
+    "missing_part_number": 126
+  },
+  "per_pn_support": {
+    "0851HT1": {
+      "aircraft_family_support": {
+        "B737-8": 2
+      },
+      "candidate_installation_to_removal_pairs": 2,
+      "continuity_unflagged_candidates": 2,
+      "independent_episode_groups": 2,
+      "intervening_workorders_inside_candidates": 0,
+      "observed_on_event_origins": 2,
+      "position_or_serial_conflicts": {},
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 2,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "1074847": {
+      "aircraft_family_support": {
+        "B737-8": 22
+      },
+      "candidate_installation_to_removal_pairs": 25,
+      "continuity_unflagged_candidates": 22,
+      "independent_episode_groups": 20,
+      "intervening_workorders_inside_candidates": 96,
+      "observed_on_event_origins": 22,
+      "position_or_serial_conflicts": {
+        "intervening_tac_outside_endpoint_range": 3,
+        "intervening_workorder_tac_outside_endpoint_range": 3
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 22,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "14330230": {
+      "aircraft_family_support": {
+        "B737-8": 26
+      },
+      "candidate_installation_to_removal_pairs": 26,
+      "continuity_unflagged_candidates": 26,
+      "independent_episode_groups": 18,
+      "intervening_workorders_inside_candidates": 50,
+      "observed_on_event_origins": 26,
+      "position_or_serial_conflicts": {},
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 26,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "2085M31G03": {
+      "aircraft_family_support": {
+        "M73-82": 5
+      },
+      "candidate_installation_to_removal_pairs": 5,
+      "continuity_unflagged_candidates": 5,
+      "independent_episode_groups": 1,
+      "intervening_workorders_inside_candidates": 5,
+      "observed_on_event_origins": 5,
+      "position_or_serial_conflicts": {},
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 5,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "285W00241B": {
+      "aircraft_family_support": {
+        "B737-8": 26,
+        "M73-82": 5
+      },
+      "candidate_installation_to_removal_pairs": 37,
+      "continuity_unflagged_candidates": 31,
+      "independent_episode_groups": 30,
+      "intervening_workorders_inside_candidates": 60,
+      "observed_on_event_origins": 31,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 2,
+        "intervening_tac_outside_endpoint_range": 2,
+        "intervening_workorder_tac_outside_endpoint_range": 2,
+        "position_conflict": 3
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 31,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "3400010280": {
+      "aircraft_family_support": {},
+      "candidate_installation_to_removal_pairs": 1,
+      "continuity_unflagged_candidates": 0,
+      "independent_episode_groups": 0,
+      "intervening_workorders_inside_candidates": 0,
+      "observed_on_event_origins": 0,
+      "position_or_serial_conflicts": {
+        "intervening_tac_outside_endpoint_range": 1,
+        "intervening_workorder_tac_outside_endpoint_range": 1
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 0,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "3400010360": {
+      "aircraft_family_support": {},
+      "candidate_installation_to_removal_pairs": 2,
+      "continuity_unflagged_candidates": 0,
+      "independent_episode_groups": 0,
+      "intervening_workorders_inside_candidates": 0,
+      "observed_on_event_origins": 0,
+      "position_or_serial_conflicts": {
+        "intervening_tac_outside_endpoint_range": 2,
+        "intervening_workorder_tac_outside_endpoint_range": 2
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 0,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "3400010380": {
+      "aircraft_family_support": {
+        "B737-8": 1
+      },
+      "candidate_installation_to_removal_pairs": 7,
+      "continuity_unflagged_candidates": 1,
+      "independent_episode_groups": 1,
+      "intervening_workorders_inside_candidates": 8,
+      "observed_on_event_origins": 1,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 4,
+        "intervening_tac_outside_endpoint_range": 6,
+        "intervening_workorder_tac_outside_endpoint_range": 6
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 1,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "4503514": {
+      "aircraft_family_support": {
+        "B737-8": 99
+      },
+      "candidate_installation_to_removal_pairs": 101,
+      "continuity_unflagged_candidates": 99,
+      "independent_episode_groups": 66,
+      "intervening_workorders_inside_candidates": 231,
+      "observed_on_event_origins": 99,
+      "position_or_serial_conflicts": {
+        "intervening_tac_outside_endpoint_range": 2,
+        "intervening_workorder_tac_outside_endpoint_range": 2
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 99,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "4735975": {
+      "aircraft_family_support": {
+        "B737-8": 5,
+        "M73-82": 3
+      },
+      "candidate_installation_to_removal_pairs": 9,
+      "continuity_unflagged_candidates": 8,
+      "independent_episode_groups": 6,
+      "intervening_workorders_inside_candidates": 3,
+      "observed_on_event_origins": 8,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 1
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 8,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "5145182": {
+      "aircraft_family_support": {
+        "B737-8": 45
+      },
+      "candidate_installation_to_removal_pairs": 51,
+      "continuity_unflagged_candidates": 45,
+      "independent_episode_groups": 43,
+      "intervening_workorders_inside_candidates": 99,
+      "observed_on_event_origins": 45,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 4,
+        "intervening_tac_outside_endpoint_range": 1,
+        "intervening_workorder_tac_outside_endpoint_range": 1,
+        "position_conflict": 1
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 45,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "62197301001": {
+      "aircraft_family_support": {
+        "B737-8": 130,
+        "M73-82": 164
+      },
+      "candidate_installation_to_removal_pairs": 343,
+      "continuity_unflagged_candidates": 294,
+      "independent_episode_groups": 223,
+      "intervening_workorders_inside_candidates": 672,
+      "observed_on_event_origins": 294,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 35,
+        "intervening_tac_outside_endpoint_range": 13,
+        "intervening_workorder_tac_outside_endpoint_range": 14,
+        "position_conflict": 4
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 294,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "72184025": {
+      "aircraft_family_support": {
+        "B737-8": 186
+      },
+      "candidate_installation_to_removal_pairs": 203,
+      "continuity_unflagged_candidates": 186,
+      "independent_episode_groups": 122,
+      "intervening_workorders_inside_candidates": 283,
+      "observed_on_event_origins": 186,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 9,
+        "intervening_tac_outside_endpoint_range": 3,
+        "intervening_workorder_tac_outside_endpoint_range": 4,
+        "position_conflict": 4
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 186,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "726053631": {
+      "aircraft_family_support": {
+        "B737-8": 49,
+        "M73-82": 39
+      },
+      "candidate_installation_to_removal_pairs": 90,
+      "continuity_unflagged_candidates": 88,
+      "independent_episode_groups": 57,
+      "intervening_workorders_inside_candidates": 99,
+      "observed_on_event_origins": 88,
+      "position_or_serial_conflicts": {
+        "intervening_tac_outside_endpoint_range": 2,
+        "intervening_workorder_tac_outside_endpoint_range": 2
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 88,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "8201110000": {
+      "aircraft_family_support": {
+        "32S": 1,
+        "B737-8": 82,
+        "M73-82": 66
+      },
+      "candidate_installation_to_removal_pairs": 161,
+      "continuity_unflagged_candidates": 149,
+      "independent_episode_groups": 129,
+      "intervening_workorders_inside_candidates": 372,
+      "observed_on_event_origins": 149,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 2,
+        "intervening_tac_outside_endpoint_range": 4,
+        "intervening_workorder_tac_outside_endpoint_range": 4,
+        "position_conflict": 6
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 149,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "820111000001": {
+      "aircraft_family_support": {
+        "32S": 3,
+        "B737-8": 62,
+        "M73-82": 64
+      },
+      "candidate_installation_to_removal_pairs": 142,
+      "continuity_unflagged_candidates": 129,
+      "independent_episode_groups": 94,
+      "intervening_workorders_inside_candidates": 322,
+      "observed_on_event_origins": 129,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 1,
+        "intervening_tac_outside_endpoint_range": 4,
+        "intervening_workorder_tac_outside_endpoint_range": 5,
+        "position_conflict": 8
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 129,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "9651350002": {
+      "aircraft_family_support": {
+        "B737-8": 52,
+        "M73-82": 37
+      },
+      "candidate_installation_to_removal_pairs": 106,
+      "continuity_unflagged_candidates": 89,
+      "independent_episode_groups": 85,
+      "intervening_workorders_inside_candidates": 336,
+      "observed_on_event_origins": 89,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 4,
+        "intervening_tac_outside_endpoint_range": 6,
+        "intervening_workorder_tac_outside_endpoint_range": 7,
+        "position_conflict": 7
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 89,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "9651350003": {
+      "aircraft_family_support": {
+        "B737-8": 22,
+        "M73-82": 15
+      },
+      "candidate_installation_to_removal_pairs": 44,
+      "continuity_unflagged_candidates": 37,
+      "independent_episode_groups": 32,
+      "intervening_workorders_inside_candidates": 126,
+      "observed_on_event_origins": 37,
+      "position_or_serial_conflicts": {
+        "intervening_tac_outside_endpoint_range": 6,
+        "intervening_workorder_tac_outside_endpoint_range": 6,
+        "position_conflict": 1
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 37,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "9651350004": {
+      "aircraft_family_support": {
+        "B737-8": 18,
+        "M73-82": 3
+      },
+      "candidate_installation_to_removal_pairs": 27,
+      "continuity_unflagged_candidates": 21,
+      "independent_episode_groups": 21,
+      "intervening_workorders_inside_candidates": 101,
+      "observed_on_event_origins": 21,
+      "position_or_serial_conflicts": {
+        "intervening_tac_outside_endpoint_range": 5,
+        "intervening_workorder_tac_outside_endpoint_range": 5,
+        "position_conflict": 2
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 21,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "9651350005": {
+      "aircraft_family_support": {
+        "B737-8": 54,
+        "M73-82": 35
+      },
+      "candidate_installation_to_removal_pairs": 101,
+      "continuity_unflagged_candidates": 89,
+      "independent_episode_groups": 81,
+      "intervening_workorders_inside_candidates": 334,
+      "observed_on_event_origins": 89,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 4,
+        "intervening_tac_outside_endpoint_range": 9,
+        "intervening_workorder_tac_outside_endpoint_range": 9,
+        "position_conflict": 1
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 89,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "SC4L5003015": {
+      "aircraft_family_support": {
+        "B737-8": 18,
+        "M73-82": 32
+      },
+      "candidate_installation_to_removal_pairs": 52,
+      "continuity_unflagged_candidates": 50,
+      "independent_episode_groups": 39,
+      "intervening_workorders_inside_candidates": 226,
+      "observed_on_event_origins": 50,
+      "position_or_serial_conflicts": {
+        "intervening_tac_outside_endpoint_range": 2,
+        "intervening_workorder_tac_outside_endpoint_range": 2
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 50,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    }
+  },
+  "remaining_required_inputs": [
+    "An engineer-approved cycle horizon, warning lead and replacement-policy owner.",
+    "Independently reviewed outcome labels per removal/event, including confirmed defect-related failures versus scheduled/serviceable/other/unknown.",
+    "Component-level installation origin and reliable event-free observation/censoring through the approved horizon.",
+    "A new source snapshot or separately versioned reviewed-label artifact when evidence changes."
+  ],
+  "risk_training_gate": {
+    "model_training": "blocked: do not fit failure-risk or removal-association models",
+    "passed": false,
+    "reasons": [
+      "cycle_horizon_warning_lead_and_replacement_policy_not_approved",
+      "no_independently_reviewed_failure_or_removal_labels_in_fixed_corpus",
+      "no_reliable_component_level_event_free_exposure_through_a_horizon",
+      "no_verified_complete_component_installation_origin_or_service_history",
+      "candidate_endpoints_do_not_establish_continuous_installation_or_healthy_follow_up"
+    ],
+    "triage_experiment": "unavailable: no independently reviewed labels in the fixed corpus"
+  },
+  "schema_version": 1,
+  "scope": "Fixed local AMOS snapshot only; FAA reports are not joined into aircraft timelines.",
+  "source": {
+    "name": "data/processed/wo_workorders.ndjson.gz",
+    "sha256": "8de019b32907e9da954e812e0b9d8c68d46b8ba514655b0afe634066b9cda359",
+    "workorders": 8259
+  },
+  "target_part_support": {
+    "2085M31G03": {
+      "aircraft_family_support": {
+        "M73-82": 5
+      },
+      "candidate_installation_to_removal_pairs": 5,
+      "continuity_unflagged_candidates": 5,
+      "independent_episode_groups": 1,
+      "intervening_workorders_inside_candidates": 5,
+      "observed_on_event_origins": 5,
+      "position_or_serial_conflicts": {},
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 5,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "62197-301-001": {
+      "aircraft_family_support": {
+        "B737-8": 130,
+        "M73-82": 164
+      },
+      "candidate_installation_to_removal_pairs": 343,
+      "continuity_unflagged_candidates": 294,
+      "independent_episode_groups": 223,
+      "intervening_workorders_inside_candidates": 672,
+      "observed_on_event_origins": 294,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 35,
+        "intervening_tac_outside_endpoint_range": 13,
+        "intervening_workorder_tac_outside_endpoint_range": 14,
+        "position_conflict": 4
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 294,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    },
+    "8201-11-0000-01": {
+      "aircraft_family_support": {
+        "32S": 3,
+        "B737-8": 62,
+        "M73-82": 64
+      },
+      "candidate_installation_to_removal_pairs": 142,
+      "continuity_unflagged_candidates": 129,
+      "independent_episode_groups": 94,
+      "intervening_workorders_inside_candidates": 322,
+      "observed_on_event_origins": 129,
+      "position_or_serial_conflicts": {
+        "intervening_same_position_movement": 1,
+        "intervening_tac_outside_endpoint_range": 4,
+        "intervening_workorder_tac_outside_endpoint_range": 5,
+        "position_conflict": 8
+      },
+      "reliable_event_free_horizons": 0,
+      "reviewed_failure_labels": 0,
+      "risk_labels_negative": 0,
+      "risk_labels_positive": 0,
+      "risk_labels_unknown": 129,
+      "training_eligible": 0,
+      "validated_complete_component_origins": 0
+    }
+  }
+}

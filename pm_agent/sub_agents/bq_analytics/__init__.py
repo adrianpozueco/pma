@@ -14,9 +14,11 @@
 
 """BigQuery analytics specialist (placeholder)."""
 
-from pm_agent.sub_agents.bq_analytics.agent import (
-    bq_analytics_agent,
-    bq_analytics_node,
-)
-
 __all__ = ["bq_analytics_agent", "bq_analytics_node"]
+
+
+def __getattr__(name: str):
+    if name in __all__:
+        from . import agent
+        return getattr(agent, name)
+    raise AttributeError(name)

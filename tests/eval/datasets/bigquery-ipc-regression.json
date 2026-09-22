@@ -1,0 +1,30 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "ipc_boiler_identity_without_deadline",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Using the IPC manuals, identify part 62197-301-001 on the 737-8200. Does its IPC entry establish a flight-cycle replacement deadline? Cite the manual evidence and distinguish identification from a maintenance limit."}]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [{"text": "The part is a water boiler. The supplied MAX-family IPC chapter 25-32, revision 042, identifies it in 25-32-22 Figure 12M, item 10 (PDF page 26). This catalogue identification does not establish a flight-cycle replacement deadline. Cite retrieved evidence, and state if the live manual could not be retrieved instead of inventing a citation."}]
+        }
+      }
+    },
+    {
+      "eval_case_id": "ipc_nozzle_quantity_not_cycle_limit",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Look up fuel nozzle 2085M31G03 for the 737-8200 in the IPC. If the catalogue says 18 units, can I interpret that as a limit of 18 flight cycles before replacement? Explain with the retrieved source."}]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [{"text": "2085M31G03 is a fuel-injection nozzle. Its supplied MAX-family IPC reference is chapter 73-11 revision 042, 73-11-05 Figure 01, item 20 (PDF page 184). A quantity of 18 means units per assembly, not a flight-cycle replacement limit. Cite retrieved evidence, and do not fabricate a deadline or a successful lookup if retrieval fails."}]
+        }
+      }
+    }
+  ]
+}

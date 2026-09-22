@@ -12,6 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .agent import app
-
 __all__ = ["app"]
+
+
+def __getattr__(name: str):
+    """Avoid credential/model imports for parser and upload-contract clients."""
+    if name == "app":
+        from .agent import app
+
+        return app
+    raise AttributeError(name)
