@@ -19,12 +19,14 @@ from google.adk.tools import VertexAiSearchTool
 from google.adk.workflow import node
 from google.genai import types
 
-from pm_agent.config import MODEL, project_id
+from pm_agent.config import MODEL, ipc_datastore_id, project_id
 
 
 # Vertex AI Search datastore holding the IPC manual PDFs for the PoC parts.
-# Location is `global`, which is where the datastore was created.
-DATASTORE_ID = "ipc-part-numbers_1789998929768"
+# Location is `global`, which is where the datastore was created. The id itself
+# comes from IPC_DATASTORE_ID rather than living here: it is environment
+# specific, and Terraform is its source of truth.
+DATASTORE_ID = ipc_datastore_id()
 DATASTORE_RESOURCE_ID = (
     f"projects/{project_id()}/locations/global/collections/default_collection"
     f"/dataStores/{DATASTORE_ID}"

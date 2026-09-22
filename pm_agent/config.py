@@ -17,6 +17,14 @@
 import os
 
 import google.auth
+from dotenv import load_dotenv
+
+# Loaded here rather than only in fast_api_app, because config is imported by
+# every entrypoint that reaches an agent - the server, adk web, pytest and a
+# bare "import pm_agent". Without it, anything but the server would miss the
+# settings below. load_dotenv never overrides a variable already in the
+# environment, so a real deployment's values still win.
+load_dotenv()
 
 MODEL = "gemini-3.8-flash"
 
@@ -39,3 +47,22 @@ def project_id() -> str:
             "that carry one."
         )
     return project
+
+
+def ipc_datastore_id() -> str:
+    """Resolve the Vertex AI Search datastore holding the IPC manuals.
+
+    Kept out of the source because the id is environment-specific: it carries a
+    console-generated numeric suffix, and a different project has a different
+    one. Terraform owns the value (var.knowledge_base_data_store_id), passes it
+    to the deployed agent through service.tf, and .env carries it locally.
+    """
+    value = os.getenv("IPC_DATASTORE_ID")
+    if not value:
+        raise RuntimeError(
+            "IPC_DATASTORE_ID is not set. Copy .env.example to .env and fill "
+            "in the Vertex AI Search datastore id, or set the variable in the "
+            "environment. Terraform reports it as the "
+            "knowledge_base_data_store_id output."
+        )
+    return value

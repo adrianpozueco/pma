@@ -114,7 +114,15 @@ cp .env.example .env
 GOOGLE_GENAI_USE_VERTEXAI=true
 GOOGLE_CLOUD_PROJECT=your-gcp-project-id
 GOOGLE_CLOUD_LOCATION=global
+IPC_DATASTORE_ID=your-datastore-id
 ```
+
+`IPC_DATASTORE_ID` is the Vertex AI Search datastore behind the IPC specialist.
+It is environment specific - the id carries a console-generated numeric suffix -
+so it is not hardcoded in the agent. Terraform owns it as
+`var.knowledge_base_data_store_id` and reports it as the
+`knowledge_base_data_store_id` output; `service.tf` passes it to the deployed
+agent. If it is unset, importing the agent fails with a message saying so.
 
 `GOOGLE_CLOUD_LOCATION=global` matters: the IPC datastore lives in `global`, and
 a wrong location surfaces as a model 404. `pm_agent/config.py` falls back to
@@ -136,18 +144,16 @@ agents-cli playground
 | `agents-cli playground` | Local dev UI, auto-reloads on save |
 | `agents-cli eval run` | Run and grade the eval dataset (`tests/eval/`) |
 | `agents-cli deploy` | Deploy to Agent Runtime |
-| `uv run pytest tests/unit tests/integration` | Unit and integration tests (see gotcha below) |
+| `uv run pytest tests/unit tests/integration` | Unit and integration tests |
 | `uvx ruff check pm_agent tests` | Lint (see gotcha below) |
 
 ### Testing gotchas
 
-**`pytest` does not load `.env`.** There is no `conftest.py` in this repo, so
-`tests/integration/test_agent.py` fails with "No API key was provided" unless
-you export the environment first:
-
-```bash
-set -a && . ./.env && set +a && uv run pytest tests/unit tests/integration
-```
+**`.env` is loaded automatically.** `pm_agent/config.py` calls `load_dotenv()`,
+so `pytest`, `adk web` and a bare `import pm_agent` all pick it up, not just the
+server. `load_dotenv` never overrides a variable already in the environment, so
+a real deployment's values still win. Credentials are separate: run
+`gcloud auth application-default login` if calls fail with a `RefreshError`.
 
 **ruff is not installed in `.venv`.** It is declared in the `lint` optional
 dependency group but not synced. Use `uvx`:
