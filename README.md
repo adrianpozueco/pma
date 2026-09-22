@@ -577,6 +577,66 @@ bq show --format=prettyjson ${DATASET}.faa_sdr_wo_parts | grep numRows   # 299
 JSON load is single-threaded and slower than an uncompressed one - expect it to
 take a while rather than assuming it has hung.
 
+### BigQuery by clicking through the console
+
+Console labels move around; these were checked against the Google Cloud docs,
+but if one has been renamed, match the intent rather than the exact wording.
+
+**Create the dataset**
+
+1. Console → **BigQuery**.
+2. In the left pane click **Explorer**, expand your project.
+3. On the project row click the three-dot menu → **Create dataset**.
+4. **Dataset ID**: `pma_agent_analytics` (underscores; BigQuery does not accept hyphens).
+5. **Location type**: **Region**, and pick **us-central1**. This must match the
+   bucket's region, and it cannot be changed later.
+6. **Create dataset**.
+
+**Upload the data**
+
+1. Run the two scripts under Data preparation first - the console cannot
+   generate `wo_workorders.ndjson.gz` or the schema files for you.
+2. Console → **Cloud Storage** → **Buckets** → **Create**.
+   Name it `<project-id>-pma-agent-data`, **Region** `us-central1`, leave
+   uniform bucket-level access on.
+3. Upload `data/processed/wo_workorders.ndjson.gz` into a `workorders/` folder
+   and `data/processed/faa_sdr_matching_wo_parts.csv` into a `faa-sdr/` folder.
+   The folder names are only a convention, but they keep the console and the
+   Terraform layout comparable.
+
+**Create the workorders table**
+
+1. In **Explorer**, click your dataset, then **Create table** in the
+   **Dataset info** panel.
+2. **Create table from**: **Google Cloud Storage**. Browse to
+   `workorders/wo_workorders.ndjson.gz`. Only one URI is accepted here, though
+   wildcards work.
+3. **File format**: **JSONL (Newline delimited JSON)**.
+4. **Destination** → **Table**: `wo_workorders`. **Table type** stays
+   **Native table**.
+5. **Schema**: leave **Auto detect** unticked. Click **Edit as text** and paste
+   the entire contents of
+   `deployment/terraform/shared/wo_workorders_schema.json`. Autodetect will
+   guess wrongly on a 211-field nested schema, so this step is not optional.
+6. **Advanced options** → **Write preference**. The default is
+   **Write if empty**; switch it to the overwrite option if you are reloading a
+   table that already has rows.
+7. **Create table**.
+
+**Create the FAA SDR table**
+
+Same flow, with:
+
+- file `faa-sdr/faa_sdr_matching_wo_parts.csv`, **File format**: **CSV**
+- **Table**: `faa_sdr_wo_parts`
+- **Edit as text** → paste `deployment/terraform/shared/faa_sdr_wo_parts_schema.json`
+- **Advanced options** → **Header rows to skip**: `1` (default is `0`)
+- **Advanced options** → **Quoted newlines**: tick **Allow quoted newlines**
+  (default is off). The FAA narrative fields contain newlines inside quotes, so
+  without this the load fails with a row-count mismatch.
+
+Check the row counts on each table's **Details** tab: 8259 and 299.
+
 ### Knowledge base by hand
 
 The datastore holds the three IPC PDFs and must keep the two aircraft types
@@ -678,6 +738,52 @@ curl -s -H "Authorization: Bearer ${TOKEN}" \
 Finally put the id in `.env` as `IPC_DATASTORE_ID`, and grant the app service
 account `roles/discoveryengine.viewer` if the agent will run as a service
 account rather than your own login.
+
+### Knowledge base by clicking through the console
+
+The product is called **AI Applications** in the console navigation (formerly
+Agent Builder; Vertex AI Search is being rebranded again, to Agent Search, so
+expect the naming to keep moving).
+
+1. Console → **AI Applications** → **Data Stores**.
+2. **Create data store**.
+3. **Source**: **Cloud Storage**.
+4. Under "Select a folder or file you want to import", choose **Folder** and
+   browse to your uploaded `ipc-manuals/` prefix, or paste the `gs://` path.
+5. Choose what kind of data you are importing. This is the step that decides
+   whether aircraft-type metadata survives:
+   - plain unstructured documents - the PDFs are indexed with ids hashed from
+     their Cloud Storage URI, and **no `aircraft_type` metadata**
+   - unstructured documents **with metadata**, which reads a JSONL where each
+     line carries `id`, `structData` and a `content.uri` - this is the
+     `dataSchema: "document"` form shown in the API route above
+6. **Continue**, then pick the region. Use **global**, which is where the
+   existing datastore lives and what `pm_agent` expects.
+7. Name the data store. **The console generates the id from the name and
+   appends a numeric suffix**, which is where `ipc-part-numbers_1789998929768`
+   came from. You cannot choose it here - that is the one thing the API and
+   Terraform routes give you that the console does not.
+8. Optionally expand **Document processing options** for parsing and chunking.
+   The OCR and layout parsers cost extra.
+9. **Create**. Watch the data store's **Data** page; the **Activity** tab moves
+   from **In progress** to **Import completed**. Minutes to hours depending on
+   volume.
+10. Copy the generated id into `.env` as `IPC_DATASTORE_ID`, and into
+    `vars/env.tfvars` as `knowledge_base_data_store_id` if Terraform will adopt
+    it.
+
+Two things the docs call out that are worth knowing before you start:
+
+> **Console creation of a Cloud Storage data store can fail.** This is a known
+> issue. The documented workarounds are to use the API instead, or to create a
+> fresh Cloud Storage bucket first and import from that.
+
+> **Cloud Storage permissions do not carry over.** After import, anyone with
+> sufficient AI Applications permissions can read the documents regardless of
+> their access to the source bucket.
+
+If you want metadata-driven filtering and a predictable id, the API route is
+less clicking and fewer surprises.
 
 ---
 
