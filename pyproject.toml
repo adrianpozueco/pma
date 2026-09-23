@@ -1,5 +1,5 @@
 [project]
-name = "pma-agent"
+name = "pm-agent"
 version = "0.1.0"
 description = ""
 authors = [
@@ -56,7 +56,7 @@ select = [
 ignore = ["E501", "C901", "B006"] # ignore line too long, too complex
 
 [tool.ruff.lint.isort]
-known-first-party = ["ipc_manual_retrieval_agent", "frontend"]
+known-first-party = ["pm_agent", "frontend"]
 
 [tool.ty]
 # ty is Astral's Rust-based type checker (same team as ruff/uv)
@@ -94,6 +94,5 @@ pythonpath = "."
 asyncio_default_fixture_loop_scope = "session"
 
 [tool.hatch.build.targets.wheel]
-packages = ["ipc_manual_retrieval_agent","frontend"]
-
+packages = ["pm_agent", "frontend", "amos_data"]
 

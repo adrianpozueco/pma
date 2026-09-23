@@ -17,7 +17,7 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
-from ipc_manual_retrieval_agent.agent import root_agent
+from pm_agent.agent import app as adk_app
 
 
 def test_agent_stream() -> None:
@@ -29,10 +29,15 @@ def test_agent_stream() -> None:
     session_service = InMemorySessionService()
 
     session = session_service.create_session_sync(user_id="test_user", app_name="test")
-    runner = Runner(agent=root_agent, session_service=session_service, app_name="test")
+    runner = Runner(app=adk_app, session_service=session_service, app_name="test")
 
     message = types.Content(
-        role="user", parts=[types.Part.from_text(text="Why is the sky blue?")]
+        role="user",
+        parts=[
+            types.Part.from_text(
+                text="What is the part number for the nose landing gear shock strut?"
+            )
+        ],
     )
 
     events = list(

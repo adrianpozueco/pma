@@ -1,0 +1,71 @@
+{
+  "eval_cases": [
+    {
+      "prompt": {
+        "parts": [
+          {
+            "text": "Using the IPC manuals, identify part 62197-301-001 on the 737-8200. Does its IPC entry establish a flight-cycle replacement deadline? Cite the manual evidence and distinguish identification from a maintenance limit."
+          }
+        ],
+        "role": "user"
+      },
+      "responses": [
+        {
+          "response": {
+            "parts": [
+              {
+                "text": "### Part Identification\n\nIn the 737-8200 IPC, part number **62197-301-001** is identified as:\n\n* **Part Number:** 62197-301-001\n* **Nomenclature:** `.BOILER-WATER`\n* **Supplier Code:** VCH550\n* **Installation Locations:** \n  * Galley No. 1 insert installation (`INSERT INSTL-GALLEY NO. 1 (WATER BOILER ONLY)`), 1 unit per assembly.\n  * Pax Plus Galley No. 4E insert installation (`INSERT INSTL-PAX PLUS GALLEY NO. 4E (WATER BOILER ONLY)`), 2 units per assembly.\n\n---\n\n### Flight-Cycle Replacement Deadline and Manual Evidence\n\n**No**, the IPC entry does not establish a flight-cycle replacement deadline. \n\n* **Manual Evidence:** In Chapter 25-32, Figure 12M (Page 1) and Figure 50B (Page 1), the entry for part number `62197-301-001` lists only the item number (`10`), nomenclature (`.BOILER-WATER`), units per assembly (`1` or `2`), and supplier code (`VCH550`). It contains no operational thresholds, cycle counts, or discard requirements.\n\n---\n\n### Distinguishing Part Identification from Maintenance Limits\n\n* **Part Identification (IPC):** The Illustrated Parts Catalog (IPC) is solely an illustrated provisioning and identification reference used to find, identify, and order components and spare parts. It provides physical breakdown, part numbers, attaching hardware, and supplier codes.\n* **Maintenance Limits:** Mandatory operational thresholds—such as flight-hour limits, flight-cycle replacement deadlines, life-limited part (LLP) retirements, and scheduled maintenance intervals—are not defined in the IPC. Such requirements are governed by maintenance documents, including the Airworthiness Limitations Section (ALS), the Maintenance Planning Document (MPD), and relevant Component Maintenance Manuals (CMM).\n\n---\n\n### Citations\n1) Chapter 25-32, 737-7/8/8200/9/10, AIPC, D638A002-RYR-0055"
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "reference": {
+        "response": {
+          "parts": [
+            {
+              "text": "The part is a water boiler. The supplied MAX-family IPC chapter 25-32, revision 042, identifies it in 25-32-22 Figure 12M, item 10 (PDF page 26). This catalogue identification does not establish a flight-cycle replacement deadline. Cite retrieved evidence, and state if the live manual could not be retrieved instead of inventing a citation."
+            }
+          ],
+          "role": "model"
+        }
+      },
+      "eval_case_id": "ipc_boiler_identity_without_deadline",
+      "agent_data": {
+        "turns": [
+          {
+            "turn_index": 0,
+            "turn_id": "turn_0",
+            "events": [
+              {
+                "author": "route_classifier",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\"route\": \"ipc\"}"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "event_time": "2026-09-22T11:19:27.785632Z"
+              },
+              {
+                "author": "ipc_manual_retrieval",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "### Part Identification\n\nIn the 737-8200 IPC, part number **62197-301-001** is identified as:\n\n* **Part Number:** 62197-301-001\n* **Nomenclature:** `.BOILER-WATER`\n* **Supplier Code:** VCH550\n* **Installation Locations:** \n  * Galley No. 1 insert installation (`INSERT INSTL-GALLEY NO. 1 (WATER BOILER ONLY)`), 1 unit per assembly.\n  * Pax Plus Galley No. 4E insert installation (`INSERT INSTL-PAX PLUS GALLEY NO. 4E (WATER BOILER ONLY)`), 2 units per assembly.\n\n---\n\n### Flight-Cycle Replacement Deadline and Manual Evidence\n\n**No**, the IPC entry does not establish a flight-cycle replacement deadline. \n\n* **Manual Evidence:** In Chapter 25-32, Figure 12M (Page 1) and Figure 50B (Page 1), the entry for part number `62197-301-001` lists only the item number (`10`), nomenclature (`.BOILER-WATER`), units per assembly (`1` or `2`), and supplier code (`VCH550`). It contains no operational thresholds, cycle counts, or discard requirements.\n\n---\n\n### Distinguishing Part Identification from Maintenance Limits\n\n* **Part Identification (IPC):** The Illustrated Parts Catalog (IPC) is solely an illustrated provisioning and identification reference used to find, identify, and order components and spare parts. It provides physical breakdown, part numbers, attaching hardware, and supplier codes.\n* **Maintenance Limits:** Mandatory operational thresholds—such as flight-hour limits, flight-cycle replacement deadlines, life-limited part (LLP) retirements, and scheduled maintenance intervals—are not defined in the IPC. Such requirements are governed by maintenance documents, including the Airworthiness Limitations Section (ALS), the Maintenance Planning Document (MPD), and relevant Component Maintenance Manuals (CMM).\n\n---\n\n### Citations\n1) Chapter 25-32, 737-7/8/8200/9/10, AIPC, D638A002-RYR-0055"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "event_time": "2026-09-22T11:19:41.978594Z"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

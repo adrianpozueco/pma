@@ -27,11 +27,20 @@ data "google_project" "project" {
   depends_on = [google_project_service.bootstrap]
 }
 
-# Grant Storage Object Creator role to default compute service account
+# Enabling Compute Engine creates its default service account in a new project.
+# Resolve it after API enablement instead of assuming the address already exists.
+data "google_compute_default_service_account" "default_build" {
+  project = var.project_id
+
+  depends_on = [google_project_service.services]
+}
+
+# Grant build permissions to the default Compute service account. Keep the
+# existing resource address so this correction does not replace the old grant.
 resource "google_project_iam_member" "default_compute_sa_storage_object_creator" {
   project    = var.project_id
   role       = "roles/cloudbuild.builds.builder"
-  member     = "serviceAccount:${data.google_project.project.number}-compute@developer.gserviceaccount.com"
+  member     = "serviceAccount:${data.google_compute_default_service_account.default_build.email}"
   depends_on = [resource.google_project_service.services]
 }
 
@@ -67,9 +76,8 @@ resource "google_project_iam_member" "vertex_ai_sa_permissions" {
     join(",", pair) => pair[1]
   }
 
-  project = var.project_id
-  role    = each.value
-  member  = google_project_service_identity.vertex_sa.member
+  project    = var.project_id
+  role       = each.value
+  member     = google_project_service_identity.vertex_sa.member
   depends_on = [resource.google_project_service.services]
 }
-

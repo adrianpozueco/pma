@@ -13,44 +13,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-
-import google.auth
 from google.adk.agents import Agent
-from google.adk.apps import App
 from google.adk.models import Gemini
 from google.adk.tools import VertexAiSearchTool
+from google.adk.workflow import node
 from google.genai import types
 
-
-MODEL = "gemini-3.8-flash"
-
-
-def _project_id() -> str:
-    """Resolve the project id without assuming an env var is present.
-
-    GOOGLE_CLOUD_PROJECT is set locally by .env, but it is not among the
-    variables service.tf puts on the Reasoning Engine, so falling back to
-    Application Default Credentials keeps the datastore path valid in both
-    places rather than silently resolving to "projects/None".
-    """
-    explicit = os.getenv("GOOGLE_CLOUD_PROJECT") or os.getenv("GCLOUD_PROJECT")
-    if explicit:
-        return explicit
-    _, project = google.auth.default()
-    if not project:
-        raise RuntimeError(
-            "No project id: set GOOGLE_CLOUD_PROJECT or configure credentials "
-            "that carry one."
-        )
-    return project
+from pm_agent.config import MODEL, ipc_datastore_id, project_id
 
 
 # Vertex AI Search datastore holding the IPC manual PDFs for the PoC parts.
-# Location is `global`, which is where the datastore was created.
-DATASTORE_ID = "ipc-part-numbers_1789998929768"
+# Location is `global`, which is where the datastore was created. The id itself
+# comes from IPC_DATASTORE_ID rather than living here: it is environment
+# specific, and Terraform is its source of truth.
+DATASTORE_ID = ipc_datastore_id()
 DATASTORE_RESOURCE_ID = (
-    f"projects/{_project_id()}/locations/global/collections/default_collection"
+    f"projects/{project_id()}/locations/global/collections/default_collection"
     f"/dataStores/{DATASTORE_ID}"
 )
 
@@ -92,12 +70,15 @@ ask_vertex_retrieval = VertexAiSearchTool(
     max_results=10,
 )
 
-root_agent = Agent(
-    # Keep in sync with agents-cli-manifest.yaml: agents-cli derives this name
-    # from the project `name:` recorded there, and telemetry reports it as
-    # gen_ai.agent.name. Renaming the agent only here makes the two disagree,
-    # and anything selecting traces by name stops finding this agent's.
-    name="pma_agent",
+ipc_manual_retrieval_agent = Agent(
+    name="ipc_manual_retrieval",
+    # A workflow node that follows another node must be single_turn: ADK
+    # rejects mode="chat" there because a chat agent cannot consume a node
+    # input. So the router hands the user's question down as this node's
+    # input. include_contents is set explicitly because single_turn otherwise
+    # forces it to "none", which would drop the conversation history.
+    mode="single_turn",
+    include_contents="default",
     model=Gemini(
         model=MODEL,
         retry_options=types.HttpRetryOptions(attempts=3),
@@ -107,7 +88,7 @@ root_agent = Agent(
     tools=[ask_vertex_retrieval],
 )
 
-app = App(
-    root_agent=root_agent,
-    name="ipc_manual_retrieval_agent",
+ipc_manual_retrieval_node = node(
+    ipc_manual_retrieval_agent,
+    name="ipc_manual_retrieval",
 )

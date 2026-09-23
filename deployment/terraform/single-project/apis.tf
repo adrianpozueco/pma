@@ -23,12 +23,19 @@ locals {
   services = [
     "aiplatform.googleapis.com",
     "cloudbuild.googleapis.com",
+    "compute.googleapis.com",
     "run.googleapis.com",
     "bigquery.googleapis.com",
+    "bigqueryconnection.googleapis.com",
+    "storage.googleapis.com",
     "iam.googleapis.com",
     "logging.googleapis.com",
     "cloudtrace.googleapis.com",
     "telemetry.googleapis.com",
+    # Vertex AI Search, which serves the IPC manual datastore. Enabled by hand
+    # in the live project; without it here a fresh project builds cleanly and
+    # then fails the first retrieval call.
+    "discoveryengine.googleapis.com",
   ]
 }
 
@@ -56,6 +63,8 @@ resource "google_project_service" "services" {
 
 resource "google_project_service_identity" "vertex_sa" {
   provider = google-beta
-  project = var.project_id
-  service = "aiplatform.googleapis.com"
+  project  = var.project_id
+  service  = "aiplatform.googleapis.com"
+
+  depends_on = [google_project_service.services]
 }

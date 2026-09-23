@@ -12,6 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .agent import app
+"""BigQuery analytics specialist (placeholder)."""
 
-__all__ = ["app"]
+__all__ = ["bq_analytics_agent", "bq_analytics_node"]
+
+
+def __getattr__(name: str):
+    if name in __all__:
+        from . import agent
+        return getattr(agent, name)
+    raise AttributeError(name)

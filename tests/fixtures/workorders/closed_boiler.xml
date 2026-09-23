@@ -1,0 +1,6 @@
+<amosTransportEnvelope><payload type="transferWorkorder"><transferWorkorder>
+  <workorder uuid="wo-closed"><workorderNumber>CLOSED-1</workorderNumber>
+  <workorderHeader><workorderState>C</workorderState><closingData><closingDateTime>2026-02-02T10:00:00Z</closingDateTime><closingTac>220</closingTac></closingData></workorderHeader>
+  <workSteps><workStep uuid="step-closed"><workStepDateTime>2026-02-01T10:00:00Z</workStepDateTime><description>Water boiler trips breaker</description><actions><action uuid="closed-action"><actionText>Completed replacement</actionText></action></actions></workStep></workSteps>
+  </workorder>
+</transferWorkorder></payload></amosTransportEnvelope>

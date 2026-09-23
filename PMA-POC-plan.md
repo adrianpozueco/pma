@@ -284,30 +284,42 @@ source XML; `description_concat` for the sample reads as the four expected lines
 ### Step 01 — Replacement events (`01_replacement_events.sql`)
 
 **Goal.** The certain anchors: true serialized swaps.
-**Inputs.** `raw.component_changes`, `raw.work_orders`.
+**Inputs.** `pma_agent_analytics.wo_workorders`.
 
-**Instructions.** Keep a `componentChange` only when both serials exist and differ. Key the
-component as `PN|position`. Attach the **anchor text** from the parent workStep for later scoring.
+**Instructions.** Unnest `work_steps -> actions -> component_changes`. Keep a `component_change`
+only when both serials exist and differ. Key the component as `PN|position`. Attach the
+**anchor text** from the parent work step/action for later scoring.
 
 ```sql
 CREATE OR REPLACE TABLE curated.fct_replacement_events AS
 SELECT
-  cc.aircraft_reg,
-  CONCAT(UPPER(TRIM(COALESCE(cc.part_on_pn, cc.part_off_pn))), '|', UPPER(TRIM(cc.position))) AS component_key,
-  cc.part_off_pn, cc.part_on_pn, cc.position, cc.label_number,
-  cc.serial_off, cc.serial_on,
-  cc.wo_id      AS replacement_wo_id,
-  cc.wo_uuid    AS replacement_wo_uuid,
-  cc.tac        AS replacement_tac,
-  cc.close_date AS replacement_date,
+  wo.aircraft.full_registration AS aircraft_reg,
+  CONCAT(
+    UPPER(TRIM(COALESCE(cc.part_on_number, cc.part_off_number))),
+    '|',
+    UPPER(TRIM(cc.position))
+  ) AS component_key,
+  cc.part_off_number AS part_off_pn,
+  cc.part_on_number AS part_on_pn,
+  cc.position,
+  cc.label_number,
+  cc.part_off_serial AS serial_off,
+  cc.part_on_serial AS serial_on,
+  wo.workorder_number AS replacement_wo_id,
+  wo.workorder_uuid AS replacement_wo_uuid,
+  wo.closing.total_aircraft_cycles AS replacement_tac,
+  wo.closing.date AS replacement_date,
   -- anchor text = the failure language of THIS replacement (query for L2/L3)
-  CONCAT(COALESCE(cc.step_description,''), '\n', COALESCE(cc.action_text,'')) AS anchor_text,
-  (cc.part_off_pn <> cc.part_on_pn) AS is_supersession   -- SB/mod flag (§1.3)
-FROM raw.component_changes cc
-WHERE cc.serial_off IS NOT NULL AND TRIM(cc.serial_off) <> ''
-  AND cc.serial_on  IS NOT NULL AND TRIM(cc.serial_on)  <> ''
-  AND UPPER(TRIM(cc.serial_off)) <> UPPER(TRIM(cc.serial_on))   -- exclude same-serial reinstall/overhaul
-  AND cc.tac IS NOT NULL;                                       -- need a cycle stamp
+  CONCAT(COALESCE(ws.description, ''), '\n', COALESCE(a.action_text, '')) AS anchor_text,
+  (cc.part_off_number <> cc.part_on_number) AS is_supersession   -- SB/mod flag (§1.3)
+FROM `pma_agent_analytics.wo_workorders` AS wo
+CROSS JOIN UNNEST(IFNULL(wo.work_steps, [])) AS ws
+CROSS JOIN UNNEST(IFNULL(ws.actions, [])) AS a
+CROSS JOIN UNNEST(IFNULL(a.component_changes, [])) AS cc
+WHERE NULLIF(TRIM(cc.part_off_serial), '') IS NOT NULL
+  AND NULLIF(TRIM(cc.part_on_serial), '') IS NOT NULL
+  AND UPPER(TRIM(cc.part_off_serial)) <> UPPER(TRIM(cc.part_on_serial))
+  AND wo.closing.total_aircraft_cycles IS NOT NULL;
 ```
 
 **Output.** `curated.fct_replacement_events`.
@@ -377,46 +389,95 @@ Keep **all** replacements per aircraft (an aircraft may replace a component more
 
 **Goal.** Embeddings for **every WO on reference-set aircraft** (coverage for both offline
 matching and online retrieval). Also embed each replacement's **anchor text**.
-**Inputs.** `raw.work_orders`, `dim_reference_set`, infra connection.
+**Inputs.** `pma_agent_analytics.wo_workorders`, `dim_reference_set`.
 
 **Instructions.**
-1. Create the remote embedding model bound to the infra connection.
-2. Embed the `description_concat` of all WOs whose `aircraft_reg` is in the reference set.
-3. Embed the replacement anchors (small table) for use as L2 query vectors.
+1. Build WO content from `remarks + workStep.description + action.action_text`.
+2. Embed all WOs whose `aircraft_reg` is in the reference set using `AI.EMBED`.
+3. Embed replacement anchors (small table) for use as L2 query vectors.
 
 ```sql
-CREATE OR REPLACE MODEL curated.emb_model
-REMOTE WITH CONNECTION `${location}.vertex_conn`
-OPTIONS (ENDPOINT = 'text-embedding-005');   -- confirm model + EMBEDDING_DIM (§7)
-
 -- 4a. embeddings for all WOs on reference-set aircraft
 CREATE OR REPLACE TABLE curated.wo_embeddings AS
-SELECT wo_uuid, wo_id, aircraft_reg, ata_chapter, tac,
-       content, ml_generate_embedding_result AS embedding
-FROM ML.GENERATE_EMBEDDING(
-  MODEL curated.emb_model,
-  (
-    SELECT w.wo_uuid, w.wo_id, w.aircraft_reg, w.ata_chapter, w.tac,
-           w.description_concat AS content
-    FROM raw.work_orders w
-    WHERE w.aircraft_reg IN (SELECT DISTINCT aircraft_reg FROM curated.dim_reference_set)
-      AND w.description_concat IS NOT NULL AND TRIM(w.description_concat) <> ''
+WITH work_orders_normalized AS (
+  SELECT
+    w.workorder_uuid AS wo_uuid,
+    w.workorder_number AS wo_id,
+    w.aircraft.full_registration AS aircraft_reg,
+    w.ata_chapter,
+    w.closing.total_aircraft_cycles AS tac,
+    TRIM(
+      CONCAT(
+        COALESCE(w.remarks, ''),
+        CASE WHEN COALESCE(w.remarks, '') <> '' THEN '\n' ELSE '' END,
+        COALESCE(
+          (
+            SELECT ARRAY_TO_STRING(
+              ARRAY(
+                SELECT TRIM(
+                  CONCAT(
+                    COALESCE(ws.description, ''),
+                    CASE
+                      WHEN TRIM(COALESCE(a.action_text, '')) <> '' THEN CONCAT('\n', a.action_text)
+                      ELSE ''
+                    END
+                  )
+                )
+                FROM UNNEST(IFNULL(w.work_steps, [])) AS ws
+                LEFT JOIN UNNEST(IFNULL(ws.actions, [])) AS a
+                WHERE TRIM(CONCAT(COALESCE(ws.description, ''), COALESCE(a.action_text, ''))) <> ''
+              ),
+              '\n\n'
+            )
+          ),
+          ''
+        )
+      )
+    ) AS content
+  FROM `pma_agent_analytics.wo_workorders` AS w
+),
+candidate_rows AS (
+  SELECT
+    wo_uuid, wo_id, aircraft_reg, ata_chapter, tac, content
+  FROM work_orders_normalized
+  WHERE aircraft_reg IN (
+    SELECT DISTINCT aircraft_reg
+    FROM `curated.dim_reference_set`
   )
-);
+    AND content IS NOT NULL
+    AND TRIM(content) <> ''
+)
+SELECT
+  wo_uuid,
+  wo_id,
+  aircraft_reg,
+  ata_chapter,
+  tac,
+  content,
+  AI.EMBED(content, endpoint => 'text-embedding-005') AS embedding
+FROM candidate_rows;
 
 -- 4b. anchor embeddings (one per replacement event)
 CREATE OR REPLACE TABLE curated.replacement_anchor_embeddings AS
-SELECT replacement_wo_uuid, component_key, aircraft_reg, replacement_tac,
-       content, ml_generate_embedding_result AS anchor_embedding
-FROM ML.GENERATE_EMBEDDING(
-  MODEL curated.emb_model,
-  (
-    SELECT replacement_wo_uuid, component_key, aircraft_reg, replacement_tac,
-           anchor_text AS content
-    FROM curated.dim_reference_set
-    WHERE anchor_text IS NOT NULL AND TRIM(anchor_text) <> ''
-  )
-);
+WITH anchor_rows AS (
+  SELECT
+    replacement_wo_uuid,
+    component_key,
+    aircraft_reg,
+    replacement_tac,
+    anchor_text AS content
+  FROM `curated.dim_reference_set`
+  WHERE anchor_text IS NOT NULL
+    AND TRIM(anchor_text) <> ''
+)
+SELECT
+  replacement_wo_uuid,
+  component_key,
+  aircraft_reg,
+  replacement_tac,
+  content,
+  AI.EMBED(content, endpoint => 'text-embedding-005') AS anchor_embedding
+FROM anchor_rows;
 ```
 
 **Output.** `curated.wo_embeddings`, `curated.replacement_anchor_embeddings`.
@@ -428,19 +489,28 @@ FROM ML.GENERATE_EMBEDDING(
 ### Step 05 — Candidate precursors: L0 + L1 (`05_candidate_precursors.sql`)
 
 **Goal.** Cheap SQL pre-filter: same aircraft, earlier cycle, same ATA-4 area.
-**Inputs.** `dim_reference_set`, `raw.work_orders`.
+**Inputs.** `dim_reference_set`, `pma_agent_analytics.wo_workorders`.
 
 **Instructions.** For each replacement R, take every earlier WO on the same aircraft (L0) whose
 ATA-4 prefix matches R's (L1). ATA-4 = first two groups, e.g. `38-32`.
 
 ```sql
 CREATE OR REPLACE TABLE curated.candidate_precursors AS
-WITH repl AS (
+WITH work_orders AS (
+  SELECT
+    workorder_uuid AS wo_uuid,
+    workorder_number AS wo_id,
+    aircraft.full_registration AS aircraft_reg,
+    ata_chapter,
+    closing.total_aircraft_cycles AS tac
+  FROM pma_agent_analytics.wo_workorders
+),
+repl AS (
   SELECT r.component_key, r.aircraft_reg,
          r.replacement_wo_uuid, r.replacement_tac,
          w.ata_chapter AS repl_ata
   FROM curated.dim_reference_set r
-  JOIN raw.work_orders w ON w.wo_uuid = r.replacement_wo_uuid
+  JOIN work_orders w ON w.wo_uuid = r.replacement_wo_uuid
 ),
 ata4 AS (   -- normalize ATA to 4-char area, e.g. '38-32'
   SELECT *, REGEXP_EXTRACT(repl_ata, r'^([0-9]{2}-[0-9]{2})') AS repl_ata4 FROM repl
@@ -450,7 +520,7 @@ SELECT
   a.replacement_wo_uuid, a.replacement_tac,
   w.wo_uuid AS precursor_wo_uuid, w.wo_id AS precursor_wo_id, w.tac AS precursor_tac
 FROM ata4 a
-JOIN raw.work_orders w
+JOIN work_orders w
   ON w.aircraft_reg = a.aircraft_reg
  AND w.tac < a.replacement_tac                                   -- L0 temporal
  AND w.wo_uuid <> a.replacement_wo_uuid
@@ -481,10 +551,14 @@ WITH scored AS (
     c.replacement_wo_uuid, c.replacement_tac,
     c.precursor_wo_uuid, c.precursor_wo_id, c.precursor_tac,
     -- cosine similarity = 1 - cosine distance
-    (1 - ML.DISTANCE(pe.embedding, ae.anchor_embedding, 'COSINE')) AS sim
+    (1 - ML.DISTANCE(pe.embedding.result, ae.anchor_embedding.result, 'COSINE')) AS sim
   FROM curated.candidate_precursors c
   JOIN curated.wo_embeddings pe                ON pe.wo_uuid = c.precursor_wo_uuid
   JOIN curated.replacement_anchor_embeddings ae ON ae.replacement_wo_uuid = c.replacement_wo_uuid
+  WHERE pe.embedding.status = ''
+    AND ae.anchor_embedding.status = ''
+    AND pe.embedding.result IS NOT NULL
+    AND ae.anchor_embedding.result IS NOT NULL
 )
 SELECT * EXCEPT(rn) FROM (
   SELECT s.*,
@@ -506,10 +580,10 @@ rate; tune `SIM_THRESHOLD` / `K_PRECURSORS` from that audit.
 
 **Goal.** Precision + causality. Reject pairs where the earlier WO is routine work, cannibalization,
 a duplicate/near-replacement, or coincidental text — none of which the feed's codes can catch.
-**Inputs.** `scored_precursors`, `raw.work_orders` (texts), infra connection (Gemini).
+**Inputs.** `scored_precursors`, `pma_agent_analytics.wo_workorders` (texts), infra connection (Gemini).
 
 **Instructions.**
-1. For each surviving pair, send the **precursor text** and the **replacement anchor text** to a
+1. For each surviving pair (a replacement/precursor candidate that passed L2 threshold + top-K), send the **precursor text** and the **replacement anchor text** to a
    Vertex LLM via `ML.GENERATE_TEXT` (bound to the same connection).
 2. Prompt the model to classify the relationship and return **strict JSON**.
 3. Keep only `verdict = "symptom"`.
@@ -540,20 +614,70 @@ EARLIER WORK ORDER:  <<<{precursor_text}>>>
 
 ```sql
 CREATE OR REPLACE TABLE curated.adjudicated_precursors AS
-WITH pairs AS (
-  SELECT sp.*, wp.description_concat AS precursor_text, ae.content AS anchor_text
+WITH wo_text AS (
+  SELECT
+    w.workorder_uuid AS wo_uuid,
+    TRIM(
+      CONCAT(
+        COALESCE(w.remarks, ''),
+        CASE WHEN COALESCE(w.remarks, '') <> '' THEN '\n' ELSE '' END,
+        COALESCE(
+          (
+            SELECT ARRAY_TO_STRING(
+              ARRAY(
+                SELECT TRIM(
+                  CONCAT(
+                    COALESCE(ws.description, ''),
+                    CASE
+                      WHEN TRIM(COALESCE(a.action_text, '')) <> '' THEN CONCAT('\n', a.action_text)
+                      ELSE ''
+                    END
+                  )
+                )
+                FROM UNNEST(IFNULL(w.work_steps, [])) AS ws
+                LEFT JOIN UNNEST(IFNULL(ws.actions, [])) AS a
+                WHERE TRIM(CONCAT(COALESCE(ws.description, ''), COALESCE(a.action_text, ''))) <> ''
+              ),
+              '\n\n'
+            )
+          ),
+          ''
+        )
+      )
+    ) AS description_concat
+  FROM `pma_agent_analytics.wo_workorders` w
+),
+pairs AS (
+  SELECT sp.*, wt.description_concat AS precursor_text, dr.anchor_text
   FROM curated.scored_precursors sp
-  JOIN raw.work_orders wp ON wp.wo_uuid = sp.precursor_wo_uuid
-  JOIN curated.replacement_anchor_embeddings ae ON ae.replacement_wo_uuid = sp.replacement_wo_uuid
+  JOIN wo_text wt ON wt.wo_uuid = sp.precursor_wo_uuid
+  JOIN curated.dim_reference_set dr ON dr.replacement_wo_uuid = sp.replacement_wo_uuid
+),
+prompts AS (
+  SELECT
+    p.*,
+    CONCAT(
+      'You are an aircraft maintenance analyst. A component was REPLACED (the anchor). ',
+      'Decide whether the EARLIER work order describes an emerging symptom/defect that plausibly PRECEDED and relates to that replacement.\n',
+      '- "symptom": earlier WO reports a degrading defect on the same component/system.\n',
+      '- "routine": scheduled check/inspection/servicing, not a failure symptom.\n',
+      '- "cannibalization": part removed to serve another aircraft.\n',
+      '- "duplicate": same event / the replacement itself restated.\n',
+      '- "unrelated": different system or coincidental text match.\n',
+      'Return ONLY JSON with keys: verdict, confidence, reason.\n\n',
+      'REPLACEMENT (anchor): <<<', COALESCE(p.anchor_text, ''), '>>>\n',
+      'EARLIER WORK ORDER: <<<', COALESCE(p.precursor_text, ''), '>>>'
+    ) AS prompt
+  FROM pairs p
 ),
 judged AS (
-  SELECT p.*,
+  SELECT pr.*,
          JSON_VALUE(ml_generate_text_result, '$.verdict')            AS verdict,
          SAFE_CAST(JSON_VALUE(ml_generate_text_result,'$.confidence') AS FLOAT64) AS llm_conf,
          JSON_VALUE(ml_generate_text_result, '$.reason')             AS reason
   FROM ML.GENERATE_TEXT(
          MODEL curated.llm_model,     -- Gemini model bound to vertex_conn (create like emb_model)
-         (SELECT *, <<prompt built from anchor_text + precursor_text>> AS prompt FROM pairs),
+         (SELECT * FROM prompts),
          STRUCT(0.0 AS temperature, TRUE AS flatten_json_output)
        )
 )
@@ -613,7 +737,7 @@ WHERE rn = 1;
 
 ```python
 rows = bq.query("""
-  SELECT wo_uuid AS id, embedding, aircraft_reg, ata_chapter, tac
+  SELECT wo_uuid AS id, embedding.result AS embedding, aircraft_reg, ata_chapter, tac
   FROM curated.wo_embeddings
 """)
 write_jsonl(rows, gcs_uri=f"gs://{VS_BUCKET}/index/wo.json",
@@ -691,8 +815,8 @@ GROUP BY component_key ORDER BY n DESC;
 | Param | Meaning | Set in | Initial |
 |-------|---------|--------|---------|
 | `EMBEDDING_DIM` | embedding output dim | infra + Step 04 | model default (confirm) |
-| `SIM_THRESHOLD` | min cosine sim for L2 | Step 06 | 0.7 (tune via Step 10 check 4) |
-| `K_PRECURSORS` | max precursors per replacement | Step 06 | 5 |
+| `SIM_THRESHOLD` | min cosine sim for L2 | Step 06 | 0.62 (starting point; tune via Step 10 check 4) |
+| `K_PRECURSORS` | max precursors per replacement | Step 06 | 30 (starting point; tune via Step 10 check 4) |
 | `REPLACEMENT_WINDOW` | max cycles precursor→replacement | Step 08 | none (optional cap) |
 | `MIN_SAMPLE` | min samples for OK confidence | online §7 | 8 |
 | `MAX_CV` | max stdev/mean for OK confidence | online §7 | 0.5 |
@@ -732,7 +856,7 @@ Still open:
 2. **Ingest on a SAMPLE** → `raw.*`; hand-verify unnesting. *(first correctness gate)*
 3. **Step 01** replacement events → **Step 10 checks 1–3** early.
 4. **Steps 02–03** Top-3 + reference set → review full frequency list.
-5. **Infra (rest):** connection + Step 04 embeddings (needs connection). Embed reference-set WOs.
+5. **Infra (rest):** Vertex resources + Step 04 embeddings. Embed reference-set WOs.
 6. **Steps 05–06** L0+L1 candidates → L2 scoring → **Step 10 check 4** (FP audit; tune threshold).
 7. **Step 07** L3 LLM adjudication → re-run check 4; compare FP before/after L3.
 8. **Step 08** lead-time samples → **Step 10 check 5** distribution preview (is the signal real?).

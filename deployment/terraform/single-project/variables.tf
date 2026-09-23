@@ -45,5 +45,60 @@ variable "app_sa_roles" {
     "roles/cloudtrace.agent",
     "roles/storage.admin",
     "roles/serviceusage.serviceUsageConsumer",
+    # Read access to the Vertex AI Search datastore behind the IPC agent.
+    # iam.tf grants this list to both the app SA and the Vertex AI service
+    # agent, and the deployed Reasoning Engine needs it on both paths.
+    "roles/discoveryengine.viewer",
   ]
+}
+
+# ====================================================================
+# IPC manual knowledge base
+# ====================================================================
+
+variable "knowledge_base_data_store_id" {
+  type        = string
+  description = "Vertex AI Search datastore id holding the IPC manual PDFs. Terraform creates the datastore under exactly this id. When adopting an existing datastore, set its exact id, including any console-generated suffix."
+  default     = "ipc-part-numbers"
+}
+
+variable "knowledge_base_display_name" {
+  type        = string
+  description = "Display name of the IPC manual datastore."
+  default     = "ipc-part-numbers"
+}
+
+variable "knowledge_base_location" {
+  type        = string
+  description = "Discovery Engine location for the datastore. Unrelated to var.region: the only accepted values are global, us and eu."
+  default     = "global"
+
+  validation {
+    condition     = contains(["global", "us", "eu"], var.knowledge_base_location)
+    error_message = "Discovery Engine location must be global, us, or eu. The current IPC agent uses global."
+  }
+}
+
+variable "create_knowledge_base_data_store" {
+  type        = bool
+  description = "Manage the IPC datastore with Terraform. Set false only when the datastore is owned outside this config."
+  default     = true
+}
+
+variable "adopt_existing_data_store" {
+  type        = bool
+  description = "Adopt an existing datastore through the import block instead of creating one. The existing project explicitly enables this in vars/env.tfvars; new projects create a datastore by default."
+  default     = false
+}
+
+variable "ingest_ipc_documents" {
+  type        = bool
+  description = "Import the staged IPC PDFs when create_knowledge_base_data_store is true. New projects ingest by default. Keep false when adopting a corpus already imported under different document ids, as configured in vars/env.tfvars."
+  default     = true
+}
+
+variable "ipc_source_dir" {
+  type        = string
+  description = "Optional IPC PDF source directory, laid out as <AMOS type>/<ATA chapter>___<revision>.pdf. Defaults to the repository's data/ipc_part_numbers. Use an absolute path, or a path relative to the Terraform working directory."
+  default     = null
 }

@@ -53,6 +53,14 @@ resource "google_vertex_ai_reasoning_engine" "app" {
         value = "True"
       }
 
+      # The agent reads the datastore id from the environment rather than from
+      # source, so the deployed engine needs it here: .env is a local-only file
+      # and never reaches Agent Runtime.
+      env {
+        name  = "IPC_DATASTORE_ID"
+        value = var.knowledge_base_data_store_id
+      }
+
       env {
         name  = "OTEL_SERVICE_NAME"
         value = "pma-agent"

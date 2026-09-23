@@ -1,12 +1,12 @@
-name: pma-agent
+name: pm-agent
 acli_version: 1.6.1
-agent_directory: ipc_manual_retrieval_agent
+agent_directory: pm_agent
 region: us-central1
 base_template: adk
 generated_at: '2026-09-21T08:18:26.695303+00:00'
 language: python
 create_params:
-  root_agent_name: pma_agent
+  root_agent_name: pm_agent
   deployment_target: agent_runtime
   cicd_runner: skip
   is_a2a: true

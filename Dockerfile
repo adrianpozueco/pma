@@ -21,7 +21,8 @@ WORKDIR /code
 
 COPY ./pyproject.toml ./README.md ./uv.lock* ./
 
-COPY ./ipc_manual_retrieval_agent ./ipc_manual_retrieval_agent
+COPY ./pm_agent ./pm_agent
+COPY ./amos_data ./amos_data
 
 RUN uv sync --frozen
 
@@ -30,4 +31,4 @@ ENV AGENT_VERSION=${AGENT_VERSION}
 
 EXPOSE 8080
 
-CMD ["uv", "run", "uvicorn", "ipc_manual_retrieval_agent.fast_api_app:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uv", "run", "uvicorn", "pm_agent.fast_api_app:app", "--host", "0.0.0.0", "--port", "8080"]

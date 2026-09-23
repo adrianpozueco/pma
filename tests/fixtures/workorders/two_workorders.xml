@@ -1,0 +1,4 @@
+<amosTransportEnvelope><payload type="transferWorkorder"><transferWorkorder>
+  <workorder uuid="wo-one"><workorderNumber>ONE</workorderNumber><workorderHeader><workorderState>O</workorderState></workorderHeader></workorder>
+  <workorder uuid="wo-two"><workorderNumber>TWO</workorderNumber><workorderHeader><workorderState>O</workorderState></workorderHeader></workorder>
+</transferWorkorder></payload></amosTransportEnvelope>

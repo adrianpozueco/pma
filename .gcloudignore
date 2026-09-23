@@ -13,3 +13,8 @@
 # agents-cli-extensions.yaml, and their code runs on the developer's machine.
 # Uploading them costs image size and ships their sources with the agent.
 /extensions/
+
+# Raw maintenance exports and catalogue PDFs are already served by BigQuery
+# and the knowledge base; they are not inputs to the application image build.
+/data/
+/artifacts/
