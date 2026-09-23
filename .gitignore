@@ -150,6 +150,17 @@ dmypy.json
 *.tfstate
 *.tfstate.*
 
+# Terraform plan files (binary, per-apply).
+*.tfplan
+
+# Synthetic Plan B curated outputs — regenerated with
+# scripts/generate_synthetic_curated.py (seed-stable). wo_embeddings is
+# 361 MB and exceeds GitHub's push limit.
+data/processed/wo_embeddings.ndjson.gz
+data/processed/fct_lead_time_samples.ndjson.gz
+data/processed/dim_focus_components.ndjson.gz
+data/processed/dim_reference_set.ndjson.gz
+
 
 tmp*
 .agents-cli-scripts/

@@ -1,0 +1,6 @@
+[
+  {"name": "component_key",             "type": "STRING",  "mode": "REQUIRED"},
+  {"name": "replacement_count",         "type": "INTEGER", "mode": "REQUIRED"},
+  {"name": "aircraft_with_replacement", "type": "INTEGER", "mode": "REQUIRED"},
+  {"name": "freq_rank",                 "type": "INTEGER", "mode": "REQUIRED"}
+]

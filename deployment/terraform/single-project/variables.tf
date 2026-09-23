@@ -102,3 +102,24 @@ variable "ipc_source_dir" {
   description = "Optional IPC PDF source directory, laid out as <AMOS type>/<ATA chapter>___<revision>.pdf. Defaults to the repository's data/ipc_part_numbers. Use an absolute path, or a path relative to the Terraform working directory."
   default     = null
 }
+
+# ====================================================================
+# Curated dataset (Plan B synthetic tables)
+# ====================================================================
+
+variable "create_curated_tables" {
+  type        = bool
+  description = "Create the curated dataset and Plan B synthetic tables (wo_embeddings, fct_lead_time_samples, dim_focus_components, dim_reference_set)."
+  default     = true
+}
+
+variable "load_curated_data" {
+  type        = bool
+  description = "Upload the local NDJSON files to GCS and run the BigQuery load jobs for the Plan B synthetic tables. Requires create_curated_tables = true and the files to exist under data/processed/."
+  default     = true
+
+  validation {
+    condition     = !var.load_curated_data || var.create_curated_tables
+    error_message = "load_curated_data = true requires create_curated_tables = true."
+  }
+}
