@@ -14,8 +14,19 @@ from google.genai import types
 
 from pm_agent.agent import app
 from pm_agent.workorders.chat import STATE_KEY, analyze_chat_upload
+from pm_agent.workorders.evidence import SourceResult, SourceStatus
 
 FIXTURES = Path(__file__).parents[1] / "fixtures" / "workorders"
+
+
+async def _fake_no_match_bq_branch(request):
+    del request
+    return SourceResult(source="bq_evidence", status=SourceStatus.NO_MATCH)
+
+
+async def _fake_no_match_ipc_branch(request):
+    del request
+    return SourceResult(source="ipc_manual_retrieval", status=SourceStatus.NO_MATCH)
 
 
 @pytest.fixture
@@ -27,6 +38,21 @@ def runner(monkeypatch):
         yield  # Keep the model's async-generator interface.
 
     monkeypatch.setattr(Gemini, "generate_content_async", forbidden)
+    # An "analyzed" upload now fans out to real BigQuery/IPC evidence branches
+    # (pm_agent/nodes/evidence_branches.py). Every pre-existing test in this
+    # file predates that fan-out and asserts nothing about its content, so by
+    # default both production async seams are faked here to a deterministic
+    # NO_MATCH - keeping every unrelated assertion in this file exercising
+    # only upload parsing/provenance/selection/replay behavior, with no real
+    # BigQuery or Vertex AI call ever attempted. Tests that specifically
+    # exercise evidence-branch behavior override these two names directly via
+    # their own monkeypatch.
+    monkeypatch.setattr(
+        "pm_agent.nodes.evidence_branches._run_bq_branch", _fake_no_match_bq_branch
+    )
+    monkeypatch.setattr(
+        "pm_agent.nodes.evidence_branches._run_ipc_branch", _fake_no_match_ipc_branch
+    )
     return Runner(
         app=app,
         session_service=InMemorySessionService(),
@@ -77,9 +103,16 @@ async def turn(runner, session, text="", files=()):
         if part.text
     )
     assert results, [event.model_dump(exclude_none=True) for event in events]
+    # A prompt/selection/replay/error turn renders via display_workorder_upload
+    # (unchanged short-circuit); a fully "analyzed" turn instead fans out to
+    # the evidence branches and renders via compose_evidence_answer. Either is
+    # a valid visible-content node for this helper.
     assert any(
         event.node_info
-        and "/display_workorder_upload@" in event.node_info.path
+        and (
+            "/display_workorder_upload@" in event.node_info.path
+            or "/compose_evidence_answer@" in event.node_info.path
+        )
         and event.content
         and not event.output
         for event in events

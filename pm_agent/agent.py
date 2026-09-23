@@ -14,16 +14,31 @@
 
 """Root graph for pm_agent.
 
-    START -> prepare_workorder_upload -+-> XML -> display_workorder_upload
-                                      +-> chat -> router -> ipc / bq
+    START -> prepare_workorder_upload
+               -"workorder_prompt"-> display_workorder_upload
+               -"workorder_evidence"-> bq_evidence -+
+                                        ipc_evidence -+-> join_evidence -> compose_evidence_answer
+               -"chat"-> router -> ipc / bq
 
-XML attachments run through deterministic work-order analysis. Ordinary chat
-continues through the existing router and its two specialists.
+XML attachments that need a selection, a replay cutoff, or that failed to
+parse are routed straight to ``display_workorder_upload``, unchanged. A fully
+analyzed attachment instead fans out to two concurrent evidence branches -
+BigQuery tools/adapters and the IPC manual retrieval adapter - off one shared
+``EvidenceRequest``; ``join_evidence`` collects both, and
+``compose_evidence_answer`` renders the one combined, visible answer. Ordinary
+chat continues through the existing router and its two specialists,
+completely untouched by any of the above.
 """
 
 from google.adk.apps import App
 from google.adk.workflow import START, Workflow
 
+from pm_agent.nodes.evidence_branches import (
+    bq_evidence,
+    compose_evidence_answer,
+    ipc_evidence,
+    join_evidence,
+)
 from pm_agent.nodes.router import router
 from pm_agent.nodes.workorder_upload import (
     display_workorder_upload,
@@ -48,8 +63,15 @@ root_agent = Workflow(
         (
             START,
             prepare_workorder_upload,
-            {"workorder": display_workorder_upload, "chat": router},
+            {
+                "workorder_prompt": display_workorder_upload,
+                "workorder_evidence": (bq_evidence, ipc_evidence),
+                "chat": router,
+            },
         ),
+        (bq_evidence, join_evidence),
+        (ipc_evidence, join_evidence),
+        (join_evidence, compose_evidence_answer),
         (router, {"ipc": ipc_manual_retrieval_node, "bq": bq_analytics_node}),
     ],
 )
