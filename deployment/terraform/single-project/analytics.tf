@@ -106,10 +106,12 @@ resource "google_bigquery_table" "faa_sdr_wo_parts" {
 # google_bigquery_job is immutable, so the job id embeds the md5 of the local
 # file. Editing the data produces a new job id and therefore a real reload,
 # instead of Terraform reporting no changes against a job that already ran.
+# The table's creation time is mixed in too: job ids are never reusable, so a
+# recreated table would otherwise hit a 409 or stay empty.
 
 resource "google_bigquery_job" "load_wo_workorders" {
   project  = var.project_id
-  job_id   = "load-wo-workorders-${substr(filemd5(local.wo_workorders_local_path), 0, 12)}"
+  job_id   = "load-wo-workorders-${substr(md5("${filemd5(local.wo_workorders_local_path)}-${google_bigquery_table.wo_workorders.creation_time}"), 0, 12)}"
   location = var.region
 
   load {

@@ -51,8 +51,14 @@ locals {
   create_synthetic_tables = var.create_curated_tables && !var.run_curated_real_data_pipeline
   load_curated_data       = local.create_synthetic_tables && var.load_curated_data
 
-  curated_pipeline_enabled      = var.create_curated_tables && var.run_curated_real_data_pipeline
-  curated_pipeline_input_digest = fileexists("${local.repo_root}/data/processed/wo_workorders.ndjson.gz") ? filemd5("${local.repo_root}/data/processed/wo_workorders.ndjson.gz") : "not-built"
+  curated_pipeline_enabled = var.create_curated_tables && var.run_curated_real_data_pipeline
+  # Creation times are mixed in so a recreated source table or curated dataset
+  # re-runs the pipeline; the file hash alone would leave them empty.
+  curated_pipeline_input_digest = md5(join("-", [
+    fileexists("${local.repo_root}/data/processed/wo_workorders.ndjson.gz") ? filemd5("${local.repo_root}/data/processed/wo_workorders.ndjson.gz") : "not-built",
+    google_bigquery_table.wo_workorders.creation_time,
+    try(google_bigquery_dataset.curated[0].creation_time, "no-dataset"),
+  ]))
 
   curated_sql_replacement_events = <<-SQL
     CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.fct_replacement_events` AS
@@ -622,8 +628,12 @@ resource "terraform_data" "curated_replacement_events" {
 
   triggers_replace = [md5(local.curated_sql_replacement_events), local.curated_pipeline_input_digest]
 
+  # The provider returns once the load job is submitted, not finished, so wait
+  # for it explicitly or this step reads an empty wo_workorders table.
   provisioner "local-exec" {
     command = <<-EOT
+      set -e
+      bq --project_id="${var.project_id}" --location="${var.region}" wait --fail_on_error "${google_bigquery_job.load_wo_workorders.job_id}"
       bq --project_id="${var.project_id}" --location="${var.region}" query --nouse_legacy_sql <<'SQL'
       ${local.curated_sql_replacement_events}
       SQL
