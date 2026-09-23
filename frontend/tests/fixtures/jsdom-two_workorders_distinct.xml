@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SYNTHETIC UI TEST ONLY (JSDOM suite). Two work orders that differ in every asserted respect. -->
+<amosTransportEnvelope version="1.3">
+  <payload type="transferWorkorder" version="3.1"><transferWorkorder>
+    <workorder uuid="jsdom-order-a">
+      <workorderNumber>JSDOM-ORDER-A</workorderNumber>
+      <workorderHeader>
+        <workorderType>M</workorderType><workorderState>O</workorderState>
+        <aircraft><aircraftFullRegistration>EI-AAA</aircraftFullRegistration><aircraftType>TYPE-ALPHA</aircraftType></aircraft>
+        <issueData><issueDateTime>2026-09-01T09:00:00Z</issueDateTime><issueTac>1500</issueTac></issueData>
+        <component><partNumber>8201-11-0000-01</partNumber><serialNumber>OVEN-A-1</serialNumber></component>
+      </workorderHeader>
+      <workSteps><workStep uuid="jsdom-step-a">
+        <description>Galley oven door latch sticking at marker AMBER-HERON.</description>
+      </workStep></workSteps>
+    </workorder>
+    <workorder uuid="jsdom-order-b">
+      <workorderNumber>JSDOM-ORDER-B</workorderNumber>
+      <workorderHeader>
+        <workorderType>M</workorderType><workorderState>O</workorderState>
+        <aircraft><aircraftFullRegistration>EI-BBB</aircraftFullRegistration><aircraftType>TYPE-BRAVO</aircraftType></aircraft>
+        <issueData><issueDateTime>2026-09-02T09:00:00Z</issueDateTime><issueTac>2750</issueTac></issueData>
+      </workorderHeader>
+      <workSteps><workStep uuid="jsdom-step-b">
+        <description>Lavatory water heater cycling intermittently at marker SLATE-OTTER.</description>
+        <actions><action uuid="jsdom-action-b">
+          <componentChanges><componentChange uuid="jsdom-change-b">
+            <position>AFT-LAV</position>
+            <partOff><partNumber>62197-301-001</partNumber><serialNumber>BOILER-B-OFF</serialNumber></partOff>
+            <partOn><partNumber>62197-301-001</partNumber><serialNumber>BOILER-B-ON</serialNumber></partOn>
+          </componentChange></componentChanges>
+        </action></actions>
+      </workStep></workSteps>
+    </workorder>
+  </transferWorkorder></payload>
+</amosTransportEnvelope>
