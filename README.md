@@ -479,6 +479,82 @@ uv run python scripts/xml_to_ndjson.py
 uv run python scripts/build_faa_sdr_wo_parts.py
 ```
 
+### Curated dataset modes (synthetic vs real-data pipeline)
+
+Terraform always creates the curated dataset as `pma_agent_curated` when
+`project_name = "pma-agent"` and `create_curated_tables = true`.
+
+You can populate curated artifacts in two mutually exclusive ways:
+
+- Synthetic mode (Plan B): load prepared NDJSON files from `data/processed/`.
+- Real-data mode: run the curated SQL pipeline against the analytics tables
+  (replacement events, focus components, reference set, embeddings, precursor
+  filtering, semantic scoring, LLM adjudication, lead-time samples).
+
+Set only one mode per apply:
+
+```hcl
+# Synthetic mode (Plan B)
+create_curated_tables          = true
+load_curated_data              = true
+run_curated_real_data_pipeline = false
+
+# Real-data mode
+create_curated_tables          = true
+load_curated_data              = false
+run_curated_real_data_pipeline = true
+```
+
+If real-data mode is enabled, you can tune:
+
+```hcl
+curated_sim_threshold      = 0.80
+curated_k_precursors       = 50
+curated_embedding_endpoint = "text-embedding-005"
+curated_llm_endpoint       = "gemini-3.8.flash"
+```
+
+Sample commands from repository root:
+
+```bash
+# Synthetic mode (Plan B)
+terraform -chdir=deployment/terraform/single-project plan \
+  -var-file=vars/my_env.tfvars \
+  -var='run_curated_real_data_pipeline=false' \
+  -var='load_curated_data=true' \
+  -out=.terraform/plan-synthetic.tfplan
+
+# Real-data SQL pipeline mode
+terraform -chdir=deployment/terraform/single-project plan \
+  -var-file=vars/my_env.tfvars \
+  -var='run_curated_real_data_pipeline=true' \
+  -var='load_curated_data=false' \
+  -out=.terraform/plan-real-data.tfplan
+```
+
+Real-data pipeline execution notes:
+
+- The real-data curated steps run through `terraform_data` + `local-exec` with
+  `bq query`, so the machine running `terraform apply` must have valid `gcloud`
+  and `bq` authentication.
+- Each step reruns when its own SQL changes (or when the shared input digest
+  changes). `depends_on` preserves order but does not force downstream reruns.
+- To force all curated real-data steps to run again, use `-replace` on all
+  eight `terraform_data` resources:
+
+```bash
+terraform -chdir=deployment/terraform/single-project apply \
+  -var-file=vars/my_env.tfvars \
+  -replace='terraform_data.curated_replacement_events[0]' \
+  -replace='terraform_data.curated_focus_components[0]' \
+  -replace='terraform_data.curated_reference_set[0]' \
+  -replace='terraform_data.curated_workorder_embeddings[0]' \
+  -replace='terraform_data.curated_candidate_precursors[0]' \
+  -replace='terraform_data.curated_semantic_scoring[0]' \
+  -replace='terraform_data.curated_llm_adjudication[0]' \
+  -replace='terraform_data.curated_lead_time_samples[0]'
+```
+
 ### 3. Plan and apply
 
 ```bash
@@ -628,7 +704,10 @@ check.
 | Resource | Name |
 |----------|------|
 | BigQuery dataset (analytics) | `pma_agent_analytics` |
+| BigQuery dataset (curated) | `pma_agent_curated` |
 | BigQuery tables | `wo_workorders`, `faa_sdr_wo_parts` |
+| Curated tables (synthetic mode) | `wo_embeddings`, `fct_lead_time_samples`, `dim_focus_components`, `dim_reference_set` |
+| Curated tables (real-data mode) | `fct_replacement_events`, `dim_focus_components`, `dim_reference_set`, `wo_embeddings`, `replacement_anchor_embeddings`, `candidate_precursors`, `scored_precursors`, `adjudicated_precursors`, `fct_lead_time_samples` |
 | BigQuery dataset (telemetry) | `pma_agent_telemetry` |
 | Telemetry tables / view | `completions`, `aiplatform_googleapis_com_reasoning_engine_stdout`, `completions_view` |
 | GCS buckets | `<project_id>-pma-agent-data`, `<project_id>-pma-agent-logs`, `<project_id>-pma-agent-kb` |

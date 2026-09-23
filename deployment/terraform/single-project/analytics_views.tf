@@ -111,25 +111,6 @@ resource "google_bigquery_table" "v_target_replacements" {
   depends_on = [google_bigquery_table.v_observed_removals]
 }
 
-resource "google_bigquery_table" "v_faa_component_evidence" {
-  project             = var.project_id
-  dataset_id          = google_bigquery_dataset.analytics.dataset_id
-  table_id            = "v_faa_component_evidence"
-  description         = "Report-grain FAA component evidence with exact and related matching tiers"
-  deletion_protection = false
-
-  view {
-    query = templatefile("${local.analytics_view_dir}/v_faa_component_evidence.sql", {
-      project_id = var.project_id
-      dataset_id = google_bigquery_dataset.analytics.dataset_id
-      faa_table  = google_bigquery_table.faa_sdr_reports.table_id
-    })
-    use_legacy_sql = false
-  }
-
-  depends_on = [google_bigquery_table.faa_sdr_reports]
-}
-
 # Retrieval table definitions are intentionally empty of rows. The versioned
 # offline document/embedding jobs own inserts and updates; Terraform owns only
 # the durable schema and access path.

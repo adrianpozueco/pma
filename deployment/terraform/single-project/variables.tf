@@ -123,3 +123,43 @@ variable "load_curated_data" {
     error_message = "load_curated_data = true requires create_curated_tables = true."
   }
 }
+
+variable "run_curated_real_data_pipeline" {
+  type        = bool
+  description = "Run the curated BigQuery SQL pipeline against real analytics inputs. Keep false to use the Plan B synthetic curated load path."
+  default     = false
+
+  validation {
+    condition     = !var.run_curated_real_data_pipeline || var.create_curated_tables
+    error_message = "run_curated_real_data_pipeline = true requires create_curated_tables = true."
+  }
+
+  validation {
+    condition     = !(var.run_curated_real_data_pipeline && var.load_curated_data)
+    error_message = "run_curated_real_data_pipeline and load_curated_data cannot both be true. Choose synthetic load OR real-data SQL pipeline execution."
+  }
+}
+
+variable "curated_sim_threshold" {
+  type        = number
+  description = "Cosine similarity threshold for Step 06 semantic scoring."
+  default     = 0.80
+}
+
+variable "curated_k_precursors" {
+  type        = number
+  description = "Top-K cap per replacement workorder for Step 06 semantic scoring."
+  default     = 50
+}
+
+variable "curated_embedding_endpoint" {
+  type        = string
+  description = "BigQuery AI.EMBED endpoint for Step 04 embedding generation."
+  default     = "text-embedding-005"
+}
+
+variable "curated_llm_endpoint" {
+  type        = string
+  description = "BigQuery AI.GENERATE endpoint for Step 07 adjudication."
+  default     = "gemini-3.8.flash"
+}
