@@ -348,6 +348,110 @@ def _safe(value: object, limit: int = 2500) -> str:
     return re.sub(r"([\\`*_\[\]<>|])", r"\\\1", text)
 
 
+def render_uploaded_workorder_summary(result: dict[str, Any]) -> str:
+    """Render only what the uploaded XML itself establishes.
+
+    Shares its header/target-parts/findings/actions/component-changes/TAC
+    content with :func:`render_chat_upload`'s "analyzed" branch, but
+    deliberately omits the "not validated"/prediction sentence and the
+    "BigQuery and the knowledge base were not queried" sentence: both are
+    still true for ``render_chat_upload``'s own (now effectively legacy)
+    direct-display path, but false once this evidence is composed alongside
+    real BigQuery/IPC branch results in
+    :func:`pm_agent.nodes.evidence_branches.compose_evidence_answer`, which is
+    the reason this function exists as a separate, reusable piece.
+    """
+    analysis, source = result["analysis"], result["source"]
+    context = analysis["parsed_context"]
+    row = result["uploaded_workorder"]
+    aircraft = context.get("aircraft") or {}
+    lines = [
+        f"Analysed uploaded XML **{_safe(source['filename'])}** (version {source['version']}).",
+        f"Work order **{_safe(row['workorder_number'])}**; aircraft {_safe(aircraft.get('full_registration'))}, {_safe(aircraft.get('variant'))}.",
+        "Completed work order — historical analysis."
+        if row.get("is_closed")
+        else (
+            "Historical replay of the uploaded snapshot."
+            if analysis["input_mode"] == "historical_replay"
+            else "Open work order — analysis of the uploaded snapshot."
+        ),
+        f"Analysis cutoff: {_safe(analysis['analysis_as_of'])}.",
+        "",
+        "**Target parts**",
+    ]
+    lines += [
+        f"- {_safe(t['part_number'])}: {_safe(t['description'])} ({_safe(t['resolution_status'])})."
+        for t in analysis["target_parts"]
+    ]
+    if not analysis["target_parts"]:
+        lines.append("No configured target part could be resolved at this cutoff.")
+    symptoms = context["symptoms"]
+    lines.extend(["", "**Reported findings**"])
+    for symptom in symptoms[:10]:
+        lines.append(
+            f"- {_safe(symptom.get('description') or symptom.get('headline'))}"
+        )
+    if not symptoms:
+        lines.append("No symptom text is available at this cutoff.")
+    if len(symptoms) > 10:
+        lines.append(f"Showing 10 of {len(symptoms)} work-step findings.")
+    actions = row["recorded_actions"]
+    if actions:
+        lines.extend(["", "**Recorded maintenance actions**"])
+        for action in actions[:10]:
+            lines.append(f"- {_safe(action['performed_at'])}: {_safe(action['text'])}")
+        if len(actions) > 10:
+            lines.append(f"Showing 10 of {len(actions)} actions.")
+        changes = [c for a in actions for c in a["component_changes"]]
+        if changes:
+            lines.extend(
+                [
+                    "",
+                    "**Recorded component changes**",
+                    "",
+                    "| Part off | Serial off | Part on | Serial on | Recorded position |",
+                    "|---|---|---|---|---|",
+                ]
+            )
+            for change in changes[:30]:
+                lines.append(
+                    "| "
+                    + " | ".join(
+                        _safe(change.get(k))
+                        for k in (
+                            "part_off_number",
+                            "part_off_serial",
+                            "part_on_number",
+                            "part_on_serial",
+                            "position",
+                        )
+                    )
+                    + " |"
+                )
+            lines.append(
+                f"\nShowing {min(30, len(changes))} of {len(changes)} changes. Recorded positions are not inferred from narrative nozzle numbers."
+            )
+    current = context["current_aircraft_tac"]
+    closing = context["closing"]["tac"]
+    lines.extend(
+        [
+            "",
+            f"Current aircraft TAC: {_safe(current['value'])} ({_safe(current['status'])}).",
+            f"Closing aircraft TAC: {_safe(closing['value'])}; this is not the current counter or component age.",
+        ]
+    )
+    if analysis["limitations"]:
+        lines.extend(["", *[_safe(item) for item in analysis["limitations"]]])
+    if len(analysis["target_parts"]) != 1 or any(
+        t["resolution_status"] != "resolved" for t in analysis["target_parts"]
+    ):
+        lines.append("\nTo select a target, reply target_part_number=PN.")
+    lines.append(
+        "\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ."
+    )
+    return "\n\n".join(lines[:4]) + "\n" + "\n".join(lines[4:])
+
+
 def render_chat_upload(result: dict[str, Any]) -> str:
     """Render the parsed source evidence without an LLM inventing missing facts."""
     if result["status"] != "analyzed":
