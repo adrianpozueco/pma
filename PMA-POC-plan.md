@@ -34,6 +34,7 @@
 - [8. Open items](#8)
 - [9. Build order](#9)
 - [10. Reusable repo assets](#10)
+- [11. Final PMA online agent plan (production inference)](#11)
 
 ---
 
@@ -647,11 +648,23 @@ WITH wo_text AS (
     ) AS description_concat
   FROM `pma_agent_analytics.wo_workorders` w
 ),
+anchor_by_replacement AS (
+  SELECT
+    replacement_wo_uuid,
+    ANY_VALUE(anchor_text) AS anchor_text
+  FROM curated.dim_reference_set
+  GROUP BY replacement_wo_uuid
+),
 pairs AS (
-  SELECT sp.*, wt.description_concat AS precursor_text, dr.anchor_text
+  SELECT
+    sp.*,
+    wt.description_concat AS precursor_text,
+    ar.anchor_text
   FROM curated.scored_precursors sp
-  JOIN wo_text wt ON wt.wo_uuid = sp.precursor_wo_uuid
-  JOIN curated.dim_reference_set dr ON dr.replacement_wo_uuid = sp.replacement_wo_uuid
+  JOIN wo_text wt
+    ON wt.wo_uuid = sp.precursor_wo_uuid
+  JOIN anchor_by_replacement ar
+    ON ar.replacement_wo_uuid = sp.replacement_wo_uuid
 ),
 prompts AS (
   SELECT
@@ -670,18 +683,64 @@ prompts AS (
     ) AS prompt
   FROM pairs p
 ),
+judged_raw AS (
+  SELECT
+    pr.*,
+    AI.GENERATE(
+      pr.prompt,
+      endpoint => 'gemini-2.5-pro',
+      output_schema => 'verdict STRING, confidence FLOAT64, reason STRING'
+    ) AS llm
+  FROM prompts pr
+),
+parsed AS (
+  SELECT
+    jr.*,
+    TO_JSON_STRING(
+      STRUCT(
+        jr.llm.verdict AS verdict,
+        jr.llm.confidence AS confidence,
+        jr.llm.reason AS reason
+      )
+    ) AS result_json_blob,
+    JSON_VALUE(jr.llm.full_response, '$.candidates[0].content.parts[0].text') AS full_response_text
+  FROM judged_raw jr
+),
+normalized AS (
+  SELECT
+    p.*,
+    TRIM(
+      REGEXP_REPLACE(
+        REGEXP_REPLACE(
+          COALESCE(
+            JSON_VALUE(p.result_json_blob, '$'),
+            p.result_json_blob,
+            p.full_response_text,
+            ''
+          ),
+          r'^```(?:json)?\\s*',
+          ''
+        ),
+        r'\\s*```$',
+        ''
+      )
+    ) AS model_json_text
+  FROM parsed p
+),
 judged AS (
-  SELECT pr.*,
-         JSON_VALUE(ml_generate_text_result, '$.verdict')            AS verdict,
-         SAFE_CAST(JSON_VALUE(ml_generate_text_result,'$.confidence') AS FLOAT64) AS llm_conf,
-         JSON_VALUE(ml_generate_text_result, '$.reason')             AS reason
-  FROM ML.GENERATE_TEXT(
-         MODEL curated.llm_model,     -- Gemini model bound to vertex_conn (create like emb_model)
-         (SELECT * FROM prompts),
-         STRUCT(0.0 AS temperature, TRUE AS flatten_json_output)
-       )
+  SELECT
+    n.* EXCEPT(llm, result_json_blob, full_response_text, model_json_text),
+    LOWER(COALESCE(n.llm.verdict, JSON_VALUE(n.model_json_text, '$.verdict'))) AS verdict,
+    COALESCE(n.llm.confidence, SAFE_CAST(JSON_VALUE(n.model_json_text, '$.confidence') AS FLOAT64)) AS llm_conf,
+    COALESCE(n.llm.reason, JSON_VALUE(n.model_json_text, '$.reason')) AS reason,
+    n.model_json_text,
+    n.full_response_text AS llm_full_response,
+    n.llm.status AS llm_status
+  FROM normalized n
 )
-SELECT * FROM judged WHERE verdict = 'symptom';
+SELECT *
+FROM judged
+WHERE verdict = 'symptom';
 ```
 
 **Output.** `curated.adjudicated_precursors` (verified precursor→replacement pairs + rationale).
@@ -874,3 +933,176 @@ Still open:
 - **RAG / embeddings + vector search:** `asl_genai/notebooks/retrieval_augmented_generation/`.
 - **Stats / time-series reference:** `asl_core/notebooks/time_series_prediction/`.
 - **MLOps / pipeline orchestration:** `asl_mlops/notebooks/`.
+
+---
+
+<a name="11"></a>
+## 11. Final PMA online agent plan (production inference)
+
+This section is the final runbook for using the offline artifacts in live prediction when a new
+AMOS `transferWorkorder` arrives.
+
+### 11.1 Objective
+
+Given a newly created work order, return recommend-only guidance:
+- likely replacement component risk,
+- expected TAC timing window,
+- confidence plus evidence.
+
+No automatic maintenance action is triggered.
+
+### 11.2 Inputs required at runtime
+
+1. New WO event payload (`transferWorkorder` XML):
+   - `workorderNumber`, `workorder uuid`
+   - `aircraftRegistration`
+   - text fields from `workStep/description` plus `action/actionText`
+   - `ataChapter`
+   - `closingTac` if present (otherwise latest known TAC for aircraft)
+2. Offline artifacts from Sections 1-10:
+   - `curated.dim_focus_components`
+   - `curated.dim_reference_set`
+   - `curated.fct_lead_time_samples`
+   - Vector Search index plus endpoint loaded from `curated.wo_embeddings`
+3. Runtime configuration:
+   - `SIM_THRESHOLD`
+   - `K_NEIGHBORS`
+   - `MIN_SAMPLE`
+   - `MAX_CV`
+
+### 11.3 Online decision flow
+
+#### Step O1 - Parse and normalize incoming WO
+
+Build normalized payload:
+- `wo_uuid`, `wo_id`, `aircraft_reg`, `ata_chapter`, `current_tac`
+- `wo_text` = concatenated symptom text from step/action fields
+
+Reject early if:
+- missing `aircraft_reg`, or
+- empty `wo_text`.
+
+Return `no_reliable_prediction` with reason.
+
+#### Step O2 - Optional component gate (Top-3 focus)
+
+Use LLM/text gate (same schema from Step 07) to map the WO to a likely `component_key` in
+`curated.dim_focus_components`.
+
+If no confident match to Top-3 component family, return:
+- `decision = out_of_scope`
+- `reason = component_not_in_focus_set`
+
+#### Step O3 - Embed new WO and retrieve nearest historical patterns
+
+1. Generate embedding for `wo_text` with the same model used in Step 04.
+2. Query Vector Search endpoint for top `K_NEIGHBORS`.
+3. Apply filters:
+   - same `aircraft_reg` reference eligibility (via `dim_reference_set` join policy)
+   - optional ATA pre-filter (ATA-4)
+   - similarity `>= SIM_THRESHOLD`.
+
+If no neighbors survive, return `no_reliable_prediction`.
+
+#### Step O4 - Map neighbors to validated precursor-replacement knowledge
+
+For surviving neighbors, join to validated history:
+- `curated.adjudicated_precursors` (verdict = symptom provenance)
+- `curated.fct_lead_time_samples` (lead cycles distribution)
+
+Aggregate by candidate `component_key`:
+- sample size `n`
+- `p50`, `p90` lead cycles
+- `mean`, `stdev`, `cv`
+- weighted similarity score.
+
+#### Step O5 - Compute TAC forecast window
+
+For each candidate:
+- `predicted_replacement_tac_p50 = current_tac + lead_p50`
+- `predicted_replacement_tac_p90 = current_tac + lead_p90`
+
+Confidence policy:
+- high: `n >= MIN_SAMPLE` and `cv <= MAX_CV` and strong similarity
+- medium: partial threshold pass
+- low: otherwise (or suppress recommendation based on policy)
+
+#### Step O6 - Build explainable recommendation output
+
+Return top candidates sorted by confidence and similarity with:
+- predicted component/key,
+- TAC p50/p90 window,
+- confidence tier,
+- evidence list (matched WO ids plus similarities),
+- rationale text.
+
+### 11.4 Response contract (recommend-only)
+
+```json
+{
+  "aircraft": "G-RUKI",
+  "workorder_id": "WO-12345",
+  "decision": "recommendation",
+  "recommendations": [
+    {
+      "component_key": "15800-029-3|CABIN",
+      "predicted_replacement": {
+        "lead_tac_p50": 85,
+        "lead_tac_p90": 255,
+        "tac_p50": 42310,
+        "tac_p90": 42480
+      },
+      "confidence": {
+        "level": "medium",
+        "similarity": 0.82,
+        "sample_size": 23,
+        "cv": 0.41
+      },
+      "evidence": [
+        {"wo_id": "WO-9981", "sim": 0.86},
+        {"wo_id": "WO-10021", "sim": 0.81}
+      ],
+      "action": "recommend_inspection_or_part_planning"
+    }
+  ]
+}
+```
+
+Fallback contract when insufficient evidence:
+
+```json
+{
+  "aircraft": "G-RUKI",
+  "workorder_id": "WO-12345",
+  "decision": "no_reliable_prediction",
+  "reason": "insufficient_similarity_or_sample_size"
+}
+```
+
+### 11.5 Runtime guardrails
+
+1. Never auto-create maintenance orders or part swaps.
+2. Suppress output when evidence quality is weak.
+3. Always include explainability fields for audit.
+4. Log all inference inputs/outputs and model versions.
+5. Track outcomes for recalibration:
+   - whether replacement later occurred,
+   - actual TAC at replacement,
+   - forecast error by component.
+
+### 11.6 Post-deployment calibration loop
+
+Run weekly or monthly recalibration:
+1. Join predictions to eventual replacement outcomes.
+2. Compute precision-at-K and TAC forecast error.
+3. Re-tune `SIM_THRESHOLD`, `K_NEIGHBORS`, `MIN_SAMPLE`, `MAX_CV`.
+4. Rebuild offline artifacts on cadence (scheduler) and redeploy index snapshot.
+
+### 11.7 Go-live checklist (final)
+
+- [ ] Step 10 offline validation signed off.
+- [ ] Vector index smoke tests pass on known historical symptoms.
+- [ ] Online response contract wired to AMOS event consumer.
+- [ ] Monitoring dashboard created (volume, no-prediction rate, confidence mix, latency).
+- [ ] Human reviewer workflow documented for recommendation consumption.
+- [ ] Rollback plan prepared (disable endpoint or force no-prediction mode).
