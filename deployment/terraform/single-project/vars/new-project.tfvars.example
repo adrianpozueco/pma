@@ -17,3 +17,14 @@ ingest_ipc_documents             = true
 # Optional: use another authorized manual directory. Absolute path recommended.
 # Keep the layout <AMOS type>/<ATA chapter>___<revision>.pdf.
 # ipc_source_dir = "/absolute/path/to/ipc_part_numbers"
+
+# Real-data mode
+create_curated_tables          = true
+load_curated_data              = false
+run_curated_real_data_pipeline = true
+
+# Real-data mode tuning (used only when run_curated_real_data_pipeline = true).
+curated_sim_threshold      = 0.80
+curated_k_precursors       = 50
+curated_embedding_endpoint = "text-embedding-005"
+curated_llm_endpoint       = "gemini-3.8.flash"
