@@ -222,3 +222,6 @@ tools/a2a-inspector/
 *.pem
 *-key.json
 credentials*.json
+
+# Agent handover notes: local working context, not versioned
+/handovers/
