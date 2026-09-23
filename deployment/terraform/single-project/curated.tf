@@ -32,28 +32,397 @@
 #                                 the files under data/processed/ to exist)
 
 locals {
-  wo_embeddings_local_path         = "${local.repo_root}/data/processed/wo_embeddings.ndjson.gz"
-  fct_lead_time_local_path         = "${local.repo_root}/data/processed/fct_lead_time_samples.ndjson.gz"
-  dim_focus_components_local_path  = "${local.repo_root}/data/processed/dim_focus_components.ndjson.gz"
-  dim_reference_set_local_path     = "${local.repo_root}/data/processed/dim_reference_set.ndjson.gz"
+  wo_embeddings_local_path        = "${local.repo_root}/data/processed/wo_embeddings.ndjson.gz"
+  fct_lead_time_local_path        = "${local.repo_root}/data/processed/fct_lead_time_samples.ndjson.gz"
+  dim_focus_components_local_path = "${local.repo_root}/data/processed/dim_focus_components.ndjson.gz"
+  dim_reference_set_local_path    = "${local.repo_root}/data/processed/dim_reference_set.ndjson.gz"
+
+  wo_embeddings_local_digest        = fileexists(local.wo_embeddings_local_path) ? filemd5(local.wo_embeddings_local_path) : "not-built"
+  fct_lead_time_local_digest        = fileexists(local.fct_lead_time_local_path) ? filemd5(local.fct_lead_time_local_path) : "not-built"
+  dim_focus_components_local_digest = fileexists(local.dim_focus_components_local_path) ? filemd5(local.dim_focus_components_local_path) : "not-built"
+  dim_reference_set_local_digest    = fileexists(local.dim_reference_set_local_path) ? filemd5(local.dim_reference_set_local_path) : "not-built"
 
   wo_embeddings_object_name        = "curated/wo_embeddings.ndjson.gz"
   fct_lead_time_object_name        = "curated/fct_lead_time_samples.ndjson.gz"
   dim_focus_components_object_name = "curated/dim_focus_components.ndjson.gz"
   dim_reference_set_object_name    = "curated/dim_reference_set.ndjson.gz"
 
-  create_curated_tables = var.create_curated_tables
-  load_curated_data     = var.create_curated_tables && var.load_curated_data
+  create_curated_dataset  = var.create_curated_tables
+  create_synthetic_tables = var.create_curated_tables && !var.run_curated_real_data_pipeline
+  load_curated_data       = local.create_synthetic_tables && var.load_curated_data
+
+  curated_pipeline_enabled = var.create_curated_tables && var.run_curated_real_data_pipeline
+  # Creation times are mixed in so a recreated source table or curated dataset
+  # re-runs the pipeline; the file hash alone would leave them empty.
+  curated_pipeline_input_digest = md5(join("-", [
+    fileexists("${local.repo_root}/data/processed/wo_workorders.ndjson.gz") ? filemd5("${local.repo_root}/data/processed/wo_workorders.ndjson.gz") : "not-built",
+    google_bigquery_table.wo_workorders.creation_time,
+    try(google_bigquery_dataset.curated[0].creation_time, "no-dataset"),
+  ]))
+
+  curated_sql_replacement_events = <<-SQL
+    CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.fct_replacement_events` AS
+    SELECT
+      wo.aircraft.full_registration AS aircraft_reg,
+      CONCAT(
+        UPPER(TRIM(COALESCE(cc.part_on_number, cc.part_off_number))),
+        '|',
+        UPPER(TRIM(cc.position))
+      ) AS component_key,
+      cc.part_off_number AS part_off_pn,
+      cc.part_on_number AS part_on_pn,
+      cc.position,
+      cc.label_number,
+      cc.part_off_serial AS serial_off,
+      cc.part_on_serial AS serial_on,
+      wo.workorder_number AS replacement_wo_id,
+      wo.workorder_uuid AS replacement_wo_uuid,
+      wo.closing.total_aircraft_cycles AS replacement_tac,
+      wo.closing.date AS replacement_date,
+      CONCAT(COALESCE(ws.description, ''), '\n', COALESCE(a.action_text, '')) AS anchor_text,
+      (cc.part_off_number <> cc.part_on_number) AS is_supersession
+    FROM `${var.project_id}.${google_bigquery_dataset.analytics.dataset_id}.${google_bigquery_table.wo_workorders.table_id}` AS wo
+    CROSS JOIN UNNEST(IFNULL(wo.work_steps, [])) AS ws
+    CROSS JOIN UNNEST(IFNULL(ws.actions, [])) AS a
+    CROSS JOIN UNNEST(IFNULL(a.component_changes, [])) AS cc
+    WHERE NULLIF(TRIM(cc.part_off_serial), '') IS NOT NULL
+      AND NULLIF(TRIM(cc.part_on_serial), '') IS NOT NULL
+      AND UPPER(TRIM(cc.part_off_serial)) <> UPPER(TRIM(cc.part_on_serial))
+      AND wo.closing.total_aircraft_cycles IS NOT NULL;
+  SQL
+
+  curated_sql_focus_components = <<-SQL
+    CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.dim_focus_components` AS
+    WITH freq AS (
+      SELECT
+        component_key,
+        COUNT(*) AS replacement_count,
+        COUNT(DISTINCT aircraft_reg) AS aircraft_with_replacement
+      FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.fct_replacement_events`
+      GROUP BY component_key
+    )
+    SELECT
+      component_key,
+      replacement_count,
+      aircraft_with_replacement,
+      RANK() OVER (ORDER BY replacement_count DESC) AS freq_rank
+    FROM freq
+    QUALIFY freq_rank <= 6;
+
+    CREATE OR REPLACE VIEW `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.v_component_frequency` AS
+    SELECT
+      component_key,
+      COUNT(*) AS replacement_count,
+      COUNT(DISTINCT aircraft_reg) AS aircraft_with_replacement
+    FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.fct_replacement_events`
+    GROUP BY component_key
+    ORDER BY replacement_count DESC;
+  SQL
+
+  curated_sql_reference_set = <<-SQL
+    CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.dim_reference_set` AS
+    SELECT
+      e.component_key,
+      e.aircraft_reg,
+      e.replacement_wo_id,
+      e.replacement_wo_uuid,
+      e.replacement_tac,
+      e.replacement_date,
+      e.anchor_text
+    FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.fct_replacement_events` e
+    JOIN `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.dim_focus_components` f USING (component_key);
+  SQL
+
+  curated_sql_workorder_embeddings = <<-SQL
+    CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.wo_embeddings` AS
+    WITH work_orders_normalized AS (
+      SELECT
+        w.workorder_uuid AS wo_uuid,
+        w.workorder_number AS wo_id,
+        w.aircraft.full_registration AS aircraft_reg,
+        w.ata_chapter,
+        w.closing.total_aircraft_cycles AS tac,
+        TRIM(
+          CONCAT(
+            COALESCE(w.remarks, ''),
+            CASE WHEN COALESCE(w.remarks, '') <> '' THEN '\n' ELSE '' END,
+            COALESCE(
+              (
+                SELECT ARRAY_TO_STRING(
+                  ARRAY(
+                    SELECT TRIM(
+                      CONCAT(
+                        COALESCE(ws.description, ''),
+                        CASE
+                          WHEN TRIM(COALESCE(a.action_text, '')) <> '' THEN CONCAT('\n', a.action_text)
+                          ELSE ''
+                        END
+                      )
+                    )
+                    FROM UNNEST(IFNULL(w.work_steps, [])) AS ws
+                    LEFT JOIN UNNEST(IFNULL(ws.actions, [])) AS a
+                    WHERE TRIM(CONCAT(COALESCE(ws.description, ''), COALESCE(a.action_text, ''))) <> ''
+                  ),
+                  '\n\n'
+                )
+              ),
+              ''
+            )
+          )
+        ) AS content
+      FROM `${var.project_id}.${google_bigquery_dataset.analytics.dataset_id}.${google_bigquery_table.wo_workorders.table_id}` AS w
+    ),
+    candidate_rows AS (
+      SELECT
+        wo_uuid,
+        wo_id,
+        aircraft_reg,
+        ata_chapter,
+        tac,
+        content
+      FROM work_orders_normalized
+      WHERE aircraft_reg IN (
+        SELECT DISTINCT aircraft_reg
+        FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.dim_reference_set`
+      )
+        AND content IS NOT NULL
+        AND TRIM(content) <> ''
+    )
+    SELECT
+      wo_uuid,
+      wo_id,
+      aircraft_reg,
+      ata_chapter,
+      tac,
+      content,
+      AI.EMBED(content, endpoint => '${var.curated_embedding_endpoint}') AS embedding
+    FROM candidate_rows;
+
+    CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.replacement_anchor_embeddings` AS
+    WITH anchor_rows AS (
+      SELECT
+        replacement_wo_uuid,
+        component_key,
+        aircraft_reg,
+        replacement_tac,
+        anchor_text AS content
+      FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.dim_reference_set`
+      WHERE anchor_text IS NOT NULL
+        AND TRIM(anchor_text) <> ''
+    )
+    SELECT
+      replacement_wo_uuid,
+      component_key,
+      aircraft_reg,
+      replacement_tac,
+      content,
+      AI.EMBED(content, endpoint => '${var.curated_embedding_endpoint}') AS anchor_embedding
+    FROM anchor_rows;
+  SQL
+
+  curated_sql_candidate_precursors = <<-SQL
+    CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.candidate_precursors` AS
+    WITH work_orders AS (
+      SELECT
+        workorder_uuid AS wo_uuid,
+        workorder_number AS wo_id,
+        aircraft.full_registration AS aircraft_reg,
+        ata_chapter,
+        closing.total_aircraft_cycles AS tac
+      FROM `${var.project_id}.${google_bigquery_dataset.analytics.dataset_id}.${google_bigquery_table.wo_workorders.table_id}`
+    ),
+    repl AS (
+      SELECT
+        r.component_key,
+        r.aircraft_reg,
+        r.replacement_wo_uuid,
+        r.replacement_tac,
+        w.ata_chapter AS repl_ata
+      FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.dim_reference_set` r
+      JOIN work_orders w ON w.wo_uuid = r.replacement_wo_uuid
+    ),
+    ata4 AS (
+      SELECT
+        *,
+        REGEXP_EXTRACT(repl_ata, r'^([0-9]{2}-[0-9]{2})') AS repl_ata4
+      FROM repl
+    )
+    SELECT
+      a.component_key,
+      a.aircraft_reg,
+      a.replacement_wo_uuid,
+      a.replacement_tac,
+      w.wo_uuid AS precursor_wo_uuid,
+      w.wo_id AS precursor_wo_id,
+      w.tac AS precursor_tac
+    FROM ata4 a
+    JOIN work_orders w
+      ON w.aircraft_reg = a.aircraft_reg
+      AND w.tac < a.replacement_tac
+      AND w.wo_uuid <> a.replacement_wo_uuid
+      AND REGEXP_EXTRACT(w.ata_chapter, r'^([0-9]{2}-[0-9]{2})') = a.repl_ata4;
+  SQL
+
+  curated_sql_semantic_scoring = <<-SQL
+    CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.scored_precursors` AS
+    WITH scored AS (
+      SELECT
+        c.component_key,
+        c.aircraft_reg,
+        c.replacement_wo_uuid,
+        c.replacement_tac,
+        c.precursor_wo_uuid,
+        c.precursor_wo_id,
+        c.precursor_tac,
+        (1 - ML.DISTANCE(pe.embedding.result, ae.anchor_embedding.result, 'COSINE')) AS sim
+      FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.candidate_precursors` c
+      JOIN `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.wo_embeddings` pe ON pe.wo_uuid = c.precursor_wo_uuid
+      JOIN `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.replacement_anchor_embeddings` ae ON ae.replacement_wo_uuid = c.replacement_wo_uuid
+      WHERE pe.embedding.status = ''
+        AND ae.anchor_embedding.status = ''
+        AND pe.embedding.result IS NOT NULL
+        AND ae.anchor_embedding.result IS NOT NULL
+    )
+    SELECT * EXCEPT(rn)
+    FROM (
+      SELECT
+        s.*,
+        ROW_NUMBER() OVER (PARTITION BY replacement_wo_uuid ORDER BY sim DESC) AS rn
+      FROM scored s
+      WHERE sim >= ${var.curated_sim_threshold}
+    )
+    WHERE rn <= CAST(${var.curated_k_precursors} AS INT64);
+  SQL
+
+  curated_sql_llm_adjudication = <<-SQL
+    CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.adjudicated_precursors` AS
+    WITH wo_text AS (
+      SELECT
+        w.workorder_uuid AS wo_uuid,
+        TRIM(
+          CONCAT(
+            COALESCE(w.remarks, ''),
+            CASE WHEN COALESCE(w.remarks, '') <> '' THEN '\n' ELSE '' END,
+            COALESCE(
+              (
+                SELECT ARRAY_TO_STRING(
+                  ARRAY(
+                    SELECT TRIM(
+                      CONCAT(
+                        COALESCE(ws.description, ''),
+                        CASE
+                          WHEN TRIM(COALESCE(a.action_text, '')) <> '' THEN CONCAT('\n', a.action_text)
+                          ELSE ''
+                        END
+                      )
+                    )
+                    FROM UNNEST(IFNULL(w.work_steps, [])) AS ws
+                    LEFT JOIN UNNEST(IFNULL(ws.actions, [])) AS a
+                    WHERE TRIM(CONCAT(COALESCE(ws.description, ''), COALESCE(a.action_text, ''))) <> ''
+                  ),
+                  '\n\n'
+                )
+              ),
+              ''
+            )
+          )
+        ) AS description_concat
+      FROM `${var.project_id}.${google_bigquery_dataset.analytics.dataset_id}.${google_bigquery_table.wo_workorders.table_id}` w
+    ),
+    anchor_by_replacement AS (
+      SELECT
+        replacement_wo_uuid,
+        ANY_VALUE(anchor_text) AS anchor_text
+      FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.dim_reference_set`
+      GROUP BY replacement_wo_uuid
+    ),
+    pairs AS (
+      SELECT
+        sp.*,
+        wt.description_concat AS precursor_text,
+        ar.anchor_text
+      FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.scored_precursors` sp
+      JOIN wo_text wt ON wt.wo_uuid = sp.precursor_wo_uuid
+      JOIN anchor_by_replacement ar ON ar.replacement_wo_uuid = sp.replacement_wo_uuid
+    ),
+    prompts AS (
+      SELECT
+        p.*,
+        CONCAT(
+          'You are an aircraft maintenance analyst. A component was REPLACED (the anchor). ',
+          'Decide whether the EARLIER work order describes an emerging symptom/defect that plausibly PRECEDED and relates to that replacement.\n',
+          '- "symptom": earlier WO reports a degrading defect on the same component/system.\n',
+          '- "routine": scheduled check/inspection/servicing, not a failure symptom.\n',
+          '- "cannibalization": part removed to serve another aircraft.\n',
+          '- "duplicate": same event / the replacement itself restated.\n',
+          '- "unrelated": different system or coincidental text match.\n',
+          'Return ONLY JSON with keys: verdict, confidence, reason.\n\n',
+          'REPLACEMENT (anchor): <<<', COALESCE(p.anchor_text, ''), '>>>\n',
+          'EARLIER WORK ORDER: <<<', COALESCE(p.precursor_text, ''), '>>>'
+        ) AS prompt
+      FROM pairs p
+    ),
+    judged_raw AS (
+      SELECT
+        pr.*,
+        AI.GENERATE(
+          pr.prompt,
+          endpoint => '${var.curated_llm_endpoint}',
+          output_schema => 'verdict STRING, confidence FLOAT64, reason STRING'
+        ) AS llm
+      FROM prompts pr
+    ),
+    judged AS (
+      SELECT
+        jr.* EXCEPT(llm),
+        LOWER(jr.llm.verdict) AS verdict,
+        jr.llm.confidence AS llm_conf,
+        jr.llm.reason AS reason,
+        jr.llm.status AS llm_status,
+        jr.llm.full_response AS llm_full_response
+      FROM judged_raw jr
+      WHERE jr.llm.status = ''
+    )
+    SELECT *
+    FROM judged
+    WHERE verdict = 'symptom';
+  SQL
+
+  curated_sql_lead_time_samples = <<-SQL
+    CREATE OR REPLACE TABLE `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.fct_lead_time_samples` AS
+    SELECT * EXCEPT(rn)
+    FROM (
+      SELECT
+        a.component_key,
+        a.aircraft_reg,
+        a.precursor_wo_id,
+        a.precursor_wo_uuid,
+        a.precursor_tac,
+        a.replacement_wo_uuid,
+        a.replacement_tac,
+        (a.replacement_tac - a.precursor_tac) AS lead_cycles,
+        a.sim,
+        a.verdict,
+        a.llm_conf,
+        ROW_NUMBER() OVER (
+          PARTITION BY a.component_key, a.aircraft_reg, a.precursor_wo_uuid
+          ORDER BY a.replacement_tac ASC
+        ) AS rn
+      FROM `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.adjudicated_precursors` a
+      WHERE a.replacement_tac > a.precursor_tac
+    )
+    WHERE rn = 1;
+  SQL
 }
 
 resource "google_bigquery_dataset" "curated" {
-  count = local.create_curated_tables ? 1 : 0
+  count = local.create_curated_dataset ? 1 : 0
 
   project       = var.project_id
   dataset_id    = replace("${var.project_name}_curated", "-", "_")
-  friendly_name = "${var.project_name} Curated (Plan B)"
+  friendly_name = "${var.project_name} Curated"
   location      = var.region
-  description   = "[SYNTHETIC] Curated tables for PMA online agent POC — Plan B bypass of XML ingest pipeline"
+  description   = local.curated_pipeline_enabled ? "Curated PMA artifacts generated from analytics source data by Terraform-run BigQuery SQL jobs." : "Curated PMA artifacts populated by synthetic POC source files."
 
   depends_on = [google_project_service.services]
 }
@@ -63,7 +432,7 @@ resource "google_bigquery_dataset" "curated" {
 # ====================================================================
 
 resource "google_bigquery_table" "wo_embeddings" {
-  count = local.create_curated_tables ? 1 : 0
+  count = local.create_synthetic_tables ? 1 : 0
 
   project             = var.project_id
   dataset_id          = google_bigquery_dataset.curated[0].dataset_id
@@ -75,7 +444,7 @@ resource "google_bigquery_table" "wo_embeddings" {
 }
 
 resource "google_bigquery_table" "fct_lead_time_samples" {
-  count = local.create_curated_tables ? 1 : 0
+  count = local.create_synthetic_tables ? 1 : 0
 
   project             = var.project_id
   dataset_id          = google_bigquery_dataset.curated[0].dataset_id
@@ -87,7 +456,7 @@ resource "google_bigquery_table" "fct_lead_time_samples" {
 }
 
 resource "google_bigquery_table" "dim_focus_components" {
-  count = local.create_curated_tables ? 1 : 0
+  count = local.create_synthetic_tables ? 1 : 0
 
   project             = var.project_id
   dataset_id          = google_bigquery_dataset.curated[0].dataset_id
@@ -99,7 +468,7 @@ resource "google_bigquery_table" "dim_focus_components" {
 }
 
 resource "google_bigquery_table" "dim_reference_set" {
-  count = local.create_curated_tables ? 1 : 0
+  count = local.create_synthetic_tables ? 1 : 0
 
   project             = var.project_id
   dataset_id          = google_bigquery_dataset.curated[0].dataset_id
@@ -162,7 +531,7 @@ resource "google_bigquery_job" "load_wo_embeddings" {
   count = local.load_curated_data ? 1 : 0
 
   project  = var.project_id
-  job_id   = "load-wo-embeddings-${substr(filemd5(local.wo_embeddings_local_path), 0, 12)}"
+  job_id   = "load-wo-embeddings-${substr(local.wo_embeddings_local_digest, 0, 12)}"
   location = var.region
 
   load {
@@ -186,7 +555,7 @@ resource "google_bigquery_job" "load_fct_lead_time" {
   count = local.load_curated_data ? 1 : 0
 
   project  = var.project_id
-  job_id   = "load-fct-lead-time-${substr(filemd5(local.fct_lead_time_local_path), 0, 12)}"
+  job_id   = "load-fct-lead-time-${substr(local.fct_lead_time_local_digest, 0, 12)}"
   location = var.region
 
   load {
@@ -210,7 +579,7 @@ resource "google_bigquery_job" "load_dim_focus_components" {
   count = local.load_curated_data ? 1 : 0
 
   project  = var.project_id
-  job_id   = "load-dim-focus-${substr(filemd5(local.dim_focus_components_local_path), 0, 12)}"
+  job_id   = "load-dim-focus-${substr(local.dim_focus_components_local_digest, 0, 12)}"
   location = var.region
 
   load {
@@ -234,7 +603,7 @@ resource "google_bigquery_job" "load_dim_reference_set" {
   count = local.load_curated_data ? 1 : 0
 
   project  = var.project_id
-  job_id   = "load-dim-reference-${substr(filemd5(local.dim_reference_set_local_path), 0, 12)}"
+  job_id   = "load-dim-reference-${substr(local.dim_reference_set_local_digest, 0, 12)}"
   location = var.region
 
   load {
@@ -252,4 +621,136 @@ resource "google_bigquery_job" "load_dim_reference_set" {
   }
 
   depends_on = [google_storage_bucket_object.dim_reference_set_ndjson]
+}
+
+resource "terraform_data" "curated_replacement_events" {
+  count = local.curated_pipeline_enabled ? 1 : 0
+
+  triggers_replace = [md5(local.curated_sql_replacement_events), local.curated_pipeline_input_digest]
+
+  # The provider returns once the load job is submitted, not finished, so wait
+  # for it explicitly or this step reads an empty wo_workorders table.
+  provisioner "local-exec" {
+    command = <<-EOT
+      set -e
+      bq --project_id="${var.project_id}" --location="${var.region}" wait --fail_on_error "${google_bigquery_job.load_wo_workorders.job_id}"
+      bq --project_id="${var.project_id}" --location="${var.region}" query --nouse_legacy_sql <<'SQL'
+      ${local.curated_sql_replacement_events}
+      SQL
+    EOT
+  }
+
+  depends_on = [google_bigquery_dataset.curated, google_bigquery_job.load_wo_workorders]
+}
+
+resource "terraform_data" "curated_focus_components" {
+  count = local.curated_pipeline_enabled ? 1 : 0
+
+  triggers_replace = [md5(local.curated_sql_focus_components), local.curated_pipeline_input_digest]
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      bq --project_id="${var.project_id}" --location="${var.region}" query --nouse_legacy_sql <<'SQL'
+      ${local.curated_sql_focus_components}
+      SQL
+    EOT
+  }
+
+  depends_on = [terraform_data.curated_replacement_events]
+}
+
+resource "terraform_data" "curated_reference_set" {
+  count = local.curated_pipeline_enabled ? 1 : 0
+
+  triggers_replace = [md5(local.curated_sql_reference_set), local.curated_pipeline_input_digest]
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      bq --project_id="${var.project_id}" --location="${var.region}" query --nouse_legacy_sql <<'SQL'
+      ${local.curated_sql_reference_set}
+      SQL
+    EOT
+  }
+
+  depends_on = [terraform_data.curated_focus_components]
+}
+
+resource "terraform_data" "curated_workorder_embeddings" {
+  count = local.curated_pipeline_enabled ? 1 : 0
+
+  triggers_replace = [md5(local.curated_sql_workorder_embeddings), local.curated_pipeline_input_digest]
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      bq --project_id="${var.project_id}" --location="${var.region}" query --nouse_legacy_sql <<'SQL'
+      ${local.curated_sql_workorder_embeddings}
+      SQL
+    EOT
+  }
+
+  depends_on = [terraform_data.curated_reference_set]
+}
+
+resource "terraform_data" "curated_candidate_precursors" {
+  count = local.curated_pipeline_enabled ? 1 : 0
+
+  triggers_replace = [md5(local.curated_sql_candidate_precursors), local.curated_pipeline_input_digest]
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      bq --project_id="${var.project_id}" --location="${var.region}" query --nouse_legacy_sql <<'SQL'
+      ${local.curated_sql_candidate_precursors}
+      SQL
+    EOT
+  }
+
+  depends_on = [terraform_data.curated_workorder_embeddings]
+}
+
+resource "terraform_data" "curated_semantic_scoring" {
+  count = local.curated_pipeline_enabled ? 1 : 0
+
+  triggers_replace = [md5(local.curated_sql_semantic_scoring), local.curated_pipeline_input_digest]
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      bq --project_id="${var.project_id}" --location="${var.region}" query --nouse_legacy_sql <<'SQL'
+      ${local.curated_sql_semantic_scoring}
+      SQL
+    EOT
+  }
+
+  depends_on = [terraform_data.curated_candidate_precursors]
+}
+
+resource "terraform_data" "curated_llm_adjudication" {
+  count = local.curated_pipeline_enabled ? 1 : 0
+
+  triggers_replace = [md5(local.curated_sql_llm_adjudication), local.curated_pipeline_input_digest]
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      bq --project_id="${var.project_id}" --location="${var.region}" query --nouse_legacy_sql <<'SQL'
+      ${local.curated_sql_llm_adjudication}
+      SQL
+    EOT
+  }
+
+  depends_on = [terraform_data.curated_semantic_scoring]
+}
+
+resource "terraform_data" "curated_lead_time_samples" {
+  count = local.curated_pipeline_enabled ? 1 : 0
+
+  triggers_replace = [md5(local.curated_sql_lead_time_samples), local.curated_pipeline_input_digest]
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      bq --project_id="${var.project_id}" --location="${var.region}" query --nouse_legacy_sql <<'SQL'
+      ${local.curated_sql_lead_time_samples}
+      SQL
+    EOT
+  }
+
+  depends_on = [terraform_data.curated_llm_adjudication]
 }

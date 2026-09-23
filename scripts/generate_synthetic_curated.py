@@ -143,6 +143,25 @@ TIERS = {
     "large":  {"n_aircraft": 500, "n_wo": 200_000, "lt_per_comp": 250},
 }
 
+# ──────────────────────────────────────────────────────────────────────────────
+# Real top part numbers loaded from top_part_numbers.md
+# ──────────────────────────────────────────────────────────────────────────────
+
+TOP_PARTS_FILE = REPO_ROOT / "top_part_numbers.md"
+
+TOP_PART_ATA_POOL = ["21", "27", "28", "29", "32", "36", "49", "78"]
+
+TOP_PART_TEMPLATES = [
+    "Component P/N {pn} unserviceable during scheduled check. Removed and replaced per CMM. Ops check satisfactory.",
+    "Part {pn} showed excessive wear at inspection interval. Replacement fitted and system tested.",
+    "P/N {pn} internal leakage detected on functional test. Removed for overhaul. New unit installed.",
+    "Component P/N {pn} reported inoperative by crew. Troubleshooting isolated to unit. Replaced serviceable.",
+    "Part {pn} out-of-spec on bench verification. New unit fitted. System restored to normal.",
+    "P/N {pn} failed periodic integrity check. Replacement scheduled and completed. No further defect.",
+    "Component P/N {pn} exceeded life limit at MEL threshold. Removed at scheduled interval. Fitted new.",
+    "P/N {pn} intermittent operation reported. Bench test confirmed defect. Replaced and released.",
+]
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Utility helpers
@@ -202,10 +221,59 @@ def write_ndjson_gz(rows, path: Path) -> None:
 
 
 # ──────────────────────────────────────────────────────────────────────────────
+# Top-parts profile builder
+# ──────────────────────────────────────────────────────────────────────────────
+
+def load_top_parts(path: Path) -> list[str]:
+    """Parse tab-separated top_part_numbers.md → sorted list of unique P/Ns.
+
+    File format per row: <rank>\\t<part_number>|<position>\\t<count1>\\t<count2>
+    We only need column 2 up to the '|' separator.
+    """
+    parts: set[str] = set()
+    if not path.exists():
+        return []
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        cols = line.split("\t")
+        if len(cols) < 2:
+            continue
+        pn = cols[1].split("|", 1)[0].strip()
+        if pn:
+            parts.add(pn)
+    return sorted(parts)
+
+
+def build_top_part_components(part_numbers: list[str], rng) -> list[dict]:
+    """Build synthetic component profiles keyed by real part number.
+
+    Each profile mirrors the shape of COMPONENTS (component_key + ata_chapter +
+    p50/p90 + symptom_texts) so the existing generators can consume it unchanged.
+    ATA chapter is deterministic per part; p50/p90 are sampled per part so
+    distributions vary across the 12 rows.
+    """
+    profiles = []
+    for pn in part_numbers:
+        ata = TOP_PART_ATA_POOL[abs(hash(pn)) % len(TOP_PART_ATA_POOL)]
+        p50 = int(rng.integers(60, 180))
+        p90 = p50 + int(rng.integers(80, 260))
+        profiles.append({
+            "component_key": pn,
+            "ata_chapter": ata,
+            "p50": p50,
+            "p90": p90,
+            "symptom_texts": [tpl.format(pn=pn) for tpl in TOP_PART_TEMPLATES],
+        })
+    return profiles
+
+
+# ──────────────────────────────────────────────────────────────────────────────
 # Generators
 # ──────────────────────────────────────────────────────────────────────────────
 
-def generate_lead_time_and_seed_wos(aircraft_regs, centroids, lt_per_comp: int, rng):
+def generate_lead_time_and_seed_wos(aircraft_regs, components, centroids, lt_per_comp: int, rng):
     """
     Returns (lt_rows, seed_wo_rows).
     seed_wo_rows are precursor WOs (symptom class) that must appear in wo_embeddings.
@@ -215,7 +283,7 @@ def generate_lead_time_and_seed_wos(aircraft_regs, centroids, lt_per_comp: int, 
     seed_wo_rows = []
     wo_counter = 1
 
-    for idx, comp in enumerate(COMPONENTS):
+    for idx, comp in enumerate(components):
         mu, sigma = lognormal_params(comp["p50"], comp["p90"])
         centroid = centroids[idx]
 
@@ -257,7 +325,7 @@ def generate_lead_time_and_seed_wos(aircraft_regs, centroids, lt_per_comp: int, 
     return lt_rows, seed_wo_rows
 
 
-def generate_wo_embeddings(aircraft_regs, centroids, n_wo: int, seed_wo_rows, rng):
+def generate_wo_embeddings(aircraft_regs, components, centroids, n_wo: int, seed_wo_rows, rng):
     rows = list(seed_wo_rows)
     n_seed = len(rows)
     wo_counter = n_seed + 1
@@ -268,8 +336,8 @@ def generate_wo_embeddings(aircraft_regs, centroids, n_wo: int, seed_wo_rows, rn
 
     # Extra symptom WOs (not tied to lead-time samples)
     for _ in range(n_symptom_extra):
-        comp_idx = int(rng.integers(0, len(COMPONENTS)))
-        comp = COMPONENTS[comp_idx]
+        comp_idx = int(rng.integers(0, len(components)))
+        comp = components[comp_idx]
         rows.append({
             "wo_uuid": make_uuid_str(rng),
             "wo_id": make_wo_id(wo_counter),
@@ -283,8 +351,8 @@ def generate_wo_embeddings(aircraft_regs, centroids, n_wo: int, seed_wo_rows, rn
 
     # Hard negatives (similar wording, wrong component context — vector between centroid and noise)
     for _ in range(n_hard_neg):
-        comp_idx = int(rng.integers(0, len(COMPONENTS)))
-        comp = COMPONENTS[comp_idx]
+        comp_idx = int(rng.integers(0, len(components)))
+        comp = components[comp_idx]
         noise_v = unit_vector(EMBEDDING_DIM, rng)
         mixed = centroids[comp_idx] * 0.5 + noise_v * 0.5
         mixed = mixed / np.linalg.norm(mixed)
@@ -399,18 +467,23 @@ def main():
     tier = TIERS[args.tier]
     rng = np.random.default_rng(args.seed)
 
+    top_parts = load_top_parts(TOP_PARTS_FILE)
+    top_components = build_top_part_components(top_parts, rng)
+    all_components = COMPONENTS + top_components
+
     print(f"tier={args.tier}  seed={args.seed}  n_wo={tier['n_wo']:,}  n_aircraft={tier['n_aircraft']}")
+    print(f"components: {len(COMPONENTS)} synthetic + {len(top_components)} real part numbers = {len(all_components)} total")
 
     aircraft_regs = make_aircraft_regs(tier["n_aircraft"], rng)
-    centroids = [unit_vector(EMBEDDING_DIM, rng) for _ in COMPONENTS]
+    centroids = [unit_vector(EMBEDDING_DIM, rng) for _ in all_components]
 
     print("Generating fct_lead_time_samples ...")
     lt_rows, seed_wo_rows = generate_lead_time_and_seed_wos(
-        aircraft_regs, centroids, tier["lt_per_comp"], rng
+        aircraft_regs, all_components, centroids, tier["lt_per_comp"], rng
     )
 
     print("Generating wo_embeddings ...")
-    wo_rows = generate_wo_embeddings(aircraft_regs, centroids, tier["n_wo"], seed_wo_rows, rng)
+    wo_rows = generate_wo_embeddings(aircraft_regs, all_components, centroids, tier["n_wo"], seed_wo_rows, rng)
 
     print("Generating dimension tables ...")
     dim_focus = generate_dim_focus_components(lt_rows)
@@ -422,7 +495,7 @@ def main():
     write_ndjson_gz(dim_focus, OUT_DIR / "dim_focus_components.ndjson.gz")
     write_ndjson_gz(dim_ref, OUT_DIR / "dim_reference_set.ndjson.gz")
 
-    validate(lt_rows, wo_rows, COMPONENTS)
+    validate(lt_rows, wo_rows, all_components)
 
 
 if __name__ == "__main__":
