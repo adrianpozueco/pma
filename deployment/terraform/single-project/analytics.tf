@@ -27,14 +27,11 @@
 #   uv run python scripts/build_faa_sdr_wo_parts.py
 
 locals {
-  repo_root                   = "${path.module}/../../.."
-  wo_workorders_local_path    = "${local.repo_root}/data/processed/wo_workorders.ndjson.gz"
-  faa_sdr_local_path          = "${local.repo_root}/data/processed/faa_sdr_matching_wo_parts.csv"
-  faa_sdr_reports_local_path  = "${local.repo_root}/data/processed/faa_sdr_reports.csv"
-  wo_workorders_object_name   = "workorders/wo_workorders.ndjson.gz"
-  faa_sdr_object_name         = "faa-sdr/faa_sdr_matching_wo_parts.csv"
-  faa_sdr_reports_object_name = "faa-sdr/faa_sdr_reports.csv"
-  faa_sdr_reports_digest      = fileexists(local.faa_sdr_reports_local_path) ? filemd5(local.faa_sdr_reports_local_path) : "not-built"
+  repo_root                 = "${path.module}/../../.."
+  wo_workorders_local_path  = "${local.repo_root}/data/processed/wo_workorders.ndjson.gz"
+  faa_sdr_local_path        = "${local.repo_root}/data/processed/faa_sdr_matching_wo_parts.csv"
+  wo_workorders_object_name = "workorders/wo_workorders.ndjson.gz"
+  faa_sdr_object_name       = "faa-sdr/faa_sdr_matching_wo_parts.csv"
 }
 
 resource "google_bigquery_dataset" "analytics" {
@@ -72,16 +69,6 @@ resource "google_storage_bucket_object" "faa_sdr_csv" {
   content_type = "text/csv"
 }
 
-# Full, separately versioned FAA snapshot. The existing faa_sdr_wo_parts
-# object/load remains unchanged because downstream users rely on its 299-row
-# match contract.
-resource "google_storage_bucket_object" "faa_sdr_reports_csv" {
-  name         = local.faa_sdr_reports_object_name
-  bucket       = google_storage_bucket.analytics_data_bucket.name
-  source       = local.faa_sdr_reports_local_path
-  content_type = "text/csv"
-}
-
 # ====================================================================
 # Tables
 # ====================================================================
@@ -110,16 +97,6 @@ resource "google_bigquery_table" "faa_sdr_wo_parts" {
   deletion_protection = false
 
   schema = file("${path.module}/../shared/faa_sdr_wo_parts_schema.json")
-}
-
-resource "google_bigquery_table" "faa_sdr_reports" {
-  project             = var.project_id
-  dataset_id          = google_bigquery_dataset.analytics.dataset_id
-  table_id            = "faa_sdr_reports"
-  description         = "Versioned full FAA Service Difficulty Report CSV snapshot with raw values and parse quality fields"
-  deletion_protection = false
-
-  schema = file("${path.module}/../shared/faa_sdr_reports_schema.json")
 }
 
 # ====================================================================
@@ -154,54 +131,29 @@ resource "google_bigquery_job" "load_wo_workorders" {
   depends_on = [google_storage_bucket_object.wo_workorders_ndjson]
 }
 
-resource "google_bigquery_job" "load_faa_sdr_wo_parts" {
-  project  = var.project_id
-  job_id   = "load-faa-sdr-wo-parts-${substr(filemd5(local.faa_sdr_local_path), 0, 12)}"
-  location = var.region
-
-  load {
-    source_uris = [
-      "gs://${google_storage_bucket.analytics_data_bucket.name}/${local.faa_sdr_object_name}",
-    ]
-
-    destination_table {
-      project_id = var.project_id
-      dataset_id = google_bigquery_dataset.analytics.dataset_id
-      table_id   = google_bigquery_table.faa_sdr_wo_parts.table_id
-    }
-
-    source_format         = "CSV"
-    skip_leading_rows     = 1
-    allow_quoted_newlines = true
-    write_disposition     = "WRITE_TRUNCATE"
-    autodetect            = false
-  }
-
-  depends_on = [google_storage_bucket_object.faa_sdr_csv]
-}
-
-resource "google_bigquery_job" "load_faa_sdr_reports" {
-  project  = var.project_id
-  job_id   = "load-faa-sdr-reports-${substr(local.faa_sdr_reports_digest, 0, 12)}"
-  location = var.region
-
-  load {
-    source_uris = [
-      "gs://${google_storage_bucket.analytics_data_bucket.name}/${local.faa_sdr_reports_object_name}",
-    ]
-
-    destination_table {
-      project_id = var.project_id
-      dataset_id = google_bigquery_dataset.analytics.dataset_id
-      table_id   = google_bigquery_table.faa_sdr_reports.table_id
-    }
-
-    source_format         = "CSV"
-    skip_leading_rows     = 1
-    allow_quoted_newlines = true
-    write_disposition     = "WRITE_TRUNCATE"
-    autodetect            = false
-  }
-
-  depends_on = [google_storage_bucket_object.faa_sdr_reports_csv]
-}
+# resource "google_bigquery_job" "load_faa_sdr_wo_parts" {
+#   project  = var.project_id
+#   job_id   = "load-faa-sdr-wo-parts-${substr(filemd5(local.faa_sdr_local_path), 0, 12)}"
+#   location = var.region
+#
+#   load {
+#     source_uris = [
+#       "gs://${google_storage_bucket.analytics_data_bucket.name}/${local.faa_sdr_object_name}",
+#     ]
+#
+#     destination_table {
+#       project_id = var.project_id
+#       dataset_id = google_bigquery_dataset.analytics.dataset_id
+#       table_id   = google_bigquery_table.faa_sdr_wo_parts.table_id
+#     }
+#
+#     source_format         = "CSV"
+#     skip_leading_rows     = 1
+#     allow_quoted_newlines = true
+#     write_disposition     = "WRITE_TRUNCATE"
+#     autodetect            = false
+#   }
+#
+#   depends_on = [google_storage_bucket_object.faa_sdr_csv]
+# }
+#
