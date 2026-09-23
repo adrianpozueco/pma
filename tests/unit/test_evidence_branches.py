@@ -11,13 +11,20 @@ The graph wiring/concurrency/join/render behavior is covered separately in
 
 from __future__ import annotations
 
+import asyncio
+import json
 from typing import Any
 
+import pytest
+
 from amos_data.retrieval import LocalHistoryProvider
+from pm_agent.nodes import evidence_branches
 from pm_agent.nodes.evidence_branches import (
     _merge_branch,
     _run_bq_tools,
     _unavailable_result,
+    bq_evidence,
+    ipc_evidence,
 )
 from pm_agent.sub_agents.bq_analytics.queries import QueryRunner
 from pm_agent.workorders.evidence import (
@@ -317,3 +324,57 @@ def test_run_bq_tools_with_nothing_selected_returns_empty_no_match():
     result = _run_bq_tools(request, runner, provider=None)
     assert result.status == SourceStatus.NO_MATCH
     assert result.counts == {"tools_executed": 0}
+
+
+# --- error boundary: serialization must not escape the node (N5 regression) ---
+
+
+class _Opaque:
+    """Stands in for any branch value the evidence contract cannot serialize."""
+
+
+async def _run_node(node, node_input):
+    return await node(None, node_input)
+
+
+def _node_input(request: EvidenceRequest) -> dict[str, Any]:
+    return {"evidence_request": request.to_dict()}
+
+
+@pytest.mark.parametrize(
+    ("node", "patched", "expected_source"),
+    [
+        (bq_evidence, "_run_bq_branch", "bq_evidence"),
+        (ipc_evidence, "_run_ipc_branch", "ipc_manual_retrieval"),
+    ],
+)
+def test_branch_node_reports_error_when_its_result_cannot_be_serialized(
+    monkeypatch, node, patched, expected_source
+):
+    """``to_dict`` used to run outside the try, so a value the contract could
+    not coerce escaped the boundary and aborted the join instead of degrading
+    that one branch. A live BigQuery ``datetime`` did exactly this.
+    """
+
+    async def _unserializable(request):
+        return SourceResult(
+            source=expected_source,
+            status=SourceStatus.SUCCESS,
+            records=({"thing": _Opaque()},),
+        )
+
+    monkeypatch.setattr(evidence_branches, patched, _unserializable)
+
+    payload = asyncio.run(_run_node(node, _node_input(_request())))
+
+    assert payload["status"] == SourceStatus.ERROR.value
+    assert payload["source"] == expected_source
+    json.dumps(payload)
+
+
+def test_branch_node_reports_error_on_malformed_node_input():
+    """Building the request also used to sit outside the boundary."""
+    payload = asyncio.run(_run_node(bq_evidence, {"evidence_request": {}}))
+
+    assert payload["status"] == SourceStatus.ERROR.value
+    json.dumps(payload)

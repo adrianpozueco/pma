@@ -17,6 +17,8 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
+from datetime import date, time
+from decimal import Decimal
 from enum import Enum, StrEnum
 from typing import Any
 
@@ -69,6 +71,17 @@ def _to_jsonable(value: Any) -> Any:
             return items
     if value is None or isinstance(value, (str, int, float, bool)):
         return value
+    # BigQuery hands back real Python scalars for TIMESTAMP/DATETIME/DATE/TIME
+    # (date subsumes datetime), NUMERIC/BIGNUMERIC and BYTES columns. Dates
+    # become ISO-8601 so a cutoff stays comparable as text; Decimal becomes a
+    # string rather than a float so an exact recorded quantity is not silently
+    # rounded; bytes become hex, which is how the SQL already renders hashes.
+    if isinstance(value, (date, time)):
+        return value.isoformat()
+    if isinstance(value, Decimal):
+        return str(value)
+    if isinstance(value, bytes):
+        return value.hex()
     raise TypeError(f"{type(value).__name__} is not JSON-serializable evidence data")
 
 

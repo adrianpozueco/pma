@@ -243,33 +243,41 @@ async def _run_ipc_branch(request: EvidenceRequest) -> SourceResult:
 async def bq_evidence(ctx: Context, node_input: dict[str, Any]) -> dict[str, Any]:
     """Evidence node: BigQuery branch. Never raises - see module docstring."""
     del ctx  # Unused; kept for symmetry/auto-detection with ipc_evidence.
-    request = EvidenceRequest.from_dict(node_input["evidence_request"])
+    # Reading the request and serializing the result both belong inside the
+    # boundary: a malformed node_input or a value the evidence contract cannot
+    # coerce (a live BigQuery datetime did this) would otherwise escape and
+    # abort the join, losing the other branch's work as well.
     try:
+        request = EvidenceRequest.from_dict(node_input["evidence_request"])
         result = await _run_bq_branch(request)
+        return result.to_dict()
     except Exception:  # boundary: must not abort the join.
         logger.exception("Unexpected error in bq_evidence branch")
-        result = SourceResult(
+        return SourceResult(
             source="bq_evidence",
             status=SourceStatus.ERROR,
             error_detail="error:unexpected_bq_evidence_failure",
-        )
-    return result.to_dict()
+        ).to_dict()
 
 
 async def ipc_evidence(ctx: Context, node_input: dict[str, Any]) -> dict[str, Any]:
     """Evidence node: IPC manual branch. Never raises - see module docstring."""
     del ctx
-    request = EvidenceRequest.from_dict(node_input["evidence_request"])
+    # Reading the request and serializing the result both belong inside the
+    # boundary: a malformed node_input or a value the evidence contract cannot
+    # coerce (a live BigQuery datetime did this) would otherwise escape and
+    # abort the join, losing the other branch's work as well.
     try:
+        request = EvidenceRequest.from_dict(node_input["evidence_request"])
         result = await _run_ipc_branch(request)
+        return result.to_dict()
     except Exception:  # boundary: must not abort the join.
         logger.exception("Unexpected error in ipc_evidence branch")
-        result = SourceResult(
+        return SourceResult(
             source="ipc_manual_retrieval",
             status=SourceStatus.ERROR,
             error_detail="error:unexpected_ipc_evidence_failure",
-        )
-    return result.to_dict()
+        ).to_dict()
 
 
 join_evidence = JoinNode(name="join_evidence")

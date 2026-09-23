@@ -1,4 +1,6 @@
 import json
+from datetime import UTC, date, datetime, time
+from decimal import Decimal
 
 import pytest
 
@@ -210,3 +212,49 @@ def test_artifact_provenance_rejects_negative_version():
 def test_source_status_accepts_plain_string_value():
     result = SourceResult(source="bigquery.get_workorder", status="no_match")
     assert result.status is SourceStatus.NO_MATCH
+
+
+def test_source_result_coerces_bigquery_scalar_types() -> None:
+    """Live BigQuery rows carry datetime/date/time/Decimal/bytes values.
+
+    The mocked-client tests only ever produced strings, so this covers the
+    real column types the predefined SQL selects (TIMESTAMP, DATE, TIME,
+    NUMERIC, BYTES) reaching ``to_dict`` unconverted.
+    """
+    result = SourceResult(
+        source="bigquery.get_workorder_actions",
+        status=SourceStatus.SUCCESS,
+        records=(
+            {
+                "performed_at": datetime(2026, 9, 1, 9, 15, tzinfo=UTC),
+                "reported_on": date(2026, 9, 1),
+                "time_of_day": time(9, 15),
+                "quantity": Decimal("2.5"),
+                "source_row_hash": b"\x00\xff",
+            },
+        ),
+    )
+
+    payload = result.to_dict()
+    json.dumps(payload)  # must not raise
+    record = payload["records"][0]
+
+    assert record["performed_at"] == "2026-09-01T09:15:00+00:00"
+    assert record["reported_on"] == "2026-09-01"
+    assert record["time_of_day"] == "09:15:00"
+    assert record["quantity"] == "2.5"
+    assert record["source_row_hash"] == "00ff"
+
+
+def test_source_result_still_rejects_genuinely_unknown_types() -> None:
+    """Unknown objects must not be silently stringified into evidence."""
+
+    class Opaque:
+        pass
+
+    with pytest.raises(TypeError):
+        SourceResult(
+            source="bigquery.get_workorder",
+            status=SourceStatus.SUCCESS,
+            records=({"thing": Opaque()},),
+        ).to_dict()
