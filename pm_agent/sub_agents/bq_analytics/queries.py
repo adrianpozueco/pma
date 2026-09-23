@@ -56,13 +56,14 @@ __all__ = [
 LOCATION = "us-central1"
 DATASET = "pma_agent_analytics"
 WORKORDERS_TABLE = "wo_workorders"
+FAA_TABLE = "faa_sdr_wo_parts"
 
 # Code-owned allowlists. These are never populated from model or user input:
 # QueryRunner raises rather than building a query against anything outside
-# them. A later N3 part-history/coverage tool extends this set, it does not
-# bypass it.
+# them. N3's get_part_coverage counts FAA reports through this same runner
+# (bq_analytics/adapters.py), it does not bypass it.
 _ALLOWED_DATASETS = frozenset({DATASET})
-_ALLOWED_TABLES = frozenset({WORKORDERS_TABLE})
+_ALLOWED_TABLES = frozenset({WORKORDERS_TABLE, FAA_TABLE})
 
 _PROJECT_RE = re.compile(r"[a-z][a-z0-9-]{4,61}[a-z0-9]")
 
