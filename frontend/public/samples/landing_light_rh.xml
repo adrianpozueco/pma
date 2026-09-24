@@ -1,0 +1,16 @@
+<amosTransportEnvelope version="1.3">
+  <header><date timezone="UTC">2026-09-24T08:00:00Z</date></header>
+  <payload type="transferWorkorder" version="3.1"><transferWorkorder>
+    <workorder uuid="example-ex-llt-001"><workorderNumber>EX-LLT-001</workorderNumber>
+      <workorderHeader><workorderType>M</workorderType><workorderState>O</workorderState>
+        <ataChapter>33-42</ataChapter><aircraft><aircraftFullRegistration>9H-REG00427</aircraftFullRegistration><aircraftType>B737-8</aircraftType></aircraft>
+        <issueData><issueDateTime>2026-09-24T07:30:00Z</issueDateTime></issueData>
+        <positionInfo><position>RH</position></positionInfo>
+        <component><partNumber>72605363-1</partNumber><serialNumber>EX-SN-001</serialNumber></component>
+      </workorderHeader>
+      <workSteps><workStep uuid="example-ex-llt-001-s1"><workStepDateTime>2026-09-24T07:35:00Z</workStepDateTime><description>REF TO HIL 190999005 RIGHT LANDING LIGHT INOP.</description>
+        <actions><action uuid="a1"><actionType>Action</actionType><actionText>RH LANDING LIGHT BULB AND WIRING CHECKED IAW AMM 33-42-01 REV 88. POWER SUPPLY OUTPUT NIL, POWER SUPPLY SUSPECTED.</actionText><performedData><performedDateTime>2026-09-24T07:50:00.000Z</performedDateTime></performedData></action></actions>
+      </workStep></workSteps>
+    </workorder>
+  </transferWorkorder></payload>
+</amosTransportEnvelope>

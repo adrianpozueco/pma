@@ -22,6 +22,8 @@ export interface WorkOrderDocument {
   filename: string;
   source: Source;
   sampleId?: string;
+  /** The exact XML text, posted unchanged to the analysis service. */
+  xml: string;
   orders: WorkOrder[];
 }
 export interface Sample {
@@ -30,7 +32,9 @@ export interface Sample {
   partNumber: string;
   description: string;
   outcome: string;
-  icon: "engine" | "boiler" | "oven";
+  icon: "plane" | "shield";
+  /** Served by Vite from public/samples/. */
+  file: string;
 }
 export type Stage = "workorder" | "history" | "manuals" | "outlook";
 export type StageStatus = "pending" | "running" | "complete" | "unavailable";
@@ -38,25 +42,50 @@ export interface Progress {
   stage: Stage;
   status: StageStatus;
 }
-export interface Evidence {
-  title: string;
-  source: string;
-  detail: string;
+export interface Quantiles {
+  p50: number | null;
+  p90: number | null;
+  p95: number | null;
+}
+export interface RecommendationOutlook {
+  status: "recommendation";
+  componentKey: string;
+  /** "recommend_inspection_or_part_planning" | "monitor" */
+  action: string;
+  /** "similar_workorders" | "component_history" | "fleet_replacement_interval" */
+  basis: string;
+  tac: Quantiles;
+  lead: Quantiles;
+  referenceTac: number | null;
+  confidence: {
+    level: string;
+    similarity: number | null;
+    sampleSize: number;
+    cv: number | null;
+  };
+  evidence: { woId: string; sim: number | null }[];
+  cyclesPerDay: number;
+  /** YYYY-MM-DD of the analysis cutoff. */
+  asOf: string;
+  limitations: string[];
 }
 export type Outlook =
+  | RecommendationOutlook
   | {
-      status: "illustrative";
-      rangeCycles: [number, number];
-      cyclesPerDay: number;
+      status: "interval";
+      componentKey: string | null;
+      p50: number;
+      p90: number;
+      n: number;
+      aircraft: number | null;
       asOf: string;
-      evidence: Evidence[];
-      reason: string;
+      limitations: string[];
     }
   | {
       status: "unavailable";
       reason: string;
       missing: string[];
-      evidence: Evidence[];
+      limitations: string[];
     };
 export interface AnalysisRequest {
   document: WorkOrderDocument;

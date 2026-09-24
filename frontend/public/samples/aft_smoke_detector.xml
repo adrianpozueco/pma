@@ -1,0 +1,15 @@
+<amosTransportEnvelope version="1.3">
+  <header><date timezone="UTC">2026-09-23T10:00:00Z</date></header>
+  <payload type="transferWorkorder" version="3.1"><transferWorkorder>
+    <workorder uuid="manual-aft-pn-0001"><workorderNumber>MANUAL-AFT-PN-001</workorderNumber>
+      <workorderHeader><workorderType>M</workorderType><workorderState>O</workorderState>
+        <ataChapter>26-16</ataChapter><aircraft><aircraftFullRegistration>SP-REG00374</aircraftFullRegistration><aircraftType>B737-8</aircraftType></aircraft>
+        <issueData><issueDateTime>2026-09-23T09:00:00Z</issueDateTime></issueData>
+        <positionInfo><position>AFT</position></positionInfo>
+        <component><partNumber>473597-5</partNumber><serialNumber>MANUAL-1</serialNumber></component>
+      </workorderHeader>
+      <workSteps><workStep uuid="step-cargo"><workStepDateTime>2026-09-23T09:05:00Z</workStepDateTime><description>AFT CARGO FIRE LOOP A - INOP</description>
+      </workStep></workSteps>
+    </workorder>
+  </transferWorkorder></payload>
+</amosTransportEnvelope>

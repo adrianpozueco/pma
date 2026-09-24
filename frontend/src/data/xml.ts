@@ -98,5 +98,5 @@ export function parseXmlPreview(
       components,
     };
   });
-  return { filename, source: "upload", orders };
+  return { filename, source: "upload", xml, orders };
 }
