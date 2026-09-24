@@ -21,6 +21,7 @@ from amos_data.retrieval import LocalHistoryProvider
 from pm_agent.nodes import evidence_branches
 from pm_agent.nodes.evidence_branches import (
     _merge_branch,
+    _pma_lines,
     _run_bq_tools,
     _unavailable_result,
     bq_evidence,
@@ -324,6 +325,262 @@ def test_run_bq_tools_with_nothing_selected_returns_empty_no_match():
     result = _run_bq_tools(request, runner, provider=None)
     assert result.status == SourceStatus.NO_MATCH
     assert result.counts == {"tools_executed": 0}
+
+
+def test_run_bq_tools_runs_a_pma_role_candidate_like_any_other():
+    """`workorder_upload.py` appends a `roles=("pma_component",)` candidate
+    (T13b); `_run_bq_tools` iterates every candidate regardless of role, so
+    it must be picked up with no code change here."""
+    jobs = [Job(rows=[{"workorder_id": "wo-3", "part_off_number": "PN1"}])]
+    runner = _runner(jobs)
+    request = _request(
+        part_candidates=(
+            PartCandidate(part_key="PN1", part_number="PN1", roles=("pma_component",)),
+        ),
+    )
+    result = _run_bq_tools(request, runner, provider=None)
+    tools = result.executed_parameters["tools"]
+    assert tools["bigquery.get_part_history"]["status"] == "success"
+    assert result.status == SourceStatus.SUCCESS
+
+
+# ------------------------------- _pma_lines ----------------------------------
+# Section (d)'s PMA rendering, per §6.5's fixed user-facing strings table.
+
+
+def test_pma_lines_empty_pma_renders_nothing():
+    assert _pma_lines({}) == []
+
+
+def test_pma_lines_historical_interval_renders_header_interval_and_match():
+    pma = {
+        "decision": "historical_interval",
+        "reason": None,
+        "component_key": "PN1|POS-A",
+        "match": {"gate_basis": "exact_pn_position"},
+        "interval": {"p50": 1200, "p90": 2400, "n": 8, "aircraft": 5},
+    }
+    lines = _pma_lines(pma)
+    assert "Matched component: PN1\\|POS-A (exact\\_pn\\_position)." in lines
+    assert "**Observed historical interval (not a forecast)**" in lines
+    assert (
+        "Between closing TACs: p50 1200 cycles, p90 2400 cycles (n=8, 5 aircraft)."
+        in lines
+    )
+    # No "no reliable prediction"/"out of scope" wording leaks in.
+    assert not any("No reliable prediction" in line for line in lines)
+    assert not any("Out of scope" in line for line in lines)
+
+
+def test_pma_lines_no_reliable_prediction_has_no_interval_wording():
+    pma = {
+        "decision": "no_reliable_prediction",
+        "reason": "insufficient_samples",
+        "component_key": "PN1|POS-A",
+        "match": {"gate_basis": "anchor_vote", "vote_support": 4},
+    }
+    lines = _pma_lines(pma)
+    assert "Matched component: PN1\\|POS-A (anchor\\_vote)." in lines
+    assert (
+        "No reliable prediction: too few historical samples exist for this component."
+        in lines
+    )
+    # Interval wording only appears for a historical_interval decision.
+    assert not any("not a forecast" in line for line in lines)
+
+
+def test_pma_lines_out_of_scope_no_component_key():
+    pma = {"decision": "out_of_scope", "reason": "aircraft_type_not_in_scope"}
+    lines = _pma_lines(pma)
+    assert lines == [
+        "Out of scope for PMA prediction: this aircraft type is not in scope."
+    ]
+
+
+def test_pma_lines_supporting_interval_and_stale_tac():
+    pma = {
+        "decision": "no_reliable_prediction",
+        "reason": "no_lead_time_samples",
+        "supporting_interval": {"p50": 300, "p90": 900, "n": 4, "aircraft": 3},
+        "current_tac": {
+            "value": 100,
+            "source": "issue",
+            "observed_at": "2025-01-01",
+            "stale": True,
+        },
+    }
+    lines = _pma_lines(pma)
+    assert (
+        "Fleet pattern (not a forecast): this component was replaced again after "
+        "p50 300 / p90 900 cycles (n=4, 3 aircraft)." in lines
+    )
+    assert (
+        "Current aircraft TAC is stale (last seen 2025-01-01); no due TAC is given."
+        in lines
+    )
+    # No window/position wording without a `projected_window` (Option B).
+    assert not any("Projected window" in line for line in lines)
+    assert not any("fleet median" in line or "fleet p90" in line for line in lines)
+
+
+def test_pma_lines_disabled_reason_renders_no_reliable_prediction():
+    pma = {"decision": "no_reliable_prediction", "reason": "prediction_disabled"}
+    assert _pma_lines(pma) == ["No reliable prediction: PMA prediction is disabled."]
+
+
+# --- Option B: projected replacement window (approved 2026-09-24, requirement 7) ---
+# Live-data numbers from 473597-5|AFT / SP-REG00374 (PMA-ONLINE-AGENT-plan.md
+# background): n=27, p50 356, p90 ~1968.2 -> tac_p50 18294, tac_p90 19906 off
+# last_replacement_tac 17938; latest known TAC 18660 is 722 cycles later.
+
+
+def _aft_supporting_interval() -> dict[str, Any]:
+    # p90 deliberately carries BigQuery PERCENTILE_CONT float noise so the
+    # rounding fix (§7 requirement 7) is exercised, not just a round number.
+    return {"p50": 356, "p90": 1968.2000000000003, "n": 27, "aircraft": 24}
+
+
+def test_pma_lines_projected_window_renders_window_and_position_rounded():
+    pma = {
+        "decision": "no_reliable_prediction",
+        "reason": "samples_not_symptom_to_replacement",
+        "component_key": "473597-5|AFT",
+        "match": {"gate_basis": "anchor_vote"},
+        "supporting_interval": _aft_supporting_interval(),
+        "projected_window": {
+            "last_replacement_tac": 17938,
+            "last_replacement_date": "2026-04-25",
+            "tac_p50": 18294,
+            "tac_p90": 19906,
+            "cycles_since_last_replacement": 722,
+            "position": "between_p50_p90",
+        },
+    }
+    lines = _pma_lines(pma)
+    assert (
+        "Fleet pattern (not a forecast): this component was replaced again after "
+        "p50 356 / p90 1968 cycles (n=27, 24 aircraft)."
+    ) in lines
+    assert (
+        "Projected window for this aircraft (fleet pattern, not a forecast): last "
+        "replaced at TAC 17938 (2026-04-25); if the pattern repeats, next "
+        "replacement around TAC 18294\u201319906."
+    ) in lines
+    assert (
+        "Latest known TAC is 722 cycles after that replacement, past the fleet "
+        "median but inside p90."
+    ) in lines
+    # No "1968.2000000000003"-style float noise anywhere in the rendered lines.
+    assert not any("." in line and "2000000000003" in line for line in lines)
+
+
+@pytest.mark.parametrize(
+    ("position", "expected_suffix"),
+    [
+        ("before_p50", "before the fleet median."),
+        ("between_p50_p90", "past the fleet median but inside p90."),
+        (
+            "past_p90",
+            "beyond the fleet p90; replacement is overdue against the fleet pattern.",
+        ),
+    ],
+)
+def test_pma_lines_position_wording_by_boundary(position, expected_suffix):
+    pma = {
+        "decision": "no_reliable_prediction",
+        "reason": "samples_not_symptom_to_replacement",
+        "supporting_interval": _aft_supporting_interval(),
+        "projected_window": {
+            "last_replacement_tac": 17938,
+            "last_replacement_date": "2026-04-25",
+            "tac_p50": 18294,
+            "tac_p90": 19906,
+            "cycles_since_last_replacement": 500,
+            "position": position,
+        },
+    }
+    lines = _pma_lines(pma)
+    assert any(line.endswith(expected_suffix) for line in lines)
+
+
+def test_pma_lines_projected_window_without_cycles_since_omits_position_line():
+    pma = {
+        "decision": "no_reliable_prediction",
+        "reason": "samples_not_symptom_to_replacement",
+        "supporting_interval": _aft_supporting_interval(),
+        "projected_window": {
+            "last_replacement_tac": 17938,
+            "last_replacement_date": "2026-04-25",
+            "tac_p50": 18294,
+            "tac_p90": 19906,
+            "cycles_since_last_replacement": None,
+            "position": None,
+        },
+    }
+    lines = _pma_lines(pma)
+    assert any(line.startswith("Projected window for this aircraft") for line in lines)
+    assert not any(line.startswith("Latest known TAC is") for line in lines)
+
+
+def test_pma_lines_no_prior_replacement_on_aircraft():
+    pma = {
+        "decision": "no_reliable_prediction",
+        "reason": "samples_not_symptom_to_replacement",
+        "supporting_interval": _aft_supporting_interval(),
+        "projected_window": None,
+        "limitations": ["not_calibrated", "no_prior_replacement_on_aircraft"],
+    }
+    lines = _pma_lines(pma)
+    assert (
+        "No earlier replacement of this component on this aircraft is recorded, "
+        "so no aircraft-specific window is given."
+    ) in lines
+    assert not any("Projected window" in line for line in lines)
+
+
+def test_pma_lines_no_window_without_the_limitation_flag_stays_silent():
+    """`projected_window_unavailable` (query failed) is a different signal
+    from `no_prior_replacement_on_aircraft`; neither the window/position nor
+    the "no earlier replacement" line is fabricated for it here (it still
+    surfaces as a plain limitation string elsewhere)."""
+    pma = {
+        "decision": "no_reliable_prediction",
+        "reason": "samples_not_symptom_to_replacement",
+        "supporting_interval": _aft_supporting_interval(),
+        "projected_window": None,
+        "limitations": ["projected_window_unavailable"],
+    }
+    lines = _pma_lines(pma)
+    assert not any("Projected window" in line for line in lines)
+    assert not any("No earlier replacement" in line for line in lines)
+
+
+def test_pma_lines_stale_tac_with_projected_window_uses_window_wording():
+    pma = {
+        "decision": "no_reliable_prediction",
+        "reason": "samples_not_symptom_to_replacement",
+        "supporting_interval": _aft_supporting_interval(),
+        "projected_window": {
+            "last_replacement_tac": 17938,
+            "last_replacement_date": "2026-04-25",
+            "tac_p50": 18294,
+            "tac_p90": 19906,
+            "cycles_since_last_replacement": 722,
+            "position": "between_p50_p90",
+        },
+        "current_tac": {
+            "value": 18660,
+            "source": "latest_closing_tac",
+            "observed_at": "2026-08-20T22:30:00+00:00",
+            "stale": True,
+        },
+    }
+    lines = _pma_lines(pma)
+    assert (
+        "Current aircraft TAC is stale (last seen 2026-08-20T22:30:00+00:00); "
+        "the window is not adjusted for cycles flown since."
+    ) in lines
+    assert not any(line.endswith("no due TAC is given.") for line in lines)
 
 
 # --- error boundary: serialization must not escape the node (N5 regression) ---

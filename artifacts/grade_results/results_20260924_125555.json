@@ -1,0 +1,339 @@
+{
+  "eval_case_results": [
+    {
+      "eval_case_index": 0,
+      "response_candidate_results": [
+        {
+          "response_index": 0,
+          "metric_results": {
+            "pma_online_contract": {
+              "metric_name": "pma_online_contract",
+              "score": 0.8333333333333334,
+              "explanation": "5/6 PMA contract checks passed.",
+              "rubric_verdicts": null,
+              "raw_output": null,
+              "error_message": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "eval_case_index": 1,
+      "response_candidate_results": [
+        {
+          "response_index": 0,
+          "metric_results": {
+            "pma_online_contract": {
+              "metric_name": "pma_online_contract",
+              "score": 0.8333333333333334,
+              "explanation": "5/6 PMA contract checks passed.",
+              "rubric_verdicts": null,
+              "raw_output": null,
+              "error_message": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "summary_metrics": [
+    {
+      "metric_name": "pma_online_contract",
+      "num_cases_total": 2,
+      "num_cases_valid": 2,
+      "num_cases_error": 0,
+      "mean_score": 0.8333333333333334,
+      "stdev_score": 0.0,
+      "pass_rate": null
+    }
+  ],
+  "win_rates": null,
+  "evaluation_dataset": [
+    {
+      "bigquery_source": null,
+      "gcs_source": null,
+      "eval_cases": [
+        {
+          "prompt": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Analyse the attached work order.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              },
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": {
+                  "data": "PGFtb3NUcmFuc3BvcnRFbnZlbG9wZSB2ZXJzaW9uPSIxLjMiPgogIDxoZWFkZXI-PGRhdGUgdGltZXpvbmU9IlVUQyI-MjAyNi0wOS0yM1QxMDowMDowMFo8L2RhdGU-PC9oZWFkZXI-CiAgPHBheWxvYWQgdHlwZT0idHJhbnNmZXJXb3Jrb3JkZXIiIHZlcnNpb249IjMuMSI-PHRyYW5zZmVyV29ya29yZGVyPgogICAgPHdvcmtvcmRlciB1dWlkPSJjYXJnby1zbW9rZS1kZXRlY3Rvci1maXh0dXJlIj48d29ya29yZGVyTnVtYmVyPkNBUkdPLUFGVC0wMDE8L3dvcmtvcmRlck51bWJlcj4KICAgICAgPHdvcmtvcmRlckhlYWRlcj48d29ya29yZGVyVHlwZT5NPC93b3Jrb3JkZXJUeXBlPjx3b3Jrb3JkZXJTdGF0ZT5PPC93b3Jrb3JkZXJTdGF0ZT4KICAgICAgICA8YXRhQ2hhcHRlcj4yNi0xNjwvYXRhQ2hhcHRlcj48YWlyY3JhZnQ-PGFpcmNyYWZ0RnVsbFJlZ2lzdHJhdGlvbj5TUC1SRUcwMDM3NDwvYWlyY3JhZnRGdWxsUmVnaXN0cmF0aW9uPjxhaXJjcmFmdFR5cGU-QjczNy04PC9haXJjcmFmdFR5cGU-PC9haXJjcmFmdD4KICAgICAgICA8aXNzdWVEYXRhPjxpc3N1ZURhdGVUaW1lPjIwMjYtMDktMjNUMDk6MDA6MDBaPC9pc3N1ZURhdGVUaW1lPjwvaXNzdWVEYXRhPgogICAgICAgIDxwb3NpdGlvbkluZm8-PHBvc2l0aW9uPkFGVDwvcG9zaXRpb24-PC9wb3NpdGlvbkluZm8-CiAgICAgIDwvd29ya29yZGVySGVhZGVyPgogICAgICA8d29ya1N0ZXBzPjx3b3JrU3RlcCB1dWlkPSJzdGVwLWNhcmdvIj48d29ya1N0ZXBEYXRlVGltZT4yMDI2LTA5LTIzVDA5OjA1OjAwWjwvd29ya1N0ZXBEYXRlVGltZT48ZGVzY3JpcHRpb24-QUZUIENBUkdPIEZJUkUgTE9PUCBBIC0gSU5PUDwvZGVzY3JpcHRpb24-CiAgICAgIDwvd29ya1N0ZXA-PC93b3JrU3RlcHM-CiAgICA8L3dvcmtvcmRlcj4KICA8L3RyYW5zZmVyV29ya29yZGVyPjwvcGF5bG9hZD4KPC9hbW9zVHJhbnNwb3J0RW52ZWxvcGU-Cg==",
+                  "display_name": null,
+                  "mime_type": "application/xml"
+                },
+                "text": null,
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "responses": [
+            {
+              "response": {
+                "parts": [
+                  {
+                    "media_resolution": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "file_data": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "inline_data": null,
+                    "text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CARGO-AFT-001**; aircraft SP-REG00374, 737-800.\n\nOpen work order \u2014 analysis of the uploaded snapshot.\n\nAnalysis cutoff: 2026-09-24T10:55:42.894715+00:00.\n\n**Target parts**\n\n**Reported findings**\n- AFT CARGO FIRE LOOP A - INOP\n\nCurrent aircraft TAC: not supplied; last closing TAC in BigQuery 18660 at 2026-08-20T22:30:00+00:00 (context only).\nClosing aircraft TAC: not recorded; this is not the current counter or component age.\n\nCurrent aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\nNo configured target part was resolved from the uploaded work order.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Current aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\n- No configured target part was resolved from the uploaded work order.\n- No reliable prediction: no focus component could be matched with confidence.\n- Current aircraft TAC is stale (last seen 2026-08-20T22:30:00+00:00); no due TAC is given.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.",
+                    "thought": null,
+                    "thought_signature": null,
+                    "video_metadata": null,
+                    "tool_call": null,
+                    "tool_response": null,
+                    "part_metadata": null,
+                    "audio_transcription": null,
+                    "media_processing": null
+                  }
+                ],
+                "role": "model"
+              }
+            }
+          ],
+          "reference": null,
+          "system_instruction": null,
+          "conversation_history": null,
+          "rubric_groups": null,
+          "eval_case_id": "pma_online_cargo_aft_smoke_detector",
+          "intermediate_events": null,
+          "agent_info": null,
+          "agent_data": {
+            "agents": null,
+            "turns": [
+              {
+                "turn_index": 0,
+                "turn_id": "turn_0",
+                "events": [
+                  {
+                    "author": "pm_agent",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CARGO-AFT-001**; aircraft SP-REG00374, 737-800.\n\nOpen work order \u2014 analysis of the uploaded snapshot.\n\nAnalysis cutoff: 2026-09-24T10:55:42.894715+00:00.\n\n**Target parts**\n\n**Reported findings**\n- AFT CARGO FIRE LOOP A - INOP\n\nCurrent aircraft TAC: not supplied; last closing TAC in BigQuery 18660 at 2026-08-20T22:30:00+00:00 (context only).\nClosing aircraft TAC: not recorded; this is not the current counter or component age.\n\nCurrent aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\nNo configured target part was resolved from the uploaded work order.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Current aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\n- No configured target part was resolved from the uploaded work order.\n- No reliable prediction: no focus component could be matched with confidence.\n- Current aircraft TAC is stale (last seen 2026-08-20T22:30:00+00:00); no due TAC is given.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null,
+                          "audio_transcription": null,
+                          "media_processing": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": "2026-09-24T10:55:54.459871Z",
+                    "state_delta": null,
+                    "active_tools": null
+                  }
+                ]
+              }
+            ]
+          },
+          "user_scenario": null,
+          "interactions_data_source": null
+        },
+        {
+          "prompt": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Analyse the attached work order.",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              },
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": {
+                  "data": "PGFtb3NUcmFuc3BvcnRFbnZlbG9wZT48cGF5bG9hZCB0eXBlPSJ0cmFuc2ZlcldvcmtvcmRlciI-PHRyYW5zZmVyV29ya29yZGVyPgogIDx3b3Jrb3JkZXIgdXVpZD0id28tY2xvc2VkIj48d29ya29yZGVyTnVtYmVyPkNMT1NFRC0xPC93b3Jrb3JkZXJOdW1iZXI-CiAgPHdvcmtvcmRlckhlYWRlcj48d29ya29yZGVyU3RhdGU-Qzwvd29ya29yZGVyU3RhdGU-PGNsb3NpbmdEYXRhPjxjbG9zaW5nRGF0ZVRpbWU-MjAyNi0wMi0wMlQxMDowMDowMFo8L2Nsb3NpbmdEYXRlVGltZT48Y2xvc2luZ1RhYz4yMjA8L2Nsb3NpbmdUYWM-PC9jbG9zaW5nRGF0YT48L3dvcmtvcmRlckhlYWRlcj4KICA8d29ya1N0ZXBzPjx3b3JrU3RlcCB1dWlkPSJzdGVwLWNsb3NlZCI-PHdvcmtTdGVwRGF0ZVRpbWU-MjAyNi0wMi0wMVQxMDowMDowMFo8L3dvcmtTdGVwRGF0ZVRpbWU-PGRlc2NyaXB0aW9uPldhdGVyIGJvaWxlciB0cmlwcyBicmVha2VyPC9kZXNjcmlwdGlvbj48YWN0aW9ucz48YWN0aW9uIHV1aWQ9ImNsb3NlZC1hY3Rpb24iPjxhY3Rpb25UZXh0PkNvbXBsZXRlZCByZXBsYWNlbWVudDwvYWN0aW9uVGV4dD48L2FjdGlvbj48L2FjdGlvbnM-PC93b3JrU3RlcD48L3dvcmtTdGVwcz4KICA8L3dvcmtvcmRlcj4KPC90cmFuc2ZlcldvcmtvcmRlcj48L3BheWxvYWQ-PC9hbW9zVHJhbnNwb3J0RW52ZWxvcGU-Cg==",
+                  "display_name": null,
+                  "mime_type": "application/xml"
+                },
+                "text": null,
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null,
+                "audio_transcription": null,
+                "media_processing": null
+              }
+            ],
+            "role": "user"
+          },
+          "responses": [
+            {
+              "response": {
+                "parts": [
+                  {
+                    "media_resolution": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "file_data": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "inline_data": null,
+                    "text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CLOSED-1**; aircraft not recorded, not recorded.\n\nCompleted work order \u2014 historical analysis.\n\nAnalysis cutoff: 2026-09-24T10:55:42.570124+00:00.\n\n**Target parts**\n\n**Reported findings**\nNo symptom text is available at this cutoff.\n\nCurrent aircraft TAC: not recorded (not\\_supplied).\nClosing aircraft TAC: 220; this is not the current counter or component age.\n\nClosed-export symptom text is an unverified snapshot of the original observation.\nClosed-export text is excluded because the requested replay precedes a verified export timestamp.\nReplay excludes completed action and closing text from query and feature context.\nNo configured target part was resolved from the uploaded work order.\nNo symptom text is safely available at the requested analysis timestamp.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Closed-export symptom text is an unverified snapshot of the original observation.\n- Closed-export text is excluded because the requested replay precedes a verified export timestamp.\n- Replay excludes completed action and closing text from query and feature context.\n- No configured target part was resolved from the uploaded work order.\n- No symptom text is safely available at the requested analysis timestamp.\n- No reliable prediction: no focus component could be matched with confidence.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.",
+                    "thought": null,
+                    "thought_signature": null,
+                    "video_metadata": null,
+                    "tool_call": null,
+                    "tool_response": null,
+                    "part_metadata": null,
+                    "audio_transcription": null,
+                    "media_processing": null
+                  }
+                ],
+                "role": "model"
+              }
+            }
+          ],
+          "reference": null,
+          "system_instruction": null,
+          "conversation_history": null,
+          "rubric_groups": null,
+          "eval_case_id": "pma_online_boiler_out_of_scope",
+          "intermediate_events": null,
+          "agent_info": null,
+          "agent_data": {
+            "agents": null,
+            "turns": [
+              {
+                "turn_index": 0,
+                "turn_id": "turn_0",
+                "events": [
+                  {
+                    "author": "pm_agent",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CLOSED-1**; aircraft not recorded, not recorded.\n\nCompleted work order \u2014 historical analysis.\n\nAnalysis cutoff: 2026-09-24T10:55:42.570124+00:00.\n\n**Target parts**\n\n**Reported findings**\nNo symptom text is available at this cutoff.\n\nCurrent aircraft TAC: not recorded (not\\_supplied).\nClosing aircraft TAC: 220; this is not the current counter or component age.\n\nClosed-export symptom text is an unverified snapshot of the original observation.\nClosed-export text is excluded because the requested replay precedes a verified export timestamp.\nReplay excludes completed action and closing text from query and feature context.\nNo configured target part was resolved from the uploaded work order.\nNo symptom text is safely available at the requested analysis timestamp.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Closed-export symptom text is an unverified snapshot of the original observation.\n- Closed-export text is excluded because the requested replay precedes a verified export timestamp.\n- Replay excludes completed action and closing text from query and feature context.\n- No configured target part was resolved from the uploaded work order.\n- No symptom text is safely available at the requested analysis timestamp.\n- No reliable prediction: no focus component could be matched with confidence.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null,
+                          "audio_transcription": null,
+                          "media_processing": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": "2026-09-24T10:55:51.682532Z",
+                    "state_delta": null,
+                    "active_tools": null
+                  }
+                ]
+              }
+            ]
+          },
+          "user_scenario": null,
+          "interactions_data_source": null
+        }
+      ],
+      "eval_dataset_df": null,
+      "candidate_name": null
+    }
+  ],
+  "metadata": {
+    "candidate_names": [
+      "candidate_1"
+    ],
+    "dataset_name": null,
+    "dataset_id": null,
+    "creation_timestamp": "2026-09-24T10:55:55.336205Z",
+    "dataset": [
+      {
+        "prompt_display_text": "Analyse the attached work order.",
+        "prompt_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"Analyse the attached work order.\"\n    },\n    {\n      \"inline_data\": {\n        \"data\": \"PGFtb3NUcmFuc3BvcnRFbnZlbG9wZSB2ZXJzaW9uPSIxLjMiPgogIDxoZWFkZXI-PGRhdGUgdGltZXpvbmU9IlVUQyI-MjAyNi0wOS0yM1QxMDowMDowMFo8L2RhdGU-PC9oZWFkZXI-CiAgPHBheWxvYWQgdHlwZT0idHJhbnNmZXJXb3Jrb3JkZXIiIHZlcnNpb249IjMuMSI-PHRyYW5zZmVyV29ya29yZGVyPgogICAgPHdvcmtvcmRlciB1dWlkPSJjYXJnby1zbW9rZS1kZXRlY3Rvci1maXh0dXJlIj48d29ya29yZGVyTnVtYmVyPkNBUkdPLUFGVC0wMDE8L3dvcmtvcmRlck51bWJlcj4KICAgICAgPHdvcmtvcmRlckhlYWRlcj48d29ya29yZGVyVHlwZT5NPC93b3Jrb3JkZXJUeXBlPjx3b3Jrb3JkZXJTdGF0ZT5PPC93b3Jrb3JkZXJTdGF0ZT4KICAgICAgICA8YXRhQ2hhcHRlcj4yNi0xNjwvYXRhQ2hhcHRlcj48YWlyY3JhZnQ-PGFpcmNyYWZ0RnVsbFJlZ2lzdHJhdGlvbj5TUC1SRUcwMDM3NDwvYWlyY3JhZnRGdWxsUmVnaXN0cmF0aW9uPjxhaXJjcmFmdFR5cGU-QjczNy04PC9haXJjcmFmdFR5cGU-PC9haXJjcmFmdD4KICAgICAgICA8aXNzdWVEYXRhPjxpc3N1ZURhdGVUaW1lPjIwMjYtMDktMjNUMDk6MDA6MDBaPC9pc3N1ZURhdGVUaW1lPjwvaXNzdWVEYXRhPgogICAgICAgIDxwb3NpdGlvbkluZm8-PHBvc2l0aW9uPkFGVDwvcG9zaXRpb24-PC9wb3NpdGlvbkluZm8-CiAgICAgIDwvd29ya29yZGVySGVhZGVyPgogICAgICA8d29ya1N0ZXBzPjx3b3JrU3RlcCB1dWlkPSJzdGVwLWNhcmdvIj48d29ya1N0ZXBEYXRlVGltZT4yMDI2LTA5LTIzVDA5OjA1OjAwWjwvd29ya1N0ZXBEYXRlVGltZT48ZGVzY3JpcHRpb24-QUZUIENBUkdPIEZJUkUgTE9PUCBBIC0gSU5PUDwvZGVzY3JpcHRpb24-CiAgICAgIDwvd29ya1N0ZXA-PC93b3JrU3RlcHM-CiAgICA8L3dvcmtvcmRlcj4KICA8L3RyYW5zZmVyV29ya29yZGVyPjwvcGF5bG9hZD4KPC9hbW9zVHJhbnNwb3J0RW52ZWxvcGU-Cg==\",\n        \"mime_type\": \"application/xml\"\n      }\n    }\n  ],\n  \"role\": \"user\"\n}",
+        "reference": "",
+        "reference_raw_json": "",
+        "response_display_text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CARGO-AFT-001**; aircraft SP-REG00374, 737-800.\n\nOpen work order \u2014 analysis of the uploaded snapshot.\n\nAnalysis cutoff: 2026-09-24T10:55:42.894715+00:00.\n\n**Target parts**\n\n**Reported findings**\n- AFT CARGO FIRE LOOP A - INOP\n\nCurrent aircraft TAC: not supplied; last closing TAC in BigQuery 18660 at 2026-08-20T22:30:00+00:00 (context only).\nClosing aircraft TAC: not recorded; this is not the current counter or component age.\n\nCurrent aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\nNo configured target part was resolved from the uploaded work order.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Current aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\n- No configured target part was resolved from the uploaded work order.\n- No reliable prediction: no focus component could be matched with confidence.\n- Current aircraft TAC is stale (last seen 2026-08-20T22:30:00+00:00); no due TAC is given.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.",
+        "response_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"**(a) What the uploaded work order records**\\nAnalysed uploaded XML **workorder-1.xml** (version 0).\\n\\nWork order **CARGO-AFT-001**; aircraft SP-REG00374, 737-800.\\n\\nOpen work order \u2014 analysis of the uploaded snapshot.\\n\\nAnalysis cutoff: 2026-09-24T10:55:42.894715+00:00.\\n\\n**Target parts**\\n\\n**Reported findings**\\n- AFT CARGO FIRE LOOP A - INOP\\n\\nCurrent aircraft TAC: not supplied; last closing TAC in BigQuery 18660 at 2026-08-20T22:30:00+00:00 (context only).\\nClosing aircraft TAC: not recorded; this is not the current counter or component age.\\n\\nCurrent aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\\nNo configured target part was resolved from the uploaded work order.\\n\\nTo select a target, reply target_part_number=PN.\\n\\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\\n\\n**(b) Earlier BigQuery cases**\\nBigQuery was queried and found no matching records.\\n\\n**(c) Retrieved manual pages (IPC)**\\nThe IPC knowledge base was queried and found no matching pages.\\n\\n**(d) Missing/conflicting evidence and unavailable predictions**\\n- Current aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\\n- No configured target part was resolved from the uploaded work order.\\n- No reliable prediction: no focus component could be matched with confidence.\\n- Current aircraft TAC is stale (last seen 2026-08-20T22:30:00+00:00); no due TAC is given.\\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.\"\n    }\n  ],\n  \"role\": \"model\"\n}",
+        "intermediate_events": null,
+        "agent_data": "{\"turns\": [{\"turn_index\": 0, \"turn_id\": \"turn_0\", \"events\": [{\"author\": \"pm_agent\", \"content\": {\"parts\": [{\"text\": \"**(a) What the uploaded work order records**\\nAnalysed uploaded XML **workorder-1.xml** (version 0).\\n\\nWork order **CARGO-AFT-001**; aircraft SP-REG00374, 737-800.\\n\\nOpen work order \u2014 analysis of the uploaded snapshot.\\n\\nAnalysis cutoff: 2026-09-24T10:55:42.894715+00:00.\\n\\n**Target parts**\\n\\n**Reported findings**\\n- AFT CARGO FIRE LOOP A - INOP\\n\\nCurrent aircraft TAC: not supplied; last closing TAC in BigQuery 18660 at 2026-08-20T22:30:00+00:00 (context only).\\nClosing aircraft TAC: not recorded; this is not the current counter or component age.\\n\\nCurrent aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\\nNo configured target part was resolved from the uploaded work order.\\n\\nTo select a target, reply target_part_number=PN.\\n\\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\\n\\n**(b) Earlier BigQuery cases**\\nBigQuery was queried and found no matching records.\\n\\n**(c) Retrieved manual pages (IPC)**\\nThe IPC knowledge base was queried and found no matching pages.\\n\\n**(d) Missing/conflicting evidence and unavailable predictions**\\n- Current aircraft TAC was not supplied; the last closing TAC in BigQuery (18660 at 2026-08-20T22:30:00+00:00) is shown as context only and is not assumed current.\\n- No configured target part was resolved from the uploaded work order.\\n- No reliable prediction: no focus component could be matched with confidence.\\n- Current aircraft TAC is stale (last seen 2026-08-20T22:30:00+00:00); no due TAC is given.\\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.\"}], \"role\": \"model\"}, \"event_time\": \"2026-09-24T10:55:54.459871Z\"}]}]}"
+      },
+      {
+        "prompt_display_text": "Analyse the attached work order.",
+        "prompt_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"Analyse the attached work order.\"\n    },\n    {\n      \"inline_data\": {\n        \"data\": \"PGFtb3NUcmFuc3BvcnRFbnZlbG9wZT48cGF5bG9hZCB0eXBlPSJ0cmFuc2ZlcldvcmtvcmRlciI-PHRyYW5zZmVyV29ya29yZGVyPgogIDx3b3Jrb3JkZXIgdXVpZD0id28tY2xvc2VkIj48d29ya29yZGVyTnVtYmVyPkNMT1NFRC0xPC93b3Jrb3JkZXJOdW1iZXI-CiAgPHdvcmtvcmRlckhlYWRlcj48d29ya29yZGVyU3RhdGU-Qzwvd29ya29yZGVyU3RhdGU-PGNsb3NpbmdEYXRhPjxjbG9zaW5nRGF0ZVRpbWU-MjAyNi0wMi0wMlQxMDowMDowMFo8L2Nsb3NpbmdEYXRlVGltZT48Y2xvc2luZ1RhYz4yMjA8L2Nsb3NpbmdUYWM-PC9jbG9zaW5nRGF0YT48L3dvcmtvcmRlckhlYWRlcj4KICA8d29ya1N0ZXBzPjx3b3JrU3RlcCB1dWlkPSJzdGVwLWNsb3NlZCI-PHdvcmtTdGVwRGF0ZVRpbWU-MjAyNi0wMi0wMVQxMDowMDowMFo8L3dvcmtTdGVwRGF0ZVRpbWU-PGRlc2NyaXB0aW9uPldhdGVyIGJvaWxlciB0cmlwcyBicmVha2VyPC9kZXNjcmlwdGlvbj48YWN0aW9ucz48YWN0aW9uIHV1aWQ9ImNsb3NlZC1hY3Rpb24iPjxhY3Rpb25UZXh0PkNvbXBsZXRlZCByZXBsYWNlbWVudDwvYWN0aW9uVGV4dD48L2FjdGlvbj48L2FjdGlvbnM-PC93b3JrU3RlcD48L3dvcmtTdGVwcz4KICA8L3dvcmtvcmRlcj4KPC90cmFuc2ZlcldvcmtvcmRlcj48L3BheWxvYWQ-PC9hbW9zVHJhbnNwb3J0RW52ZWxvcGU-Cg==\",\n        \"mime_type\": \"application/xml\"\n      }\n    }\n  ],\n  \"role\": \"user\"\n}",
+        "reference": "",
+        "reference_raw_json": "",
+        "response_display_text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CLOSED-1**; aircraft not recorded, not recorded.\n\nCompleted work order \u2014 historical analysis.\n\nAnalysis cutoff: 2026-09-24T10:55:42.570124+00:00.\n\n**Target parts**\n\n**Reported findings**\nNo symptom text is available at this cutoff.\n\nCurrent aircraft TAC: not recorded (not\\_supplied).\nClosing aircraft TAC: 220; this is not the current counter or component age.\n\nClosed-export symptom text is an unverified snapshot of the original observation.\nClosed-export text is excluded because the requested replay precedes a verified export timestamp.\nReplay excludes completed action and closing text from query and feature context.\nNo configured target part was resolved from the uploaded work order.\nNo symptom text is safely available at the requested analysis timestamp.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Closed-export symptom text is an unverified snapshot of the original observation.\n- Closed-export text is excluded because the requested replay precedes a verified export timestamp.\n- Replay excludes completed action and closing text from query and feature context.\n- No configured target part was resolved from the uploaded work order.\n- No symptom text is safely available at the requested analysis timestamp.\n- No reliable prediction: no focus component could be matched with confidence.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.",
+        "response_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"**(a) What the uploaded work order records**\\nAnalysed uploaded XML **workorder-1.xml** (version 0).\\n\\nWork order **CLOSED-1**; aircraft not recorded, not recorded.\\n\\nCompleted work order \u2014 historical analysis.\\n\\nAnalysis cutoff: 2026-09-24T10:55:42.570124+00:00.\\n\\n**Target parts**\\n\\n**Reported findings**\\nNo symptom text is available at this cutoff.\\n\\nCurrent aircraft TAC: not recorded (not\\\\_supplied).\\nClosing aircraft TAC: 220; this is not the current counter or component age.\\n\\nClosed-export symptom text is an unverified snapshot of the original observation.\\nClosed-export text is excluded because the requested replay precedes a verified export timestamp.\\nReplay excludes completed action and closing text from query and feature context.\\nNo configured target part was resolved from the uploaded work order.\\nNo symptom text is safely available at the requested analysis timestamp.\\n\\nTo select a target, reply target_part_number=PN.\\n\\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\\n\\n**(b) Earlier BigQuery cases**\\nBigQuery was queried and found no matching records.\\n\\n**(c) Retrieved manual pages (IPC)**\\nThe IPC knowledge base was queried and found no matching pages.\\n\\n**(d) Missing/conflicting evidence and unavailable predictions**\\n- Closed-export symptom text is an unverified snapshot of the original observation.\\n- Closed-export text is excluded because the requested replay precedes a verified export timestamp.\\n- Replay excludes completed action and closing text from query and feature context.\\n- No configured target part was resolved from the uploaded work order.\\n- No symptom text is safely available at the requested analysis timestamp.\\n- No reliable prediction: no focus component could be matched with confidence.\\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.\"\n    }\n  ],\n  \"role\": \"model\"\n}",
+        "intermediate_events": null,
+        "agent_data": "{\"turns\": [{\"turn_index\": 0, \"turn_id\": \"turn_0\", \"events\": [{\"author\": \"pm_agent\", \"content\": {\"parts\": [{\"text\": \"**(a) What the uploaded work order records**\\nAnalysed uploaded XML **workorder-1.xml** (version 0).\\n\\nWork order **CLOSED-1**; aircraft not recorded, not recorded.\\n\\nCompleted work order \u2014 historical analysis.\\n\\nAnalysis cutoff: 2026-09-24T10:55:42.570124+00:00.\\n\\n**Target parts**\\n\\n**Reported findings**\\nNo symptom text is available at this cutoff.\\n\\nCurrent aircraft TAC: not recorded (not\\\\_supplied).\\nClosing aircraft TAC: 220; this is not the current counter or component age.\\n\\nClosed-export symptom text is an unverified snapshot of the original observation.\\nClosed-export text is excluded because the requested replay precedes a verified export timestamp.\\nReplay excludes completed action and closing text from query and feature context.\\nNo configured target part was resolved from the uploaded work order.\\nNo symptom text is safely available at the requested analysis timestamp.\\n\\nTo select a target, reply target_part_number=PN.\\n\\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\\n\\n**(b) Earlier BigQuery cases**\\nBigQuery was queried and found no matching records.\\n\\n**(c) Retrieved manual pages (IPC)**\\nThe IPC knowledge base was queried and found no matching pages.\\n\\n**(d) Missing/conflicting evidence and unavailable predictions**\\n- Closed-export symptom text is an unverified snapshot of the original observation.\\n- Closed-export text is excluded because the requested replay precedes a verified export timestamp.\\n- Replay excludes completed action and closing text from query and feature context.\\n- No configured target part was resolved from the uploaded work order.\\n- No symptom text is safely available at the requested analysis timestamp.\\n- No reliable prediction: no focus component could be matched with confidence.\\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age.\"}], \"role\": \"model\"}, \"event_time\": \"2026-09-24T10:55:51.682532Z\"}]}]}"
+      }
+    ]
+  },
+  "agent_info": null
+}

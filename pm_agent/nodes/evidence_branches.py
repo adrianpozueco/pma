@@ -354,6 +354,35 @@ def _render_ipc_section(result: SourceResult) -> list[str]:
     return lines
 
 
+def _pma_lines(pma: dict[str, Any]) -> list[str]:
+    """Section (d) lines for the PMA prediction block (§6.5 fixed strings,
+    plus the Option B projected-window strings, requirement 7, approved
+    2026-09-24).
+
+    Pure/sync and independent of ``ctx``/the graph so it is directly
+    unit-testable; ``compose_evidence_answer`` only calls it. Reads the flat
+    ``pma`` dict shape :meth:`PredictionResult.to_dict` actually produces
+    (``component_key``/``part_number``/``position``/``match``/``interval``/...
+    at the top level - the plan's §6.2 JSON is illustrative/nested, this is
+    not), never a nested ``"component"`` sub-object. Every line comes from
+    ``chat.py`` (chat's ``_pma_lines`` for the component, decision/interval
+    and Option B (a)-(d) lines, plus the stale-TAC line (e)) so both
+    renderers show identical wording from one source instead of two
+    hand-kept-in-sync copies.
+    """
+    # Lazy import: avoids a module-load cycle with `chat.py`.
+    from pm_agent.workorders.chat import _pma_lines as _chat_pma_lines
+    from pm_agent.workorders.chat import _pma_stale_tac_line
+
+    lines = _chat_pma_lines(pma)
+
+    stale_line = _pma_stale_tac_line(pma)
+    if stale_line:
+        lines.append(stale_line)
+
+    return lines
+
+
 async def compose_evidence_answer(ctx: Context, node_input: dict[str, Any]) -> Event:
     """Final node: one combined answer from both evidence branches.
 
@@ -363,7 +392,10 @@ async def compose_evidence_answer(ctx: Context, node_input: dict[str, Any]) -> E
     ``EVIDENCE_CONTEXT_STATE_KEY`` - since the join payload only carries the
     two branch results, not the original upload/analysis.
     """
-    from pm_agent.workorders.chat import render_uploaded_workorder_summary
+    from pm_agent.workorders.chat import (
+        _recommendation_block_lines,
+        render_uploaded_workorder_summary,
+    )
 
     stashed = ctx.state.get(EVIDENCE_CONTEXT_STATE_KEY) or {}
     upload_result = stashed.get("upload_result")
@@ -372,9 +404,23 @@ async def compose_evidence_answer(ctx: Context, node_input: dict[str, Any]) -> E
     ipc_result = SourceResult.from_dict(node_input["ipc_evidence"])
 
     lines: list[str] = []
+    # The condensed recommendation block (approved 2026-09-24) renders once,
+    # before every other section, not inside (a) or (d).
+    rec_lines = _recommendation_block_lines(
+        (upload_result or {}).get("analysis") or {}
+    )
+    if rec_lines:
+        lines.extend(rec_lines)
+        lines.append("")
     if upload_result is not None:
         lines.append("**(a) What the uploaded work order records**")
-        lines.append(render_uploaded_workorder_summary(upload_result))
+        # PMA lines render once, in section (d), not also in (a) or the
+        # recommendation block above.
+        lines.append(
+            render_uploaded_workorder_summary(
+                upload_result, include_pma=False, include_recommendation=False
+            )
+        )
     else:
         lines.append("**(a) What the uploaded work order records**")
         lines.append("No uploaded work order is associated with this evidence request.")
@@ -391,6 +437,7 @@ async def compose_evidence_answer(ctx: Context, node_input: dict[str, Any]) -> E
         analysis = upload_result.get("analysis") or {}
         for limitation in analysis.get("limitations", []):
             gaps.append(limitation)
+        gaps.extend(_pma_lines(analysis.get("pma") or {}))
     if bq_result.status in _FAILURE_STATUSES:
         gaps.append(
             f"BigQuery evidence is incomplete: branch {_status_label(bq_result.status)}."
@@ -401,11 +448,26 @@ async def compose_evidence_answer(ctx: Context, node_input: dict[str, Any]) -> E
         )
     if bq_result.status is SourceStatus.SUCCESS and ipc_result.status is SourceStatus.SUCCESS:
         pass  # No structural gap beyond whatever `gaps` already collected above.
-    gaps.append(
-        "Failure probability, remaining life and replacement deadline are unavailable. "
-        "No validated model or replacement policy is configured; closing TAC is historical "
-        "and is not the current counter or component age."
-    )
+    pma_block = ((upload_result or {}).get("analysis") or {}).get("pma") or {}
+    pma_decision = pma_block.get("decision")
+    if pma_block.get("projected_window"):
+        gaps.append(
+            "Failure probability, remaining life and a replacement deadline are not given; "
+            "the projected window above is a fleet pattern, not a forecast or a deadline, "
+            "and closing TAC is not the current counter or component age."
+        )
+    elif pma_decision == "historical_interval":
+        gaps.append(
+            "Failure probability, remaining life and a replacement deadline are not given; "
+            "the interval above is historical, not a forecast, and closing TAC is not the "
+            "current counter or component age."
+        )
+    else:
+        gaps.append(
+            "Failure probability, remaining life and replacement deadline are unavailable. "
+            "No validated model or replacement policy is configured; closing TAC is historical "
+            "and is not the current counter or component age."
+        )
     lines.extend(f"- {gap}" for gap in gaps)
 
     text = "\n".join(lines)

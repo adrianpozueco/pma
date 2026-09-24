@@ -92,6 +92,7 @@ build-backend = "hatchling.build"
 [tool.pytest.ini_options]
 pythonpath = "."
 asyncio_default_fixture_loop_scope = "session"
+markers = ["live: needs BigQuery"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["pm_agent", "frontend", "amos_data"]

@@ -7,6 +7,7 @@ replaced by a database lookup and their text is not sent to a chat model.
 from __future__ import annotations
 
 import asyncio
+import json
 import re
 from dataclasses import asdict
 from datetime import UTC, datetime
@@ -16,6 +17,8 @@ from google.adk.artifacts.artifact_util import parse_artifact_uri
 from google.genai import types
 
 from amos_data.parser import MAX_XML_BYTES, ParseError, parse_workorders
+from pm_agent.prediction.policy import round_cycles
+from pm_agent.prediction.service import default_predictor
 from pm_agent.workorders.artifacts import (
     load_current_session_artifact,
     validate_artifact_filename,
@@ -302,7 +305,7 @@ async def analyze_chat_upload(ctx: Any) -> dict[str, Any] | None:
         # This first integration uses the existing deterministic analysis
         # service without cloud history calls. Parallel evidence is a later slice.
         analysis = await asyncio.to_thread(
-            WorkOrderAnalysisService().analyze_xml,
+            WorkOrderAnalysisService(predictor=default_predictor()).analyze_xml,
             payload,
             request,
             source_name=filename,
@@ -348,18 +351,385 @@ def _safe(value: object, limit: int = 2500) -> str:
     return re.sub(r"([\\`*_\[\]<>|])", r"\\\1", text)
 
 
-def render_uploaded_workorder_summary(result: dict[str, Any]) -> str:
-    """Render only what the uploaded XML itself establishes.
+# Human-readable clauses for each `pma.reason` wire value (PMA-ONLINE-AGENT-plan.md
+# §6.3). `PredictionResult.action` is never populated by the prediction core, so
+# these fixed-string renderings are built here rather than read off the result.
+_PMA_REASON_TEXT: dict[str, str] = {
+    "empty_text": "no usable work-order text or part number was found",
+    "embedding_failed": "the work-order text could not be embedded",
+    "embedding_incompatible": "the embedding was not compatible with the reference space",
+    "no_confident_component_match": "no focus component could be matched with confidence",
+    "ambiguous_position": "the matched component's position could not be resolved",
+    "component_not_in_focus_set": "this component is not one of the tracked focus components",
+    "position_not_in_focus_set": "this component's position is not tracked",
+    "aircraft_type_not_in_scope": "this aircraft type is not in scope",
+    "no_lead_time_samples": "no historical lead-time samples exist for this component",
+    "insufficient_samples": "too few historical samples exist for this component",
+    "samples_not_symptom_to_replacement": (
+        "past samples are mostly intervals between consecutive replacements, "
+        "not symptom-to-replacement lead times"
+    ),
+    "prediction_disabled": "PMA prediction is disabled",
+    "data_source_unavailable": "the prediction data source is currently unavailable",
+}
 
-    Shares its header/target-parts/findings/actions/component-changes/TAC
-    content with :func:`render_chat_upload`'s "analyzed" branch, but
-    deliberately omits the "not validated"/prediction sentence and the
-    "BigQuery and the knowledge base were not queried" sentence: both are
-    still true for ``render_chat_upload``'s own (now effectively legacy)
-    direct-display path, but false once this evidence is composed alongside
-    real BigQuery/IPC branch results in
+
+def _pma_reason_text(reason: str | None) -> str:
+    if reason in _PMA_REASON_TEXT:
+        return _PMA_REASON_TEXT[reason]
+    return (reason or "unknown reason").replace("_", " ")
+
+
+def _cycles(value: Any) -> str:
+    """Render a cycle/TAC count as an integer, e.g. for BigQuery
+    ``PERCENTILE_CONT`` output that would otherwise print as
+    ``1968.2000000000003`` (§7 requirement 7), rounded half-up like
+    :func:`round_cycles` in the policy. Non-numeric/``None`` values fall
+    through to :func:`_safe` unchanged."""
+    if isinstance(value, bool) or value is None or not isinstance(value, (int, float)):
+        return _safe(value)
+    return _safe(round_cycles(value))
+
+
+# Option B: projected replacement window (approved 2026-09-24). It overrides
+# plan OQ1 / BIGQUERY-AGENT-plan §8.5 "no absolute due TAC" only for this
+# clearly-labelled fleet-pattern window; it never changes `decision`/`reason`.
+_PMA_NO_PRIOR_REPLACEMENT_LINE = (
+    "No earlier replacement of this component on this aircraft is recorded, "
+    "so no aircraft-specific window is given."
+)
+
+_PMA_POSITION_TEXT: dict[str, str] = {
+    "before_p50": "before the fleet median.",
+    "between_p50_p90": "past the fleet median but inside p90.",
+    "past_p90": "beyond the fleet p90; replacement is overdue against the fleet pattern.",
+}
+
+
+def _pma_supporting_line(supporting: dict[str, Any]) -> str:
+    """Fixed string (a): the labelled fleet-pattern supporting interval."""
+    return (
+        "Fleet pattern (not a forecast): this component was replaced again after "
+        f"p50 {_cycles(supporting.get('p50'))} / p90 {_cycles(supporting.get('p90'))} "
+        f"cycles (n={_safe(supporting.get('n'))}, {_safe(supporting.get('aircraft'))} aircraft)."
+    )
+
+
+def _pma_window_line(window: dict[str, Any]) -> str:
+    """Fixed string (b): the projected window for this aircraft."""
+    return (
+        "Projected window for this aircraft (fleet pattern, not a forecast): last "
+        f"replaced at TAC {_cycles(window.get('last_replacement_tac'))} "
+        f"({_safe(window.get('last_replacement_date'))}); if the pattern repeats, "
+        f"next replacement around TAC {_cycles(window.get('tac_p50'))}"
+        f"\u2013{_cycles(window.get('tac_p90'))}."
+    )
+
+
+def _pma_position_line(window: dict[str, Any]) -> str | None:
+    """Fixed string (c): only rendered when ``cycles_since_last_replacement``
+    (equivalently, ``position``) is present."""
+    position = window.get("position")
+    cycles_since = window.get("cycles_since_last_replacement")
+    if position is None or cycles_since is None:
+        return None
+    suffix = _PMA_POSITION_TEXT.get(position)
+    if suffix is None:
+        return None
+    return f"Latest known TAC is {_cycles(cycles_since)} cycles after that replacement, {suffix}"
+
+
+def _pma_lines(pma: dict[str, Any]) -> list[str]:
+    """Render the ``pma`` block using the fixed §6.5 strings, plus the
+    Option B projected-window strings from requirement 7 (approved
+    2026-09-24)."""
+    lines: list[str] = []
+    if pma.get("component_key"):
+        gate_basis = (pma.get("match") or {}).get("gate_basis") or "unknown"
+        lines.append(
+            f"Matched component: {_safe(pma['component_key'])} ({_safe(gate_basis)})."
+        )
+    decision = pma.get("decision")
+    if decision == "historical_interval" and pma.get("interval"):
+        interval = pma["interval"]
+        lines.append("**Observed historical interval (not a forecast)**")
+        lines.append(
+            f"Between closing TACs: p50 {_cycles(interval['p50'])} cycles, "
+            f"p90 {_cycles(interval['p90'])} cycles (n={_safe(interval['n'])}, "
+            f"{_safe(interval.get('aircraft'))} aircraft)."
+        )
+    elif decision == "out_of_scope":
+        lines.append(
+            f"Out of scope for PMA prediction: {_pma_reason_text(pma.get('reason'))}."
+        )
+    elif decision == "no_reliable_prediction":
+        lines.append(f"No reliable prediction: {_pma_reason_text(pma.get('reason'))}.")
+    supporting = pma.get("supporting_interval")
+    if supporting:
+        lines.append(_pma_supporting_line(supporting))
+        window = pma.get("projected_window")
+        if window:
+            lines.append(_pma_window_line(window))
+            position_line = _pma_position_line(window)
+            if position_line:
+                lines.append(position_line)
+        elif "no_prior_replacement_on_aircraft" in (pma.get("limitations") or ()):
+            lines.append(_PMA_NO_PRIOR_REPLACEMENT_LINE)
+    return lines
+
+
+def _pma_stale_tac_line(pma: dict[str, Any]) -> str | None:
+    """Fixed string (e). When a ``projected_window`` is present the wording
+    calls out that the window itself is not adjusted for cycles flown since;
+    otherwise the old wording (no due TAC at all) still applies."""
+    current_tac = pma.get("current_tac")
+    if not current_tac or not current_tac.get("stale"):
+        return None
+    observed_at = _safe(current_tac.get("observed_at"))
+    if pma.get("projected_window"):
+        return (
+            f"Current aircraft TAC is stale (last seen {observed_at}); the window "
+            "is not adjusted for cycles flown since."
+        )
+    return (
+        f"Current aircraft TAC is stale (last seen {observed_at}); no due TAC is given."
+    )
+
+
+# --------------------------------------------------------------------------
+# Recommendation block (PMA-ONLINE-AGENT-plan.md-style §11.4 condensed
+# recommendation; approved 2026-09-24, overrides BIGQUERY-AGENT-plan §8.5
+# "no confidence tiers / no absolute due TAC" for this block only). Reads
+# ``pma["recommendation"]`` - the serialised ``Recommendation`` dataclass a
+# teammate is building in parallel in ``pm_agent/prediction/contracts.py`` -
+# as a plain dict, so this module has no import-time dependency on that work
+# landing first. When ``recommendation`` is null/missing every function here
+# is a no-op and the rendered output is unchanged, per spec.
+# --------------------------------------------------------------------------
+
+_RECOMMENDATION_ACTION_TEXT: dict[str, str] = {
+    "recommend_inspection_or_part_planning": "Plan inspection / part replacement",
+    "monitor": "Monitor",
+}
+
+_RECOMMENDATION_BASIS_TEXT: dict[str, str] = {
+    "similar_workorders": "similar work orders + lead-time history",
+    "component_history": "component lead-time history",
+    "fleet_replacement_interval": "fleet replacement pattern",
+}
+
+
+def _rounded_int(value: Any) -> int | None:
+    """Round a TAC/cycle count for the JSON block the same way :func:`_cycles`
+    rounds it for the text lines (§7 "integer rounding everywhere")."""
+    if value is None or isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    return round_cycles(value)
+
+
+def _rounded_ratio(value: Any) -> float | None:
+    """Similarity/CV rounded to 3 decimals for the JSON block (the text lines
+    show 2); non-numeric values pass through as ``None``."""
+    if value is None or isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    return round(float(value), 3)
+
+
+def _recommendation_status_text(predicted: dict[str, Any], reference_tac: int) -> str:
+    """Where the latest known TAC sits against p50/p90/p95, most-overdue first."""
+    p95 = predicted.get("tac_p95")
+    if p95 is not None and reference_tac >= p95:
+        return "already past p95"
+    p90 = predicted.get("tac_p90")
+    if p90 is not None and reference_tac >= p90:
+        return "past p90"
+    p50 = predicted.get("tac_p50")
+    if p50 is not None and reference_tac >= p50:
+        return "past p50"
+    return f"{_cycles(predicted.get('lead_tac_p50'))} cycles before p50"
+
+
+def _recommendation_header_line(rec: dict[str, Any]) -> str:
+    action_text = _RECOMMENDATION_ACTION_TEXT.get(
+        rec.get("action"), _safe(rec.get("action"))
+    )
+    return f"**Recommendation: {action_text} — {_safe(rec.get('component_key'))}**"
+
+
+def _recommendation_replace_line(rec: dict[str, Any]) -> str:
+    predicted = rec.get("predicted_replacement") or {}
+    segments = [
+        f"Replace around TAC {_cycles(predicted.get('tac_p50'))} (p50)",
+        f"{_cycles(predicted.get('tac_p90'))} (p90)",
+    ]
+    if predicted.get("tac_p95") is not None:
+        segments.append(f"{_cycles(predicted.get('tac_p95'))} (p95)")
+    line = " · ".join(segments)
+    reference_tac = rec.get("reference_tac")
+    if reference_tac is None:
+        return line + "."
+    status = _recommendation_status_text(predicted, reference_tac)
+    return f"{line}; latest known TAC {_cycles(reference_tac)} → {status}."
+
+
+def _recommendation_confidence_line(rec: dict[str, Any]) -> str:
+    confidence = rec.get("confidence") or {}
+    detail = [f"n={_safe(confidence.get('sample_size'))}"]
+    cv = confidence.get("cv")
+    if isinstance(cv, (int, float)) and not isinstance(cv, bool):
+        detail.append(f"CV {cv:.2f}")
+    similarity = confidence.get("similarity")
+    if isinstance(similarity, (int, float)) and not isinstance(similarity, bool):
+        detail.append(f"similarity {similarity:.2f}")
+    basis_text = _RECOMMENDATION_BASIS_TEXT.get(
+        rec.get("basis"), _safe(rec.get("basis"))
+    )
+    return (
+        f"Confidence: {_safe(confidence.get('level'))} ({', '.join(detail)}) "
+        f"· {basis_text} · heuristic, not a calibrated forecast."
+    )
+
+
+def _recommendation_evidence_line(rec: dict[str, Any]) -> str | None:
+    evidence = rec.get("evidence") or []
+    if not evidence:
+        return None
+    items = []
+    for item in evidence:
+        sim = item.get("sim")
+        sim_text = (
+            f"{sim:.2f}"
+            if isinstance(sim, (int, float)) and not isinstance(sim, bool)
+            else _safe(sim)
+        )
+        items.append(f"WO {_safe(item.get('wo_id'))} ({sim_text})")
+    return "Evidence: " + ", ".join(items)
+
+
+def _recommendation_json_block(rec: dict[str, Any]) -> str:
+    """The fenced ```json``` block, in the exact shape callers code against
+    (not ``PredictionResult.to_dict()``'s flat ``pma`` shape): a top-level
+    ``{"decision": "recommendation", "recommendations": [...]}`` envelope."""
+    predicted = rec.get("predicted_replacement") or {}
+    confidence = rec.get("confidence") or {}
+    payload = {
+        "decision": "recommendation",
+        "recommendations": [
+            {
+                "component_key": rec.get("component_key"),
+                "basis": rec.get("basis"),
+                "predicted_replacement": {
+                    "lead_tac_p50": _rounded_int(predicted.get("lead_tac_p50")),
+                    "lead_tac_p90": _rounded_int(predicted.get("lead_tac_p90")),
+                    "lead_tac_p95": _rounded_int(predicted.get("lead_tac_p95")),
+                    "tac_p50": _rounded_int(predicted.get("tac_p50")),
+                    "tac_p90": _rounded_int(predicted.get("tac_p90")),
+                    "tac_p95": _rounded_int(predicted.get("tac_p95")),
+                },
+                "confidence": {
+                    "level": confidence.get("level"),
+                    "similarity": _rounded_ratio(confidence.get("similarity")),
+                    "sample_size": confidence.get("sample_size"),
+                    "cv": _rounded_ratio(confidence.get("cv")),
+                },
+                "evidence": [
+                    {"wo_id": e.get("wo_id"), "sim": _rounded_ratio(e.get("sim"))}
+                    for e in (rec.get("evidence") or [])
+                ],
+                "action": rec.get("action"),
+            }
+        ],
+    }
+    return "```json\n" + json.dumps(payload) + "\n```"
+
+
+def _recommendation_block_lines(analysis: dict[str, Any]) -> list[str] | None:
+    """The condensed recommendation block rendered before every other section
+    of the answer, or ``None`` when ``pma["recommendation"]`` is null/missing
+    (output is then unchanged, per spec)."""
+    rec = (analysis.get("pma") or {}).get("recommendation")
+    if not rec:
+        return None
+    lines = [
+        _recommendation_header_line(rec),
+        _recommendation_replace_line(rec),
+        _recommendation_confidence_line(rec),
+    ]
+    evidence_line = _recommendation_evidence_line(rec)
+    if evidence_line:
+        lines.append(evidence_line)
+    lines.append("")
+    lines.append(_recommendation_json_block(rec))
+    return lines
+
+
+def _pma_component(analysis: dict[str, Any]) -> dict[str, Any] | None:
+    """The PMA block when it matched a component, else ``None``."""
+    pma = analysis.get("pma") or {}
+    return pma if pma.get("component_key") else None
+
+
+def _target_part_lines(analysis: dict[str, Any]) -> list[str]:
+    """Configured targets, or the PMA-matched part when no target resolved.
+
+    The IPC target list and the PMA focus set differ, so without this a matched
+    PMA component sat under an empty "Target parts" heading.
+    """
+    lines = [
+        f"- {_safe(t['part_number'])}: {_safe(t['description'])} ({_safe(t['resolution_status'])})."
+        for t in analysis["target_parts"]
+    ]
+    pma = _pma_component(analysis)
+    if not lines and pma:
+        lines.append(
+            f"- {_safe(pma.get('part_number') or pma['component_key'])}: resolved by the "
+            f"PMA component match ({_safe(pma['component_key'])}); not in the IPC target list."
+        )
+    return lines
+
+
+def _needs_target_selection(analysis: dict[str, Any]) -> bool:
+    targets = analysis["target_parts"]
+    if not targets and _pma_component(analysis):
+        return False
+    return len(targets) != 1 or any(
+        t["resolution_status"] != "resolved" for t in targets
+    )
+
+
+def _current_tac_line(current: dict[str, Any], pma: dict[str, Any]) -> str:
+    """Supplied current TAC, or the PMA's BigQuery closing TAC as context only."""
+    known = pma.get("current_tac") or {}
+    if current["status"] == "not_supplied" and known.get("value") is not None:
+        return (
+            "Current aircraft TAC: not supplied; last closing TAC in BigQuery "
+            f"{_safe(known['value'])} at {_safe(known.get('observed_at'))} (context only)."
+        )
+    return (
+        f"Current aircraft TAC: {_safe(current['value'])} ({_safe(current['status'])})."
+    )
+
+
+def render_uploaded_workorder_summary(
+    result: dict[str, Any],
+    *,
+    include_pma: bool = True,
+    include_recommendation: bool = True,
+) -> str:
+    """Render only what the uploaded XML itself establishes, plus the PMA
+    prediction (``analysis["pma"]``) using the fixed §6.5 wording.
+
+    Shares its header/target-parts/findings/actions/component-changes/TAC/PMA
+    content with :func:`render_chat_upload`'s "analyzed" branch. This function
+    is the one composed alongside real BigQuery/IPC branch results in
     :func:`pm_agent.nodes.evidence_branches.compose_evidence_answer`, which is
-    the reason this function exists as a separate, reusable piece.
+    the reason it exists as a separate, reusable piece from
+    ``render_chat_upload``'s own (now effectively legacy) direct-display path.
+    ``include_pma=False`` omits the PMA/stale-TAC lines for callers (the
+    composed evidence answer) that render them in their own section.
+    ``include_recommendation=False`` likewise omits the condensed
+    recommendation block for that same caller, which renders it once at the
+    very top of the whole composed answer instead of inside this section.
     """
     analysis, source = result["analysis"], result["source"]
     context = analysis["parsed_context"]
@@ -379,12 +749,9 @@ def render_uploaded_workorder_summary(result: dict[str, Any]) -> str:
         "",
         "**Target parts**",
     ]
-    lines += [
-        f"- {_safe(t['part_number'])}: {_safe(t['description'])} ({_safe(t['resolution_status'])})."
-        for t in analysis["target_parts"]
-    ]
-    if not analysis["target_parts"]:
-        lines.append("No configured target part could be resolved at this cutoff.")
+    lines += _target_part_lines(analysis)
+    pma = analysis["pma"] if include_pma else {}
+    lines.extend(_pma_lines(pma))
     symptoms = context["symptoms"]
     lines.extend(["", "**Reported findings**"])
     for symptom in symptoms[:10]:
@@ -436,20 +803,27 @@ def render_uploaded_workorder_summary(result: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            f"Current aircraft TAC: {_safe(current['value'])} ({_safe(current['status'])}).",
+            _current_tac_line(current, analysis.get("pma") or {}),
             f"Closing aircraft TAC: {_safe(closing['value'])}; this is not the current counter or component age.",
         ]
     )
+    stale_tac_line = _pma_stale_tac_line(pma)
+    if stale_tac_line:
+        lines.append(stale_tac_line)
     if analysis["limitations"]:
         lines.extend(["", *[_safe(item) for item in analysis["limitations"]]])
-    if len(analysis["target_parts"]) != 1 or any(
-        t["resolution_status"] != "resolved" for t in analysis["target_parts"]
-    ):
+    if _needs_target_selection(analysis):
         lines.append("\nTo select a target, reply target_part_number=PN.")
     lines.append(
         "\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ."
     )
-    return "\n\n".join(lines[:4]) + "\n" + "\n".join(lines[4:])
+    body = "\n\n".join(lines[:4]) + "\n" + "\n".join(lines[4:])
+    if not include_recommendation:
+        return body
+    rec_lines = _recommendation_block_lines(analysis)
+    if not rec_lines:
+        return body
+    return "\n".join(rec_lines) + "\n\n" + body
 
 
 def render_chat_upload(result: dict[str, Any]) -> str:
@@ -477,12 +851,9 @@ def render_chat_upload(result: dict[str, Any]) -> str:
         "",
         "**Target parts**",
     ]
-    lines += [
-        f"- {_safe(t['part_number'])}: {_safe(t['description'])} ({_safe(t['resolution_status'])})."
-        for t in analysis["target_parts"]
-    ]
-    if not analysis["target_parts"]:
-        lines.append("No configured target part could be resolved at this cutoff.")
+    lines += _target_part_lines(analysis)
+    pma = analysis["pma"]
+    lines.extend(_pma_lines(pma))
     symptoms = context["symptoms"]
     lines.extend(["", "**Reported findings**"])
     for symptom in symptoms[:10]:
@@ -534,21 +905,22 @@ def render_chat_upload(result: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            f"Current aircraft TAC: {_safe(current['value'])} ({_safe(current['status'])}).",
+            _current_tac_line(current, analysis.get("pma") or {}),
             f"Closing aircraft TAC: {_safe(closing['value'])}; this is not the current counter or component age.",
-            "",
-            "Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured.",
-            "",
-            "Source: the uploaded XML. BigQuery and the knowledge base were not queried for this attachment analysis.",
         ]
     )
+    stale_tac_line = _pma_stale_tac_line(pma)
+    if stale_tac_line:
+        lines.append(stale_tac_line)
     if analysis["limitations"]:
         lines.extend(["", *[_safe(item) for item in analysis["limitations"]]])
-    if len(analysis["target_parts"]) != 1 or any(
-        t["resolution_status"] != "resolved" for t in analysis["target_parts"]
-    ):
+    if _needs_target_selection(analysis):
         lines.append("\nTo select a target, reply target_part_number=PN.")
     lines.append(
         "\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ."
     )
-    return "\n\n".join(lines[:4]) + "\n" + "\n".join(lines[4:])
+    body = "\n\n".join(lines[:4]) + "\n" + "\n".join(lines[4:])
+    rec_lines = _recommendation_block_lines(analysis)
+    if not rec_lines:
+        return body
+    return "\n".join(rec_lines) + "\n\n" + body

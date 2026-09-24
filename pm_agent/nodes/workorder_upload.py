@@ -14,6 +14,7 @@ error, ...) still short-circuits straight to the unchanged
 """
 
 import uuid
+from dataclasses import replace
 from typing import Any
 
 from google.adk.agents.context import Context
@@ -21,6 +22,7 @@ from google.adk.events import Event
 from google.genai import types
 
 from amos_data.documents import normalize_text, text_hash
+from amos_data.parser import part_key
 from pm_agent.nodes.evidence_branches import EVIDENCE_CONTEXT_STATE_KEY
 from pm_agent.workorders.chat import analyze_chat_upload, render_chat_upload
 from pm_agent.workorders.evidence import (
@@ -55,8 +57,9 @@ def _build_evidence_request(ctx: Context, result: dict[str, Any]) -> EvidenceReq
     row = result["uploaded_workorder"]
     context = analysis["parsed_context"]
     aircraft = context.get("aircraft") or {}
+    pma = analysis.get("pma") or {}
 
-    part_candidates = tuple(
+    part_candidates = [
         PartCandidate(
             part_key=target["part_key"],
             part_number=target["part_number"],
@@ -64,7 +67,28 @@ def _build_evidence_request(ctx: Context, result: dict[str, Any]) -> EvidenceReq
             roles=tuple(target.get("roles", ())),
         )
         for target in analysis["target_parts"]
-    )
+    ]
+    pma_part_number = pma.get("part_number")
+    if pma.get("component_key") and pma_part_number:
+        pma_key = part_key(pma_part_number)
+        # A PMA part that is also a configured target gets the role added to
+        # that candidate; a second candidate would run every per-part query
+        # (part history, IPC) twice and duplicate its records.
+        for index, candidate in enumerate(part_candidates):
+            if candidate.part_key == pma_key:
+                part_candidates[index] = replace(
+                    candidate, roles=(*candidate.roles, "pma_component")
+                )
+                break
+        else:
+            part_candidates.append(
+                PartCandidate(
+                    part_key=pma_key,
+                    part_number=pma_part_number,
+                    roles=("pma_component",),
+                )
+            )
+    part_candidates = tuple(part_candidates)
 
     available_symptoms = tuple(
         text
@@ -88,15 +112,14 @@ def _build_evidence_request(ctx: Context, result: dict[str, Any]) -> EvidenceReq
         ),
         selected_wo_id=analysis.get("wo_id"),
         part_candidates=part_candidates,
-        # `position` is not exposed by analyze_xml()'s parsed_context (only
-        # the raw row's internal position_info carries it, used only inside
-        # service._history()) - left None rather than guessed. Reported as a
-        # gap, not patched: service.py is not on the frozen list, but is also
-        # not in scope for this change.
+        # `position`: prefer the PMA gate's resolved position (already
+        # normalised/validated against the focus set by prediction/policy.py)
+        # and fall back to parsed_context's own `position` (T10) when the PMA
+        # core did not resolve one (disabled, out of scope, no match, ...).
         aircraft=AircraftContext(
             aircraft_id=aircraft.get("full_registration"),
             family=aircraft.get("variant"),
-            position=None,
+            position=pma.get("position") or context.get("position"),
         ),
         available_symptoms=available_symptoms,
         counters=EvidenceCounters(

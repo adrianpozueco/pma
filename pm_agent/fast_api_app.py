@@ -30,6 +30,7 @@ from pm_agent.app_utils.a2a import attach_a2a_routes
 from pm_agent.app_utils.reasoning_engine_adapter import (
     attach_reasoning_engine_routes,
 )
+from pm_agent.prediction.service import default_predictor
 from pm_agent.workorders import (
     AnalysisInput,
     WorkOrderAnalysisError,
@@ -224,7 +225,9 @@ async def analyze_workorder_upload(
                     "message": "Configured history retrieval is unavailable.",
                 },
             ) from exc
-        service = WorkOrderAnalysisService(history_provider)
+        service = WorkOrderAnalysisService(
+            history_provider, predictor=default_predictor()
+        )
         result = await run_in_threadpool(
             service.analyze_xml, xml_bytes, analysis_input, source_name=source_name
         )

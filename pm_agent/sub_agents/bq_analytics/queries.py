@@ -55,15 +55,42 @@ __all__ = [
 
 LOCATION = "us-central1"
 DATASET = "pma_agent_analytics"
+CURATED_DATASET = "pma_agent_curated"
 WORKORDERS_TABLE = "wo_workorders"
 FAA_TABLE = "faa_sdr_wo_parts"
+VIEW_WORK_ORDERS_TABLE = "v_work_orders"
 
 # Code-owned allowlists. These are never populated from model or user input:
 # QueryRunner raises rather than building a query against anything outside
 # them. N3's get_part_coverage counts FAA reports through this same runner
-# (bq_analytics/adapters.py), it does not bypass it.
-_ALLOWED_DATASETS = frozenset({DATASET})
-_ALLOWED_TABLES = frozenset({WORKORDERS_TABLE, FAA_TABLE})
+# (bq_analytics/adapters.py), it does not bypass it. Keyed by dataset so a
+# table name is only ever resolved within the dataset it actually lives in
+# (the PMA online prediction core reads a second, read-only dataset,
+# ``pma_agent_curated``, alongside the existing ``pma_agent_analytics``).
+_ALLOWED_TABLES: dict[str, frozenset[str]] = {
+    DATASET: frozenset({WORKORDERS_TABLE, FAA_TABLE, VIEW_WORK_ORDERS_TABLE}),
+    CURATED_DATASET: frozenset(
+        {
+            "dim_focus_components",
+            "fct_replacement_events",
+            "dim_reference_set",
+            "replacement_anchor_embeddings",
+            "wo_embeddings",
+            "adjudicated_precursors",
+            "fct_lead_time_samples",
+            "INFORMATION_SCHEMA.TABLES",
+            "INFORMATION_SCHEMA.TABLE_OPTIONS",
+        }
+    ),
+}
+_ALLOWED_DATASETS = frozenset(_ALLOWED_TABLES)
+
+# Template placeholders that are not table identifiers but still must never
+# be filled from model/user input - validated against a fixed value set
+# before substitution, the same fail-closed pattern as the table allowlist.
+_ALLOWED_TEMPLATE_CONSTANTS: dict[str, frozenset[str]] = {
+    "embedding_endpoint": frozenset({"text-embedding-005"}),
+}
 
 _PROJECT_RE = re.compile(r"[a-z][a-z0-9-]{4,61}[a-z0-9]")
 
@@ -94,6 +121,8 @@ class _RunOutcome:
     rows: tuple[dict[str, Any], ...] = ()
     truncated: bool = False
     error_detail: str | None = None
+    job_id: str | None = None
+    total_bytes_billed: int | None = None
 
 
 def _classify_exception(exc: Exception) -> SourceStatus:
@@ -149,13 +178,26 @@ class QueryRunner:
         self.timeout_seconds = timeout_seconds
         self.maximum_bytes_billed = maximum_bytes_billed
 
-    def table(self, name: str) -> str:
+    def table(self, name: str, *, dataset: str | None = None) -> str:
         """Fully-qualified, backtick-quoted identifier for an allowlisted
-        table name. Raises for anything else, including a name a caller
-        assembled without going through the allowlist."""
-        if name not in _ALLOWED_TABLES:
-            raise ValueError(f"table {name!r} is not allowlisted")
-        return f"`{self.project}.{self.dataset}.{name}`"
+        table name. ``dataset`` defaults to this runner's own dataset
+        (backward compatible with the single-dataset callers in
+        ``adapters.py``); passing a second allowlisted dataset (for example
+        ``pma_agent_curated``) lets one runner instance read read-only
+        curated tables alongside its primary analytics dataset. Raises for
+        anything else, including a name or dataset a caller assembled
+        without going through the allowlist."""
+        resolved_dataset = self.dataset if dataset is None else dataset
+        allowed_names = _ALLOWED_TABLES.get(resolved_dataset)
+        if allowed_names is None:
+            raise ValueError(f"dataset {resolved_dataset!r} is not allowlisted")
+        if name not in allowed_names:
+            raise ValueError(
+                f"table {name!r} is not allowlisted for dataset {resolved_dataset!r}"
+            )
+        if name.startswith("INFORMATION_SCHEMA."):
+            return f"`{self.project}.{resolved_dataset}`.{name}"
+        return f"`{self.project}.{resolved_dataset}.{name}`"
 
     def run(
         self,
@@ -164,6 +206,7 @@ class QueryRunner:
         *,
         limit: int,
         table_placeholders: dict[str, str] | None = None,
+        template_constants: dict[str, str] | None = None,
     ) -> _RunOutcome:
         """Execute one fixed SQL template with real named parameters.
 
@@ -174,10 +217,24 @@ class QueryRunner:
         exception is classified to PERMISSION_DENIED/UNAVAILABLE/ERROR. A
         successful query that returns zero rows is NO_MATCH, never a failure
         status.
+
+        ``table_placeholders`` values must come from :meth:`table` (or
+        another allowlisted, backtick-quoted identifier); ``template_constants``
+        fills a non-table ``{placeholder}`` (for example the embedding
+        endpoint) only after checking it against
+        ``_ALLOWED_TEMPLATE_CONSTANTS``, so neither ever carries model- or
+        user-supplied text into the SQL itself.
         """
         limit = max(1, min(int(limit), MAX_LIMIT))
         sql = _load_sql(sql_name)
         for placeholder, value in (table_placeholders or {}).items():
+            sql = sql.replace("{" + placeholder + "}", value)
+        for placeholder, value in (template_constants or {}).items():
+            allowed_values = _ALLOWED_TEMPLATE_CONSTANTS.get(placeholder)
+            if allowed_values is None or value not in allowed_values:
+                raise ValueError(
+                    f"template constant {placeholder!r}={value!r} is not allowlisted"
+                )
             sql = sql.replace("{" + placeholder + "}", value)
         bound = [*parameters, ("limit", "INT64", limit + 1)]
         try:
@@ -197,21 +254,38 @@ class QueryRunner:
             ]
         except TimeoutError as exc:
             job.cancel(timeout=self.timeout_seconds, retry=None)
-            return self._failure(exc)
+            return self._failure(exc, job=job)
         except Exception as exc:
-            return self._failure(exc)
+            return self._failure(exc, job=job)
         truncated = len(rows) > limit
         rows = rows[:limit]
         status = SourceStatus.SUCCESS if rows else SourceStatus.NO_MATCH
-        return _RunOutcome(status=status, rows=tuple(rows), truncated=truncated)
+        return _RunOutcome(
+            status=status,
+            rows=tuple(rows),
+            truncated=truncated,
+            job_id=getattr(job, "job_id", None),
+            total_bytes_billed=getattr(job, "total_bytes_billed", None),
+        )
 
     def _job_config(self, parameters: list[tuple[str, str, Any]]) -> Any:
         from google.cloud import bigquery
 
-        query_parameters = [
-            bigquery.ScalarQueryParameter(name, bq_type, value)
-            for name, bq_type, value in parameters
-        ]
+        query_parameters: list[Any] = []
+        for name, bq_type, value in parameters:
+            if bq_type.startswith("ARRAY<") and bq_type.endswith(">"):
+                if value is None or any(element is None for element in value):
+                    raise ValueError(
+                        f"array parameter {name!r} must not be, or contain, None"
+                    )
+                inner_type = bq_type[len("ARRAY<") : -1]
+                query_parameters.append(
+                    bigquery.ArrayQueryParameter(name, inner_type, value)
+                )
+            else:
+                query_parameters.append(
+                    bigquery.ScalarQueryParameter(name, bq_type, value)
+                )
         return bigquery.QueryJobConfig(
             query_parameters=query_parameters,
             maximum_bytes_billed=self.maximum_bytes_billed,
@@ -220,13 +294,14 @@ class QueryRunner:
         )
 
     @staticmethod
-    def _failure(exc: Exception) -> _RunOutcome:
+    def _failure(exc: Exception, *, job: Any | None = None) -> _RunOutcome:
         status = _classify_exception(exc)
         return _RunOutcome(
             status=status,
             # Exception type name only - never str(exc), which can carry SQL
             # text or other credential-adjacent detail.
             error_detail=f"{status.value}:{type(exc).__name__}",
+            job_id=getattr(job, "job_id", None) if job is not None else None,
         )
 
 

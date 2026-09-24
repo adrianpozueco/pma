@@ -20,7 +20,12 @@ def evaluate(instance):
         "probability" in response.lower() and "unavailable" in response.lower(),
         "replacement deadline" in response.lower()
         and "unavailable" in response.lower(),
-        "BigQuery and the knowledge base were not queried" in response,
+        # PMA-ONLINE-AGENT-plan.md §6.1/§6.5: the old "BigQuery and the
+        # knowledge base were not queried" sentence is removed from the
+        # analyzed path now that `pma` is always present (additive key);
+        # with PMA_PREDICTION_ENABLED unset for this eval, the predictor is
+        # disabled and section (d) renders the fixed §6.5 string instead.
+        "No reliable prediction: PMA prediction is disabled." in response,
     ]
     early = "analysis_as_of=2026-09-01T09:15:00Z" in prompt
     if early:

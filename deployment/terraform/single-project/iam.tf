@@ -81,3 +81,14 @@ resource "google_project_iam_member" "vertex_ai_sa_permissions" {
   member     = google_project_service_identity.vertex_sa.member
   depends_on = [resource.google_project_service.services]
 }
+
+
+# Grant application SA read access to the curated dataset
+resource "google_bigquery_dataset_iam_member" "app_sa_curated_data_viewer" {
+  count      = local.create_curated_dataset ? 1 : 0
+  project    = var.project_id
+  dataset_id = google_bigquery_dataset.curated[0].dataset_id
+  role       = "roles/bigquery.dataViewer"
+  member     = "serviceAccount:${google_service_account.app_sa.email}"
+  depends_on = [google_bigquery_dataset.curated]
+}

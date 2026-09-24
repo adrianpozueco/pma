@@ -13,6 +13,7 @@ from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
 from pm_agent.agent import app
+from pm_agent.nodes.evidence_branches import EVIDENCE_CONTEXT_STATE_KEY
 from pm_agent.workorders.chat import STATE_KEY, analyze_chat_upload
 from pm_agent.workorders.evidence import SourceResult, SourceStatus
 
@@ -422,6 +423,28 @@ async def test_ambiguous_replay_date_does_not_silently_reuse_previous_cutoff(run
     await turn(runner, session, files=[attachment()])
     result, _, _ = await turn(runner, session, "Analyse this file as of September 1")
     assert result["status"] == "missing_input"
+
+
+@pytest.mark.asyncio
+async def test_evidence_request_aircraft_position_is_populated_from_parsed_context(
+    runner,
+):
+    """T13b: ``AircraftContext.position`` used to be hardcoded ``None``; it
+    must now come from the resolved position (``pma.position`` when the PMA
+    core resolved one, else ``parsed_context.position`` - here the PMA core
+    is disabled by default, so it falls back to ``parsed_context.position``,
+    which this fixture's component-change carries as "DEMO-POSITION")."""
+    session = await session_for(runner)
+    result, _, _ = await turn(runner, session, files=[attachment()])
+    assert result["status"] == "analyzed"
+    position = result["analysis"]["parsed_context"]["position"]
+    assert position  # Not None: the fixture's componentChange carries one.
+    assert result["analysis"]["pma"]["reason"] == "prediction_disabled"
+    persisted = await runner.session_service.get_session(
+        app_name=app.name, user_id=session.user_id, session_id=session.id
+    )
+    evidence_request = persisted.state[EVIDENCE_CONTEXT_STATE_KEY]["evidence_request"]
+    assert evidence_request["aircraft"]["position"] == position
 
 
 @pytest.mark.asyncio

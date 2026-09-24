@@ -1087,9 +1087,12 @@ time; closing TAC is not substituted for it.
 Chat accepts up to 10 XML files totalling 25 MiB. Artifacts stay within the
 current ADK app/user/session. Storage uses the existing artifact service: GCS
 when `LOGS_BUCKET_NAME` is set, otherwise memory until the server restarts.
-Attachment analysis currently reports uploaded evidence only. It explicitly
-states that BigQuery and the knowledge base were not queried and that failure
-probability, remaining life and replacement deadlines are unavailable.
+Attachment analysis reports the uploaded evidence plus a `pma` block from the
+online precursor predictor (see
+[Online prediction (pma-online-v1)](#online-prediction-pma-online-v1)). With
+`PMA_PREDICTION_ENABLED` unset or `false` (the default) the block says
+`No reliable prediction: PMA prediction is disabled.` and nothing else changes.
+Failure probability, remaining life and replacement deadlines are never given.
 
 ### Dedicated HTTP API
 
@@ -1114,7 +1117,11 @@ The response includes parsed context, input-counter provenance, targets,
 historical cases, retrieval status and local IPC catalogue references. With no
 history configuration, parsing still works and retrieval reports `not_configured`.
 Prediction, timing and replacement recommendation fields remain explicitly null
-with their reasons. Current aircraft TAC is not component age.
+with their reasons, except that `timing.estimable_quantiles` is filled when the
+`pma` decision is `historical_interval` (see below). The response also carries a
+`pma` block and `parsed_context.ata_chapter` / `parsed_context.position`.
+`replacement_recommendation.due_counter` is always `null`. Current aircraft TAC
+is not component age.
 
 Enable history only after the matching physical tables and corpus are loaded:
 
@@ -1165,6 +1172,444 @@ With Google credentials, `uv run python scripts/verify_history_bigquery.py`
 checks keyword/vector/hybrid SQL using synthetic session temporary tables and a
 100 MB per-script billing cap. It creates no permanent table or deployment.
 
+## Online prediction (pma-online-v1)
+
+The analysed-upload path (ADK chat, A2A and `POST /workorders/analyze`) checks
+every uploaded work order against the curated focus components and returns a
+typed `pma` block. The design and its reasoning are in
+[`PMA-ONLINE-AGENT-plan.md`](PMA-ONLINE-AGENT-plan.md). All three surfaces call
+the same core, `pm_agent/prediction/`, from
+`WorkOrderAnalysisService.analyze_xml`. With the same XML and the same explicit
+`analysis_as_of`, chat and HTTP return identical `pma` blocks, apart from
+`provenance.bq_job_ids` and `request_id`.
+
+**What it is not.** It is not a failure forecast. It gives no confidence tiers,
+no remaining life, and `due_counter` is always `null`. A number appears only as
+an observed closing-TAC-to-closing-TAC interval. That interval is labelled with
+its `basis` and `calibrated: false`, and is shown only when the historical
+samples really are symptom-to-replacement lead times.
+
+**Option B: projected replacement window (user-approved 2026-09-24).** The one
+exception to "no absolute due TAC" is a single, clearly-labelled projected
+window described below. It is a deliberate, scoped override of plan OQ1 /
+`BIGQUERY-AGENT-plan.md` §8.5 for this window only - approved by the user on
+2026-09-24 - and it changes nothing else in `PMA-ONLINE-AGENT-plan.md`: still
+no confidence tiers, still no per-WO forecast, `due_counter` still always
+`null`.
+
+**Replacement recommendation (further user-approved 2026-09-24 override).** A
+second, independent exception: a condensed `recommendation` block, based on
+`wo_embeddings` neighbours matched on description *and* action text
+(`PMA_QUERY_INCLUDE_ACTIONS`) with lead-time drawn from
+`fct_lead_time_samples`. Unlike Option B's window (only after row 4's
+`supporting_interval`), this recommendation is computed independently of the
+main `decision`/`reason` and can appear even when the main decision is
+`no_reliable_prediction` - see "Replacement recommendation" below. This is a
+narrow, additional carve-out of the same `BIGQUERY-AGENT-plan.md` §8.5 rule,
+approved by the user on 2026-09-24; it does not touch `due_counter`,
+`timing`, or `replacement_recommendation` (legacy), and confidence tiers
+still do not apply anywhere else in the plan.
+
+### How a decision is made
+
+1. **Parse** (`workorders/service.py`): part numbers, ATA chapter, position
+   (header, or in replay the unique component-change position), normalised
+   (`AFTCARGO` → `AFT`, `ENG1` → `#1`), and the text recipe used by the offline
+   `wo_embeddings` build (`build_pma_wo_text`; replay drops action text).
+2. **Scope gate** (`prediction/policy.py`, deterministic):
+   - A focus part number plus position gives the basis `exact_pn_position`.
+   - A focus part at a non-focus position is `out_of_scope`.
+   - A focus part number without a position looks up lead-time samples per
+     candidate.
+   - A non-focus header part is `out_of_scope`.
+   - A symptom-only WO is embedded with BigQuery
+     `AI.EMBED(endpoint => 'text-embedding-005')` and voted over the 2561
+     deduplicated replacement anchors (2026-09-24 20-part rebuild; 718
+     before). The vote never chooses between engine positions `#1` and `#2`;
+     that case returns `ambiguous_position`.
+3. **Statistics** from `fct_lead_time_samples`, and **evidence** from anchors,
+   precursor samples and similar past WOs.
+4. **Decision**, where the first matching rule wins:
+   - n = 0 → `no_lead_time_samples`.
+   - n < `PMA_MIN_SAMPLE` → `insufficient_samples`.
+   - replacement-interval share > `PMA_MAX_REPLACEMENT_INTERVAL_SHARE` →
+     `samples_not_symptom_to_replacement` (attaches a labelled
+     `supporting_interval` when `PMA_SHOW_SUPPORTING_INTERVAL` is on).
+   - Otherwise `historical_interval`.
+5. **Projected window** (Option B, on by default, disable with
+   `PMA_SHOW_PROJECTED_WINDOW=false`; only after a `supporting_interval` was
+   attached in step 4) - see
+   "Projected replacement window" below.
+
+`decision` is one of `historical_interval`, `no_reliable_prediction` or
+`out_of_scope`. `reason` values are listed in
+`pm_agent/prediction/contracts.py` (`PredictionReason`). The `pma` dict is
+flat: `component_key`, `part_number`, `position`, `match`, `interval`,
+`supporting_interval`, `projected_window`, `current_tac`, `decision`,
+`reason`, `evidence`, `evidence_support`, `limitations` and `provenance` are
+all top-level keys.
+
+The legacy keys change only on `historical_interval`. In that case
+`prediction.status` and `timing.status` become `historical_interval_only`,
+`timing.estimable_quantiles` is `{p50, p90, unit, basis}` and `timing.forecast`
+is `null`. In every other case the legacy `prediction`, `timing` and
+`replacement_recommendation` blocks are identical to the output without PMA
+(a golden test in `tests/unit/test_workorder_analysis.py` checks those blocks;
+the rendered chat text gains the `pma` lines).
+
+**Every result lists these limitations:** `not_calibrated`,
+`outcome_selected_sample`, `no_installation_eligibility_check` and
+`closing_tac_basis`. Some results add more:
+
+- `in_sample_curated_artifacts` in replay.
+- `embedding_provenance_unverified`, for now on every call, because the curated
+  build carries no embedding-endpoint label (T17c).
+- `current_tac_stale` and `counter_inconsistent` when those apply.
+- `projected_window_not_a_forecast` whenever a `projected_window` is returned,
+  `no_prior_replacement_on_aircraft` when the lookup found no prior
+  replacement on this aircraft, and `projected_window_unavailable` when the
+  extra lookup itself failed (see below).
+
+### Projected replacement window (Option B, user-approved 2026-09-24)
+
+Once row 4 above has attached a labelled `supporting_interval` (the samples
+are mostly replacement-to-replacement, not symptom-to-replacement) and
+`PMA_SHOW_PROJECTED_WINDOW` is on (default `true`), the core takes one more
+step: it looks up **this aircraft's own** last replacement of the same
+`component_key` (new template `pma_last_replacement.sql` against
+`fct_replacement_events`) and projects the fleet-wide `supporting_interval`
+forward from that aircraft-specific TAC, instead of leaving the interval as
+fleet-only context.
+
+- `tac_p50 = last_replacement_tac + round(p50)`,
+  `tac_p90 = last_replacement_tac + round(p90)`, rounded half-up
+  (380.5 → 381, like BigQuery `ROUND`; `policy.round_cycles`).
+- `cycles_since_last_replacement` and `position`
+  (`before_p50` / `between_p50_p90` / `past_p90`) are computed from
+  `current_tac` only when it is present, not `counter_inconsistent`, and
+  `>= last_replacement_tac`, and (in replay) not observed after
+  `analysis_as_of`; otherwise both are `null`.
+- `calibrated` is always `false` and `label` is always
+  `"Fleet pattern, not a forecast"` - a fleet-pattern projection onto one
+  aircraft's history, never a validated due date.
+- **Basis caveat:** p50/p90 are the component's adjudicated
+  `fct_lead_time_samples` (row 4 means they are *mostly*
+  replacement-to-replacement intervals; up to half can be
+  symptom-to-replacement leads), bounded by the precursor search window.
+  They are not the distribution of every consecutive replacement gap in
+  `fct_replacement_events` (for `473597-5|AFT` that is n=165, p50 415,
+  p90 1777). See plan OQ-B1.
+- **Leakage guard:** the same query rules as everywhere else in this core
+  (§5.7) - the uploaded WO's own uuid is excluded, and only replacements
+  whose WO closed strictly before the `analysis_as_of` timestamp are
+  eligible (`COALESCE(closing_ts, TIMESTAMP(replacement_date))`, the same
+  cut-off as the latest-closing-TAC query, so both see the same history).
+- **Failure isolation:** this is one extra query on top of an
+  already-computed decision, so it can never turn a decision into a failure.
+  Any exception from the `last_replacement` lookup or the projection is
+  caught and logged; `projected_window` stays `null` and the limitation
+  `projected_window_unavailable` is added. `decision`/`reason` are always
+  unchanged by this step.
+- This is the one deliberate, clearly-labelled exception to "no absolute due
+  TAC" (plan OQ1 / `BIGQUERY-AGENT-plan.md` §8.5), approved by the user on
+  2026-09-24 and scoped to exactly this window; it changes nothing else in
+  `PMA-ONLINE-AGENT-plan.md`. `replacement_recommendation.due_counter` stays
+  `null` and legacy timing fields are unaffected (§6.1) - the window lives
+  only inside the `pma` block.
+
+Example (live 2026-09-24, `473597-5|AFT`, `SP-REG00374`): fleet p50/p90 are
+381/1891 cycles (n=35, 28 aircraft; raw p90 1890.8); this aircraft's last
+replacement was at TAC 17938 (2026-04-25), so `projected_window` is
+`{tac_p50: 18319, tac_p90: 19829, ...}`. Its latest known TAC (18660,
+2026-08-20) is 722 cycles after that replacement - `between_p50_p90`.
+
+**Fixed user-facing strings.** Chat and the composed evidence answer render
+these strings identically (the composed answer reuses chat's line builders).
+Unit tests (`tests/unit/test_evidence_branches.py`,
+`tests/unit/test_workorder_analysis.py`) assert them; the eval checks strings
+(a), (b), (e) on the exact-part-number AFT case, plus labelling and the
+due-TAC ban on every case.
+
+| Case | String |
+|---|---|
+| component | `Matched component: {component_key} ({gate_basis}).` |
+| historical interval | `Observed historical interval (not a forecast)` + `Between closing TACs: p50 {p50} cycles, p90 {p90} cycles (n={n}, {aircraft} aircraft).` |
+| (a) supporting interval | `Fleet pattern (not a forecast): this component was replaced again after p50 {p50} / p90 {p90} cycles (n={n}, {aircraft} aircraft).` |
+| (b) projected window | `Projected window for this aircraft (fleet pattern, not a forecast): last replaced at TAC {last_tac} ({last_date}); if the pattern repeats, next replacement around TAC {tac_p50}–{tac_p90}.` |
+| (c) window position | before p50: `Latest known TAC is {since} cycles after that replacement, before the fleet median.` between p50/p90: `Latest known TAC is {since} cycles after that replacement, past the fleet median but inside p90.` past p90: `Latest known TAC is {since} cycles after that replacement, beyond the fleet p90; replacement is overdue against the fleet pattern.` |
+| (d) no prior replacement (limitation `no_prior_replacement_on_aircraft`) | `No earlier replacement of this component on this aircraft is recorded, so no aircraft-specific window is given.` |
+| no prediction | `No reliable prediction: {reason_text}.` |
+| out of scope | `Out of scope for PMA prediction: {reason_text}.` |
+| stale TAC, no window | `Current aircraft TAC is stale (last seen {observed_at}); no due TAC is given.` |
+| (e) stale TAC, with window | `Current aircraft TAC is stale (last seen {observed_at}); the window is not adjusted for cycles flown since.` |
+| recommendation header | `**Recommendation:` line, `Replace around TAC ...`, `Confidence: ...`, `Evidence: ...`, then a fenced ```json block `{"decision":"recommendation","recommendations":[{component_key, basis, predicted_replacement{lead_tac_p50/p90/p95, tac_p50/p90/p95}, confidence{level, similarity, sample_size, cv}, evidence[{wo_id, sim}], action}]}` |
+
+All cycle/TAC figures in these strings are rendered as integers (rounded
+half-up), never a raw float like `1968.2000000000003`. When a window is shown,
+section (d) of the composed answer closes with "Failure probability, remaining
+life and a replacement deadline are not given; the projected window above is a
+fleet pattern, not a forecast or a deadline, ..." instead of the generic "no
+replacement policy is configured" gap.
+
+### Replacement recommendation (`wo_embeddings` + `fct_lead_time_samples`, user-approved 2026-09-24)
+
+Independently of the `decision`/`reason` above, the core also builds a
+neighbour-based recommendation (`policy.build_recommendation`). The uploaded
+WO's own text (description **and** action text, `PMA_QUERY_INCLUDE_ACTIONS=true`;
+as-of filtered actions in `historical_replay`, which adds the limitation
+`query_includes_action_text`) is embedded once per predict with `AI.EMBED`
+(`text-embedding-005`), for gated and ungated WOs alike. The top
+`PMA_REC_NEIGHBOUR_K` `wo_embeddings` neighbours with
+`sim >= PMA_REC_NEIGHBOUR_MIN_SIM` (as-of and exclude-self guarded) are joined
+to `fct_lead_time_samples` on `precursor_wo_uuid`
+(`pma_neighbour_lead_samples.sql`, replacement closed before `analysis_as_of`),
+and the matched samples are aggregated per `component_key` (n, aircraft,
+mean/top sim, lead p50/p90/p95 by linear interpolation = numpy default =
+`PERCENTILE_CONT`, CV).
+
+Basis precedence (first usable wins):
+
+1. **`similar_workorders`, exact** - the gate made an exact part-number +
+   position match and that component has matched samples.
+2. **`similar_workorders`, vote** - only when the gate made *no* exact match:
+   weighted vote by summed similarity, `n >= PMA_MIN_VOTE_SUPPORT` (3), share
+   `>= PMA_MIN_VOTE_SHARE` (0.5), never choosing between `#1`/`#2` siblings.
+   An exact gate match is never overridden by a different voted part.
+3. **`component_history`** - the gate-matched component's own
+   `pma_lead_time_stats.sql` p50/p90/p95 when `n >= PMA_MIN_SAMPLE`.
+4. **`fleet_replacement_interval`** - Option B's `supporting_interval` anchored on
+   the aircraft's last replacement: `tac_pX = last_replacement_tac + round(pX)`,
+   `lead_tac_pX = tac_pX - reference_tac` (may be negative; `null` without a TAC).
+5. Otherwise no recommendation (`recommendation: null`).
+
+For bases 1-3, `lead_tac_pX = round(pX)` and `tac_pX = reference_tac +
+lead_tac_pX`, where `reference_tac` is the latest known TAC (`current_tac`,
+even if stale). Without a usable reference TAC (missing, counter-inconsistent,
+or observed after the cut-off) bases 1-3 are skipped and only basis 4 can apply.
+
+- **Confidence heuristic** (`level`, never a calibrated probability): `high` =
+  `similar_workorders` with `n >= PMA_REC_MIN_SAMPLE_HIGH` (8), CV `<=
+  PMA_REC_MAX_CV` (0.5) and mean similarity `>= PMA_REC_STRONG_SIM` (0.80);
+  `medium` = `similar_workorders` with `n >= 3`, or `component_history` with
+  `n >= 8` and CV `<= 0.5`; `low` otherwise (always for
+  `fleet_replacement_interval`). `confidence.similarity` is the mean matched
+  similarity for `similar_workorders`, else the top neighbour similarity.
+- **`action`**: `recommend_inspection_or_part_planning` when the level is
+  `medium`/`high` or the reference TAC has already reached `tac_p50`;
+  otherwise `monitor`. Every recommendation adds the limitation
+  `recommendation_heuristic_not_calibrated`.
+- Toggle with `PMA_SHOW_RECOMMENDATION` (default `true`); like the projected
+  window, this is additive and can never turn a decision into a failure - any
+  exception from the neighbour vote or lead-time lookup is caught and logged,
+  `recommendation` stays `null` and the limitation `recommendation_unavailable`
+  is added.
+- Rendered as a fixed `**Recommendation:` header line followed by a fenced
+  ```json block (`decision: "recommendation"`, `basis`, `component_key`,
+  `reference_tac`, `lead_tac_p50/p90/p95`, `tac_p50/p90/p95`, `confidence`,
+  `action`); see `tests/eval/pma_contract_metric.py` for the exact contract
+  the eval enforces on that block.
+- Same leakage guard as everywhere else in this core (§5.7): the uploaded
+  WO's own uuid is excluded and only replacements closed strictly before
+  `analysis_as_of` are eligible.
+- This is the same kind of narrowly-scoped, clearly-labelled exception to
+  "no absolute due TAC" as Option B (`BIGQUERY-AGENT-plan.md` §8.5),
+  approved by the user on 2026-09-24; it changes nothing else in
+  `PMA-ONLINE-AGENT-plan.md` and never sets `due_counter`.
+
+**What to expect on today's curated data** (live BigQuery, 2026-09-24 20-part
+rebuild, `analysis_as_of` 2026-09-24T10:00:00Z, default settings incl. anchor
+threshold 0.84):
+
+| Input | Result |
+|---|---|
+| `open_landing_light_rh.xml` (symptom-only, RH) | `no_confident_component_match`. 4 anchors of `45-0351-4\|RH` are ≥ 0.80 but only 1 (0.843) is ≥ 0.84, and the minimum vote support is 3 |
+| same RH WO with part number `45-0351-4` | `samples_not_symptom_to_replacement` (n=5, 5 aircraft, share 0.80), `supporting_interval` p50 394 / p90 1002. `9H-REG00386` has no earlier replacement of this component → `projected_window` `null`, limitation `no_prior_replacement_on_aircraft`, fixed string (d) |
+| `open_cargo_smoke_detector.xml` (symptom-only, AFT) | `no_confident_component_match`. Top anchor 0.812, none ≥ 0.84 |
+| same cargo WO with part number `473597-5` (`SP-REG00374`) | `samples_not_symptom_to_replacement` (n=35, 28 aircraft, share 0.97), `supporting_interval` p50 381 / p90 1891, `projected_window` `{last_replacement_tac: 17938, tac_p50: 18319, tac_p90: 19829, cycles_since_last_replacement: 722, position: between_p50_p90}` |
+| same cargo WO with part number `9651-35-0005`, position `CABIN` | **`historical_interval`**: n=13, 9 aircraft, share 0.38, p50 1659 / p90 2301 cycles. First live input that reaches this decision (`9651-35-0002\|CABIN` also does: n=13, p50 245 / p90 2023) |
+| Engine part number `2085M31G03`, position `#1` | `no_lead_time_samples` |
+| `closed_boiler.xml` (no part number in the fixture) | `no_confident_component_match` |
+| `closed_boiler.xml` + envelope date + non-focus part number `BLR-2000-1` (eval case) | `out_of_scope` / `component_not_in_focus_set` |
+
+Symptom-only coverage: with the 20-part focus set, the anchor vote can only
+ever resolve 6 keys (`45-0351-4|RH`, `473597-5|AFT`, `5145-1-82|FL DK`,
+`8201-11-0000-01|AFTGALLY`, `9651-35-0002|CABIN`, `9651-35-0005|CABIN`). The
+other 14 share a part number (or alias) with a sibling position, so a vote for
+them returns `ambiguous_position` by design and they need an exact part number
+plus position. Some, e.g. `72184025|FWDGALLY` (aliased to `62197301001`, which
+also has a `FWDGALLY` position), are `ambiguous_position` even with an exact
+part number.
+
+### Configuration
+
+`PredictionSettings.from_env()` reads settings at call time, never at import.
+Each field can be overridden with `PMA_<FIELD_NAME_UPPER>`.
+
+| Env var | Default | Notes |
+|---|---|---|
+| `PMA_PREDICTION_ENABLED` | `false` | Feature flag. Terraform sets it through `var.pma_prediction_enabled` (`service.tf`). Must stay `false` until the go-live gate below passes. |
+| `PMA_BQ_PROJECT` | unset → `pm_agent.config.project_id()` | Data project |
+| `PMA_CURATED_DATASET` / `PMA_ANALYTICS_DATASET` | `pma_agent_curated` / `pma_agent_analytics` | Allowlisted in `QueryRunner` |
+| `PMA_EMBEDDING_ENDPOINT` / `PMA_EMBEDDING_DIM` | `text-embedding-005` / `768` | Endpoint allowlist has this one value only; must match the offline vectors |
+| `PMA_ONLINE_ANCHOR_SIM_THRESHOLD` (alias `PMA_ANCHOR_SIM_THRESHOLD`) | `0.84` | Re-tuned 2026-09-24 on the 20-part rebuild (`scripts/pma_backtest.py --as-of 2026-03-01`, 1720 pre-cutoff anchors, 500 negatives): the lowest threshold with a symptom-only false-gate rate ≤ 5%. At 0.84 false-gate 3.8%, coverage 11.0%, recall 10.2%; the old 0.80 now gives 23.0% false-gate (was 2.2% on the 718-anchor build); 0.85 gives 0.6% / 7.2%. |
+| `PMA_ANCHOR_K` / `PMA_VOTE_NORMALISATION` | `20` / `none` | `sqrt` gave the same false-gate rate |
+| `PMA_MIN_VOTE_SUPPORT` / `PMA_MIN_VOTE_SHARE` | `3` / `0.5` | |
+| `PMA_WO_NEIGHBOUR_K` / `PMA_WO_NEIGHBOUR_SIM_THRESHOLD` | `10` / `0.80` | Used for evidence only, never as a gate |
+| `PMA_MIN_SAMPLE` | `5` | Display rule. It is not a confidence claim. |
+| `PMA_MAX_REPLACEMENT_INTERVAL_SHARE` | `0.5` | |
+| `PMA_SHOW_SUPPORTING_INTERVAL` | `true` | OQ6, flipped 2026-09-24 (Option B) |
+| `PMA_SHOW_PROJECTED_WINDOW` | `true` | Option B; no-op without a `supporting_interval` |
+| `PMA_TAC_STALE_DAYS` / `PMA_FOCUS_CACHE_TTL_S` / `PMA_BUILD_MAX_SPREAD_S` / `PMA_EVIDENCE_LIMIT` | `7` / `600` / `3600` / `5` | |
+| `PMA_QUERY_INCLUDE_ACTIONS` | `true` | Recommendation (2026-09-24): match `wo_embeddings` on description **and** action text, not description-only |
+| `PMA_REC_NEIGHBOUR_K` / `PMA_REC_NEIGHBOUR_MIN_SIM` | `100` / `0.70` | Recommendation neighbour search width/floor over `wo_embeddings` |
+| `PMA_REC_MIN_SAMPLE_HIGH` / `PMA_REC_MAX_CV` / `PMA_REC_STRONG_SIM` | `8` / `0.5` / `0.80` | Recommendation confidence heuristic thresholds (`high` needs all three) |
+| `PMA_SHOW_RECOMMENDATION` | `true` | Toggles the `recommendation` block (also computed for WOs the gate did not resolve, via the similar-work-order vote) |
+
+**Fail-closed behaviour:**
+
+- `default_predictor()` returns `None` when the flag is off, and the `pma` block
+  then reports `prediction_disabled`.
+- If the BigQuery repository cannot be built (for example
+  `DefaultCredentialsError`), the predictor answers every call with
+  `data_source_unavailable`. The HTTP endpoint still returns 200.
+- A 403, a timeout or an inconsistent curated build (tables missing, or built
+  more than `PMA_BUILD_MAX_SPREAD_S` apart) also gives `data_source_unavailable`.
+
+**Code note:** `workorders.artifacts.analyze_current_session_artifact` uses
+whatever service it is given. A caller that wants PMA must pass
+`WorkOrderAnalysisService(predictor=default_predictor())`. Otherwise `pma`
+reports `prediction_disabled`.
+
+**Cost:** about 45 MB billed per `predict()`, with a 200 MB ceiling checked by a
+live test. The free-SQL `bq_analytics` chat agent does not see the curated
+tables (OQ10). It lists only the analytics `v_*` views.
+
+### Prerequisites and the go-live gate
+
+`PMA_PREDICTION_ENABLED=true` in a deployed environment needs all four of these:
+
+1. **IAM apply.** `iam.tf` now declares
+   `google_bigquery_dataset_iam_member.app_sa_curated_data_viewer`, which gives
+   `pma-agent-app@<project>` `roles/bigquery.dataViewer` on `pma_agent_curated`.
+   It is not applied yet, and applying it needs human approval. Until then the
+   deployed runtime answers `data_source_unavailable`, and live test 8 stays
+   skipped.
+2. **Data gate** (read-only), which exits 0 when all gating checks pass:
+
+   ```sh
+   uv run python scripts/pma_data_gate.py
+   ```
+
+   It checks that all 7 curated tables are present, that the build is
+   consistent (creation-time spread of the 6 downstream tables ≤
+   `PMA_BUILD_MAX_SPREAD_S`, no downstream table older than
+   `fct_replacement_events`), that every stored embedding is 768-d with an
+   empty status, and that the anchor dedup count in
+   `replacement_anchor_embeddings` equals the distinct replacement WOs with
+   anchor text in `dim_reference_set` (2561 on 2026-09-24).
+   It also prints the per-component replacement-to-replacement sample share,
+   which is informational only. Exit codes: `1` means a check failed or
+   BigQuery could not be read; `2` means bad arguments. On 2026-09-24 the result
+   was PASS, 4/4.
+3. **Backtest false-gate rate ≤ 5%** at the configured threshold:
+
+   ```sh
+   uv run python scripts/pma_backtest.py --as-of 2026-03-01
+   ```
+
+   The backtest uses symptom-only queries, the curated precursors plus focus
+   replacement WOs as positives, and 500 seeded non-focus negatives. Every
+   figure it prints is in-sample, because the curated artifacts were mined
+   without a train/test split.
+4. **Live tests** against the data project:
+
+   ```sh
+   PMA_LIVE_BQ=1 uv run pytest tests/integration/test_pma_prediction_live.py -q
+   ```
+
+   On 2026-09-24: 9 passed and 1 skipped (test 8, `app_sa` impersonation, waits
+   for the IAM apply). Measured `predict()` latency: p50 5.1 s, p95 7.7 s. An
+   earlier sample reached p95 11.3 s, above the 8 s target.
+
+### Monitoring
+
+Every `predict()` call emits one structured log entry. It uses
+`google.cloud.logging` logger `pma-agent` and falls back to stdlib `logging`.
+The entry carries the labels `type=agent_telemetry`, `service_name=pma-agent`
+and `event=pma_prediction`. The `jsonPayload` holds:
+
+- `request_id` and `wo_id`
+- `wo_text_sha256`: a hash only; the raw WO text is never logged
+- `pma`: the full block
+- `table_creation_times`, `embedding_endpoint` and `settings_hash`
+- `bq_job_ids`, `total_bytes_billed` and `latency_ms`
+
+**Known gap (OQ11/T19).** The only Terraform log sink, `genai_logs_to_bq`
+(`telemetry.tf`), matches GenAI inference events only. The
+`telemetry_logs_filter` variable, which would match these labels, is declared
+but no sink uses it. PMA records therefore stay in Cloud Logging (`_Default`
+bucket, default retention) and do not reach BigQuery. Nobody has yet checked
+that records emitted from Agent Runtime arrive with these labels; do that after
+the first deploy with the flag on. The queries below work against Cloud
+Logging today. Forward-looking BigQuery SQL is in
+[`docs/pma-monitoring.md`](docs/pma-monitoring.md) §3.
+
+Run them in Logs Explorer or with
+`gcloud logging read '<filter>' --project=<PROJECT> --freshness=1d --format=json`:
+
+```text
+# Prediction volume (count the entries; add timestamp>="..." for a window)
+labels.service_name="pma-agent" labels.event="pma_prediction"
+
+# No-prediction rate by reason (divide by the volume query)
+labels.event="pma_prediction" jsonPayload.pma.decision="no_reliable_prediction"
+  jsonPayload.pma.reason="insufficient_samples"
+
+# Decision mix (repeat for no_reliable_prediction and out_of_scope)
+labels.event="pma_prediction" jsonPayload.pma.decision="historical_interval"
+
+# Slow calls
+labels.event="pma_prediction" jsonPayload.latency_ms>8000
+```
+
+For durable p50 and p95 latency charts, create a distribution log-based metric
+on `jsonPayload.latency_ms`, filtered to `labels.event="pma_prediction"`.
+
+A rising share of `data_source_unavailable` usually means the curated build or
+IAM has drifted, so re-run `scripts/pma_data_gate.py`. A sudden shift in the
+decision mix usually means the focus set or part-number normalisation changed.
+
+### Reviewer workflow
+
+- **Who reviews.** A maintenance-control engineer reviews every PMA output that
+  is not `out_of_scope` (OQ15 default; the role owner still has to be named).
+  The output is advisory context for that engineer. It is never an instruction
+  to replace a part or a deadline.
+- **Checking an output.**
+  1. Confirm the `Matched component` line and its `gate_basis`
+     (`exact_pn_position` or `anchor_vote`) against the WO text.
+  2. Check the listed evidence WOs.
+  3. Read `limitations`.
+  4. Treat any interval as history, not a forecast.
+- **Finding the log record.** Take the `request_id` from `pma.provenance`, then
+  run
+  `gcloud logging read 'labels.event="pma_prediction" jsonPayload.request_id="<id>"'`.
+  The record ties the answer to the exact settings (`settings_hash`), the
+  curated build (`table_creation_times`) and the BigQuery jobs (`bq_job_ids`).
+- **Reporting a wrong match or interval.** Open a ticket in the PMA project.
+  Include the `request_id`, `wo_id`, the `pma.component_key` returned, the
+  component you expected and why. Recurring wrong matches feed the threshold
+  backtest (`scripts/pma_backtest.py`) and the curated-data fixes (T17). They
+  are not handled by editing the prompt.
+
+### Rollback
+
+1. Redeploy with `PMA_PREDICTION_ENABLED=false`, which needs human approval.
+   Responses go back to today's legacy keys plus
+   `pma.reason = prediction_disabled`.
+2. The contract is additive, so the merge commit can be reverted on its own.
+3. The read-only IAM grant can stay.
+
 ---
 
 ## Deployment
@@ -1185,6 +1630,12 @@ The explicit service name updates the Terraform-created `pma-agent` runtime;
 parser. Raw source data and local evaluation artifacts are excluded from the
 deployment archive.
 
+PMA online prediction is off unless the runtime has
+`PMA_PREDICTION_ENABLED=true`. Terraform sets it through
+`var.pma_prediction_enabled`, which defaults to `"false"`. Keep it off until the
+IAM apply and the go-live gate in
+[Online prediction](#online-prediction-pma-online-v1) are done.
+
 The upload slice was deployed on 2026-09-22 from revision `853c947` to runtime
 `projects/98892663275/locations/us-central1/reasoningEngines/9071133107117096960`.
 Live checks verified uploaded XML facts, artifact version 0 and a replay
@@ -1201,8 +1652,10 @@ joins the two in the `completions_view` view. Content capture is off by default
 (`OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=NO_CONTENT`).
 
 Traces report the agent as `pm_agent` (`gen_ai.agent.name`) but
-`OTEL_SERVICE_NAME` is `pma-agent`, and `var.telemetry_logs_filter` filters on
-`labels.service_name="pma-agent"`.
+`OTEL_SERVICE_NAME` is `pma-agent`. `var.telemetry_logs_filter` holds
+`labels.service_name="pma-agent" labels.type="agent_telemetry"`, but no sink
+uses it yet. PMA prediction log records therefore stay in Cloud Logging (see
+[Monitoring](#monitoring)).
 
 ## A2A
 

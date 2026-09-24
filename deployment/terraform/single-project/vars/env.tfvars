@@ -3,7 +3,7 @@ project_name = "pma-agent"
 
 # Your Google Cloud project id (rotated from qwiklabs-asl-04-1726946cb8ab,
 # which is no longer accessible).
-project_id = "qwiklabs-asl-04-2a1ac15646fc"
+project_id = "qwiklabs-asl-04-1726946cb8ab"
 
 # The Google Cloud region you will use to deploy the infrastructure
 region = "us-central1"

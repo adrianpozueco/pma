@@ -1,0 +1,16 @@
+<amosTransportEnvelope version="1.3">
+  <header><date timezone="UTC">2026-09-24T08:00:00Z</date></header>
+  <payload type="transferWorkorder" version="3.1"><transferWorkorder>
+    <workorder uuid="example-ex-gal-001"><workorderNumber>EX-GAL-001</workorderNumber>
+      <workorderHeader><workorderType>M</workorderType><workorderState>O</workorderState>
+        <ataChapter>25-30</ataChapter><aircraft><aircraftFullRegistration>SP-REG00082</aircraftFullRegistration><aircraftType>B737-8</aircraftType></aircraft>
+        <issueData><issueDateTime>2026-09-24T07:30:00Z</issueDateTime></issueData>
+        <positionInfo><position>GALLEY G4</position></positionInfo>
+        <component><partNumber>62197-301-001</partNumber><serialNumber>EX-SN-001</serialNumber></component>
+      </workorderHeader>
+      <workSteps><workStep uuid="example-ex-gal-001-s1"><workStepDateTime>2026-09-24T07:35:00Z</workStepDateTime><description>REF HIL 55999004 GALLEY G4 WATER BOILER LEAKING.</description>
+        <actions><action uuid="a1"><actionType>Action</actionType><actionText>G4 BOILER ISOLATED AND PLACARDED INOP IAW MEL 25-30. LEAK FROM BOILER BODY CONFIRMED.</actionText><performedData><performedDateTime>2026-09-24T07:50:00.000Z</performedDateTime></performedData></action></actions>
+      </workStep></workSteps>
+    </workorder>
+  </transferWorkorder></payload>
+</amosTransportEnvelope>

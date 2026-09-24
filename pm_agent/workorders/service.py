@@ -11,6 +11,15 @@ from typing import Any, Protocol
 
 from amos_data import ParseError, parse_workorders
 from amos_data.parser import part_key
+from pm_agent.prediction.contracts import (
+    PredictionDecision,
+    PredictionInput,
+    PredictionReason,
+    PredictionResult,
+    Predictor,
+)
+from pm_agent.prediction.policy import normalize_position
+from pm_agent.prediction.settings import FOCUS_PART_FALLBACK, PredictionSettings
 
 TARGET_PARTS: dict[str, dict[str, Any]] = {
     "2085M31G03": {
@@ -82,6 +91,7 @@ class AnalysisInput:
         if (
             self.target_part_number
             and part_key(self.target_part_number) not in TARGET_PARTS
+            and part_key(self.target_part_number) not in FOCUS_PART_FALLBACK
         ):
             raise WorkOrderAnalysisError(
                 "target_part_number is outside the configured component scope",
@@ -131,8 +141,14 @@ class WorkOrderAnalysisService:
     replacement recommendation.  Those require a validated model and policy.
     """
 
-    def __init__(self, history_provider: HistoryProvider | None = None):
+    def __init__(
+        self,
+        history_provider: HistoryProvider | None = None,
+        *,
+        predictor: Predictor | None = None,
+    ):
         self.history_provider = history_provider
+        self.predictor = predictor
 
     def analyze_xml(
         self,
@@ -177,18 +193,45 @@ class WorkOrderAnalysisService:
         history = self._history(query_text, context, targets, request, workorder)
         limitations = list(context.pop("limitations"))
         if not targets:
-            limitations.append(
-                "No configured target part was resolved from the uploaded work order."
-            )
+            limitations.append(_NO_TARGET_LIMITATION)
         if not query_text:
             limitations.append(
                 "No symptom text is safely available at the requested analysis timestamp."
             )
+        wo_id = workorder.get("workorder_uuid") or workorder.get("workorder_number")
+        if self.predictor is None:
+            prediction_result = PredictionResult.disabled(
+                PredictionReason.PREDICTION_DISABLED,
+                workorder_id=wo_id or "",
+                aircraft=(workorder.get("aircraft") or {}).get("full_registration"),
+                analysis_as_of=analysis_at,
+                mode=request.mode,
+            )
+        else:
+            prediction_result = self.predictor.predict(
+                _build_prediction_input(workorder, request, analysis_at, wo_id)
+            )
+        limitations = _reconcile_pma_limitations(limitations, prediction_result)
+        prediction = _prediction_unavailable(targets, context)
+        timing = _timing_unavailable(targets, context)
+        if prediction_result.decision == PredictionDecision.HISTORICAL_INTERVAL:
+            interval = prediction_result.interval
+            prediction = {**prediction, "status": "historical_interval_only"}
+            timing = {
+                **timing,
+                "status": "historical_interval_only",
+                "estimable_quantiles": {
+                    "p50": interval.p50 if interval else None,
+                    "p90": interval.p90 if interval else None,
+                    "unit": interval.unit if interval else "aircraft_flight_cycles",
+                    "basis": interval.basis if interval else None,
+                },
+                "forecast": None,
+            }
         return {
             "request_id": parsed.upload_hash[:24],
             "upload_hash": parsed.upload_hash,
-            "wo_id": workorder.get("workorder_uuid")
-            or workorder.get("workorder_number"),
+            "wo_id": wo_id,
             "input_mode": request.mode,
             "analysis_as_of": request.analysis_as_of,
             "parsed_context": context,
@@ -196,8 +239,9 @@ class WorkOrderAnalysisService:
             "historical_cases": history["cases"],
             "retrieval": history["retrieval"],
             "replacement_links": [],
-            "prediction": _prediction_unavailable(targets, context),
-            "timing": _timing_unavailable(targets, context),
+            "pma": prediction_result.to_dict(),
+            "prediction": prediction,
+            "timing": timing,
             "historical_summary": _unavailable(
                 "unavailable",
                 "No reviewed episode summary was returned for this request.",
@@ -214,7 +258,9 @@ class WorkOrderAnalysisService:
             "manual_evidence": [
                 {
                     "part_number": item["part_number"],
-                    "ipc_references": TARGET_PARTS[item["part_key"]]["ipc_references"],
+                    "ipc_references": TARGET_PARTS.get(item["part_key"], {}).get(
+                        "ipc_references", []
+                    ),
                     "status": "local_catalogue_reference",
                     "applicability": "unverified",
                 }
@@ -306,7 +352,8 @@ class WorkOrderAnalysisService:
                 found.setdefault(key, set()).add("alias_candidate")
         if requested:
             key = part_key(requested)
-            found.setdefault(key, set()).add("user_selected")
+            if key in TARGET_PARTS:
+                found.setdefault(key, set()).add("user_selected")
         return [
             {
                 "part_number": _display_pn(key),
@@ -402,12 +449,12 @@ class WorkOrderAnalysisService:
                     "Supplied current TAC is lower than the issue TAC and was not treated as current."
                 )
         elif request.mode == "new_work_order":
-            limitations.append(
-                "Current aircraft TAC was not supplied; issue and closing TAC were not assumed current."
-            )
+            limitations.append(_NO_CURRENT_TAC_LIMITATION)
         context = {
             "aircraft": row.get("aircraft"),
             "workorder_state": row.get("workorder_state"),
+            "ata_chapter": row.get("ata_chapter"),
+            "position": _resolve_position(row, analysis_at, request.mode),
             "issue": {
                 "timestamp": issue.get("ts"),
                 "date": issue.get("date"),
@@ -577,6 +624,228 @@ def _text_hash(value: str) -> str:
     from amos_data.documents import normalize_text, text_hash
 
     return text_hash(normalize_text(value))
+
+
+def _step_sequence(step: dict[str, Any]) -> int:
+    try:
+        return int(step.get("sequence_number") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def build_pma_wo_text(row: dict[str, Any], *, include_actions: bool) -> str:
+    """Mirror of curated.tf:145-172 (``wo_embeddings.content``). ``headline``
+    is ignored (§5.1)."""
+    remarks = row.get("remarks") or ""
+    entries: list[str] = []
+    for step in sorted(row.get("work_steps") or [], key=_step_sequence):
+        desc = step.get("description") or ""
+        actions = (step.get("actions") or []) if include_actions else []
+        for action in actions or [
+            None
+        ]:  # LEFT JOIN: a step without actions yields one entry
+            text_val = (action or {}).get("action_text") or ""
+            if (
+                desc + text_val
+            ).strip() == "":  # WHERE TRIM(CONCAT(desc, action)) <> ''
+                continue
+            suffix = ("\n" + text_val) if text_val.strip() else ""
+            entries.append((desc + suffix).strip())  # one entry per (step, action)
+    body = "\n\n".join(entries)
+    return (remarks + ("\n" if remarks else "") + body).strip()
+
+
+def _parse_dt(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except (AttributeError, ValueError):
+        return None
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        parsed = parsed.replace(tzinfo=UTC)
+    return parsed.astimezone(UTC)
+
+
+def _collect_part_numbers(
+    row: dict[str, Any], analysis_at: datetime, mode: str
+) -> tuple[tuple[str, ...], str | None]:
+    """O1 part-number collection (§5.1): every normalised part number the WO
+    carries, subject to the same as-of/replay availability rules as
+    ``_resolve_targets`` (nothing from a closed export before its export
+    timestamp; component-change parts only surface in ``historical_replay``,
+    after they were actually performed)."""
+    closed_before_export = _is_closed(row) and not _iso_at_or_before(
+        (row.get("envelope") or {}).get("envelope_ts"), analysis_at
+    )
+    numbers: set[str] = set()
+    header_key = part_key((row.get("component") or {}).get("part_number"))
+    if closed_before_export:
+        header_key = None
+    elif header_key:
+        numbers.add(header_key)
+    for step in row.get("work_steps") or []:
+        is_available = _iso_at_or_before(step.get("ts"), analysis_at) or (
+            mode == "new_work_order" and not step.get("ts")
+        )
+        if not closed_before_export and is_available:
+            for part in step.get("required_parts") or []:
+                key = part_key(part.get("part_number"))
+                if key:
+                    numbers.add(key)
+        for action in step.get("actions") or []:
+            if (
+                mode == "historical_replay"
+                and not closed_before_export
+                and _iso_at_or_before(action.get("performed_ts"), analysis_at)
+            ):
+                for change in action.get("component_changes") or []:
+                    for field in ("part_off_number", "part_on_number"):
+                        key = part_key(change.get(field))
+                        if key:
+                            numbers.add(key)
+    return tuple(sorted(numbers)), header_key
+
+
+def _resolve_position(
+    row: dict[str, Any], analysis_at: datetime, mode: str
+) -> str | None:
+    """§5.1 position: header ``position_info.position``, else the unique
+    ``component_changes`` position when component changes are available in
+    the mode (``historical_replay`` only, performed at or before the as-of,
+    never from a closed export before its export timestamp)."""
+    header = normalize_position((row.get("position_info") or {}).get("position"))
+    if header or mode != "historical_replay":
+        return header
+    if _is_closed(row) and not _iso_at_or_before(
+        (row.get("envelope") or {}).get("envelope_ts"), analysis_at
+    ):
+        return None
+    positions = {
+        pos
+        for step in row.get("work_steps") or []
+        for action in step.get("actions") or []
+        if _iso_at_or_before(action.get("performed_ts"), analysis_at)
+        for change in action.get("component_changes") or []
+        if (pos := normalize_position(change.get("position")))
+    }
+    return positions.pop() if len(positions) == 1 else None
+
+
+_NO_TARGET_LIMITATION = (
+    "No configured target part was resolved from the uploaded work order."
+)
+_NO_CURRENT_TAC_LIMITATION = "Current aircraft TAC was not supplied; issue and closing TAC were not assumed current."
+
+
+def _reconcile_pma_limitations(
+    limitations: list[str], prediction_result: PredictionResult
+) -> list[str]:
+    """Reword the two legacy limitations the PMA result would otherwise contradict.
+
+    The legacy target list (``TARGET_PARTS``) and the PMA focus set differ, so a
+    WO can have no configured target yet a matched PMA component. Likewise a
+    missing supplied TAC is filled, as context only, by the last closing TAC the
+    predictor read from BigQuery. Without a PMA fact both lines stay verbatim.
+    """
+    component_key = prediction_result.component_key
+    current_tac = prediction_result.current_tac
+    reconciled = []
+    for item in limitations:
+        if item == _NO_TARGET_LIMITATION and component_key:
+            item = (
+                f"Part {prediction_result.part_number or component_key} is not in the "
+                "configured IPC target-part list; it was resolved by the PMA "
+                f"component match ({component_key})."
+            )
+        elif item == _NO_CURRENT_TAC_LIMITATION and current_tac is not None:
+            observed = (
+                current_tac.observed_at.isoformat()
+                if current_tac.observed_at
+                else "unknown time"
+            )
+            item = (
+                "Current aircraft TAC was not supplied; the last closing TAC in "
+                f"BigQuery ({current_tac.value} at {observed}) is shown as context "
+                "only and is not assumed current."
+            )
+        reconciled.append(item)
+    return reconciled
+
+
+def _filter_actions_as_of(row: dict[str, Any], analysis_at: datetime) -> dict[str, Any]:
+    """As-of filtered copy of ``row`` for ``build_pma_wo_text(...,
+    include_actions=True)`` in ``historical_replay`` mode (the
+    ``query_include_actions`` setting): each ``work_step``'s ``actions`` is
+    filtered to those performed at or before ``analysis_at``, mirroring
+    ``_collect_part_numbers``'s own as-of guard (never surfacing an action
+    from a closed export before its export timestamp, and never one
+    performed after the as-of cut-off). ``build_pma_wo_text`` itself is left
+    untouched - its own ``include_actions=False`` behaviour is locked in by
+    an existing test - so all as-of filtering happens here, before it runs.
+    """
+    closed_before_export = _is_closed(row) and not _iso_at_or_before(
+        (row.get("envelope") or {}).get("envelope_ts"), analysis_at
+    )
+    if closed_before_export:
+        return {**row, "work_steps": []}
+    filtered_steps = []
+    for step in row.get("work_steps") or []:
+        actions = [
+            action
+            for action in step.get("actions") or []
+            if _iso_at_or_before(action.get("performed_ts"), analysis_at)
+        ]
+        filtered_steps.append({**step, "actions": actions})
+    return {**row, "work_steps": filtered_steps}
+
+
+def _build_prediction_input(
+    row: dict[str, Any],
+    request: AnalysisInput,
+    analysis_at: datetime,
+    wo_id: str | None,
+) -> PredictionInput:
+    part_numbers, header_part_number = _collect_part_numbers(
+        row, analysis_at, request.mode
+    )
+    issue = row.get("issue") or {}
+    # Condensed recommendation (approved 2026-09-24, USER REQUEST: base the
+    # recommendation on `wo_embeddings` matching of the work order's own
+    # description *and* action text). `new_work_order` mode already includes
+    # action text unconditionally (`include_actions=True` below, always) so
+    # `query_includes_action_text` stays `False` for it per
+    # `PredictionInput`'s own field docstring; `historical_replay` only
+    # includes as-of-filtered action text when `query_include_actions` is on.
+    query_include_actions = PredictionSettings.from_env().query_include_actions
+    include_replay_actions = (
+        request.mode == "historical_replay" and query_include_actions
+    )
+    if request.mode == "new_work_order":
+        pma_wo_text = build_pma_wo_text(row, include_actions=True)
+    elif include_replay_actions:
+        pma_wo_text = build_pma_wo_text(
+            _filter_actions_as_of(row, analysis_at), include_actions=True
+        )
+    else:
+        pma_wo_text = build_pma_wo_text(row, include_actions=False)
+    return PredictionInput(
+        wo_id=wo_id or "",
+        mode=request.mode,
+        analysis_as_of=analysis_at,
+        aircraft_reg=(row.get("aircraft") or {}).get("full_registration"),
+        ata_chapter=row.get("ata_chapter"),
+        position=_resolve_position(row, analysis_at, request.mode),
+        part_numbers=part_numbers,
+        header_part_number=header_part_number,
+        pma_wo_text=pma_wo_text,
+        exclude_wo_uuids=tuple(filter(None, [row.get("workorder_uuid")])),
+        user_supplied_tac=request.current_aircraft_tac,
+        user_supplied_tac_observed_at=_parse_dt(request.current_tac_observed_at),
+        issue_tac=issue.get("tac"),
+        issue_date=_parse_dt(issue.get("ts")),
+        query_includes_action_text=include_replay_actions,
+    )
 
 
 def _prediction_unavailable(

@@ -1,0 +1,16 @@
+<amosTransportEnvelope version="1.3">
+  <header><date timezone="UTC">2026-09-24T08:00:00Z</date></header>
+  <payload type="transferWorkorder" version="3.1"><transferWorkorder>
+    <workorder uuid="example-ex-cab-005"><workorderNumber>EX-CAB-005</workorderNumber>
+      <workorderHeader><workorderType>M</workorderType><workorderState>O</workorderState>
+        <ataChapter>33-21</ataChapter><aircraft><aircraftFullRegistration>EI-REG00132</aircraftFullRegistration><aircraftType>B737-8</aircraftType></aircraft>
+        <issueData><issueDateTime>2026-09-24T07:30:00Z</issueDateTime></issueData>
+        <positionInfo><position>CABIN</position></positionInfo>
+        <component><partNumber>9651-35-0005</partNumber><serialNumber>EX-SN-005</serialNumber></component>
+      </workorderHeader>
+      <workSteps><workStep uuid="example-ex-cab-005-s1"><workStepDateTime>2026-09-24T07:35:00Z</workStepDateTime><description>REF HIL 190999002 - 12A AND 27A WINDOW LIGHTS FLICKERING.</description>
+        <actions><action uuid="a1"><actionType>Action</actionType><actionText>WINDOW LIGHT CONNECTORS CHECKED IAW AMM 33-21-00 REV 24. FAULT PERSISTS, LED ASSEMBLY SUSPECTED.</actionText><performedData><performedDateTime>2026-09-24T07:50:00.000Z</performedDateTime></performedData></action></actions>
+      </workStep></workSteps>
+    </workorder>
+  </transferWorkorder></payload>
+</amosTransportEnvelope>

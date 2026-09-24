@@ -1,0 +1,12 @@
+metrics_to_run:
+  - pma_online_contract
+
+custom_metrics:
+  # Deterministic §8.4/§6.5 contract checks against `tests/eval/datasets/pma-online.json`.
+  # `agents-cli eval run` defaults to the scaffolded dataset when `--dataset` is
+  # omitted, so run this config with:
+  #   PMA_PREDICTION_ENABLED=true agents-cli eval run \
+  #     --dataset tests/eval/datasets/pma-online.json \
+  #     --config tests/eval/pma_eval_config.yaml
+  - name: pma_online_contract
+    custom_function_file: pma_contract_metric.py

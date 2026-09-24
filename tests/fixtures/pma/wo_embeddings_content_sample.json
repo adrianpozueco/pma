@@ -1,0 +1,26 @@
+[
+  {
+    "workorder_uuid": "33590616-5232-11f0-bb09-005056b18588",
+    "workorder_number": "190306536",
+    "aircraft_reg": "EI-REG00263",
+    "ata_chapter": "33-21",
+    "closing_tac": 6072,
+    "wo_embeddings_content": "WINDOW LIGHT 8DEF INOP\nWINDOW LIGHT 8DEF REPLACED IAW AMM 33-21-00-960-801 REV 24"
+  },
+  {
+    "workorder_uuid": "e6e61a15-e06a-11f0-8331-005056b18588",
+    "workorder_number": "55186772",
+    "aircraft_reg": "EI-REG00218",
+    "ata_chapter": "25-31",
+    "closing_tac": 10731,
+    "wo_embeddings_content": "REF TO HIL 55186764 \"FWD BOILER INOP\"\nFWD BOILER REPLACMENT C/OUT IAW AMM 25-31-CAMO/0001 REV.88\nOP TEST C/OUT SATIS\n\nHIL CLOSED"
+  },
+  {
+    "workorder_uuid": "a741417e-bad4-11f0-af70-005056b18588",
+    "workorder_number": "190773959",
+    "aircraft_reg": "G-REG00564",
+    "ata_chapter": "36-11",
+    "closing_tac": 16340,
+    "wo_embeddings_content": "X-REF FROM WO - 104`892`227 - #2 ENG HIGH STAGE REGULATOR LEAKING - TO BE REPLACED\n#2 HIGH STAGE REGULATOR REPLACED IAW AMM 36-11-07-000-801 & 36-11-07-400-801 REV 88\n\nTQ WRENCH - TECH2FR100 - S/N 1223109791\n\nINDEPENDENT INSPECTION CARRIED OUT IAW MOE ISS 2 REV 13 APPENDIX IV - CRITICAL TASKS\n\nGEN VER CHECK C/O \n\nUK.145.00897 \n\nASSISTED BY SUJ"
+  }
+]

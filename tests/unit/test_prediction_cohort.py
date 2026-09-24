@@ -91,11 +91,49 @@ def test_same_day_or_counter_regression_is_not_a_temporal_candidate() -> None:
 
 
 def test_unknown_is_not_negative_without_horizon_and_observed_exposure() -> None:
-    assert assess_horizon_label("scheduled_or_serviceable", False, True, horizon_cycles=100, valid_origin=True).status == "unknown"
-    assert assess_horizon_label("scheduled_or_serviceable", True, True, horizon_cycles=100, valid_origin=True).status == "negative"
-    assert assess_horizon_label("confirmed_failure", True, False, horizon_cycles=100, valid_origin=True).status == "unknown"
-    assert assess_horizon_label("confirmed_failure", True, True, horizon_cycles=100, valid_origin=True).status == "unknown"
-    assert assess_horizon_label("confirmed_failure", True, True, horizon_cycles=100, valid_origin=True, event_delta_cycles=50).status == "positive"
+    assert (
+        assess_horizon_label(
+            "scheduled_or_serviceable",
+            False,
+            True,
+            horizon_cycles=100,
+            valid_origin=True,
+        ).status
+        == "unknown"
+    )
+    assert (
+        assess_horizon_label(
+            "scheduled_or_serviceable",
+            True,
+            True,
+            horizon_cycles=100,
+            valid_origin=True,
+        ).status
+        == "negative"
+    )
+    assert (
+        assess_horizon_label(
+            "confirmed_failure", True, False, horizon_cycles=100, valid_origin=True
+        ).status
+        == "unknown"
+    )
+    assert (
+        assess_horizon_label(
+            "confirmed_failure", True, True, horizon_cycles=100, valid_origin=True
+        ).status
+        == "unknown"
+    )
+    assert (
+        assess_horizon_label(
+            "confirmed_failure",
+            True,
+            True,
+            horizon_cycles=100,
+            valid_origin=True,
+            event_delta_cycles=50,
+        ).status
+        == "positive"
+    )
 
 
 def test_serial_punctuation_is_not_normalized_away() -> None:
@@ -118,7 +156,13 @@ def test_serial_punctuation_is_not_normalized_away() -> None:
 def test_repeated_endpoint_is_rejected_instead_of_arbitrarily_paired() -> None:
     install = _row("install", "2020-01-01", 10, on_serial="S-1")
     removal = _row(
-        "remove", "2020-02-01", 20, on_pn="OTHER", on_serial="X-1", off_pn="PN-1", off_serial="S-1"
+        "remove",
+        "2020-02-01",
+        20,
+        on_pn="OTHER",
+        on_serial="X-1",
+        off_pn="PN-1",
+        off_serial="S-1",
     )
     candidates, diagnostics = build_installation_candidates([install, install, removal])
     assert candidates == []
@@ -157,17 +201,56 @@ def test_duplicate_narratives_are_purged_into_one_split_group() -> None:
     assert manifest["assignments"][0]["failure_training_eligible"] is False
 
 
-def test_closed_snapshot_text_is_not_prediction_time_and_duplicate_cannot_cross_split() -> None:
+def test_closed_snapshot_text_is_not_prediction_time_and_duplicate_cannot_cross_split() -> (
+    None
+):
     rows = [
-        _row("early-install", "2010-01-01", 10, on_pn="2085M31G03", on_serial="S-1", description="same text"),
-        _row("early-remove", "2010-02-01", 20, on_pn="OTHER", on_serial="X-1", off_pn="2085M31G03", off_serial="S-1", description="same text"),
-        _row("late-install", "2027-01-01", 30, on_pn="2085M31G03", on_serial="S-2", description="same text"),
-        _row("late-remove", "2027-02-01", 40, on_pn="OTHER", on_serial="X-2", off_pn="2085M31G03", off_serial="S-2", description="same text"),
+        _row(
+            "early-install",
+            "2010-01-01",
+            10,
+            on_pn="2085M31G03",
+            on_serial="S-1",
+            description="same text",
+        ),
+        _row(
+            "early-remove",
+            "2010-02-01",
+            20,
+            on_pn="OTHER",
+            on_serial="X-1",
+            off_pn="2085M31G03",
+            off_serial="S-1",
+            description="same text",
+        ),
+        _row(
+            "late-install",
+            "2027-01-01",
+            30,
+            on_pn="2085M31G03",
+            on_serial="S-2",
+            description="same text",
+        ),
+        _row(
+            "late-remove",
+            "2027-02-01",
+            40,
+            on_pn="OTHER",
+            on_serial="X-2",
+            off_pn="2085M31G03",
+            off_serial="S-2",
+            description="same text",
+        ),
     ]
     candidates, _ = build_installation_candidates(rows)
     manifest = build_split_manifest(candidates, "b" * 64, "fixture.ndjson", rows)
     index = build_workorder_split_index(candidates, rows, manifest)
     assert {entry["split"] for entry in index.values()} == {"final_test"}
     assert all(not entry["retrieval_index_eligible"] for entry in index.values())
-    assert all(not entry["prediction_time_symptom"]["available"] for entry in index.values())
-    assert index["early-install"]["historical_case"]["available_from"] == "2026-09-15T15:40:01+00:00"
+    assert all(
+        not entry["prediction_time_symptom"]["available"] for entry in index.values()
+    )
+    assert (
+        index["early-install"]["historical_case"]["available_from"]
+        == "2026-09-15T15:40:01+00:00"
+    )

@@ -1,0 +1,14 @@
+<amosTransportEnvelope version="1.3">
+  <header><date timezone="UTC">2026-09-24T08:00:00Z</date></header>
+  <payload type="transferWorkorder" version="3.1"><transferWorkorder>
+    <workorder uuid="example-ex-sym-001"><workorderNumber>EX-SYM-001</workorderNumber>
+      <workorderHeader><workorderType>M</workorderType><workorderState>O</workorderState>
+        <ataChapter>26-16</ataChapter><aircraft><aircraftFullRegistration>EI-REG00020</aircraftFullRegistration><aircraftType>B737-8</aircraftType></aircraft>
+        <issueData><issueDateTime>2026-09-24T07:30:00Z</issueDateTime></issueData>
+      </workorderHeader>
+      <workSteps><workStep uuid="example-ex-sym-001-s1"><workStepDateTime>2026-09-24T07:35:00Z</workStepDateTime><description>REF HIL 190999006 AFT CARGO SMOKE DETECTORS A2 AND B3 INOP.</description>
+        <actions><action uuid="a1"><actionType>Action</actionType><actionText>AFT CARGO SMOKE DETECTION TEST FAILED IAW AMM 26-16-00. TROUBLESHOOTING IN PROGRESS.</actionText><performedData><performedDateTime>2026-09-24T07:50:00.000Z</performedDateTime></performedData></action></actions>
+      </workStep></workSteps>
+    </workorder>
+  </transferWorkorder></payload>
+</amosTransportEnvelope>

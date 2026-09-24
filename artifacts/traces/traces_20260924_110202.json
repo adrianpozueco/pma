@@ -1,0 +1,627 @@
+{
+  "eval_cases": [
+    {
+      "prompt": {
+        "parts": [
+          {
+            "text": "Analyse the attached work order."
+          },
+          {
+            "inline_data": {
+              "data": "PGFtb3NUcmFuc3BvcnRFbnZlbG9wZSB2ZXJzaW9uPSIxLjMiPgogIDxoZWFkZXI-PGRhdGUgdGltZXpvbmU9IlVUQyI-MjAyNi0wOS0yM1QxMDowMDowMFo8L2RhdGU-PC9oZWFkZXI-CiAgPHBheWxvYWQgdHlwZT0idHJhbnNmZXJXb3Jrb3JkZXIiIHZlcnNpb249IjMuMSI-PHRyYW5zZmVyV29ya29yZGVyPgogICAgPHdvcmtvcmRlciB1dWlkPSJjYXJnby1zbW9rZS1kZXRlY3Rvci1maXh0dXJlIj48d29ya29yZGVyTnVtYmVyPkNBUkdPLUFGVC0wMDE8L3dvcmtvcmRlck51bWJlcj4KICAgICAgPHdvcmtvcmRlckhlYWRlcj48d29ya29yZGVyVHlwZT5NPC93b3Jrb3JkZXJUeXBlPjx3b3Jrb3JkZXJTdGF0ZT5PPC93b3Jrb3JkZXJTdGF0ZT4KICAgICAgICA8YXRhQ2hhcHRlcj4yNi0xNjwvYXRhQ2hhcHRlcj48YWlyY3JhZnQ-PGFpcmNyYWZ0RnVsbFJlZ2lzdHJhdGlvbj5TUC1SRUcwMDM3NDwvYWlyY3JhZnRGdWxsUmVnaXN0cmF0aW9uPjxhaXJjcmFmdFR5cGU-QjczNy04PC9haXJjcmFmdFR5cGU-PC9haXJjcmFmdD4KICAgICAgICA8aXNzdWVEYXRhPjxpc3N1ZURhdGVUaW1lPjIwMjYtMDktMjNUMDk6MDA6MDBaPC9pc3N1ZURhdGVUaW1lPjwvaXNzdWVEYXRhPgogICAgICAgIDxwb3NpdGlvbkluZm8-PHBvc2l0aW9uPkFGVDwvcG9zaXRpb24-PC9wb3NpdGlvbkluZm8-CiAgICAgIDwvd29ya29yZGVySGVhZGVyPgogICAgICA8d29ya1N0ZXBzPjx3b3JrU3RlcCB1dWlkPSJzdGVwLWNhcmdvIj48d29ya1N0ZXBEYXRlVGltZT4yMDI2LTA5LTIzVDA5OjA1OjAwWjwvd29ya1N0ZXBEYXRlVGltZT48ZGVzY3JpcHRpb24-QUZUIENBUkdPIEZJUkUgTE9PUCBBIC0gSU5PUDwvZGVzY3JpcHRpb24-CiAgICAgIDwvd29ya1N0ZXA-PC93b3JrU3RlcHM-CiAgICA8L3dvcmtvcmRlcj4KICA8L3RyYW5zZmVyV29ya29yZGVyPjwvcGF5bG9hZD4KPC9hbW9zVHJhbnNwb3J0RW52ZWxvcGU-Cg==",
+              "mime_type": "application/xml"
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "responses": [
+        {
+          "response": {
+            "parts": [
+              {
+                "text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CARGO-AFT-001**; aircraft SP-REG00374, 737-800.\n\nOpen work order — analysis of the uploaded snapshot.\n\nAnalysis cutoff: 2026-09-24T09:02:08.015200+00:00.\n\n**Target parts**\n\n**Reported findings**\n- AFT CARGO FIRE LOOP A - INOP\n\nCurrent aircraft TAC: not recorded (not\\_supplied).\nClosing aircraft TAC: not recorded; this is not the current counter or component age.\n\nCurrent aircraft TAC was not supplied; issue and closing TAC were not assumed current.\nNo configured target part was resolved from the uploaded work order.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Current aircraft TAC was not supplied; issue and closing TAC were not assumed current.\n- No configured target part was resolved from the uploaded work order.\n- No reliable prediction: no focus component could be matched with confidence.\n- Current aircraft TAC is stale (last seen 2026-08-20T22:30:00+00:00); no due TAC is given.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age."
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "eval_case_id": "pma_online_cargo_aft_smoke_detector",
+      "agent_data": {
+        "turns": [
+          {
+            "turn_index": 0,
+            "turn_id": "turn_0",
+            "events": [
+              {
+                "author": "pm_agent",
+                "event_time": "2026-09-24T09:02:17.839173Z",
+                "state_delta": {
+                  "workorder_upload": {
+                    "references": [
+                      {
+                        "filename": "workorder-1.xml",
+                        "version": 0,
+                        "upload_hash": "9cfeca2cbb846ee89ab696bdf05690fa1af713b2bc6f1e9f4e4b3220e83fd2c2"
+                      }
+                    ],
+                    "options": {
+                      "mode": "new_work_order",
+                      "analysis_as_of": "2026-09-24T09:02:08.015200+00:00",
+                      "selected_wo_id": null,
+                      "current_aircraft_tac": null,
+                      "current_tac_source": null,
+                      "current_tac_observed_at": null,
+                      "target_part_number": null
+                    },
+                    "explicit_options": {},
+                    "filename": "workorder-1.xml",
+                    "available_wo_ids": []
+                  },
+                  "workorder_evidence_context": {
+                    "upload_result": {
+                      "status": "analyzed",
+                      "source": {
+                        "filename": "workorder-1.xml",
+                        "version": 0,
+                        "upload_hash": "9cfeca2cbb846ee89ab696bdf05690fa1af713b2bc6f1e9f4e4b3220e83fd2c2"
+                      },
+                      "analysis": {
+                        "request_id": "9cfeca2cbb846ee89ab696bd",
+                        "upload_hash": "9cfeca2cbb846ee89ab696bdf05690fa1af713b2bc6f1e9f4e4b3220e83fd2c2",
+                        "wo_id": "cargo-smoke-detector-fixture",
+                        "input_mode": "new_work_order",
+                        "analysis_as_of": "2026-09-24T09:02:08.015200+00:00",
+                        "parsed_context": {
+                          "aircraft": {
+                            "type_raw": "B737-8",
+                            "variant": "737-800",
+                            "full_registration": "SP-REG00374",
+                            "registration": null,
+                            "reg_country_prefix": "SP",
+                            "aoc": "Buzz (Poland)",
+                            "msn": null,
+                            "operator": null,
+                            "routine_checks": []
+                          },
+                          "workorder_state": "O",
+                          "ata_chapter": "26-16",
+                          "position": "AFT",
+                          "issue": {
+                            "timestamp": "2026-09-23T09:00:00+00:00",
+                            "date": "2026-09-23",
+                            "tac": {
+                              "value": null,
+                              "source": "xml_issue",
+                              "observed_at": "2026-09-23T09:00:00+00:00",
+                              "status": "missing_or_invalid"
+                            }
+                          },
+                          "closing": {
+                            "timestamp": null,
+                            "date": null,
+                            "tac": {
+                              "value": null,
+                              "source": "xml_closing",
+                              "observed_at": null,
+                              "status": "missing_or_invalid"
+                            }
+                          },
+                          "current_aircraft_tac": {
+                            "value": null,
+                            "source": null,
+                            "observed_at": null,
+                            "status": "not_supplied"
+                          },
+                          "symptoms": [
+                            {
+                              "step_id": "step-cargo",
+                              "description": "AFT CARGO FIRE LOOP A - INOP",
+                              "headline": null,
+                              "observed_at": "2026-09-23T09:05:00+00:00",
+                              "availability": "reported_observation_unverified"
+                            }
+                          ]
+                        },
+                        "target_parts": [],
+                        "historical_cases": [],
+                        "retrieval": {
+                          "status": "not_configured",
+                          "method": null,
+                          "corpus_version": null,
+                          "applied_filters": {
+                            "analysis_as_of": "2026-09-24T09:02:08.015200+00:00"
+                          },
+                          "returned_cases": 0
+                        },
+                        "replacement_links": [],
+                        "pma": {
+                          "decision": "no_reliable_prediction",
+                          "reason": "no_confident_component_match",
+                          "aircraft": "SP-REG00374",
+                          "workorder_id": "cargo-smoke-detector-fixture",
+                          "analysis_as_of": "2026-09-24T09:02:08.015200+00:00",
+                          "mode": "new_work_order",
+                          "component_key": null,
+                          "part_number": null,
+                          "position": null,
+                          "candidates": [],
+                          "match": null,
+                          "interval": null,
+                          "supporting_interval": null,
+                          "evidence_support": null,
+                          "current_tac": {
+                            "value": 18660,
+                            "source": "latest_closing_tac",
+                            "observed_at": "2026-08-20T22:30:00+00:00",
+                            "stale": true,
+                            "counter_inconsistent": false
+                          },
+                          "evidence": [],
+                          "missing": [
+                            "component_match"
+                          ],
+                          "action": null,
+                          "limitations": [
+                            "not_calibrated",
+                            "outcome_selected_sample",
+                            "no_installation_eligibility_check",
+                            "closing_tac_basis",
+                            "embedding_provenance_unverified",
+                            "current_tac_stale"
+                          ],
+                          "provenance": {
+                            "curated_dataset": "pma_agent_curated",
+                            "curated_tables_created": {
+                              "adjudicated_precursors": "2026-09-23T15:26:25.678000+00:00",
+                              "dim_focus_components": "2026-09-23T15:20:40.467000+00:00",
+                              "dim_reference_set": "2026-09-23T15:20:45.910000+00:00",
+                              "fct_lead_time_samples": "2026-09-23T15:26:30.373000+00:00",
+                              "fct_replacement_events": "2026-09-23T15:20:37.084000+00:00",
+                              "replacement_anchor_embeddings": "2026-09-23T15:20:56.158000+00:00",
+                              "wo_embeddings": "2026-09-23T15:20:52.522000+00:00"
+                            },
+                            "embedding_endpoint": "text-embedding-005",
+                            "settings_hash": "b3dc7decbd8ca7ae",
+                            "bq_job_ids": [
+                              "f2304393-4e05-4191-9daf-0401eb04eb52",
+                              "3a8c4066-35f1-425a-a9d0-d65e3b40e78f",
+                              "c00f4357-1110-40f6-b8af-bf993db13563",
+                              "c2304c6b-1f15-4602-b305-ad81c0440ea0",
+                              "d76a0bbb-c9e4-46d3-8616-a9e05d755bc6",
+                              "23449b55-fa68-472e-825a-a3581f22a94d"
+                            ]
+                          },
+                          "reason_detail": null,
+                          "contract_version": "pma-online-v1"
+                        },
+                        "prediction": {
+                          "status": "out_of_scope",
+                          "reason": "No configured target part was resolved.",
+                          "value": null,
+                          "model_version": null,
+                          "feature_version": null,
+                          "target_event": null,
+                          "origin_timestamp": null,
+                          "origin_tac": null,
+                          "horizon_cycles": null,
+                          "probability": null,
+                          "training_cutoff": null,
+                          "applicability": null
+                        },
+                        "timing": {
+                          "status": "missing_input",
+                          "reason": "A valid, observed current aircraft TAC is required for timing.",
+                          "value": null,
+                          "model_version": null,
+                          "feature_version": null,
+                          "unit": "aircraft_flight_cycles",
+                          "estimable_quantiles": null,
+                          "forecast": null
+                        },
+                        "historical_summary": {
+                          "status": "unavailable",
+                          "reason": "No reviewed episode summary was returned for this request.",
+                          "value": null,
+                          "model_version": null,
+                          "feature_version": null
+                        },
+                        "replacement_recommendation": {
+                          "status": "unavailable",
+                          "reason": "No reviewed replacement policy or documented cycle limit is configured.",
+                          "value": null,
+                          "cycles_remaining": null,
+                          "due_counter": null,
+                          "basis": null,
+                          "applicability": null
+                        },
+                        "manual_evidence": [],
+                        "limitations": [
+                          "Current aircraft TAC was not supplied; issue and closing TAC were not assumed current.",
+                          "No configured target part was resolved from the uploaded work order."
+                        ],
+                        "parser_diagnostics": []
+                      },
+                      "uploaded_workorder": {
+                        "workorder_number": "CARGO-AFT-001",
+                        "recorded_actions": [],
+                        "is_closed": false
+                      }
+                    },
+                    "evidence_request": {
+                      "question": "Analyse the attached work order.",
+                      "input_mode": "new_work_order",
+                      "analysis_as_of": "2026-09-24T09:02:08.015200+00:00",
+                      "invocation_scope_id": "b076516b72174b2eaaaed50a0baaad22",
+                      "artifact": {
+                        "filename": "workorder-1.xml",
+                        "version": 0,
+                        "sha256": "9cfeca2cbb846ee89ab696bdf05690fa1af713b2bc6f1e9f4e4b3220e83fd2c2"
+                      },
+                      "selected_wo_id": "cargo-smoke-detector-fixture",
+                      "part_candidates": [],
+                      "aircraft": {
+                        "aircraft_id": "SP-REG00374",
+                        "family": "737-800",
+                        "position": "AFT"
+                      },
+                      "available_symptoms": [
+                        "AFT CARGO FIRE LOOP A - INOP"
+                      ],
+                      "counters": {
+                        "issue_tac": {
+                          "value": null,
+                          "source": "xml_issue",
+                          "observed_at": "2026-09-23T09:00:00+00:00",
+                          "status": "missing_or_invalid"
+                        },
+                        "closing_tac": {
+                          "value": null,
+                          "source": "xml_closing",
+                          "observed_at": null,
+                          "status": "missing_or_invalid"
+                        },
+                        "supplied_current_tac": {
+                          "value": null,
+                          "source": null,
+                          "observed_at": null,
+                          "status": "not_supplied"
+                        }
+                      },
+                      "exclusions": {
+                        "workorder_ids": [
+                          "CARGO-AFT-001",
+                          "cargo-smoke-detector-fixture"
+                        ],
+                        "record_ids": [],
+                        "text_hashes": [
+                          "483236657cd6566dfac9d43f88964e8e04224c0d7a3af3fe024925fc110850a5"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "author": "pm_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CARGO-AFT-001**; aircraft SP-REG00374, 737-800.\n\nOpen work order — analysis of the uploaded snapshot.\n\nAnalysis cutoff: 2026-09-24T09:02:08.015200+00:00.\n\n**Target parts**\n\n**Reported findings**\n- AFT CARGO FIRE LOOP A - INOP\n\nCurrent aircraft TAC: not recorded (not\\_supplied).\nClosing aircraft TAC: not recorded; this is not the current counter or component age.\n\nCurrent aircraft TAC was not supplied; issue and closing TAC were not assumed current.\nNo configured target part was resolved from the uploaded work order.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Current aircraft TAC was not supplied; issue and closing TAC were not assumed current.\n- No configured target part was resolved from the uploaded work order.\n- No reliable prediction: no focus component could be matched with confidence.\n- Current aircraft TAC is stale (last seen 2026-08-20T22:30:00+00:00); no due TAC is given.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age."
+                    }
+                  ],
+                  "role": "model"
+                },
+                "event_time": "2026-09-24T09:02:21.845284Z"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "prompt": {
+        "parts": [
+          {
+            "text": "Analyse the attached work order."
+          },
+          {
+            "inline_data": {
+              "data": "PGFtb3NUcmFuc3BvcnRFbnZlbG9wZT48cGF5bG9hZCB0eXBlPSJ0cmFuc2ZlcldvcmtvcmRlciI-PHRyYW5zZmVyV29ya29yZGVyPgogIDx3b3Jrb3JkZXIgdXVpZD0id28tY2xvc2VkIj48d29ya29yZGVyTnVtYmVyPkNMT1NFRC0xPC93b3Jrb3JkZXJOdW1iZXI-CiAgPHdvcmtvcmRlckhlYWRlcj48d29ya29yZGVyU3RhdGU-Qzwvd29ya29yZGVyU3RhdGU-PGNsb3NpbmdEYXRhPjxjbG9zaW5nRGF0ZVRpbWU-MjAyNi0wMi0wMlQxMDowMDowMFo8L2Nsb3NpbmdEYXRlVGltZT48Y2xvc2luZ1RhYz4yMjA8L2Nsb3NpbmdUYWM-PC9jbG9zaW5nRGF0YT48L3dvcmtvcmRlckhlYWRlcj4KICA8d29ya1N0ZXBzPjx3b3JrU3RlcCB1dWlkPSJzdGVwLWNsb3NlZCI-PHdvcmtTdGVwRGF0ZVRpbWU-MjAyNi0wMi0wMVQxMDowMDowMFo8L3dvcmtTdGVwRGF0ZVRpbWU-PGRlc2NyaXB0aW9uPldhdGVyIGJvaWxlciB0cmlwcyBicmVha2VyPC9kZXNjcmlwdGlvbj48YWN0aW9ucz48YWN0aW9uIHV1aWQ9ImNsb3NlZC1hY3Rpb24iPjxhY3Rpb25UZXh0PkNvbXBsZXRlZCByZXBsYWNlbWVudDwvYWN0aW9uVGV4dD48L2FjdGlvbj48L2FjdGlvbnM-PC93b3JrU3RlcD48L3dvcmtTdGVwcz4KICA8L3dvcmtvcmRlcj4KPC90cmFuc2ZlcldvcmtvcmRlcj48L3BheWxvYWQ-PC9hbW9zVHJhbnNwb3J0RW52ZWxvcGU-Cg==",
+              "mime_type": "application/xml"
+            }
+          }
+        ],
+        "role": "user"
+      },
+      "responses": [
+        {
+          "response": {
+            "parts": [
+              {
+                "text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CLOSED-1**; aircraft not recorded, not recorded.\n\nCompleted work order — historical analysis.\n\nAnalysis cutoff: 2026-09-24T09:02:07.732858+00:00.\n\n**Target parts**\n\n**Reported findings**\nNo symptom text is available at this cutoff.\n\nCurrent aircraft TAC: not recorded (not\\_supplied).\nClosing aircraft TAC: 220; this is not the current counter or component age.\n\nClosed-export symptom text is an unverified snapshot of the original observation.\nClosed-export text is excluded because the requested replay precedes a verified export timestamp.\nReplay excludes completed action and closing text from query and feature context.\nNo configured target part was resolved from the uploaded work order.\nNo symptom text is safely available at the requested analysis timestamp.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Closed-export symptom text is an unverified snapshot of the original observation.\n- Closed-export text is excluded because the requested replay precedes a verified export timestamp.\n- Replay excludes completed action and closing text from query and feature context.\n- No configured target part was resolved from the uploaded work order.\n- No symptom text is safely available at the requested analysis timestamp.\n- No reliable prediction: no focus component could be matched with confidence.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age."
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "eval_case_id": "pma_online_boiler_out_of_scope",
+      "agent_data": {
+        "turns": [
+          {
+            "turn_index": 0,
+            "turn_id": "turn_0",
+            "events": [
+              {
+                "author": "pm_agent",
+                "event_time": "2026-09-24T09:02:15.169398Z",
+                "state_delta": {
+                  "workorder_upload": {
+                    "references": [
+                      {
+                        "filename": "workorder-1.xml",
+                        "version": 0,
+                        "upload_hash": "4679391023e9b61744b8d92bd286781573df479fbba629de500549e96626c7d1"
+                      }
+                    ],
+                    "options": {
+                      "mode": "historical_replay",
+                      "analysis_as_of": "2026-09-24T09:02:07.732858+00:00",
+                      "selected_wo_id": null,
+                      "current_aircraft_tac": null,
+                      "current_tac_source": null,
+                      "current_tac_observed_at": null,
+                      "target_part_number": null
+                    },
+                    "explicit_options": {},
+                    "filename": "workorder-1.xml",
+                    "available_wo_ids": []
+                  },
+                  "workorder_evidence_context": {
+                    "upload_result": {
+                      "status": "analyzed",
+                      "source": {
+                        "filename": "workorder-1.xml",
+                        "version": 0,
+                        "upload_hash": "4679391023e9b61744b8d92bd286781573df479fbba629de500549e96626c7d1"
+                      },
+                      "analysis": {
+                        "request_id": "4679391023e9b61744b8d92b",
+                        "upload_hash": "4679391023e9b61744b8d92bd286781573df479fbba629de500549e96626c7d1",
+                        "wo_id": "wo-closed",
+                        "input_mode": "historical_replay",
+                        "analysis_as_of": "2026-09-24T09:02:07.732858+00:00",
+                        "parsed_context": {
+                          "aircraft": {
+                            "type_raw": null,
+                            "variant": null,
+                            "full_registration": null,
+                            "registration": null,
+                            "reg_country_prefix": null,
+                            "aoc": null,
+                            "msn": null,
+                            "operator": null,
+                            "routine_checks": []
+                          },
+                          "workorder_state": "C",
+                          "ata_chapter": null,
+                          "position": null,
+                          "issue": {
+                            "timestamp": null,
+                            "date": null,
+                            "tac": {
+                              "value": null,
+                              "source": "xml_issue",
+                              "observed_at": null,
+                              "status": "missing_or_invalid"
+                            }
+                          },
+                          "closing": {
+                            "timestamp": "2026-02-02T10:00:00+00:00",
+                            "date": "2026-02-02",
+                            "tac": {
+                              "value": 220,
+                              "source": "xml_closing",
+                              "observed_at": "2026-02-02T10:00:00+00:00",
+                              "status": "valid"
+                            }
+                          },
+                          "current_aircraft_tac": {
+                            "value": null,
+                            "source": null,
+                            "observed_at": null,
+                            "status": "not_supplied"
+                          },
+                          "symptoms": []
+                        },
+                        "target_parts": [],
+                        "historical_cases": [],
+                        "retrieval": {
+                          "status": "missing_input",
+                          "method": null,
+                          "corpus_version": null,
+                          "applied_filters": {
+                            "analysis_as_of": "2026-09-24T09:02:07.732858+00:00"
+                          },
+                          "returned_cases": 0
+                        },
+                        "replacement_links": [],
+                        "pma": {
+                          "decision": "no_reliable_prediction",
+                          "reason": "no_confident_component_match",
+                          "aircraft": null,
+                          "workorder_id": "wo-closed",
+                          "analysis_as_of": "2026-09-24T09:02:07.732858+00:00",
+                          "mode": "historical_replay",
+                          "component_key": null,
+                          "part_number": null,
+                          "position": null,
+                          "candidates": [],
+                          "match": null,
+                          "interval": null,
+                          "supporting_interval": null,
+                          "evidence_support": null,
+                          "current_tac": null,
+                          "evidence": [],
+                          "missing": [
+                            "component_match"
+                          ],
+                          "action": null,
+                          "limitations": [
+                            "not_calibrated",
+                            "outcome_selected_sample",
+                            "no_installation_eligibility_check",
+                            "closing_tac_basis",
+                            "in_sample_curated_artifacts",
+                            "embedding_provenance_unverified"
+                          ],
+                          "provenance": {
+                            "curated_dataset": "pma_agent_curated",
+                            "curated_tables_created": {
+                              "adjudicated_precursors": "2026-09-23T15:26:25.678000+00:00",
+                              "dim_focus_components": "2026-09-23T15:20:40.467000+00:00",
+                              "dim_reference_set": "2026-09-23T15:20:45.910000+00:00",
+                              "fct_lead_time_samples": "2026-09-23T15:26:30.373000+00:00",
+                              "fct_replacement_events": "2026-09-23T15:20:37.084000+00:00",
+                              "replacement_anchor_embeddings": "2026-09-23T15:20:56.158000+00:00",
+                              "wo_embeddings": "2026-09-23T15:20:52.522000+00:00"
+                            },
+                            "embedding_endpoint": "text-embedding-005",
+                            "settings_hash": "b3dc7decbd8ca7ae",
+                            "bq_job_ids": [
+                              "6bd074eb-0cdc-424c-951e-601f4afb9677",
+                              "ee1284e4-3911-4d62-ac19-e28f64665779",
+                              "03ca99ed-63ca-4ea8-995c-7e7fde0c4ca4",
+                              "947c0eeb-3859-4d27-b7bd-a878fac6cfa0"
+                            ]
+                          },
+                          "reason_detail": null,
+                          "contract_version": "pma-online-v1"
+                        },
+                        "prediction": {
+                          "status": "out_of_scope",
+                          "reason": "No configured target part was resolved.",
+                          "value": null,
+                          "model_version": null,
+                          "feature_version": null,
+                          "target_event": null,
+                          "origin_timestamp": null,
+                          "origin_tac": null,
+                          "horizon_cycles": null,
+                          "probability": null,
+                          "training_cutoff": null,
+                          "applicability": null
+                        },
+                        "timing": {
+                          "status": "missing_input",
+                          "reason": "A valid, observed current aircraft TAC is required for timing.",
+                          "value": null,
+                          "model_version": null,
+                          "feature_version": null,
+                          "unit": "aircraft_flight_cycles",
+                          "estimable_quantiles": null,
+                          "forecast": null
+                        },
+                        "historical_summary": {
+                          "status": "unavailable",
+                          "reason": "No reviewed episode summary was returned for this request.",
+                          "value": null,
+                          "model_version": null,
+                          "feature_version": null
+                        },
+                        "replacement_recommendation": {
+                          "status": "unavailable",
+                          "reason": "No reviewed replacement policy or documented cycle limit is configured.",
+                          "value": null,
+                          "cycles_remaining": null,
+                          "due_counter": null,
+                          "basis": null,
+                          "applicability": null
+                        },
+                        "manual_evidence": [],
+                        "limitations": [
+                          "Closed-export symptom text is an unverified snapshot of the original observation.",
+                          "Closed-export text is excluded because the requested replay precedes a verified export timestamp.",
+                          "Replay excludes completed action and closing text from query and feature context.",
+                          "No configured target part was resolved from the uploaded work order.",
+                          "No symptom text is safely available at the requested analysis timestamp."
+                        ],
+                        "parser_diagnostics": []
+                      },
+                      "uploaded_workorder": {
+                        "workorder_number": "CLOSED-1",
+                        "recorded_actions": [],
+                        "is_closed": true
+                      }
+                    },
+                    "evidence_request": {
+                      "question": "Analyse the attached work order.",
+                      "input_mode": "historical_replay",
+                      "analysis_as_of": "2026-09-24T09:02:07.732858+00:00",
+                      "invocation_scope_id": "020a998c24d54f2d8205f458b9fc5d08",
+                      "artifact": {
+                        "filename": "workorder-1.xml",
+                        "version": 0,
+                        "sha256": "4679391023e9b61744b8d92bd286781573df479fbba629de500549e96626c7d1"
+                      },
+                      "selected_wo_id": "wo-closed",
+                      "part_candidates": [],
+                      "aircraft": {
+                        "aircraft_id": null,
+                        "family": null,
+                        "position": null
+                      },
+                      "available_symptoms": [],
+                      "counters": {
+                        "issue_tac": {
+                          "value": null,
+                          "source": "xml_issue",
+                          "observed_at": null,
+                          "status": "missing_or_invalid"
+                        },
+                        "closing_tac": {
+                          "value": 220,
+                          "source": "xml_closing",
+                          "observed_at": "2026-02-02T10:00:00+00:00",
+                          "status": "valid"
+                        },
+                        "supplied_current_tac": {
+                          "value": null,
+                          "source": null,
+                          "observed_at": null,
+                          "status": "not_supplied"
+                        }
+                      },
+                      "exclusions": {
+                        "workorder_ids": [
+                          "CLOSED-1",
+                          "wo-closed"
+                        ],
+                        "record_ids": [],
+                        "text_hashes": []
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "author": "pm_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "**(a) What the uploaded work order records**\nAnalysed uploaded XML **workorder-1.xml** (version 0).\n\nWork order **CLOSED-1**; aircraft not recorded, not recorded.\n\nCompleted work order — historical analysis.\n\nAnalysis cutoff: 2026-09-24T09:02:07.732858+00:00.\n\n**Target parts**\n\n**Reported findings**\nNo symptom text is available at this cutoff.\n\nCurrent aircraft TAC: not recorded (not\\_supplied).\nClosing aircraft TAC: 220; this is not the current counter or component age.\n\nClosed-export symptom text is an unverified snapshot of the original observation.\nClosed-export text is excluded because the requested replay precedes a verified export timestamp.\nReplay excludes completed action and closing text from query and feature context.\nNo configured target part was resolved from the uploaded work order.\nNo symptom text is safely available at the requested analysis timestamp.\n\nTo select a target, reply target_part_number=PN.\n\nFor a different historical cutoff, reply analysis_as_of=YYYY-MM-DDTHH:MM:SSZ.\n\n**(b) Earlier BigQuery cases**\nBigQuery was queried and found no matching records.\n\n**(c) Retrieved manual pages (IPC)**\nThe IPC knowledge base was queried and found no matching pages.\n\n**(d) Missing/conflicting evidence and unavailable predictions**\n- Closed-export symptom text is an unverified snapshot of the original observation.\n- Closed-export text is excluded because the requested replay precedes a verified export timestamp.\n- Replay excludes completed action and closing text from query and feature context.\n- No configured target part was resolved from the uploaded work order.\n- No symptom text is safely available at the requested analysis timestamp.\n- No reliable prediction: no focus component could be matched with confidence.\n- Failure probability, remaining life and replacement deadline are unavailable. No validated model or replacement policy is configured; closing TAC is historical and is not the current counter or component age."
+                    }
+                  ],
+                  "role": "model"
+                },
+                "event_time": "2026-09-24T09:02:19.243109Z"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

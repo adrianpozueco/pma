@@ -163,3 +163,9 @@ variable "curated_llm_endpoint" {
   description = "BigQuery AI.GENERATE endpoint for Step 07 adjudication."
   default     = "gemini-3.8-flash"
 }
+
+variable "pma_prediction_enabled" {
+  type        = string
+  description = "Enable PMA online prediction. Set to 'true' only after the data-quality gate passes and the go-live gate is approved."
+  default     = "false"
+}

@@ -1,0 +1,16 @@
+<amosTransportEnvelope version="1.3">
+  <header><date timezone="UTC">2026-09-24T08:00:00Z</date></header>
+  <payload type="transferWorkorder" version="3.1"><transferWorkorder>
+    <workorder uuid="example-ex-oos-001"><workorderNumber>EX-OOS-001</workorderNumber>
+      <workorderHeader><workorderType>M</workorderType><workorderState>O</workorderState>
+        <ataChapter>38-11</ataChapter><aircraft><aircraftFullRegistration>EI-REG00413</aircraftFullRegistration><aircraftType>B737-8</aircraftType></aircraft>
+        <issueData><issueDateTime>2026-09-24T07:30:00Z</issueDateTime></issueData>
+        <positionInfo><position>AFTLAV</position></positionInfo>
+        <component><partNumber>LAV-FAUCET-123</partNumber><serialNumber>EX-SN-001</serialNumber></component>
+      </workorderHeader>
+      <workSteps><workStep uuid="example-ex-oos-001-s1"><workStepDateTime>2026-09-24T07:35:00Z</workStepDateTime><description>AFT LAVATORY FAUCET DRIPPING CONTINUOUSLY.</description>
+        <actions><action uuid="a1"><actionType>Action</actionType><actionText>FAUCET CARTRIDGE INSPECTED, WORN SEAL FOUND. REPAIR DEFERRED IAW MEL.</actionText><performedData><performedDateTime>2026-09-24T07:50:00.000Z</performedDateTime></performedData></action></actions>
+      </workStep></workSteps>
+    </workorder>
+  </transferWorkorder></payload>
+</amosTransportEnvelope>
