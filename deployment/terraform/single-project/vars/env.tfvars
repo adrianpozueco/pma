@@ -16,3 +16,8 @@ adopt_existing_data_store    = false
 # environment can't reliably run the shell script; import the PDFs later,
 # or run this apply from WSL/Linux and flip this to true.
 ingest_ipc_documents = false
+
+# Curated data: run the real-data BigQuery SQL pipeline instead of the
+# Plan B synthetic NDJSON load. The two modes are mutually exclusive.
+load_curated_data              = false
+run_curated_real_data_pipeline = true
