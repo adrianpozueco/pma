@@ -875,7 +875,6 @@ export default function App() {
                       ))}
                     </div>
                     <div className="analysis-bottom">
-                      <span>Preview activity · No live agent calls</span>
                       <button className="text-button" onClick={cancel}>
                         Cancel analysis
                       </button>
