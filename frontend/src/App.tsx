@@ -1049,7 +1049,13 @@ function Results({
             {display(request.workOrder.aircraft)} / {request.workOrder.id} ·{" "}
             {request.workOrder.status}
           </p>
-          <h3>{request.component.description}</h3>
+          {/* The backend's matched component key (PN|position) names the part
+              more precisely than the XML, which often has no description. */}
+          <h3>
+            {result.status !== "unavailable" && result.componentKey
+              ? result.componentKey
+              : request.component.description}
+          </h3>
           <p>
             PN {request.component.partNumber} <span>·</span> Serial{" "}
             {display(request.component.serial)} <span>·</span>{" "}
