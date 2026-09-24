@@ -18,3 +18,16 @@
 # and the knowledge base; they are not inputs to the application image build.
 /data/
 /artifacts/
+
+# The frontend is rebuilt inside the image (Dockerfile node stage); its local
+# dependencies and build/test output are only ignored by frontend/.gitignore,
+# which the root include above does not cover.
+/frontend/node_modules/
+/frontend/dist/
+/frontend/test-results/
+/frontend/playwright-report/
+
+# Local tooling state: Claude Code worktrees and linter caches.
+/.claude/
+.ruff_cache/
+.pytest_cache/
