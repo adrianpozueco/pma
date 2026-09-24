@@ -688,7 +688,7 @@ export default function App() {
                     <div className="review-header">
                       <span className="pill blue">
                         {document.source === "sample"
-                          ? "SYNTHETIC SAMPLE"
+                          ? "EXAMPLE WORK ORDER"
                           : "UPLOADED XML"}
                       </span>
                       <span className="subtle-text">{order.status}</span>
@@ -1157,7 +1157,19 @@ function RecommendationDetail({ result }: { result: RecommendationOutlook }) {
             </span>
             <span>{formatConfidence(result)}</span>
           </p>
-          <p className="rec-basis">Basis: {basisText(result.basis)}</p>
+          <p className="rec-basis">
+            Basis: {basisText(result.basis)}
+            {result.evidence.map((item, i) => (
+              <a
+                className="rec-cite"
+                href={`#rec-evidence-${i + 1}`}
+                key={item.woId}
+                title={`WO ${item.woId}`}
+              >
+                [{i + 1}]
+              </a>
+            ))}
+          </p>
         </div>
       </div>
       <div className="result-metrics">
@@ -1191,9 +1203,12 @@ function RecommendationDetail({ result }: { result: RecommendationOutlook }) {
             <span>{result.evidence.length} matched</span>
           </div>
           <ul className="rec-evidence">
-            {result.evidence.map((item) => (
-              <li key={item.woId}>
-                <strong>WO {item.woId}</strong>
+            {result.evidence.map((item, i) => (
+              <li id={`rec-evidence-${i + 1}`} key={item.woId}>
+                <strong>
+                  <span className="rec-cite-number">[{i + 1}]</span> WO{" "}
+                  {item.woId}
+                </strong>
                 {item.sim !== null && (
                   <span>similarity {item.sim.toFixed(2)}</span>
                 )}

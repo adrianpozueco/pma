@@ -1632,6 +1632,23 @@ a {
   font-weight: 500;
   color: var(--ink);
 }
+.rec-cite {
+  margin-left: 4px;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+.rec-cite:hover,
+.rec-cite:focus-visible {
+  text-decoration: underline;
+}
+.rec-cite-number {
+  color: var(--blue);
+  font-weight: 600;
+}
+.rec-evidence li:target {
+  background: color-mix(in srgb, var(--yellow) 18%, transparent);
+}
 .rec-evidence-heading {
   margin-top: 24px;
 }
