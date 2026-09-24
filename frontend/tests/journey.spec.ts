@@ -1,17 +1,75 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page, type Route } from "@playwright/test";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 
-const NOZZLE_UPLOAD = path.resolve(
+// A closed upload with header, partOff and partOn components.
+const CLOSED_UPLOAD = path.resolve(
   "../tests/fixtures/workorders/demo_nozzle_upload.xml",
 );
+const LANDING_XML = path.resolve("public/samples/landing_light_rh.xml");
 const DISTINCT_ORDERS = path.resolve(
   "tests/fixtures/two_workorders_distinct.xml",
 );
 const ISSUE_AND_CLOSING = path.resolve(
   "tests/fixtures/issue_and_closing_counters.xml",
 );
-// The mock pipeline is 4 stages x 650 ms = 2600 ms. Absence tests wait past it.
-const PAST_FULL_PIPELINE_MS = 3500;
+
+// Captured backend responses; the analyze endpoint is always mocked, so the
+// suite never needs the FastAPI backend.
+const analysisFixture = (name: string) =>
+  JSON.parse(
+    readFileSync(path.resolve(`tests/fixtures/analysis/${name}.json`), "utf8"),
+  );
+const LANDING = analysisFixture("landing_light_rh");
+const SMOKE = analysisFixture("aft_smoke_detector");
+const withPma = (pma: Record<string, unknown>) => ({
+  ...LANDING,
+  pma: { ...LANDING.pma, recommendation: null, interval: null, ...pma },
+});
+const INTERVAL = withPma({
+  decision: "historical_interval",
+  interval: { p50: 300, p90: 900, n: 13, aircraft: 10 },
+});
+const UNAVAILABLE = withPma({
+  decision: "no_reliable_prediction",
+  reason: "component_not_in_focus_set",
+  missing: ["Verified component installation date"],
+});
+const UNREACHABLE =
+  "Analysis service unreachable. Start the backend: PMA_PREDICTION_ENABLED=true uv run uvicorn pm_agent.fast_api_app:app --port 8000";
+const ANALYZE = "**/api/workorders/analyze**";
+
+type Recorded = { method: string; body: string | null; url: URL };
+
+/** Answers every analyze call with `body`; returns the recorded requests. */
+async function mockAnalyze(page: Page, body: unknown = LANDING) {
+  const requests: Recorded[] = [];
+  await page.unroute(ANALYZE);
+  await page.route(ANALYZE, (route) => {
+    const request = route.request();
+    requests.push({
+      method: request.method(),
+      body: request.postData(),
+      url: new URL(request.url()),
+    });
+    return route.fulfill({ json: body });
+  });
+  return requests;
+}
+
+/** Holds analyze calls until release(); a late fulfil after an abort is fine. */
+async function holdAnalyze(page: Page, body: unknown = LANDING) {
+  const held: Route[] = [];
+  await page.unroute(ANALYZE);
+  await page.route(ANALYZE, (route) => {
+    held.push(route);
+  });
+  return {
+    sent: () => held.length,
+    release: () =>
+      Promise.all(held.map((route) => route.fulfill({ json: body }).catch(() => {}))),
+  };
+}
 
 async function selectSample(page: Page, name: string) {
   await page.getByRole("tab", { name: "Cloud Storage" }).click();
@@ -19,10 +77,10 @@ async function selectSample(page: Page, name: string) {
   await page.getByRole("button", { name: "Review work order" }).click();
 }
 
-async function uploadNozzleFixture(page: Page) {
+async function uploadFile(page: Page, file: string) {
   // reset() keeps the last source tab, so choose the upload tab explicitly.
   await page.getByRole("tab", { name: "Upload XML" }).click();
-  await page.getByLabel("Upload work-order XML").setInputFiles(NOZZLE_UPLOAD);
+  await page.getByLabel("Upload work-order XML").setInputFiles(file);
   await page.getByRole("button", { name: "Review work order" }).click();
 }
 
@@ -48,6 +106,7 @@ const reviewButton = (page: Page) =>
   page.getByRole("button", { name: "Review work order" });
 const cyclesInput = (page: Page) =>
   page.getByLabel("Expected flight cycles per day");
+const headline = (page: Page) => page.locator(".rec-headline");
 
 async function expectNoHorizontalOverflow(page: Page) {
   expect(
@@ -63,7 +122,8 @@ async function expectNoHorizontalOverflow(page: Page) {
 function trackErrors(page: Page) {
   const errors: string[] = [];
   page.on("console", (msg) => {
-    if (msg.type() === "error") errors.push(`console: ${msg.text()}`);
+    if (msg.type() === "error")
+      errors.push(`console: ${msg.text()} @ ${msg.location().url}`);
   });
   page.on("pageerror", (error) => errors.push(`pageerror: ${error.message}`));
   page.on("response", (response) => {
@@ -76,10 +136,15 @@ function trackErrors(page: Page) {
   return errors;
 }
 
-test("sample completes the presentation journey with explicit illustrative provenance", async ({
+test.beforeEach(async ({ page }) => {
+  await mockAnalyze(page);
+});
+
+test("landing-light sample posts its XML and renders the live recommendation", async ({
   page,
 }) => {
   const errors = trackErrors(page);
+  const requests = await mockAnalyze(page, LANDING);
   await page.setViewportSize({ width: 1440, height: 1120 });
   await page.goto("/");
   await expect(reviewButton(page)).toBeDisabled();
@@ -87,49 +152,69 @@ test("sample completes the presentation journey with explicit illustrative prove
     path: "/tmp/ryanair-ui-desktop.png",
     fullPage: true,
   });
-  await selectSample(page, "Fuel-injection nozzle");
-  await expect(
-    page.getByText("DEMO-NOZZLE-001", { exact: false }).first(),
-  ).toBeVisible();
+  await selectSample(page, "RH landing light power supply");
+  await expect(page.getByText("Work order EX-LLT-001")).toBeVisible();
   await expect(currentStep(page)).toContainText("Review component");
+  // I4: this order records no issue TAC.
+  await expect(cyclesAtIssue(page)).toHaveText("Not recorded");
   await cyclesInput(page).fill("0");
   await expect(analyseButton(page)).toBeDisabled();
   await cyclesInput(page).fill("6");
   await analyseButton(page).click();
-  // I2: the sample forecast is labelled fictional and illustrative.
-  await expect(
-    page.getByText("ILLUSTRATIVE FORECAST", { exact: true }),
-  ).toBeVisible();
-  await expect(page.getByText(/^A fictional result/)).toBeVisible();
   await expect(currentStep(page)).toContainText("Replacement outlook");
-  // I7: the nozzle keeps its own range.
-  await expect(page.getByText("180–260", { exact: true })).toBeVisible();
-  await expect(workspace(page)).not.toContainText("300–420");
-  // I3
+
+  expect(requests).toHaveLength(1);
+  expect(requests[0].method).toBe("POST");
+  expect(requests[0].body).toBe(readFileSync(LANDING_XML, "utf8"));
+  expect(requests[0].url.searchParams.get("mode")).toBe("new_work_order");
+  expect(requests[0].url.searchParams.get("analysis_as_of")).toBeTruthy();
+  expect(requests[0].url.searchParams.has("selected_wo_id")).toBe(false);
+
   await expect(
-    page.getByText("Replacement recommendation: unavailable"),
+    page.getByText("RECOMMENDATION", { exact: true }),
   ).toBeVisible();
-  // Results identity: status in the eyebrow, role on the PN/serial line.
-  await expect(page.locator(".result-identity .eyebrow")).toHaveText(
-    "DEMO-737 / DEMO-NOZZLE-001 · Open work order",
+  await expect(page.locator("h4.rec-title")).toHaveText(
+    "Plan inspection / part replacement — 72605363-1|RH",
   );
-  await expect(page.locator(".result-identity p").last()).toHaveText(
-    /PN 2085M31G03\s*·\s*Serial DEMO-NOZZLE-01\s*·\s*Recorded component/,
+  await expect(headline(page)).toHaveText(
+    "Replace around TAC 14,704 (p50) · 14,984 (p90) · 15,015 (p95)",
   );
-  // Calendar window at 6 flight cycles / day: +30 and +44 days from 23 Sep 2026.
-  await expect(page.locator(".date-metric")).toHaveText(
-    /23 Oct\s*[–-]\s*6 Nov 2026/,
+  await expect(page.locator(".rec-status")).toHaveText(
+    "Latest known TAC 14,516 → 188 cycles before p50",
   );
+  await expect(page.locator(".rec-confidence")).toContainText(
+    "MEDIUM CONFIDENCE",
+  );
+  await expect(page.locator(".rec-confidence")).toContainText(
+    "n=5 · CV 0.67 · similarity 0.88",
+  );
+  await expect(
+    page.getByText("Basis: similar work orders + lead-time history"),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Heuristic estimate, not a calibrated forecast."),
+  ).toBeVisible();
+  await expect(page.getByText("WO 190599369")).toBeVisible();
+  await expect(page.getByText("similarity 0.90").first()).toBeVisible();
+  await expect(
+    page.getByText("Example work order · Live PMA analysis"),
+  ).toBeVisible();
+  await expect(page.locator(".result-identity h3")).toHaveText("72605363-1|RH");
+  // Each citation [N] in the basis line points at the matching WO entry.
+  const cites = page.locator(".rec-basis a.rec-cite");
+  await expect(cites).toHaveText(["[1]", "[2]", "[3]"]);
+  for (const [i, woId] of ["190599369", "55702121", "190362777"].entries()) {
+    await expect(cites.nth(i)).toHaveAttribute("href", `#rec-evidence-${i + 1}`);
+    await expect(
+      page.locator(`ul.rec-evidence li#rec-evidence-${i + 1} strong`),
+    ).toHaveText(`[${i + 1}] WO ${woId}`);
+  }
+  // Calendar window at 6 flight cycles / day from analysis_as_of 2026-09-24.
+  await expect(workspace(page)).toContainText(/26 Oct\s*[–-]\s*11 Dec 2026/);
   await expect(page.getByText("Assuming 6 flight cycles / day")).toBeVisible();
-  await expect(page.locator(".cycle-band")).toBeVisible();
-  await expect(page.locator(".cycle-band-caption")).toHaveText(
-    /180–260 flight cycles\s+remaining · window assumes 6 flight cycles\s*\/ day/,
-  );
+  await expect(workspace(page)).not.toContainText("NaN");
+  await expect(workspace(page)).not.toContainText("undefined");
   await expect(page.getByText(/This is a closed work order/)).toHaveCount(0);
-  await page
-    .getByText("Comparable maintenance events", { exact: true })
-    .click();
-  await expect(page.getByText(/No live records were queried/)).toBeVisible();
   await page.screenshot({
     path: "/tmp/ryanair-ui-results.png",
     fullPage: true,
@@ -143,76 +228,113 @@ test("sample completes the presentation journey with explicit illustrative prove
   expect(errors).toEqual([]);
 });
 
-test("missing-data scenario never presents fabricated cycles or a zero estimate", async ({
+test("smoke-detector sample renders its own recommendation", async ({
   page,
 }) => {
+  await mockAnalyze(page, SMOKE);
   await page.goto("/");
-  await selectSample(page, "Water boiler");
+  await selectSample(page, "AFT cargo smoke detector");
+  await expect(page.locator(".component-option")).toContainText(
+    "PN 473597-5",
+  );
+  await analyseButton(page).click();
+  await expect(page.locator("h4.rec-title")).toHaveText(
+    "Plan inspection / part replacement — 473597-5|AFT",
+  );
+  await expect(headline(page)).toHaveText(
+    "Replace around TAC 19,073 (p50) · 19,859 (p90) · 20,187 (p95)",
+  );
+  await expect(page.locator(".rec-status")).toHaveText(
+    "Latest known TAC 18,660 → 413 cycles before p50",
+  );
+  await expect(page.locator(".rec-confidence")).toContainText(
+    "n=16 · CV 1.10 · similarity 0.74",
+  );
+  await expect(workspace(page)).not.toContainText("14,704");
+});
+
+test("a historical interval is labelled as observed, not forecast", async ({
+  page,
+}) => {
+  await mockAnalyze(page, INTERVAL);
+  await page.goto("/");
+  await selectSample(page, "RH landing light power supply");
+  await analyseButton(page).click();
+  await expect(
+    page.getByText("HISTORICAL INTERVAL", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Observed historical interval (not a forecast)"),
+  ).toBeVisible();
+  await expect(workspace(page)).toContainText(
+    "p50 300 cycles · p90 900 cycles (n=13, 10 aircraft)",
+  );
+  await expect(page.locator(".rec-confidence")).toHaveCount(0);
+  await expect(workspace(page)).not.toContainText("Replace around TAC");
+  await expect(page.getByText("RECOMMENDATION", { exact: true })).toHaveCount(
+    0,
+  );
+});
+
+test("an unavailable estimate shows the reason and never fabricates cycles", async ({
+  page,
+}) => {
+  await mockAnalyze(page, UNAVAILABLE);
+  await page.goto("/");
+  await selectSample(page, "RH landing light power supply");
   await analyseButton(page).click();
   await expect(
     page.getByText("ESTIMATE UNAVAILABLE", { exact: true }),
   ).toBeVisible();
-  await expect(page.getByText("What’s needed for an estimate")).toBeVisible();
-  // I7: the boiler has no range at all.
-  await expect(workspace(page)).not.toContainText("180–260");
-  await expect(workspace(page)).not.toContainText("300–420");
   await expect(
-    page.getByText("ILLUSTRATIVE FORECAST", { exact: true }),
-  ).toHaveCount(0);
-  await expect(page.locator(".date-metric")).toHaveText("Unavailable");
-  await expect(
-    page.getByText("No date is inferred from incomplete data"),
+    page.getByText(
+      "This component is not one of the tracked focus components.",
+    ),
   ).toBeVisible();
   await expect(
-    page.getByText("Verified component installation date and counters"),
+    page.getByText("Verified component installation date"),
   ).toBeVisible();
-  // I3
-  await expect(
-    page.getByText("Replacement recommendation: unavailable"),
-  ).toBeVisible();
+  await expect(headline(page)).toHaveCount(0);
+  await expect(workspace(page)).not.toContainText("14,704");
+  await expect(workspace(page)).not.toContainText("NaN");
 });
 
-test("oven sample keeps its own 300–420 illustrative outcome", async ({
+test("an unreachable backend returns to review with the start-up hint", async ({
   page,
 }) => {
+  const errors = trackErrors(page);
+  await page.unroute(ANALYZE);
+  await page.route(ANALYZE, (route) => route.abort());
   await page.goto("/");
-  await selectSample(page, "Convection oven");
-  await expect(page.locator(".component-option")).toContainText(
-    "PN 8201-11-0000-01",
-  );
+  await selectSample(page, "RH landing light power supply");
   await analyseButton(page).click();
-  await expect(
-    page.getByText("ILLUSTRATIVE FORECAST", { exact: true }),
-  ).toBeVisible();
-  await expect(page.getByText("300–420", { exact: true })).toBeVisible();
-  await expect(workspace(page)).not.toContainText("180–260");
-  await expect(page.locator(".result-identity p").last()).toContainText(
-    "PN 8201-11-0000-01",
-  );
-  await expect(page.getByText(/^A fictional result/)).toBeVisible();
-  await expect(
-    page.getByText("Replacement recommendation: unavailable"),
-  ).toBeVisible();
-  // 300/6 = 50 days, 420/6 = 70 days from 23 Sep 2026.
-  await expect(page.locator(".date-metric")).toHaveText(
-    /12 Nov\s*[–-]\s*2 Dec 2026/,
-  );
-  await expect(page.locator(".cycle-band-caption")).toContainText(
-    "300–420 flight cycles",
-  );
+  await expect(page.getByRole("alert")).toContainText(UNREACHABLE);
+  await expect(currentStep(page)).toContainText("Review component");
+  await expect(page.locator(".result-panel")).toHaveCount(0);
+  await expect(analyseButton(page)).toBeEnabled();
+  // Once the backend is up, the same review can be analysed again.
+  await mockAnalyze(page, LANDING);
+  await analyseButton(page).click();
+  await expect(headline(page)).toContainText("14,704");
+  await expect(page.getByRole("alert")).toHaveCount(0);
+  // The aborted analyze call is intentional; nothing else may fail.
+  expect(
+    errors.filter((error) => !error.includes("/api/workorders/analyze")),
+  ).toEqual([]);
 });
 
 test("aircraft cycles at issue are shown as an aircraft counter, never component age", async ({
   page,
 }) => {
+  await mockAnalyze(page, UNAVAILABLE);
   await page.goto("/");
-  await selectSample(page, "Fuel-injection nozzle");
-  await expect(cyclesAtIssue(page)).toHaveText("12,480");
+  await selectSample(page, "RH landing light power supply");
+  await expect(cyclesAtIssue(page)).toHaveText("Not recorded");
   await expect(
     page.getByText(/Aircraft total cycles are not component age/),
   ).toBeVisible();
   await page.getByRole("button", { name: "Start again" }).click();
-  await uploadNozzleFixture(page);
+  await uploadFile(page, CLOSED_UPLOAD);
   // The fixture records a closing TAC of 3210 but no issue TAC.
   await expect(cyclesAtIssue(page)).toHaveText("Not recorded");
   await expect(
@@ -240,11 +362,12 @@ test("aircraft cycles at issue are shown as an aircraft counter, never component
   await expect(workspace(page)).not.toContainText("9876");
 });
 
-test("uploaded XML preserves its own facts and cannot receive a sample forecast", async ({
+test("uploaded closed XML keeps its own facts and is replayed historically", async ({
   page,
 }) => {
+  const requests = await mockAnalyze(page, UNAVAILABLE);
   await page.goto("/");
-  await uploadNozzleFixture(page);
+  await uploadFile(page, CLOSED_UPLOAD);
   await expect(page.getByText("Work order DEMO-XML-ONLY-2085")).toBeVisible();
   await expect(page.getByText(/COPPER-FINCH-41/)).toBeVisible();
   // I5 on the review screen.
@@ -269,21 +392,13 @@ test("uploaded XML preserves its own facts and cannot receive a sample forecast"
   await options.filter({ hasText: "DEMO-ON-42" }).getByRole("radio").check();
   await expect(analyseButton(page)).toBeEnabled();
   await analyseButton(page).click();
-  // I1: no sample forecast of any kind.
   await expect(
     page.getByText("ESTIMATE UNAVAILABLE", { exact: true }),
   ).toBeVisible();
-  await expect(page.getByText(/Your XML has been read locally/)).toBeVisible();
+  expect(requests[0].body).toBe(readFileSync(CLOSED_UPLOAD, "utf8"));
+  expect(requests[0].url.searchParams.get("mode")).toBe("historical_replay");
   await expect(
-    page.getByText("ILLUSTRATIVE FORECAST", { exact: true }),
-  ).toHaveCount(0);
-  await expect(workspace(page)).not.toContainText("180–260");
-  await expect(workspace(page)).not.toContainText("300–420");
-  await expect(workspace(page)).not.toContainText("A fictional result");
-  await expect(page.locator(".date-metric")).toHaveText("Unavailable");
-  // I3
-  await expect(
-    page.getByText("Replacement recommendation: unavailable"),
+    page.getByText("Uploaded XML · Live PMA analysis"),
   ).toBeVisible();
   // I5 on the results screen too, and the status rides in the eyebrow.
   await expect(page.getByText(/This is a closed work order/)).toBeVisible();
@@ -292,6 +407,23 @@ test("uploaded XML preserves its own facts and cannot receive a sample forecast"
   );
   await expect(page.locator(".result-identity p").last()).toHaveText(
     /PN 2085M31G03\s*·\s*Serial DEMO-ON-42\s*·\s*Installed component/,
+  );
+});
+
+test("a multi-order upload sends the selected work order id", async ({
+  page,
+}) => {
+  const requests = await mockAnalyze(page, LANDING);
+  await page.goto("/");
+  await page.getByLabel("Upload work-order XML").setInputFiles(DISTINCT_ORDERS);
+  await reviewButton(page).click();
+  await page.getByLabel("Select work order").selectOption("1");
+  await page.getByRole("radio").nth(1).check();
+  await analyseButton(page).click();
+  await expect(headline(page)).toBeVisible();
+  expect(requests[0].body).toBe(readFileSync(DISTINCT_ORDERS, "utf8"));
+  expect(requests[0].url.searchParams.get("selected_wo_id")).toBe(
+    "WO-BRAVO-2",
   );
 });
 
@@ -465,30 +597,23 @@ test("upload guards reject empty, oversized and multi-file input; errors can be 
   await expect(workspace(page)).toBeFocused();
 });
 
-test("Cloud Storage lists the three synthetic samples with provenance", async ({
-  page,
-}) => {
+test("Cloud Storage lists both real samples", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator(".preview-bar")).toContainText(
-    "Synthetic samples · Cloud services not connected",
-  );
   await page.getByRole("tab", { name: "Cloud Storage" }).click();
   const cards = page.locator(".sample-card");
-  await expect(cards).toHaveCount(3);
-  await expect(cards.nth(0)).toContainText("PN 2085M31G03");
-  await expect(cards.nth(1)).toContainText("PN 62197-301-001");
-  await expect(cards.nth(2)).toContainText("PN 8201-11-0000-01");
-  await expect(
-    page.getByText("Synthetic samples. No bucket is connected yet."),
-  ).toBeVisible();
-  for (let i = 0; i < 3; i++)
+  await expect(cards).toHaveCount(2);
+  await expect(cards.nth(0)).toContainText("RH landing light power supply");
+  await expect(cards.nth(0)).toContainText("PN 72605363-1");
+  await expect(cards.nth(1)).toContainText("AFT cargo smoke detector");
+  await expect(cards.nth(1)).toContainText("PN 473597-5");
+  await expect(page.locator(".sample-list")).not.toContainText(/synthetic/i);
+  for (let i = 0; i < 2; i++)
     await expect(cards.nth(i)).toHaveAttribute("aria-pressed", "false");
-  await cards.filter({ hasText: "Water boiler" }).click();
+  await cards.filter({ hasText: "AFT cargo smoke detector" }).click();
   await expect(cards.nth(1)).toHaveAttribute("aria-pressed", "true");
   await expect(cards.nth(0)).toHaveAttribute("aria-pressed", "false");
-  await expect(cards.nth(2)).toHaveAttribute("aria-pressed", "false");
   await expect(page.locator(".selected-file")).toContainText(
-    "Synthetic sample",
+    "aft_smoke_detector.xml",
   );
 });
 
@@ -497,7 +622,9 @@ test("switching source tab clears the selection and any error", async ({
 }) => {
   await page.goto("/");
   await page.getByRole("tab", { name: "Cloud Storage" }).click();
-  await page.getByRole("button", { name: /Fuel-injection nozzle/ }).click();
+  await page
+    .getByRole("button", { name: /RH landing light power supply/ })
+    .click();
   await expect(page.locator(".selected-file")).toBeVisible();
   await expect(reviewButton(page)).toBeEnabled();
   await page.getByRole("tab", { name: "Upload XML" }).click();
@@ -553,7 +680,7 @@ test("utilisation bounds guard analysis and drive the calendar window", async ({
   page,
 }) => {
   await page.goto("/");
-  await selectSample(page, "Fuel-injection nozzle");
+  await selectSample(page, "RH landing light power supply");
   // F1: tiny values stay disabled (1e-9 used to blank the whole app).
   for (const value of ["1e-9", "0.05", "0", "25"]) {
     await cyclesInput(page).fill(value);
@@ -567,97 +694,98 @@ test("utilisation bounds guard analysis and drive the calendar window", async ({
   await expect(analyseButton(page)).toBeEnabled();
   await cyclesInput(page).fill("2");
   await analyseButton(page).click();
-  // 180/2 = 90 days, 260/2 = 130 days from 23 Sep 2026.
-  await expect(page.locator(".date-metric")).toHaveText(
-    /22 Dec 2026\s*[–-]\s*31 Jan 2027/,
+  // 188/2 = 94 days, 468/2 = 234 days from analysis_as_of 2026-09-24.
+  await expect(workspace(page)).toContainText(
+    /27 Dec 2026\s*[–-]\s*16 May 2027/,
   );
   await expect(page.getByText("Assuming 2 flight cycles / day")).toBeVisible();
   await page
     .getByRole("button", { name: "Analyse another work order" })
     .click();
-  await selectSample(page, "Fuel-injection nozzle");
+  await selectSample(page, "RH landing light power supply");
   // F7: the reset restores the default assumption.
   await expect(cyclesInput(page)).toHaveValue("6");
   await cyclesInput(page).fill("1");
   await analyseButton(page).click();
   await expect(page.getByText("Assuming 1 flight cycle / day")).toBeVisible();
-  await expect(page.locator(".cycle-band-caption")).toContainText(
-    "window assumes 1 flight cycle / day",
+  await expect(workspace(page)).toContainText(
+    /31 Mar 2027\s*[–-]\s*5 Jan 2028/,
   );
 });
 
 test("Start again on review resets the utilisation to 6", async ({ page }) => {
   await page.goto("/");
-  await selectSample(page, "Water boiler");
+  await selectSample(page, "AFT cargo smoke detector");
   await cyclesInput(page).fill("3.5");
   await page.getByRole("button", { name: "Start again" }).click();
   await expect(workspace(page)).toBeFocused();
-  await selectSample(page, "Water boiler");
+  await selectSample(page, "AFT cargo smoke detector");
   await expect(cyclesInput(page)).toHaveValue("6");
 });
 
-test("cancelled analysis never lands a stale result", async ({ page }) => {
+test("cancelled analysis never lands a late response", async ({ page }) => {
   await page.goto("/");
-  await selectSample(page, "Fuel-injection nozzle");
+  await selectSample(page, "RH landing light power supply");
+  const held = await holdAnalyze(page, LANDING);
   await analyseButton(page).click();
   await expect(
     page.getByRole("button", { name: "Cancel analysis" }),
   ).toBeVisible();
+  await expect.poll(held.sent).toBe(1);
   await page.getByRole("button", { name: "Cancel analysis" }).click();
   await expect(analyseButton(page)).toBeVisible();
   await expect(currentStep(page)).toContainText("Review component");
-  // Deliberate wait past the full 2600 ms mock pipeline: an absence test must
-  // give a leaked run every chance to land before asserting it did not.
-  await page.waitForTimeout(PAST_FULL_PIPELINE_MS);
+  // Deliberate: answer the cancelled request and give it time to land before
+  // asserting it did not.
+  await held.release();
+  await page.waitForTimeout(500);
   await expect(currentStep(page)).toContainText("Review component");
-  await expect(
-    page.getByText("ILLUSTRATIVE FORECAST", { exact: true }),
-  ).toHaveCount(0);
-  await expect(workspace(page)).not.toContainText("180–260");
+  await expect(page.locator(".result-panel")).toHaveCount(0);
+  await expect(page.getByRole("alert")).toHaveCount(0);
+  await expect(workspace(page)).not.toContainText("14,704");
   await expect(analyseButton(page)).toBeEnabled();
 
   // A fresh run on another sample still produces its own outcome.
+  await mockAnalyze(page, SMOKE);
   await page.getByRole("button", { name: "Start again" }).click();
-  await selectSample(page, "Water boiler");
+  await selectSample(page, "AFT cargo smoke detector");
   await analyseButton(page).click();
-  await expect(
-    page.getByText("ESTIMATE UNAVAILABLE", { exact: true }),
-  ).toBeVisible();
-  await expect(page.getByText("Water boiler", { exact: true })).toBeVisible();
-  await expect(workspace(page)).not.toContainText("180–260");
+  await expect(headline(page)).toContainText("19,073");
+  await expect(workspace(page)).not.toContainText("14,704");
 });
 
 test("Start again during analysis abandons the run", async ({ page }) => {
   await page.goto("/");
-  await selectSample(page, "Fuel-injection nozzle");
+  await selectSample(page, "RH landing light power supply");
+  const held = await holdAnalyze(page, LANDING);
   await analyseButton(page).click();
   await expect(
     page.getByRole("button", { name: "Cancel analysis" }),
   ).toBeVisible();
+  await expect.poll(held.sent).toBe(1);
   await page.getByRole("button", { name: "Start again" }).click();
   await expect(currentStep(page)).toContainText("Select work order");
   await expect(workspace(page)).toBeFocused();
-  // Deliberate wait past the full 2600 ms mock pipeline. reset() nulls the
-  // document, so a leaked run renders no forecast text — but it would still
-  // advance the stepper to "Replacement outlook". Only the stepper catches it.
-  await page.waitForTimeout(PAST_FULL_PIPELINE_MS);
+  // Deliberate: answer the abandoned request. reset() nulls the document, so a
+  // leaked run renders no result text — but it would still advance the
+  // stepper to "Replacement outlook". Only the stepper catches it.
+  await held.release();
+  await page.waitForTimeout(500);
   await expect(currentStep(page)).toContainText("Select work order");
   await expect(currentStep(page)).not.toContainText("Replacement outlook");
   await expect(
     page.getByRole("tablist", { name: "Work order source" }),
   ).toBeVisible();
   await expect(reviewButton(page)).toBeDisabled();
-  await expect(
-    page.getByText("ILLUSTRATIVE FORECAST", { exact: true }),
-  ).toHaveCount(0);
-  await expect(workspace(page)).not.toContainText("180–260");
+  await expect(page.locator(".result-panel")).toHaveCount(0);
+  await expect(workspace(page)).not.toContainText("14,704");
 });
 
 test("focus returns to the workspace after every journey move", async ({
   page,
 }) => {
   await page.goto("/");
-  await selectSample(page, "Fuel-injection nozzle");
+  await selectSample(page, "RH landing light power supply");
   await expect(workspace(page)).toBeFocused();
   await page.getByRole("button", { name: "Change source" }).click();
   await expect(currentStep(page)).toContainText("Select work order");
@@ -674,16 +802,18 @@ test("a full journey produces no console errors, page errors or failed requests"
   page,
 }) => {
   const errors = trackErrors(page);
+  await mockAnalyze(page, SMOKE);
   await page.goto("/");
-  await selectSample(page, "Convection oven");
+  await selectSample(page, "AFT cargo smoke detector");
   await analyseButton(page).click();
-  await expect(page.getByText("300–420", { exact: true })).toBeVisible();
+  await expect(headline(page)).toContainText("19,073");
   await page
     .getByRole("button", { name: "Analyse another work order" })
     .click();
   await page.getByRole("button", { name: "How it works" }).click();
   await page.getByRole("button", { name: "Explore the demo" }).click();
-  await uploadNozzleFixture(page);
+  await mockAnalyze(page, UNAVAILABLE);
+  await uploadFile(page, CLOSED_UPLOAD);
   await page.getByRole("radio").nth(2).check();
   await analyseButton(page).click();
   await expect(
@@ -707,29 +837,28 @@ test("mobile input, review, results and architecture views fit the viewport", as
   await expectNoHorizontalOverflow(page);
   await page.screenshot({ path: "/tmp/ryanair-ui-mobile.png", fullPage: true });
   await page.getByRole("tab", { name: "Cloud Storage" }).click();
-  await expect(page.locator(".sample-card")).toHaveCount(3);
+  await expect(page.locator(".sample-card")).toHaveCount(2);
   await expectNoHorizontalOverflow(page);
-  await page.getByRole("button", { name: /Fuel-injection nozzle/ }).click();
+  await page
+    .getByRole("button", { name: /RH landing light power supply/ })
+    .click();
   await reviewButton(page).click();
   await expect(analyseButton(page)).toBeVisible();
   await expectNoHorizontalOverflow(page);
   await analyseButton(page).click();
-  await expect(
-    page.getByText("ILLUSTRATIVE FORECAST", { exact: true }),
-  ).toBeVisible();
+  await expect(headline(page)).toBeVisible();
   await expectNoHorizontalOverflow(page);
   await page.getByRole("button", { name: "How it works" }).click();
   await expect(page.getByText("A connected cloud workflow.")).toBeVisible();
   await expectNoHorizontalOverflow(page);
   await page.getByRole("button", { name: "Explore the demo" }).click();
-  await expect(
-    page.getByText("ILLUSTRATIVE FORECAST", { exact: true }),
-  ).toBeVisible();
+  await expect(headline(page)).toBeVisible();
   // Uploaded closed order: longer strings on review and results.
+  await mockAnalyze(page, UNAVAILABLE);
   await page
     .getByRole("button", { name: "Ryanair Maintenance Intelligence home" })
     .click();
-  await uploadNozzleFixture(page);
+  await uploadFile(page, CLOSED_UPLOAD);
   await expect(page.locator(".component-option")).toHaveCount(3);
   await expectNoHorizontalOverflow(page);
   await page.getByRole("radio").nth(2).check();

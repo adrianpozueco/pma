@@ -11,7 +11,8 @@ export default defineConfig({
   fullyParallel: true,
   workers: 2,
   reporter: "list",
-  // The mock pipeline alone takes 2.6 s; leave headroom under parallel load.
+  // The analyze endpoint is mocked per test (page.route), so results land fast;
+  // the headroom covers Vite's first on-demand compile under parallel load.
   expect: { timeout: 10_000 },
   use: {
     baseURL: BASE_URL,
