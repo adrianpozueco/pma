@@ -12,7 +12,7 @@ import type {
 } from "./domain";
 import { analysisClient } from "./data/client";
 import ErrorBoundary from "./ErrorBoundary";
-import { AircraftArtwork, Icon } from "./Icons";
+import { Icon } from "./Icons";
 
 const stages: { id: Stage; title: string; detail: string; icon: string }[] = [
   {
@@ -312,6 +312,7 @@ export default function App() {
             onClick={reset}
             aria-label="Ryanair Maintenance Intelligence home"
           >
+            <span className="harp" aria-hidden="true" />
             <span className="wordmark">RYANAIR</span>
             <span className="brand-rule" />
             <span className="brand-product">
@@ -377,7 +378,6 @@ export default function App() {
                   the evidence.
                 </p>
               </div>
-              <AircraftArtwork />
             </div>
           </section>
           <div className="container journey-wrap">
@@ -544,7 +544,10 @@ export default function App() {
                                 void load(event.dataTransfer.files[0]);
                             }}
                           >
-                            <div className="upload-illustration">
+                            <div
+                              className="upload-illustration"
+                              aria-hidden="true"
+                            >
                               <div className="file-sheet">
                                 <span>&lt;/&gt;</span>
                                 <i />

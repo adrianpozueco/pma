@@ -78,6 +78,17 @@ brand palette. The rendered page, stylesheet values, font files and logo variant
 have not yet been inspected. Asset verification remains an implementation follow-up.
 Do not describe guessed colour/font values as official specifications.
 
+Branding update (2026-09-23): the prototype now applies a full styling pass built
+from an internal Ryanair Labs presentation deck (blue `#073590`/yellow `#f1c933`,
+navy `#1d1d67`/accent blue `#2091eb`, and the deck's neutral greys), Roboto/Oswald
+fonts (Oswald substitutes for the deck's proprietary Knockout face, applied only via
+CSS uppercase transforms), and decorative motifs (swoosh, dot-grid, circuit-field
+texture, harp mark) drawn from that same deck. This is still a presentation-deck
+reference, not Ryanair's approved brand guidelines or a verified public brand
+palette — see `frontend/README.md`'s "Branding" section for the full provenance
+note and licensing detail. Provenance/disclaimer copy in the UI continues to call
+out where colours, fonts and sample data are illustrative rather than live.
+
 ## Proposed screens
 
 | Step | Main content | Primary action |
