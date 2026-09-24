@@ -20,6 +20,7 @@ from a2a.server.tasks import InMemoryTaskStore
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from google.adk.cli.fast_api import get_fast_api_app
 from google.adk.runners import Runner
 from starlette.concurrency import run_in_threadpool
@@ -237,6 +238,13 @@ async def analyze_workorder_upload(
             status_code=422,
             detail={"code": exc.code, "message": str(exc), "details": exc.details},
         ) from exc
+
+
+# The Docker image bundles the React frontend (built with base /ui/ and a
+# same-origin API base), so one Cloud Run service serves UI and API together.
+FRONTEND_DIST = os.getenv("FRONTEND_DIST", os.path.join(AGENT_DIR, "frontend_dist"))
+if os.path.isdir(FRONTEND_DIST):
+    app.mount("/ui", StaticFiles(directory=FRONTEND_DIST, html=True), name="ui")
 
 
 # Main execution

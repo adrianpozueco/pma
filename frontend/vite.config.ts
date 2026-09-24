@@ -18,6 +18,8 @@ const proxy = {
 };
 
 export default defineConfig({
+  // The Cloud Run image serves the build under /ui/ from the FastAPI app.
+  base: process.env.VITE_BASE ?? "/",
   server: { proxy },
   preview: { proxy },
 });

@@ -12,6 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+FROM node:22-slim AS frontend
+WORKDIR /frontend
+COPY ./frontend/package.json ./frontend/package-lock.json ./
+RUN npm ci
+COPY ./frontend ./
+# Served by FastAPI under /ui/; API calls are same-origin (no /api prefix).
+RUN VITE_BASE=/ui/ VITE_API_BASE= npx vite build
+
 FROM python:3.12-slim
 
 # Install uv
@@ -23,6 +31,7 @@ COPY ./pyproject.toml ./README.md ./uv.lock* ./
 
 COPY ./pm_agent ./pm_agent
 COPY ./amos_data ./amos_data
+COPY --from=frontend /frontend/dist ./frontend_dist
 
 RUN uv sync --frozen
 
