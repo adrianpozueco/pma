@@ -5,11 +5,19 @@ import type {
   Component,
   Outlook,
   Progress,
+  RecommendationOutlook,
   Sample,
   Stage,
   StageStatus,
   WorkOrderDocument,
 } from "./domain";
+import {
+  actionText,
+  basisText,
+  formatConfidence,
+  formatHeadline,
+  formatStatus,
+} from "./data/api";
 import { analysisClient } from "./data/client";
 import ErrorBoundary from "./ErrorBoundary";
 import { Icon } from "./Icons";
@@ -80,6 +88,7 @@ const fmtDate = (date: string) =>
     year: "numeric",
     timeZone: "UTC",
   });
+const fmtCycles = (n: number) => n.toLocaleString("en-GB");
 function futureDate(asOf: string, cycles: number, perDay: number) {
   const date = new Date(`${asOf}T00:00:00Z`);
   date.setUTCDate(date.getUTCDate() + Math.ceil(cycles / perDay));
@@ -277,9 +286,11 @@ export default function App() {
         setStep(3);
         setAnnouncement(
           `Analysis complete — ${
-            next.status === "illustrative"
-              ? "illustrative forecast"
-              : "estimate unavailable"
+            {
+              recommendation: "recommendation",
+              interval: "historical interval",
+              unavailable: "estimate unavailable",
+            }[next.status]
           } for ${component.description}`,
         );
       }
@@ -356,7 +367,7 @@ export default function App() {
             <span className="status-dot" />
             Frontend preview
           </span>
-          <span>Synthetic samples · Cloud services not connected</span>
+          <span>Example work orders · Analysed by the local PMA backend</span>
         </div>
       </div>
       {view === "architecture" ? (
@@ -587,20 +598,20 @@ export default function App() {
                           </div>
                           <p className="privacy-note">
                             <Icon name="shield" size={16} />
-                            In this preview, your XML stays in your browser.
+                            Your XML is sent only to the local analysis backend.
                           </p>
                         </>
                       ) : (
                         <>
                           <div className="library-heading">
                             <div>
-                              <h3>Choose a synthetic sample</h3>
+                              <h3>Choose an example work order</h3>
                               <p>
-                                A preview of the planned Cloud Storage samples.
+                                Two real AMOS work orders, analysed live.
                               </p>
                             </div>
                             <span className="pill neutral">
-                              SYNTHETIC SAMPLES
+                              EXAMPLE XML
                             </span>
                           </div>
                           <div className="sample-list">
@@ -631,7 +642,8 @@ export default function App() {
                           </div>
                           <p className="privacy-note">
                             <Icon name="info" size={16} />
-                            Synthetic samples. No bucket is connected yet.
+                            Examples ship with the app; no Cloud Storage bucket
+                            is connected.
                           </p>
                         </>
                       )}
@@ -647,7 +659,7 @@ export default function App() {
                               {document.orders.length > 1 ? "s" : ""} ·{" "}
                               {document.source === "upload"
                                 ? "Uploaded XML"
-                                : "Synthetic sample"}
+                                : "Example work order"}
                             </span>
                           </div>
                           <Icon name="check" size={20} />
@@ -775,7 +787,7 @@ export default function App() {
                         </label>
                         <p>
                           One cycle is one take-off and landing. Used only for
-                          an illustrative calendar window.
+                          an approximate calendar window.
                         </p>
                       </div>
                       <input
@@ -817,9 +829,8 @@ export default function App() {
                       </span>
                       <h3>Building the component picture</h3>
                       <p>
-                        {document?.source === "sample"
-                          ? "Walking through a simulated analysis, step by step."
-                          : "Reading your XML and checking available capabilities."}
+                        Sending the work order to the PMA backend and matching
+                        it against maintenance history.
                       </p>
                     </div>
                     <div className="analysis-stages" aria-live="polite">
@@ -938,7 +949,7 @@ export default function App() {
                           </strong>
                           <span>
                             {tab === "upload"
-                              ? "Try a synthetic sample work order"
+                              ? "Try an example work order"
                               : "Upload an AMOS XML export"}
                           </span>
                         </span>
@@ -969,7 +980,7 @@ export default function App() {
                             <dt>Source</dt>
                             <dd>
                               {document?.source === "sample"
-                                ? "Synthetic sample"
+                                ? "Example work order"
                                 : "Uploaded XML"}
                             </dd>
                           </div>
@@ -1022,8 +1033,12 @@ function Results({
   request: AnalysisRequest;
   onReset: () => void;
 }) {
-  const illustrative = result.status === "illustrative";
   const closed = request.workOrder.status.startsWith("Closed");
+  const pill = {
+    recommendation: ["yellow", "RECOMMENDATION"],
+    interval: ["blue", "HISTORICAL INTERVAL"],
+    unavailable: ["neutral", "ESTIMATE UNAVAILABLE"],
+  }[result.status];
   return (
     <div className="panel-body result-panel">
       <div className="result-identity">
@@ -1041,13 +1056,19 @@ function Results({
             {roleLabel(request.component.role)}
           </p>
         </div>
-        <span className={`pill ${illustrative ? "yellow" : "neutral"}`}>
-          {illustrative ? "ILLUSTRATIVE FORECAST" : "ESTIMATE UNAVAILABLE"}
-        </span>
+        <span className={`pill ${pill[0]}`}>{pill[1]}</span>
       </div>
-      <div className={`result-notice ${illustrative ? "demo" : ""}`}>
+      <div
+        className={`result-notice ${result.status === "recommendation" ? "demo" : ""}`}
+      >
         <Icon name="info" />
-        <p>{result.reason}</p>
+        <p>
+          {result.status === "recommendation"
+            ? "Heuristic estimate, not a calibrated forecast."
+            : result.status === "interval"
+              ? "Only a historical replacement interval is available for this component; no replacement timing is estimated."
+              : result.reason}
+        </p>
       </div>
       {closed && (
         <div className="notice">
@@ -1058,81 +1079,23 @@ function Results({
           </p>
         </div>
       )}
-      <div className="result-metrics">
-        <article className="metric-card cycles-card">
-          <span>
-            <Icon name="refresh" />
-            {illustrative
-              ? "Illustrative remaining cycles"
-              : "Remaining cycles"}
-          </span>
-          <strong>
-            {illustrative ? (
-              <>
-                {result.rangeCycles[0]}
-                <em>–</em>
-                {result.rangeCycles[1]}
-              </>
-            ) : (
-              "Unavailable"
-            )}
-          </strong>
-          <p>
-            {illustrative
-              ? "flight cycles · demonstration range"
-              : "A validated prediction is needed"}
-          </p>
-        </article>
-        <article className="metric-card">
-          <span>
-            <Icon name="calendar" />
-            Estimated calendar window
-          </span>
-          <strong className="date-metric">
-            {illustrative
-              ? formatWindow(
-                  futureDate(
-                    result.asOf,
-                    result.rangeCycles[0],
-                    result.cyclesPerDay,
-                  ),
-                  futureDate(
-                    result.asOf,
-                    result.rangeCycles[1],
-                    result.cyclesPerDay,
-                  ),
-                )
-              : "Unavailable"}
-          </strong>
-          <p>
-            {illustrative
-              ? `Assuming ${result.cyclesPerDay} flight cycle${result.cyclesPerDay === 1 ? "" : "s"} / day`
-              : "No date is inferred from incomplete data"}
-          </p>
-        </article>
-      </div>
-      {illustrative ? (
-        <div className="timeline-card">
+      {result.status === "recommendation" && (
+        <RecommendationDetail result={result} />
+      )}
+      {result.status === "interval" && (
+        <div className="recommendation">
+          <Icon name="refresh" />
           <div>
-            <h4>The illustrative replacement window</h4>
-            <span>From {fmtDate(result.asOf)}</span>
+            <h4 className="rec-title">
+              Observed historical interval (not a forecast)
+            </h4>
+            <p className="rec-headline">
+              {`p50 ${fmtCycles(result.p50)} cycles · p90 ${fmtCycles(result.p90)} cycles (n=${result.n}${result.aircraft === null ? "" : `, ${result.aircraft} aircraft`})`}
+            </p>
           </div>
-          {/* A non-positional band: there is no horizon in the data model to
-              normalise against, so nothing here may read as an axis. */}
-          <div className="cycle-band">
-            <span />
-          </div>
-          <p className="cycle-band-caption">
-            {result.rangeCycles[0]}–{result.rangeCycles[1]} flight cycles
-            remaining · window assumes {result.cyclesPerDay} flight cycle
-            {result.cyclesPerDay === 1 ? "" : "s"} / day
-          </p>
-          <p>
-            The range is a scenario assumption, not a statistical confidence
-            interval.
-          </p>
         </div>
-      ) : (
+      )}
+      {result.status === "unavailable" && result.missing.length > 0 && (
         <div className="missing-card">
           <h4>What’s needed for an estimate</h4>
           {result.missing.map((item) => (
@@ -1143,43 +1106,22 @@ function Results({
           ))}
         </div>
       )}
-      <div className="recommendation">
-        <Icon name="shield" />
-        <div>
-          <strong>Replacement recommendation: unavailable</strong>
-          <p>
-            A documented maintenance policy and validated assessment are needed
-            before a replacement deadline can be given.
-          </p>
+      {result.limitations.length > 0 && (
+        <div className="missing-card">
+          <h4>Limitations</h4>
+          {result.limitations.map((item) => (
+            <div key={item}>
+              <Icon name="info" size={16} />
+              <span>{item}</span>
+            </div>
+          ))}
         </div>
-      </div>
-      <div className="evidence-heading">
-        <h4>The evidence behind the outlook</h4>
-        <span>
-          {result.evidence.length}{" "}
-          {illustrative ? "illustrative sources" : "source details"}
-        </span>
-      </div>
-      <div className="evidence-list">
-        {result.evidence.map((item, i) => (
-          <details key={item.title}>
-            <summary>
-              <span className="evidence-number">0{i + 1}</span>
-              <span>
-                <strong>{item.title}</strong>
-                <small>{item.source}</small>
-              </span>
-              <span className="expand-sign">+</span>
-            </summary>
-            <p>{item.detail}</p>
-          </details>
-        ))}
-      </div>
+      )}
       <div className="panel-actions">
         <span>
           {request.document.source === "sample"
-            ? "Synthetic sample · No live model prediction"
-            : "Local XML preview · Backend connection pending"}
+            ? "Example work order · Live PMA analysis"
+            : "Uploaded XML · Live PMA analysis"}
         </span>
         <button className="button primary" onClick={onReset}>
           Analyse another work order
@@ -1187,6 +1129,80 @@ function Results({
         </button>
       </div>
     </div>
+  );
+}
+
+function RecommendationDetail({ result }: { result: RecommendationOutlook }) {
+  const { lead, cyclesPerDay: cpd } = result;
+  const status = formatStatus(result);
+  const spread = [
+    lead.p90 !== null && `p90 ${fmtCycles(lead.p90)}`,
+    lead.p95 !== null && `p95 ${fmtCycles(lead.p95)}`,
+  ].filter(Boolean);
+  const dateAt = (cycles: number | null) =>
+    cycles === null ? null : futureDate(result.asOf, cycles, cpd);
+  return (
+    <>
+      <div className="recommendation">
+        <Icon name="shield" />
+        <div>
+          <h4 className="rec-title">
+            {actionText(result.action)} — {result.componentKey}
+          </h4>
+          <p className="rec-headline">{formatHeadline(result)}</p>
+          {status && <p className="rec-status">{status}</p>}
+          <p className="rec-confidence">
+            <span className="pill blue">
+              {result.confidence.level.toUpperCase()} CONFIDENCE
+            </span>
+            <span>{formatConfidence(result)}</span>
+          </p>
+          <p className="rec-basis">Basis: {basisText(result.basis)}</p>
+        </div>
+      </div>
+      <div className="result-metrics">
+        <article className="metric-card cycles-card">
+          <span>
+            <Icon name="refresh" />
+            Cycles before p50
+          </span>
+          <strong>
+            {lead.p50 === null ? "Unavailable" : fmtCycles(lead.p50)}
+          </strong>
+          <p>{spread.length ? spread.join(" · ") : "flight cycles"}</p>
+        </article>
+        <article className="metric-card">
+          <span>
+            <Icon name="calendar" />
+            Estimated calendar window
+          </span>
+          <strong className="date-metric">
+            {formatWindow(dateAt(lead.p50), dateAt(lead.p90))}
+          </strong>
+          <p>
+            Assuming {cpd} flight cycle{cpd === 1 ? "" : "s"} / day
+          </p>
+        </article>
+      </div>
+      {result.evidence.length > 0 && (
+        <>
+          <div className="evidence-heading rec-evidence-heading">
+            <h4>Similar work orders</h4>
+            <span>{result.evidence.length} matched</span>
+          </div>
+          <ul className="rec-evidence">
+            {result.evidence.map((item) => (
+              <li key={item.woId}>
+                <strong>WO {item.woId}</strong>
+                {item.sim !== null && (
+                  <span>similarity {item.sim.toFixed(2)}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+    </>
   );
 }
 
@@ -1206,8 +1222,8 @@ function Architecture({ onStart }: { onStart: () => void }) {
       <div className="notice architecture-notice">
         <Icon name="info" />
         <p>
-          Target architecture. This frontend currently uses local sample data;
-          the backend is being developed independently.
+          Target architecture. Today the frontend calls a locally running PMA
+          backend; the cloud deployment is still in progress.
         </p>
       </div>
       <h2 className="visually-hidden">The pipeline</h2>
@@ -1322,9 +1338,8 @@ function Architecture({ onStart }: { onStart: () => void }) {
             Frontend and backend can evolve independently.
           </h3>
           <p>
-            A typed adapter connects the screens to data. Synthetic samples
-            let us develop and present the experience while live services take
-            shape.
+            A typed adapter maps the analysis API onto the screens, so the
+            same UI works against a local backend or a deployed service.
           </p>
         </div>
         <button className="button primary" onClick={onStart}>
