@@ -27,4 +27,4 @@ run_curated_real_data_pipeline = true
 curated_sim_threshold      = 0.80
 curated_k_precursors       = 50
 curated_embedding_endpoint = "text-embedding-005"
-curated_llm_endpoint       = "gemini-3.8.flash"
+curated_llm_endpoint       = "gemini-3.8-flash"

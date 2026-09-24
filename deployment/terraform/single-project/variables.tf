@@ -161,5 +161,5 @@ variable "curated_embedding_endpoint" {
 variable "curated_llm_endpoint" {
   type        = string
   description = "BigQuery AI.GENERATE endpoint for Step 07 adjudication."
-  default     = "gemini-3.8.flash"
+  default     = "gemini-3.8-flash"
 }
