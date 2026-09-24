@@ -1,19 +1,79 @@
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/roboto-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./assets/fonts/roboto-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/fonts/roboto-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./assets/fonts/oswald-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./assets/fonts/oswald-latin-600-normal.woff2") format("woff2");
+}
 :root {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #152c50;
-  background: #f5f7fa;
+  /* type */
+  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-display: "Knockout", "Knockout 70 Full Welterwt", "Knockout Medium",
+    "Oswald", "Arial Narrow", sans-serif;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg);
   font-synthesis: none;
   font-weight: 400;
-  --blue: #073590;
-  --navy: #06255e;
-  --yellow: #f1c933;
-  --ink: #152c50;
-  --muted: #607086;
-  /* Darker step of the same grey ramp: clears 4.5:1 on white and on every
-     tinted panel in this file (#f5f7fa, #eef3fa, #f7faff, #f0f3f8). */
-  --muted-strong: #5a6b82;
-  --line: #e1e7ef;
+
+  /* brand */
+  --blue: #073590; /* deck BLUE: header, links, headings, selected states */
+  --navy: #1d1d67; /* deck deep navy (was #06255e): dark cards, CTA text */
+  --hero-navy: #081434; /* circuit-field overlay base */
+  --bright: #2091eb; /* deck accent: decoration / large text on navy ONLY */
+  --yellow: #f1c933; /* deck YELLOW: fills, CTAs, accents, never text on light */
+  --yellow-hover: #ffd94f;
+  --yellow-deep: #ecb707; /* deck dot-grid yellow: decoration only */
+  --yellow-soft: #fff6d6; /* provenance / illustrative tint */
+  --blue-soft: #e6eefc; /* blue tint for pills, selected rows */
+  --tint: #eef3fc; /* light blue panel tint */
+
+  /* neutrals (deck greys) */
+  --ink: #1d1d67; /* headings + strong text */
+  --text: #2e2e2e; /* long body copy */
+  --muted: #555555; /* was #607086 */
+  --muted-strong: #555555; /* alias kept for existing selectors */
+  --grey-300: #cccccc; /* decorative borders only */
+  --grey-200: #e9e9e9; /* pending fills, disabled bg */
+  --line: #e3e8f0;
   --surface: #fff;
+  --bg: #f4f6fa;
+
+  /* shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgba(7, 53, 144, 0.05), 0 6px 20px rgba(7, 53, 144, 0.06);
+  --shadow-raised: 0 12px 32px rgba(7, 53, 144, 0.16);
 }
 * {
   box-sizing: border-box;
@@ -50,6 +110,15 @@ summary:focus-visible {
 .header button:focus-visible {
   outline-color: #fff;
 }
+/* Yellow clears >= 6.84:1 against both blue and navy brand surfaces, so dark
+   panels get the brand focus colour instead of the default blue ring. */
+.header :focus-visible,
+.hero :focus-visible,
+.introduction :focus-visible,
+.cycles-card :focus-visible,
+.future-card :focus-visible {
+  outline-color: var(--yellow);
+}
 /* A nav link is the full header height at top 0, so an outset ring loses its
    top edge above the viewport. An outline always paints outside the border
    box, so the offset has to be negative, not zero. */
@@ -76,9 +145,9 @@ button:disabled {
    opts out of the fade and carries its own disabled palette instead. */
 .button.primary:disabled {
   opacity: 1;
-  background: #e9edf3;
-  border-color: #dae1ea;
-  color: var(--muted-strong);
+  background: var(--grey-200);
+  border-color: var(--grey-300);
+  color: var(--muted);
 }
 svg {
   flex-shrink: 0;
@@ -126,28 +195,33 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 14px;
   color: #fff;
   background: transparent;
   padding: 0;
   flex-shrink: 0;
   text-align: left;
 }
+.harp {
+  width: 40px;
+  height: 40px;
+  background: url("./assets/brand/harp-yellow.png") center / contain no-repeat;
+  flex-shrink: 0;
+}
 .wordmark {
-  font-size: 31px;
-  font-weight: 900;
-  letter-spacing: -0.5px;
+  font-size: 30px;
+  letter-spacing: 0.04em;
 }
 .brand-rule {
   height: 35px;
   width: 1px;
-  background: #ffffff50;
+  background: #ffffff59;
 }
 .brand-product {
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.5;
-  letter-spacing: 1.9px;
-  font-weight: 400;
+  letter-spacing: 0.16em;
+  font-weight: 500;
 }
 .brand-product strong {
   font-weight: 700;
@@ -160,15 +234,15 @@ a {
   margin-left: auto;
 }
 .nav-link {
-  color: #d9e6ff;
+  color: #d9e3f7;
   background: transparent;
   display: flex;
   align-items: center;
   gap: 9px;
-  border-bottom: 3px solid transparent;
+  border-bottom: 4px solid transparent;
   padding: 3px 0 0;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 500;
   white-space: nowrap;
 }
 .nav-link.active {
@@ -179,24 +253,25 @@ a {
   color: var(--yellow);
 }
 .capstone-badge {
-  border: 1px solid #ffffff40;
-  border-radius: 4px;
-  padding: 8px 10px;
-  font-size: 10px;
-  letter-spacing: 1.1px;
-  line-height: 1.6;
+  border: 1.5px solid var(--yellow);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font: 700 12px var(--font-sans);
+  letter-spacing: 0.1em;
+  color: #fff;
   white-space: nowrap;
 }
 .capstone-badge span {
-  display: block;
-  color: #c3d4f6;
-  font-size: 8px;
-  letter-spacing: 2px;
+  display: inline;
+  margin-left: 6px;
+  color: var(--yellow);
+  font-size: 12px;
+  letter-spacing: 0.1em;
 }
 .preview-bar {
-  background: #edf2fa;
-  border-bottom: 1px solid #dfe6f3;
-  color: #536780;
+  background: var(--yellow-soft);
+  border-bottom: 1px solid #f3e3a1;
+  color: var(--navy);
   font-size: 12px;
 }
 .preview-bar .container {
@@ -213,16 +288,54 @@ a {
   gap: 8px;
 }
 .status-dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   display: inline-block;
   border-radius: 50%;
-  background: #8d7021;
+  background: var(--blue);
 }
 .hero {
-  background: var(--navy);
+  position: relative;
+  isolation: isolate;
   color: #fff;
   overflow: hidden;
+  background-color: var(--hero-navy);
+  background-image: linear-gradient(
+      90deg,
+      rgba(8, 20, 52, 0.94) 0%,
+      rgba(8, 20, 52, 0.9) 45%,
+      rgba(8, 20, 52, 0.55) 100%
+    ),
+    url("./assets/brand/circuit-field.jpg");
+  background-size: cover;
+  background-position: center;
+}
+/* Yellow/blue swoosh band, right edge — reproduces the deck's title-slide
+   split. Sits below the text layer and never intercepts pointer events. */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: min(40vw, 560px);
+  background: url("./assets/brand/swoosh.svg") left center / auto 106% no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Three-row yellow dot grid, bottom-left gutter. Hidden below 1300px, where
+   there is no gutter room left of the container. */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 72px;
+  height: 41px;
+  left: max(16px, calc((100vw - 1192px) / 2 - 96px));
+  bottom: 40px;
+  background: url("./assets/brand/dots.svg") center / contain no-repeat;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
 }
 .hero-inner {
   height: 294px;
@@ -230,40 +343,38 @@ a {
   justify-content: space-between;
   align-items: center;
   position: relative;
+  z-index: 1;
 }
 .hero-copy {
   z-index: 1;
   padding-bottom: 14px;
+  max-width: min(620px, calc(100vw - min(40vw, 560px) - 88px));
 }
 .eyebrow {
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
   font-weight: 700;
   margin-bottom: 14px;
   color: var(--yellow);
 }
+.eyebrow.muted {
+  color: var(--muted);
+}
 .hero h1 {
-  font-size: 42px;
+  font-size: 56px;
   line-height: 1.14;
-  letter-spacing: -1.3px;
   margin-bottom: 16px;
-  font-weight: 800;
+  font-weight: 700;
+  color: #fff;
 }
 .hero h1 span {
   color: var(--yellow);
 }
 .hero-copy > p:last-child {
-  font-size: 13px;
-  color: #cbd8ee;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d9e3f7;
   margin-bottom: 0;
-}
-.aircraft-art {
-  width: 430px;
-  height: 236px;
-  color: #bed6ff;
-  flex-shrink: 0;
-  margin-right: 10px;
 }
 .journey-wrap {
   position: relative;
@@ -277,48 +388,50 @@ a {
   grid-template-columns: 1.15fr 1.15fr 0.95fr 1.1fr;
   min-height: 77px;
   background: #fff;
-  box-shadow: 0 4px 16px #142b5010;
-  border: 1px solid var(--line);
-  border-radius: 7px;
+  box-shadow: var(--shadow-raised);
+  border: 0;
+  border-top: 4px solid var(--yellow);
+  border-radius: var(--radius-lg);
 }
 .journey li {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--muted-strong);
-  font-size: 12px;
-  font-weight: 700;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
 }
 .journey li > svg {
   margin-left: auto;
   margin-right: 20px;
-  color: #bac4d1;
+  color: var(--grey-300);
 }
 .step-number {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: #f0f3f8;
+  background: var(--grey-200);
+  color: var(--muted);
   display: grid;
   place-items: center;
-  font-size: 10px;
-  font-weight: 700;
+  font: 600 14px var(--font-display);
   flex-shrink: 0;
 }
 .journey .current {
   color: var(--blue);
+  font-weight: 700;
 }
 .current .step-number {
-  background: var(--blue);
-  color: #fff;
-  box-shadow: 0 0 0 4px #0735900b;
+  background: var(--yellow);
+  color: var(--navy);
+  box-shadow: 0 0 0 4px #f1c93333;
 }
 .journey .done {
   color: var(--blue);
 }
 .done .step-number {
-  background: #eaf1ff;
-  color: var(--blue);
+  background: var(--blue);
+  color: #fff;
 }
 .workspace {
   padding-top: 34px;
@@ -336,11 +449,13 @@ a {
 }
 .section-top .eyebrow {
   margin-bottom: 9px;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1.7px;
+  color: var(--muted);
 }
 .section-top h2 {
-  font-size: 24px;
+  font-size: 32px;
+  color: var(--blue);
   margin-bottom: 0;
 }
 .workspace-grid {
@@ -352,10 +467,10 @@ a {
 .main-panel {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   min-width: 0;
-  box-shadow: 0 3px 9px #132a4f03;
+  box-shadow: var(--shadow-card);
 }
 .tabs {
   display: flex;
@@ -365,13 +480,13 @@ a {
 }
 .tabs button {
   background: transparent;
-  color: var(--muted-strong);
-  padding: 21px 6px 19px;
+  color: var(--muted);
+  padding: 21px 6px 18px;
   display: flex;
   gap: 10px;
   align-items: center;
-  border-bottom: 3px solid transparent;
-  font-size: 13px;
+  border-bottom: 4px solid transparent;
+  font-size: 14px;
   font-weight: 700;
 }
 .tabs button.selected {
@@ -384,10 +499,19 @@ a {
 .panel-body {
   padding: 28px;
 }
+.panel-body[role="alert"] {
+  border-left: 4px solid #b3261e;
+}
+.panel-body[role="alert"] h3 {
+  font: 700 20px/1.3 var(--font-sans);
+  color: var(--ink);
+}
 .dropzone {
-  background: #fbfcff;
-  border: 1.5px dashed #bdcbe0;
-  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  background: #f7f9fd;
+  border: 2px dashed rgba(7, 53, 144, 0.35);
+  border-radius: var(--radius-md);
   min-height: 272px;
   display: flex;
   align-items: center;
@@ -398,8 +522,24 @@ a {
     background 0.15s,
     border 0.15s;
 }
+.dropzone::before {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: -60px;
+  width: 260px;
+  height: 238px;
+  background: url("./assets/brand/square-grid.svg") center / contain no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+.dropzone > :not(.visually-hidden) {
+  position: relative;
+  z-index: 1;
+}
 .dropzone.dragging {
-  background: #e8effb;
+  background: var(--yellow-soft);
   border-color: var(--blue);
 }
 .upload-illustration {
@@ -411,7 +551,7 @@ a {
 .file-sheet {
   height: 66px;
   width: 50px;
-  border: 1.5px solid #849cc2;
+  border: 1.5px solid var(--blue);
   background: #fff;
   border-radius: 4px;
   transform: rotate(-6deg);
@@ -452,16 +592,17 @@ a {
   display: grid;
   place-items: center;
   background: var(--yellow);
-  color: var(--navy);
+  color: var(--blue);
   border: 3px solid #fbfcff;
 }
 .dropzone h3 {
-  font-size: 17px;
+  font-size: 18px;
   letter-spacing: -0.4px;
   margin-bottom: 7px;
+  color: var(--ink);
 }
 .dropzone p {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   margin-bottom: 18px;
 }
@@ -470,38 +611,37 @@ a {
   align-items: center;
   justify-content: center;
   gap: 13px;
-  min-height: 43px;
-  padding: 0 20px;
-  border-radius: 4px;
-  font-size: 12px;
+  min-height: 46px;
+  padding: 0 24px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   white-space: nowrap;
   border: 1px solid transparent;
 }
 .button.primary {
   background: var(--yellow);
-  color: var(--navy);
+  color: var(--blue);
   border-color: var(--yellow);
 }
 .button.primary:not(:disabled):hover {
-  background: #ffdc50;
-  border-color: #ffdc50;
-  box-shadow: 0 3px 8px #b3890020;
+  background: var(--yellow-hover);
+  border-color: var(--yellow-hover);
+  box-shadow: 0 4px 12px rgba(241, 201, 51, 0.35);
   transform: translateY(-1px);
 }
 .button.secondary {
   color: var(--blue);
-  border: 1px solid var(--blue);
+  border: 2px solid var(--blue);
   background: #fff;
-  min-height: 38px;
-  padding-inline: 18px;
 }
 .button.secondary:hover {
-  background: #edf3ff;
+  background: var(--blue-soft);
 }
 .file-help {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted-strong);
   margin-top: 13px;
 }
@@ -548,20 +688,39 @@ a {
 .side-card {
   padding: 29px 25px;
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   background: #fff;
+  box-shadow: var(--shadow-card);
 }
 .introduction {
-  background: #eef3fa;
-  border-color: #e0e8f2;
+  position: relative;
+  overflow: hidden;
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+.introduction::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 60px;
+  height: 34px;
+  background: url("./assets/brand/dots.svg") center / contain no-repeat;
+  opacity: 0.9;
+  pointer-events: none;
 }
 .mini-kicker {
-  font-size: 8px;
-  letter-spacing: 1.3px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
   font-weight: 700;
   color: var(--muted-strong);
   display: block;
   margin-bottom: 18px;
+}
+.introduction .mini-kicker {
+  color: var(--yellow);
+  padding-right: 70px;
 }
 .side-card h3 {
   font-size: 26px;
@@ -590,24 +749,40 @@ a {
   gap: 5px;
 }
 .value-item strong {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: -0.1px;
 }
 .value-item span {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted-strong);
   line-height: 1.6;
 }
+.side-card.introduction h3 {
+  color: #fff;
+  padding-right: 70px;
+}
+.side-card.introduction > p {
+  color: #d9e3f7;
+}
+.introduction .value-item strong {
+  color: #fff;
+}
+.introduction .value-item span {
+  color: #d9e3f7;
+}
+.introduction .value-item > svg {
+  color: var(--yellow);
+}
 .try-sample {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  background: var(--yellow-soft);
+  border: 1px solid var(--yellow);
+  border-radius: var(--radius-md);
   padding: 18px 20px;
   display: flex;
   align-items: center;
   gap: 12px;
   justify-content: space-between;
-  color: var(--blue);
+  color: var(--navy);
   text-align: left;
 }
 .try-sample > span {
@@ -619,12 +794,11 @@ a {
   font-size: 12px;
 }
 .try-sample span span {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted-strong);
 }
 .try-sample:hover {
-  border-color: #89a5d3;
-  box-shadow: 0 2px 8px #152c5008;
+  background: #ffefb0;
 }
 .technology-strip {
   display: flex;
@@ -632,7 +806,6 @@ a {
   justify-content: space-between;
   margin-top: 31px;
   padding: 22px 0 27px;
-  border-bottom: 1px solid var(--line);
   gap: 20px;
 }
 .technology-strip > span {
@@ -648,36 +821,52 @@ a {
   color: var(--muted-strong);
 }
 .technology-strip strong {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
 }
 .technology-strip i {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #b6c1cf;
+  background: var(--grey-300);
 }
 .footer {
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
   padding-top: 23px;
   padding-bottom: 26px;
   display: flex;
   justify-content: space-between;
   gap: 16px;
   align-items: center;
-  color: var(--muted-strong);
+  color: var(--muted);
   font-size: 12px;
 }
 .footer > span:first-child {
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: -0.2px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.footer > span:first-child::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 104px;
+  height: 44px;
+  margin-right: 16px;
+  background: url("./assets/brand/labs-lockup-blue.png") left center / contain
+    no-repeat;
 }
 .footer span span {
+  font-family: var(--font-sans);
   font-weight: 400;
   margin-left: 10px;
   font-size: 12px;
   letter-spacing: 0;
-  color: var(--muted-strong);
+  text-transform: none;
+  color: var(--muted);
 }
 .footer > span:last-child {
   font-size: 12px;
@@ -685,12 +874,12 @@ a {
 .text-button {
   background: transparent;
   color: var(--blue);
-  font-size: 11px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 7px;
   padding: 5px 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 .text-button:hover {
   text-decoration: underline;
@@ -699,7 +888,7 @@ a {
   border: 1px solid #efc1b9;
   background: #fff1ef;
   padding: 14px 17px;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -720,6 +909,7 @@ a {
 }
 .library-heading {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -730,32 +920,33 @@ a {
   margin-bottom: 6px;
 }
 .library-heading p {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   margin: 0;
 }
 .pill {
   font-size: 12px;
-  letter-spacing: 0.8px;
+  line-height: 1;
+  letter-spacing: 0.08em;
   font-weight: 700;
-  border-radius: 4px;
-  padding: 7px 9px;
+  border-radius: var(--radius-pill);
+  padding: 7px 12px;
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
   height: fit-content;
 }
 .pill.neutral {
-  background: #f0f3f7;
-  color: #556477;
+  background: #eef1f5;
+  color: var(--muted);
 }
 .pill.blue {
-  background: #eaf1ff;
+  background: var(--blue-soft);
   color: var(--blue);
 }
 .pill.yellow {
-  background: #fff4c2;
-  color: #735800;
+  background: var(--yellow);
+  color: var(--navy);
 }
 .sample-list {
   display: flex;
@@ -770,14 +961,16 @@ a {
   width: 100%;
   padding: 19px 16px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: #fff;
   color: var(--ink);
 }
 .sample-card.chosen {
+  border-width: 2px;
   border-color: var(--blue);
-  box-shadow: 0 0 0 1px var(--blue);
-  background: #f7faff;
+  box-shadow: inset 4px 0 0 var(--yellow);
+  background: #fbfcff;
+  padding: 18px 15px;
 }
 .sample-card:not(:disabled):hover {
   border-color: #89a8d6;
@@ -789,9 +982,13 @@ a {
   display: grid;
   place-items: center;
   border-radius: 8px;
-  background: #eef3fa;
+  background: var(--blue-soft);
   color: var(--blue);
   flex-shrink: 0;
+}
+.chosen .sample-icon {
+  background: var(--blue);
+  color: var(--yellow);
 }
 .sample-copy {
   display: flex;
@@ -804,10 +1001,11 @@ a {
   font-size: 13px;
 }
 .sample-copy .part-number {
-  font-size: 9px;
-  font-family: monospace;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
   letter-spacing: 0.3px;
-  color: #526c8c;
+  color: var(--muted);
 }
 .sample-copy > span:not(.part-number) {
   font-size: 11px;
@@ -824,7 +1022,7 @@ a {
   margin-top: 14px;
   width: 16px;
   height: 16px;
-  border: 1.5px solid #a9b8cb;
+  border: 1.5px solid var(--grey-300);
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -848,7 +1046,7 @@ a {
   border-radius: 5px;
   padding: 13px;
   margin-top: 20px;
-  font-size: 11px;
+  font-size: 12px;
 }
 .selected-file-icon {
   color: var(--blue);
@@ -864,7 +1062,7 @@ a {
   overflow-wrap: anywhere;
 }
 .selected-file > div span {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted-strong);
 }
 .selected-file > svg {
@@ -878,13 +1076,14 @@ a {
   margin-bottom: 20px;
 }
 .subtle-text {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted-strong);
 }
 .workorder-title {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 22px;
   overflow-wrap: anywhere;
+  color: var(--ink);
 }
 .facts {
   display: grid;
@@ -897,19 +1096,23 @@ a {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  background: var(--tint);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
 }
 .facts span {
-  font-size: 10px;
-  color: var(--muted-strong);
+  font-size: 12px;
+  color: var(--muted);
 }
 .facts strong {
   font-size: 12px;
+  color: var(--ink);
 }
 .symptom {
   padding: 23px 0;
 }
 .field-caption {
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 1px;
   color: var(--muted-strong);
   font-weight: 700;
@@ -934,13 +1137,15 @@ a {
   gap: 13px;
   align-items: flex-start;
   border: 1px solid var(--line);
-  border-radius: 5px;
+  border-radius: var(--radius-md);
   padding: 16px;
   cursor: pointer;
 }
 .component-option.chosen {
+  border-width: 2px;
   border-color: var(--blue);
-  background: #f7faff;
+  background: var(--blue-soft);
+  box-shadow: inset 4px 0 0 var(--yellow);
 }
 .component-option input {
   accent-color: var(--blue);
@@ -956,12 +1161,12 @@ a {
   font-size: 13px;
 }
 .component-option span span {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted-strong);
   overflow-wrap: anywhere;
 }
 .component-option small {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted-strong);
 }
 .utilisation {
@@ -982,8 +1187,8 @@ a {
 .utilisation input {
   width: 74px;
   flex-shrink: 0;
-  border: 1px solid #c5d0df;
-  border-radius: 4px;
+  border: 1px solid rgba(7, 53, 144, 0.35);
+  border-radius: var(--radius-sm);
   padding: 10px;
   color: var(--ink);
   font-size: 13px;
@@ -999,8 +1204,8 @@ a {
 .field-label select {
   width: 100%;
   padding: 12px;
-  border: 1px solid #c5d0df;
-  border-radius: 4px;
+  border: 1px solid rgba(7, 53, 144, 0.35);
+  border-radius: var(--radius-sm);
   background: #fff;
   color: var(--ink);
   font-size: 12px;
@@ -1009,19 +1214,19 @@ a {
   display: flex;
   gap: 11px;
   align-items: flex-start;
-  background: #f0f4f9;
-  border: 1px solid #dce5f1;
+  background: var(--tint);
+  border-left: 4px solid var(--blue);
   border-radius: 5px;
   padding: 14px 16px;
   margin-top: 18px;
 }
 .notice > svg {
-  color: #597396;
+  color: var(--muted);
 }
 .notice p {
   margin: 0;
   font-size: 12px;
-  color: #536984;
+  color: var(--text);
   line-height: 1.6;
 }
 .context-card .mini-kicker {
@@ -1032,9 +1237,9 @@ a {
   place-items: center;
   width: 48px;
   height: 48px;
-  background: #eef3fa;
-  color: var(--blue);
-  border-radius: 8px;
+  background: var(--blue);
+  color: var(--yellow);
+  border-radius: 50%;
   margin-bottom: 17px;
 }
 .context-card h3 {
@@ -1042,7 +1247,7 @@ a {
   margin-bottom: 9px;
 }
 .context-card > p {
-  font-size: 10px;
+  font-size: 12px;
   overflow-wrap: anywhere;
 }
 .context-card dl {
@@ -1054,12 +1259,12 @@ a {
   padding-top: 20px;
 }
 .context-card dt {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted-strong);
   margin-bottom: 6px;
 }
 .context-card dd {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   margin: 0;
   overflow-wrap: anywhere;
@@ -1087,7 +1292,7 @@ a {
   margin-bottom: 10px;
 }
 .analysis-heading p {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   margin-bottom: 0;
 }
@@ -1099,8 +1304,9 @@ a {
   place-items: center;
   border: 1px solid #cfddf1;
   border-radius: 50%;
-  box-shadow: 0 0 0 8px #f3f7fd;
-  color: var(--blue);
+  background: var(--blue);
+  box-shadow: 0 0 0 8px #f1c93340;
+  color: var(--yellow);
 }
 .analysis-stages {
   display: flex;
@@ -1118,18 +1324,19 @@ a {
   height: 35px;
   display: grid;
   place-items: center;
-  background: #f1f4f8;
-  color: var(--muted-strong);
+  background: var(--grey-200);
+  color: var(--muted);
   border-radius: 50%;
   flex-shrink: 0;
 }
 .analysis-stage.running .stage-icon {
   background: #e9f0fd;
   color: var(--blue);
+  border: 2px solid var(--blue);
 }
 .analysis-stage.complete .stage-icon {
-  background: #eaf6f0;
-  color: #327961;
+  background: var(--yellow);
+  color: var(--navy);
 }
 .analysis-stage > div {
   flex: 1;
@@ -1141,12 +1348,12 @@ a {
   font-size: 12px;
 }
 .analysis-stage > div span {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted-strong);
 }
 .analysis-stage > small {
-  font-size: 9px;
-  color: var(--muted-strong);
+  font-size: 12px;
+  color: var(--muted);
 }
 .analysis-stage.running > small {
   color: var(--blue);
@@ -1158,7 +1365,7 @@ a {
 .spinner {
   width: 18px;
   height: 18px;
-  border: 2px solid #c8d9f4;
+  border: 2px solid var(--blue-soft);
   border-top-color: var(--blue);
   border-radius: 50%;
   animation: spin 0.85s linear infinite;
@@ -1196,12 +1403,13 @@ a {
   margin-bottom: 10px;
 }
 .result-identity h3 {
-  font-size: 27px;
+  font-size: 28px;
+  color: var(--ink);
   margin-bottom: 8px;
 }
 .result-identity p:last-child {
-  font-size: 11px;
-  color: var(--muted-strong);
+  font-size: 12px;
+  color: var(--muted);
   margin-bottom: 0;
 }
 .result-identity p span {
@@ -1210,15 +1418,16 @@ a {
 .result-notice {
   display: flex;
   gap: 10px;
-  background: #f1f5fa;
-  border-radius: 5px;
+  background: var(--tint);
+  border-radius: var(--radius-sm);
   padding: 13px 16px;
-  color: #55718f;
+  color: var(--text);
   margin: 24px 0;
 }
 .result-notice.demo {
-  background: #fff8dc;
-  color: #7d6418;
+  background: var(--yellow-soft);
+  color: var(--navy);
+  border-left: 4px solid var(--yellow);
 }
 .result-notice p {
   font-size: 12px;
@@ -1236,7 +1445,7 @@ a {
 .metric-card {
   border: 1px solid var(--line);
   padding: 25px 28px;
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
 }
@@ -1244,6 +1453,8 @@ a {
   background: var(--navy);
   color: #fff;
   border-color: var(--navy);
+  position: relative;
+  overflow: hidden;
 }
 .metric-card > span {
   display: flex;
@@ -1253,20 +1464,34 @@ a {
   margin-bottom: 22px;
 }
 .metric-card > strong {
-  font-size: 43px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 56px;
   line-height: 1.1;
-  letter-spacing: -1.6px;
+  letter-spacing: 0;
+  color: var(--blue);
   font-variant-numeric: tabular-nums;
+}
+.cycles-card > strong {
+  color: var(--yellow);
 }
 .metric-card strong em {
   font-style: normal;
   display: inline-block;
-  padding: 0 6px;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.7em;
+  color: inherit;
+  vertical-align: 0.12em;
+  padding: 0 4px;
+  text-transform: none;
 }
 .metric-card .date-metric {
-  font-size: 31px;
-  letter-spacing: -1.2px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 34px;
+  letter-spacing: 0;
+  color: var(--blue);
   margin-top: 6px;
   line-height: 1.3;
 }
@@ -1276,15 +1501,31 @@ a {
   margin: 13px 0 0;
 }
 .cycles-card p {
-  color: #c4d1e7;
+  color: #c9d6f0;
 }
 .cycles-card > span {
-  color: #d6e1f3;
+  color: #d9e3f7;
+}
+.cycles-card::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 72px;
+  height: 41px;
+  background: url("./assets/brand/dots.svg") center/contain no-repeat;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+.cycles-card > * {
+  position: relative;
+  z-index: 1;
 }
 .timeline-card {
   padding: 28px 24px 18px;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   margin-top: 20px;
 }
 .timeline-card > div:first-child {
@@ -1303,9 +1544,9 @@ a {
 /* Decoration, not a scale. The band fills the whole track and fades out at
    both ends, so there is no origin and no end to read a position against. */
 .cycle-band {
-  height: 12px;
-  border-radius: 6px;
-  background: #eef2f8;
+  height: 14px;
+  border-radius: var(--radius-pill);
+  background: var(--grey-200);
   margin: 20px 0 13px;
   overflow: hidden;
 }
@@ -1319,6 +1560,7 @@ a {
     var(--yellow) 74%,
     #f1c93340
   );
+  box-shadow: inset 0 0 0 1px #d8b21f;
 }
 .cycle-band-caption {
   font-size: 12px;
@@ -1335,15 +1577,16 @@ a {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  background: #f5f7fa;
+  background: var(--tint);
   border-radius: 6px;
+  border-left: 4px solid var(--blue);
   padding: 18px 20px;
   margin: 23px 0 30px;
   color: var(--muted-strong);
 }
 .recommendation strong {
   font-size: 13px;
-  color: #3a506d;
+  color: var(--ink);
 }
 .recommendation p {
   margin: 7px 0 0;
@@ -1384,8 +1627,15 @@ a {
   display: none;
 }
 .evidence-number {
-  font-size: 12px;
-  color: var(--muted-strong);
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--yellow);
+  font: 600 13px var(--font-display);
 }
 .evidence-list summary > span:nth-child(2) {
   display: flex;
@@ -1394,30 +1644,33 @@ a {
   flex: 1;
 }
 .evidence-list strong {
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
 }
 .evidence-list small {
   font-size: 12px;
-  color: var(--muted-strong);
+  color: var(--muted);
 }
 .expand-sign {
   font-size: 20px;
   font-weight: 400;
-  color: var(--muted-strong);
+  color: var(--blue);
 }
 .evidence-list details[open] .expand-sign {
   transform: rotate(45deg);
 }
 .evidence-list details p {
   margin: 0;
-  padding: 0 20px 20px 49px;
-  font-size: 11px;
-  color: var(--muted-strong);
+  padding: 0 20px 20px 55px;
+  font-size: 12px;
+  color: var(--muted);
 }
 .missing-card {
   padding: 23px 25px;
   border: 1px solid var(--line);
   border-radius: 6px;
+  border-left: 4px solid var(--yellow);
   margin-top: 20px;
 }
 .missing-card h4 {
@@ -1430,23 +1683,40 @@ a {
   align-items: center;
   margin: 13px 0;
   color: var(--muted-strong);
-  font-size: 11px;
+  font-size: 12px;
 }
 .architecture {
+  position: relative;
   padding-block: 50px;
 }
+.architecture::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: 0;
+  width: 320px;
+  height: 293px;
+  background: url("./assets/brand/square-grid.svg") center/contain no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+.architecture > :not(.visually-hidden) {
+  position: relative;
+  z-index: 1;
+}
 .architecture > h1 {
-  font-size: 42px;
+  font-size: 48px;
   line-height: 1.16;
+  color: var(--ink);
   margin-bottom: 20px;
-  letter-spacing: -1.4px;
 }
 .architecture > h1 span {
   color: var(--blue);
 }
 .architecture-intro {
-  color: var(--muted-strong);
-  font-size: 14px;
+  color: var(--text);
+  font-size: 15px;
   max-width: 660px;
 }
 .architecture-notice {
@@ -1460,7 +1730,9 @@ a {
 .architecture-node {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-top: 4px solid var(--yellow);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
   padding: 22px;
   flex: 1;
   min-width: 0;
@@ -1470,15 +1742,15 @@ a {
   height: 47px;
   display: grid;
   place-items: center;
-  background: #edf3fc;
-  border-radius: 9px;
-  color: var(--blue);
+  background: var(--blue);
+  border-radius: 50%;
+  color: var(--yellow);
   margin-bottom: 24px;
 }
 .architecture-node > small {
-  font-size: 8px;
-  color: var(--muted-strong);
-  letter-spacing: 1px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
 }
 .architecture-node h3 {
   font-size: 18px;
@@ -1487,45 +1759,64 @@ a {
   min-height: 45px;
 }
 .architecture-node p {
-  font-size: 11px;
-  color: var(--muted-strong);
+  font-size: 13px;
+  color: var(--text);
   line-height: 1.7;
-  min-height: 77px;
+  min-height: 90px;
 }
 .architecture-node .pill {
-  font-size: 7px;
+  font-size: 12px;
   letter-spacing: 0.5px;
+  white-space: normal;
 }
 .connector {
   display: grid;
   place-items: center;
   width: 30px;
   flex-shrink: 0;
-  color: #9aacbf;
+  color: var(--blue);
 }
 .future-card {
   background: var(--navy);
   color: #fff;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   padding: 36px 40px;
   display: flex;
   align-items: center;
   gap: 45px;
+  position: relative;
+  overflow: hidden;
+}
+.future-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 34%;
+  background: url("./assets/brand/swoosh.svg") left center/auto 110% no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+.future-card > * {
+  position: relative;
+  z-index: 1;
 }
 .future-card > div {
   flex: 1;
+  max-width: calc(66% - 45px);
 }
 .future-card h2 {
   margin: 18px 0 15px;
-  font-size: 26px;
+  font-size: 30px;
 }
 .future-card p {
   font-size: 12px;
-  color: #c1d0e6;
+  color: #d9e3f7;
   max-width: 730px;
 }
 .future-card .future-path {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: #fff;
   margin: 24px 0 15px;
@@ -1541,16 +1832,18 @@ a {
 }
 .future-card small {
   font-size: 12px;
-  color: #8ea9d0;
+  color: #c9d6f0;
 }
 .future-icon {
   width: 122px;
   height: 122px;
-  border: 1px solid #416398;
+  background: var(--navy);
+  border: 2px solid var(--yellow);
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: #f1c933;
+  color: var(--yellow);
+  box-shadow: 0 8px 24px rgba(7, 53, 144, 0.25);
   flex-shrink: 0;
 }
 .architecture-bottom {
@@ -1565,10 +1858,29 @@ a {
   margin-bottom: 10px;
 }
 .architecture-bottom p {
-  font-size: 12px;
-  color: var(--muted-strong);
+  font-size: 13px;
+  color: var(--muted);
   max-width: 660px;
   margin-bottom: 0;
+}
+
+/* Knockout (deck titles) is proprietary and not vendored; Oswald stands in,
+   and is applied in capitals only, matching the deck's own usage. This is
+   CSS text-transform, never a DOM text change, so pinned copy is unaffected. */
+.display,
+.hero h1,
+.architecture > h1,
+.section-top h2,
+.future-card h2,
+.wordmark {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  line-height: 1.04;
+}
+.wordmark {
+  letter-spacing: 0.04em;
 }
 
 /* The wide-screen enlargement only earns its keep when there is vertical room
@@ -1578,16 +1890,20 @@ a {
     height: 320px;
   }
   .hero h1 {
-    font-size: 47px;
-  }
-  .aircraft-art {
-    width: 465px;
+    font-size: 60px;
   }
   .workspace {
     padding-top: 42px;
   }
   .dropzone {
     min-height: 293px;
+  }
+}
+/* No gutter room left of the container below this width for the dot grid to
+   sit in without overlapping the hero copy. */
+@media (max-width: 1299px) {
+  .hero::before {
+    display: none;
   }
 }
 @media (max-width: 1100px) {
@@ -1597,18 +1913,24 @@ a {
   .brand {
     gap: 15px;
   }
+  .wordmark {
+    font-size: 28px;
+  }
   .brand-product {
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 1.5px;
   }
   .header nav {
     gap: 20px;
   }
   .nav-link {
-    font-size: 11px;
+    font-size: 13px;
   }
   .capstone-badge {
     display: none;
+  }
+  .section-top h2 {
+    font-size: 30px;
   }
   .workspace-grid {
     grid-template-columns: minmax(0, 1fr) 280px;
@@ -1627,21 +1949,21 @@ a {
     padding-inline: 23px;
   }
   .journey li {
-    font-size: 10px;
+    font-size: 12px;
     gap: 9px;
   }
   .journey li > svg {
     margin-right: 12px;
   }
-  .aircraft-art {
-    width: 375px;
-  }
   .hero h1 {
-    font-size: 38px;
+    font-size: 48px;
+  }
+  .hero::after {
+    width: min(36vw, 420px);
   }
   .button {
     padding-inline: 16px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .panel-actions > span {
     font-size: 12px;
@@ -1650,13 +1972,13 @@ a {
     padding: 20px 15px;
   }
   .architecture-node p {
-    min-height: 110px;
+    min-height: 130px;
   }
   .metric-card > strong {
-    font-size: 38px;
+    font-size: 48px;
   }
   .metric-card .date-metric {
-    font-size: 27px;
+    font-size: 30px;
   }
   .result-identity h3 {
     font-size: 24px;
@@ -1670,8 +1992,12 @@ a {
   .header-inner {
     height: 78px;
   }
+  .harp {
+    width: 36px;
+    height: 36px;
+  }
   .wordmark {
-    font-size: 27px;
+    font-size: 26px;
   }
   .brand-product,
   .brand-rule {
@@ -1681,16 +2007,13 @@ a {
     height: 280px;
   }
   .hero h1 {
-    font-size: 36px;
+    font-size: 42px;
   }
-  .aircraft-art {
-    width: 320px;
-    position: absolute;
-    right: -25px;
-    opacity: 0.6;
+  .hero::after {
+    width: 36vw;
   }
   .hero-copy {
-    max-width: 65%;
+    max-width: calc(100% - 36vw);
   }
   .workspace-grid {
     grid-template-columns: minmax(0, 1fr) 245px;
@@ -1703,16 +2026,19 @@ a {
     font-size: 22px;
   }
   .mini-kicker {
-    font-size: 7px;
+    font-size: 12px;
+  }
+  .section-top h2 {
+    font-size: 28px;
   }
   .value-item {
     gap: 10px;
   }
   .value-item strong {
-    font-size: 10px;
+    font-size: 11px;
   }
   .value-item span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .panel-body {
     padding: 20px;
@@ -1732,14 +2058,14 @@ a {
     font-size: 15px;
   }
   .dropzone p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .tabs {
     padding-inline: 18px;
     gap: 23px;
   }
   .tabs button {
-    font-size: 11px;
+    font-size: 12px;
   }
   .journey {
     padding-inline: 17px;
@@ -1747,7 +2073,7 @@ a {
     grid-template-columns: 1.1fr 1.15fr 0.85fr 1.2fr;
   }
   .journey li {
-    font-size: 9px;
+    font-size: 10px;
     gap: 8px;
   }
   .journey li > svg {
@@ -1756,7 +2082,7 @@ a {
   .step-number {
     width: 26px;
     height: 26px;
-    font-size: 9px;
+    font-size: 10px;
   }
   .technology-strip {
     align-items: flex-start;
@@ -1788,7 +2114,7 @@ a {
     font-size: 12px;
   }
   .sample-copy > span:not(.part-number) {
-    font-size: 10px;
+    font-size: 11px;
   }
   .library-heading {
     flex-wrap: wrap;
@@ -1804,7 +2130,7 @@ a {
     padding: 22px;
   }
   .metric-card > strong {
-    font-size: 34px;
+    font-size: 44px;
   }
   .metric-card .date-metric {
     font-size: 24px;
@@ -1813,6 +2139,9 @@ a {
     align-items: flex-start;
     flex-direction: column;
     gap: 17px;
+  }
+  .architecture > h1 {
+    font-size: 40px;
   }
   .architecture-flow {
     display: grid;
@@ -1830,7 +2159,7 @@ a {
     min-height: 0;
   }
   .architecture-node p {
-    min-height: 55px;
+    min-height: 65px;
   }
   .future-card {
     padding: 28px;
@@ -1853,14 +2182,18 @@ a {
     height: 69px;
     gap: 12px;
   }
+  .harp {
+    width: 30px;
+    height: 30px;
+  }
   .wordmark {
-    font-size: 25px;
+    font-size: 22px;
   }
   .header nav {
     gap: 16px;
   }
   .nav-link {
-    font-size: 10px;
+    font-size: 11px;
   }
   .nav-link > svg {
     display: none;
@@ -1881,13 +2214,32 @@ a {
   .hero-inner {
     height: 267px;
   }
+  .hero {
+    background-image: linear-gradient(
+        rgba(8, 20, 52, 0.92),
+        rgba(8, 20, 52, 0.92)
+      ),
+      url("./assets/brand/circuit-field.jpg");
+    box-shadow: inset 0 -6px 0 var(--yellow);
+  }
+  .hero::after {
+    display: none;
+  }
+  /* The 1299px rule below hides the dot grid to keep it clear of the hero
+     copy; at this width the copy is full-bleed so the grid can move into
+     the spare top-right corner instead. */
+  .hero::before {
+    display: block;
+    left: auto;
+    right: 16px;
+    top: 16px;
+    bottom: auto;
+    width: 56px;
+    height: 32px;
+  }
   .hero-copy {
     max-width: 100%;
     padding-bottom: 25px;
-  }
-  .hero .eyebrow {
-    font-size: 8px;
-    letter-spacing: 1.4px;
   }
   .hero h1 {
     font-size: 34px;
@@ -1895,19 +2247,8 @@ a {
     margin-bottom: 17px;
   }
   .hero-copy > p:last-child {
-    font-size: 11px;
+    font-size: 12px;
     max-width: 265px;
-  }
-  .aircraft-art {
-    width: 220px;
-    right: -57px;
-    top: 91px;
-    opacity: 0.22;
-  }
-  /* The diagram is a faint watermark at this width; its solid callout pill
-     would bleed off the viewport as a half-visible white box. */
-  .aircraft-callout {
-    display: none;
   }
   .journey-wrap {
     margin-top: -26px;
@@ -1924,13 +2265,13 @@ a {
     justify-content: flex-start;
     text-align: center;
     gap: 9px;
-    font-size: 8px;
+    font-size: 11px;
     line-height: 1.4;
   }
   .step-number {
     width: 25px;
     height: 25px;
-    font-size: 8px;
+    font-size: 11px;
   }
   .journey li > span:last-of-type {
     max-width: 77px;
@@ -1943,16 +2284,16 @@ a {
     margin-bottom: 18px;
   }
   .section-top h2 {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1.25;
   }
   .section-top .eyebrow {
-    font-size: 8px;
+    font-size: 12px;
     margin-bottom: 8px;
     letter-spacing: 1.3px;
   }
   .section-top .text-button {
-    font-size: 9px;
+    font-size: 12px;
     white-space: nowrap;
   }
   .workspace-grid {
@@ -1973,21 +2314,21 @@ a {
     font-size: 22px;
   }
   .mini-kicker {
-    font-size: 8px;
+    font-size: 12px;
     margin-bottom: 13px;
   }
   .side-card > p {
-    font-size: 11px;
+    font-size: 12px;
     margin-bottom: 19px;
   }
   .value-item {
     margin-top: 18px;
   }
   .value-item strong {
-    font-size: 11px;
+    font-size: 12px;
   }
   .value-item span {
-    font-size: 10px;
+    font-size: 11px;
   }
   .panel-body {
     padding: 20px;
@@ -2019,8 +2360,9 @@ a {
     gap: 15px;
   }
   .panel-actions .button {
-    font-size: 11px;
+    font-size: 13px;
     min-height: 44px;
+    padding-inline: 18px;
   }
   .panel-actions > span {
     font-size: 12px;
@@ -2039,7 +2381,7 @@ a {
     row-gap: 11px;
   }
   .technology-strip strong {
-    font-size: 9px;
+    font-size: 11px;
   }
   .technology-strip i {
     width: 2px;
@@ -2069,14 +2411,11 @@ a {
     max-width: none;
     line-height: 1.6;
   }
-  .library-heading .pill {
-    font-size: 7px;
-  }
   .sample-copy strong {
     font-size: 13px;
   }
   .sample-copy .part-number {
-    font-size: 9px;
+    font-size: 12px;
   }
   .sample-copy > span:not(.part-number) {
     font-size: 11px;
@@ -2092,10 +2431,10 @@ a {
     gap: 20px;
   }
   .facts strong {
-    font-size: 11px;
+    font-size: 12px;
   }
   .symptom p {
-    font-size: 11px;
+    font-size: 12px;
   }
   .small-heading {
     font-size: 12px;
@@ -2138,24 +2477,24 @@ a {
     font-size: 18px;
   }
   .analysis-heading p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .analysis-stage {
     gap: 11px;
     flex-wrap: wrap;
   }
   .analysis-stage strong {
-    font-size: 11px;
+    font-size: 12px;
   }
   .analysis-stage > div span {
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1.5;
   }
   .analysis-stage > small {
-    font-size: 8px;
+    font-size: 12px;
     width: 100%;
     padding-left: 46px;
-    margin-top: -3px;
+    margin-top: 2px;
   }
   .analysis-bottom {
     flex-wrap: wrap;
@@ -2174,7 +2513,7 @@ a {
     overflow-wrap: anywhere;
   }
   .result-identity p:last-child {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.7;
     overflow-wrap: anywhere;
   }
@@ -2192,15 +2531,18 @@ a {
   .metric-card {
     padding: 23px;
   }
+  .cycles-card::after {
+    display: none;
+  }
   .metric-card > span {
     margin-bottom: 18px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .metric-card > strong {
     font-size: 40px;
   }
   .metric-card .date-metric {
-    font-size: 29px;
+    font-size: 26px;
   }
   .timeline-card {
     padding: 20px 15px;
@@ -2210,7 +2552,7 @@ a {
     gap: 9px;
   }
   .timeline-card h4 {
-    font-size: 11px;
+    font-size: 12px;
   }
   .timeline-card > div > span {
     font-size: 12px;
@@ -2253,8 +2595,8 @@ a {
     font-size: 12px;
   }
   .evidence-list details p {
-    padding: 0 13px 16px 34px;
-    font-size: 10px;
+    padding: 0 13px 16px 16px;
+    font-size: 12px;
   }
   .result-panel .panel-actions {
     flex-direction: column;
@@ -2270,12 +2612,15 @@ a {
     font-size: 12px;
   }
   .missing-card > div {
-    font-size: 10px;
+    font-size: 12px;
     align-items: flex-start;
     line-height: 1.6;
   }
   .architecture {
     padding-top: 34px;
+  }
+  .architecture::before {
+    display: none;
   }
   .architecture > h1 {
     font-size: 32px;
@@ -2286,7 +2631,7 @@ a {
     font-size: 12px;
   }
   .architecture .eyebrow {
-    font-size: 9px;
+    font-size: 12px;
   }
   .architecture-notice {
     margin-block: 22px;
@@ -2307,11 +2652,17 @@ a {
     min-height: 0;
   }
   .architecture-node .pill {
-    font-size: 8px;
+    font-size: 12px;
   }
   .arch-icon {
     float: right;
     margin: 0;
+  }
+  .future-card::after {
+    display: none;
+  }
+  .future-card > div {
+    max-width: 100%;
   }
   .future-card {
     padding: 25px;
@@ -2323,7 +2674,7 @@ a {
     font-size: 11px;
   }
   .future-card .future-path {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 2;
   }
   .future-arrow {
@@ -2346,9 +2697,56 @@ a {
    This has the same specificity as the .tabs rule in the 650px block and media
    queries add none, so it has to sit after that block to win. */
 @media (max-width: 359px) {
+  /* At 320px the ≤650px header/nav sizes (30px harp, 22px wordmark, 16px nav
+     gap, 11px nav-link) are still ~11px wider than the 288px content track,
+     so "How it works" clips past the header's right edge. Shrink the brand
+     mark and tighten the gaps to bring the row back inside the viewport. */
+  .brand {
+    gap: 8px;
+  }
+  .harp {
+    width: 24px;
+    height: 24px;
+  }
+  .wordmark {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+  }
+  .header-inner {
+    gap: 8px;
+  }
+  .header nav {
+    gap: 10px;
+  }
+  .nav-link {
+    font-size: 11px;
+  }
+  /* The 34px ≤650px h1 wraps to four lines at 320px, which overflows the
+     fixed-height, overflow:hidden hero: the eyebrow clips at the top and the
+     journey card (margin-top: -26px) covers the last line at the bottom.
+     Shrink the heading back to three lines and let the hero grow with its
+     content instead of clipping it. */
+  .hero h1 {
+    font-size: 28px;
+  }
+  .hero-inner {
+    height: auto;
+    min-height: 267px;
+    padding-block: 20px 40px;
+  }
+  /* At <=337px the ≤650px dot grid (top:16px, 32px tall) overlaps the
+     eyebrow's vertical band once the eyebrow is pushed up by the auto-height
+     hero-inner above. The motif must never sit behind text (brand-spec §8),
+     so drop it rather than risk yellow-on-yellow at the narrowest widths. */
+  .hero::before {
+    display: none;
+  }
   .tabs {
     gap: 18px;
     padding-inline: 14px;
+  }
+  .footer > span:first-child::before {
+    display: none;
   }
 }
 /* 1280x800 and 1280x710 are ordinary conference-room resolutions, and browser
@@ -2360,7 +2758,7 @@ a {
     height: 228px;
   }
   .hero h1 {
-    font-size: 36px;
+    font-size: 48px;
     margin-bottom: 13px;
   }
   /* The journey card rides 24px up over the hero, so the copy needs to keep
@@ -2370,10 +2768,6 @@ a {
   }
   .hero-copy > p:last-child {
     font-size: 12px;
-  }
-  .aircraft-art {
-    width: 350px;
-    height: 192px;
   }
   .workspace {
     padding-top: 20px;
@@ -2413,19 +2807,15 @@ a {
     margin-bottom: 9px;
   }
   .hero h1 {
-    font-size: 30px;
+    font-size: 42px;
     margin-bottom: 10px;
   }
   .hero-copy {
     padding-bottom: 24px;
   }
   .hero-copy > p:last-child {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.6;
-  }
-  .aircraft-art {
-    width: 290px;
-    height: 159px;
   }
   .workspace {
     padding-top: 18px;

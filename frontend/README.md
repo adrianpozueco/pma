@@ -33,9 +33,8 @@ can be shared as a prototype. Regenerate it after source changes. The normal
   the planned storage picker; it does not list or download real bucket objects.
 - Review, cancellable simulated analysis, illustrative forecast and missing-data
   results, evidence expansion, restart and the educational How it works view.
-- Responsive Ryanair blue/yellow styling with a text wordmark. Exact official
-  typography and logo artwork still need verification; the current system-font
-  treatment is provisional.
+- Responsive Ryanair blue/yellow styling with brand-referenced decorative
+  motifs (see "Branding" below).
 
 No live ADK, BigQuery, manual-search or Cloud Storage calls are made. XML remains
 in the browser. Uploaded XML never receives a sample forecast. The nozzle and
@@ -45,6 +44,40 @@ missing data. No replacement policy or maintenance deadline is asserted.
 The browser parser is a preview, not a replacement for authoritative server-side
 AMOS validation or historical cutoff handling. It displays recorded component
 roles and aircraft counters without treating them as current component age.
+
+## Branding
+
+Colours, typography and decorative motifs are sourced from an internal Ryanair
+Labs presentation template (a slide deck reference, not an approved design
+system): deck blue `#073590` and deck yellow `#f1c933` carry primary actions,
+headings and selected states; deep navy `#1d1d67` and a light accent blue
+`#2091eb` are used on dark surfaces only; body copy and secondary text sit on
+the deck's neutral greys (`#2e2e2e` / `#555555`). Every token is a CSS custom
+property in `src/styles.css` (`--blue`, `--navy`, `--yellow`, `--bright`, plus
+the grey scale) rather than a hardcoded colour, so it stays easy to correct
+once official brand values are confirmed.
+
+Typography is Roboto for body text and Oswald for uppercase display titles
+(Oswald substitutes for the deck's proprietary Knockout face; it is only ever
+applied through CSS `text-transform: uppercase`, never by changing the DOM
+copy itself). Both are vendored as woff2 files under `src/assets/fonts` with
+their original OFL licences included alongside them.
+
+Decorative brand motifs (the swoosh, dot-grid, circuit-field texture and the
+harp mark drawn from the Ryanair Labs lockup) are implemented as CSS
+`::before`/`::after` pseudo-elements referencing images in `src/assets/brand`,
+never as real DOM nodes or TypeScript imports — this keeps them out of the
+accessibility tree and out of screen-reader/keyboard navigation. Every motif
+is `pointer-events: none` and layered under text and interactive content. The
+one exception is the small `.harp` glyph rendered inline in the header, which
+is a real `<span>` but carries `aria-hidden="true"` for the same reason.
+
+All Ryanair colours, typography and motifs here are provisional and derived
+from that internal presentation template, not from Ryanair's approved brand
+guidelines; provenance/disclaimer copy calls this out in the UI itself (for
+example "Synthetic samples", "Illustrative forecast", "Not connected") and
+that copy is deliberately kept at a legible size (12px or larger) so it is
+never mistaken for real branding or live data.
 
 ## Backend integration boundary
 
@@ -106,6 +139,19 @@ each turn at least one suite red.
 
 Run `npm run build:preview` **last**: `npm run build` (also run by `test:ui`)
 clears `dist/`, including a previously generated `preview.html`.
+
+## Known limitations
+
+- Colours, typography and motifs are provisional (see "Branding" above); no
+  official Ryanair brand asset bundle or approved design system was available.
+- The band caption wraps to two lines below 651px — unavoidable while keeping
+  provenance text at a legible 12px.
+- At 1280×800 "Choose XML file" is above the fold; "Review work order" still
+  needs a short scroll.
+- Screen-reader announcements are implemented (per-stage live text, a
+  persistent `role="status"` outcome) but were only tested in Chrome, not
+  with a real screen reader such as NVDA or VoiceOver.
+- `issuedAt` is parsed from uploaded XML but not displayed.
 
 See [the working plan](../docs/ryanair-ui-plan.md) for the capstone scope, hosting
 proposal and future AMOS ingestion story.
