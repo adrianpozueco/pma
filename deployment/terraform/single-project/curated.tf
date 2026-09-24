@@ -107,7 +107,7 @@ locals {
       aircraft_with_replacement,
       RANK() OVER (ORDER BY replacement_count DESC) AS freq_rank
     FROM freq
-    QUALIFY freq_rank <= 6;
+    QUALIFY freq_rank <= 20;
 
     CREATE OR REPLACE VIEW `${var.project_id}.${google_bigquery_dataset.curated[0].dataset_id}.v_component_frequency` AS
     SELECT
